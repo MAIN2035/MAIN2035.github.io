@@ -183,7 +183,7 @@
     
     
     <entry>
-      <title>堆、堆排序</title>
+      <title>heap,heap-sort</title>
       <link href="2020/10/27/Java-datas-heap/"/>
       <url>2020/10/27/Java-datas-heap/</url>
       
@@ -192,7 +192,7 @@
       
       <categories>
           
-          <category> 数据结构 </category>
+          <category> dataStructure </category>
           
       </categories>
       
@@ -200,8 +200,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -897,7 +895,7 @@
     
     
     <entry>
-      <title>栈、队列</title>
+      <title>Stack,Queue,Tree</title>
       <link href="2020/10/16/Java-Stack-01/"/>
       <url>2020/10/16/Java-Stack-01/</url>
       
@@ -906,7 +904,7 @@
       
       <categories>
           
-          <category> 数据结构 </category>
+          <category> dataStructure </category>
           
       </categories>
       
@@ -914,8 +912,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-            <tag> 数据结构 </tag>
             
         </tags>
       
