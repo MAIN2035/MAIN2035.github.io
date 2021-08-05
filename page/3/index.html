@@ -1,1890 +1,3303 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1'>
-  <meta charset="utf-8">
-  <!-- SEO相关 -->
-  
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
     
-      
-        <meta name="robots" content="noindex,follow">
-      
+    <link rel="stylesheet" href="/css/night-theme.css">
     
-  
-  <!-- 渲染优化 -->
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <meta name="renderer" content="webkit">
-  <meta name="force-rendering" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- 页面元数据 -->
-  
-  <title>ThreeClothの博客</title>
-  
-
-  
-
-  <!-- feed -->
-  
-
-  <!-- import meta -->
-  
-
-  <!-- link -->
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- import link -->
-  
-
-  
-  
-    
-<link rel="stylesheet" href="/css/style.css">
-
-  
-
-  <script id="loadcss"></script>
-
-</head>
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.0.1"></head>
 
 <body>
-  
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
-  <div class='container'>
-  <div id='wrapper'>
-    <div class='nav-sub'>
-      <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-      </ul>
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-		<div class="nav-main">
-      
-        
-        <a class="title flat-box" target="_self" href='/'>
-          
-          
-          
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
         </a>
-      
-
-			<div class='menu navigation'>
-				<ul class='nav-list-h m-pc'>
-          
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-          
-				</ul>
-			</div>
-
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
-        </form>
-      </div>
-
-			<ul class='switcher nav-list-h m-phone'>
-				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
-				
-				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
-          <ul class="menu-phone list-v navigation white-box">
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-            
-          </ul>
-        </li>
-			</ul>
-		</div>
-	</div>
-  </div>
-</header>
-
-  <div id="l_body">
-    <div id="l_cover">
-  
-    
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
-          
-            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
-          
-          <div class='cover-body'>
-  <div class='top'>
-    
-    
-      <p class="title">ThreeCloth</p>
-    
-    
-  </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
         
-          
-            <a href="/archives/"
-              
-              
-              id="archives">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              id="about">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>关于</p>
-            </a>
-          
-            <a href="/categories/"
-              
-              
-              id="categories">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>分类</p>
-            </a>
-          
-            <a href="/tags/"
-              
-              
-              id="tags">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>标签</p>
-            </a>
-          
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-        </div>
-    
-  
-  </div>
-
-    <div id='safearea'>
-      <div class='body-wrapper' id="pjax-container">
-        
-
-<div class='l_main'>
-  
-  <section class="post-list">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/thread-05/">
-        Thread与Runable
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        123456789101112131415161718192021222324252627282930313233343536373839404142434445464748import java.io.*;import java.lang.Thread;/** * 多个线程加载同一个Runnable可实现共享数据*/class MyThread extends Thread&#123;  ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/thread-05/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/thread-04/">
-        线程加载与线程组
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        饿汉模式(立即加载)
-使用类时已创建对象
-
-123456789101112131415161718192021222324package cn.day.b8;public class MyObject &#123;    private static MyObject myObject = new MyObject();//使用类时已创建对象    public static MyObjec...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/thread-04/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/thread-03/">
-        Lock对象
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        ReentrantLockTestjdk5加入的，synchronized增强版
-lock( ) unlock( )  condition.await( ) **condition.signal( )**等
-lock( )**获取锁，unlock**释放锁（同步代码处在lock、unlock之间）
-condition.await( )**效果同wait( )**,调用此方法前，该线程必须获得...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/thread-03/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/thread-02/">
-        线程安全与通信
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        线程优先级
-线程优先级具有可继承性
-
-cpu将资源让与优先级更高的线程（运行更快）
-
-随机性：并不是执行完高优先级线程再执行低优先级线程，只是说首先执行高优先级线程的概率更大一点
-
-可使用**setPriority( )**设置优先级（范围：0-10）
-
-Jdk预设了3个优先级值： 
-123MIN_PRIORITY &#x3D; 1NORM_PRIORITY &#x3D; 5MAX_PRIO...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/thread-02/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/thread-01/">
-        线程方法
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-实现多线程必须继承Thread类，已有父类的类可通过实现Runnable实现多线程
-Thread也实现了Runnable接口，Runnable接口实现的多线程步骤比Thread更为繁琐
-
-线程安全共享变量
-这是一个不共享变量的线程：
-
-1234567891011121314151617181920212223242526package cn.day.b2;public class MyTh...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/thread-01/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/sql-01/">
-        SQL基础
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        常见注释
-– 很少支持
-#行内注释
-/**/段落注释
-
-基础语法SELECT检索数据
-
-
-语法
-作用
-例子
-释义
-
-
-
-select
-查找列，并返回行
-select prod_name from products；#可使用,分隔列名来查找多个列。
-查找prod_name列，并返回其下的所有行，在products表中。
-
-
-*
-通配符
-select * from products；
-查找所有列...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/SQL/">SQL</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/sql-01/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/shell-01/">
-        Shell入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        变量
-变量分为用户变量与系统变量
-为变量赋值时“=”号两边不能有空格
-可在``中写入命令，并将其交给变量引用，也可采用：       变量=$(命令 )     达到相同的效果
-
-123456789101112131415#!/bin/bash  #头文件，表明此脚本使用bash shell编写echo &quot;hello,world!&quot; #打印字符串echo &quot;PA...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/shell-01/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/mysql-00/">
-        mysql for cmd
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        初始化数据库：mysqld --initialize --console
-安装数据库：mysqld install
-启动mysql服务：net start mysql
-终止mysql服务：net stop mysql
-创建数据库到创建表：
-
-创建了一个名为db4的数据库，并选择数据库db4，在其中创建一个装有数据名为user的表。
-MySQL提示使用ALTERUSER语句修改密码安装mysq...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/mysql/">mysql</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/mysql-00/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/jvm-03/">
-        Class文件结构
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        class文件是以8个字节为基础的二进制流；
-class文件中存在表、无符号数这两种数据结构，同时每个class文件均可视为一张表；
-无符号数以u1、u2、u3、u4分别指代1、2、4、8字节，而所有表均以_info结尾
-魔数class文件开头的4个字节CA FE BA BE被称为魔数，用以区分该文件是否为class文件
-版本号第5、6个字节是次版本号，第7、8个字节是主版本号；
-虚拟机无法...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/jvm-03/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/16/jvm-02/">
-        追踪式垃圾回收算法
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        四种引用：
-强引用：指程序中普遍存在的引用赋值；被强引用关联的对象只要强引用关系存在，被引用的对象就不会被回收
-软引用：指有用而非必须的对象；被软引用关联的对象在系统发生内存溢出之前会将其回收
-弱引用：指非必须的对象（比软引用弱）；被弱引用关联的对象在下一次垃圾回收前无论内存是否足够，均将其回收
-虚引用：无法通过此引用来取得对象实例，使用此引用只是为了在对象被回收时收到一个系统通知
-
-分代收...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/16/jvm-02/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/page/2/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          3 / 5
-        </p>
-        
-          <a class="next" rel="next" href="/page/4/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
-
-
-</div>
-<aside class='l_side'>
-  
-  
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
         </a>
-      
-    
-    
-      <div class='text'>
         
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
         
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
         
-          <p><span id="jinrishici-sentence">ThreeClothの博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
         
-      </div>
-    
-    
-      <div class="social-wrapper">
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
         
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/JS/" href="/categories/JS/"
-            id="categoriesJS"
-            ><div class='name'>JS</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Java/" href="/categories/Java/"
-            id="categoriesJava"
-            ><div class='name'>Java</div><div class='badge'>(25)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/JavaWeb/" href="/categories/JavaWeb/"
-            id="categoriesJavaWeb"
-            ><div class='name'>JavaWeb</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/SQL/" href="/categories/SQL/"
-            id="categoriesSQL"
-            ><div class='name'>SQL</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Ubuntu/" href="/categories/Ubuntu/"
-            id="categoriesUbuntu"
-            ><div class='name'>Ubuntu</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/dataStructure/" href="/categories/dataStructure/"
-            id="categoriesdataStructure"
-            ><div class='name'>dataStructure</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/hexo/" href="/categories/hexo/"
-            id="categorieshexo"
-            ><div class='name'>hexo</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/mysql/" href="/categories/mysql/"
-            id="categoriesmysql"
-            ><div class='name'>mysql</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/ubuntu/" href="/categories/ubuntu/"
-            id="categoriesubuntu"
-            ><div class='name'>ubuntu</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
     </div>
-  </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/AOP/" style="font-size: 14px; color: #999">AOP</a> <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/Cookie/" style="font-size: 14px; color: #999">Cookie</a> <a href="/tags/EffectiveJava/" style="font-size: 14px; color: #999">EffectiveJava</a> <a href="/tags/JDBC/" style="font-size: 14px; color: #999">JDBC</a> <a href="/tags/JS%E5%9F%BA%E7%A1%80/" style="font-size: 21.5px; color: #666">JS基础</a> <a href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 14px; color: #999">JVM虚拟机</a> <a href="/tags/Java/" style="font-size: 21.5px; color: #666">Java</a> <a href="/tags/JavaWeb/" style="font-size: 14px; color: #999">JavaWeb</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 24px; color: #555">Java基础</a> <a href="/tags/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" style="font-size: 21.5px; color: #666">Java多线程编程</a> <a href="/tags/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 19px; color: #777">Java设计模式</a> <a href="/tags/Jsp/" style="font-size: 14px; color: #999">Jsp</a> <a href="/tags/Jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 16.5px; color: #888">Jvm虚拟机</a> <a href="/tags/SQL%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">SQL入门</a> <a href="/tags/Session/" style="font-size: 14px; color: #999">Session</a> <a href="/tags/Tomcat/" style="font-size: 14px; color: #999">Tomcat</a> <a href="/tags/anaconda/" style="font-size: 14px; color: #999">anaconda</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/shell/" style="font-size: 16.5px; color: #888">shell</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
     </div>
-  </section>
 
+</nav>
+                </div>
 
-  
-
-  
-
-
-</aside>
-
-
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
-<!--思路大概是将值藏到重加载的区域内-->
-
-<script>
-  window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
-  pdata.commentPath="";
-  pdata.commentPlaceholder="";
-
-  var l_header=document.getElementById("l_header");
-  
-  l_header.classList.add("show");
-  
-</script>
-
-        
-      </div>
-      
-  
-  <footer class="footer clearfix">
-    <br><br>
-    
-      
-        <div class="aplayer-container">
-          
-
-
-        </div>
-      
-    
-      
-        <br>
-        <div class="social-wrapper">
-          
-            
-          
-            
-          
-            
-          
-        </div>
-      
-    
-      
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
-</div>
-      
-    
-      
-        
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
-</div>
-        
-      
-    
-      
-        本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1" target="_blank" class="codename">Volantis</a>
-        作为主题
-      
-    
-      
-        <div class='copyright'>
-        <p><a href="/">Copyright © 2017-2020 ThreeCloth</a></p>
-
-        </div>
-      
-    
-  </footer>
-
-
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
-    </div>
-  </div>
-  <div>
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
     <script>
-window.volantis={};
-/********************脚本懒加载函数********************************/
-function loadScript(src, cb) {
-var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-var script = document.createElement('script');
-script.setAttribute('type','text/javascript');
-if (cb) script.onload = cb;
-script.setAttribute('src', src);
-HEAD.appendChild(script);
-}
-//https://github.com/filamentgroup/loadCSS
-var loadCSS = function( href, before, media, attributes ){
-	var doc = window.document;
-	var ss = doc.createElement( "link" );
-	var ref;
-	if( before ){
-		ref = before;
-	}
-	else {
-		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
-		ref = refs[ refs.length - 1];
-	}
-	var sheets = doc.styleSheets;
-	if( attributes ){
-		for( var attributeName in attributes ){
-			if( attributes.hasOwnProperty( attributeName ) ){
-				ss.setAttribute( attributeName, attributes[attributeName] );
-			}
-		}
-	}
-	ss.rel = "stylesheet";
-	ss.href = href;
-	ss.media = "only x";
-	function ready( cb ){
-		if( doc.body ){
-			return cb();
-		}
-		setTimeout(function(){
-			ready( cb );
-		});
-	}
-	ready( function(){
-		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
-	});
-	var onloadcssdefined = function( cb ){
-		var resolvedHref = ss.href;
-		var i = sheets.length;
-		while( i-- ){
-			if( sheets[ i ].href === resolvedHref ){
-				return cb();
-			}
-		}
-		setTimeout(function() {
-			onloadcssdefined( cb );
-		});
-	};
-	function loadCB(){
-		if( ss.addEventListener ){
-			ss.removeEventListener( "load", loadCB );
-		}
-		ss.media = media || "all";
-	}
-	if( ss.addEventListener ){
-		ss.addEventListener( "load", loadCB);
-	}
-	ss.onloadcssdefined = onloadcssdefined;
-	onloadcssdefined( loadCB );
-	return ss;
-};
-</script>
-<!-- required -->
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
-
-<script>
-  function pjax_fancybox() {
-    $(".md .gallery").find("img").each(function () { //渲染 fancybox
-      var element = document.createElement("a"); // a 标签
-      $(element).attr("class", "fancybox");
-      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
-      $(element).attr("href", $(this).attr("src"));
-      if ($(this).attr("data-original")) {
-        $(element).attr("href", $(this).attr("data-original"));
-      }
-      $(element).attr("data-fancybox", "images");
-      var caption = "";   // 描述信息
-      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
-        $(element).attr('data-caption', $(this).attr('alt'));
-        caption = $(this).attr('alt');
-      }
-      var div = document.createElement("div");
-      $(div).addClass("fancybox");
-      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
-      var span = document.createElement("span");
-      $(span).addClass("image-caption");
-      $(span).text(caption); // 加描述
-      $(this).after(span);  // 再套一层描述
-      $(this).wrap(element);  // 最后套 a 标签
-    })
-    $(".md .gallery").find("img").fancybox({
-      selector: '[data-fancybox="images"]',
-      hash: false,
-      loop: false,
-      closeClick: true,
-      helpers: {
-        overlay: {closeClick: true}
-      },
-      buttons: [
-        "zoom",
-        "close"
-      ]
-    });
-  };
-  function SCload_fancybox() {
-    if ($(".md .gallery").find("img").length == 0) return;
-    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
-    setTimeout(function() {
-      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
-    }, 1);
-  };
-  $(function () {
-    SCload_fancybox();
-  });
-</script>
-
-
-<!-- internal -->
-
-
-
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-
-
-  
-  
-    <script>
-      window.FPConfig = {
-        delay: 0,
-        ignoreKeywords: [],
-        maxRPS: 5,
-        hoverDelay: 25
-      };
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
     </script>
-    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-<script src="/js/valine.js"></script>
-
-
-<script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '/wiki/volantis/# 全局评论地址';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-
-    var valine = new Valine();
-    valine.init({
-      el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
-      path: path,
-      appId: "h8nJRe53Bw2xNxk98JPCkYPn-gzGzoHsz",
-      appKey: "quPPyHETb0KbIoTjALf6niEb",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
-  }
-
-  $(function () {
-    pjax_valine();
-  });
-</script>
-
-
-
-
-
-  
-<script src="/js/app.js"></script>
-
-
-
-
-  
-    
-<script src="/js/search.js"></script>
-
-  
-
-
-<!-- optional -->
-
-  <script>
-const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
-const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
-(function ($) {
-  
-    customSearch = new HexoSearch({
-      imagePath: SearchServiceimagePath
-    });
-  
-})(jQuery);
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-  <script defer>
-
-  const LCCounter = {
-    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
-    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
-    custom_api_server: '',
-
-    // 查询存储的记录
-    getRecord(Counter, url, title) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {url, title: title, times: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    },
-
-    // 发起自增请求
-    increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    },
-
-    // 构建自增请求体
-    buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "times": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    },
-
-    // 校验是否为有效的 UV
-    validUV() {
-      var key = 'LeanCloudUVTimestamp';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    },
-
-    addCount(Counter) {
-      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
-      enableIncr = true;
-      var getterArr = [];
-      var incrArr = [];
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#lc-sv');
-      if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-sv', 'Visits').then((record) => {
-          incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-sv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + 1;
-              if (pvCtn) {
-                pvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#lc-uv');
-      if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-uv', 'Visitors').then((record) => {
-          var vuv = this.validUV();
-          vuv && incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-uv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + (vuv ? 1 : 0);
-              if (uvCtn) {
-                uvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 请求文章的浏览数，如果是当前页面就自增
-      var allPV = document.querySelectorAll('#lc-pv');
-      if (allPV.length > 0 || enableIncr) {
-        for (i = 0; i < allPV.length; i++) {
-          let pv = allPV[i];
-          let title = pv.getAttribute('data-title');
-          var url = 'https://main2035.github.io' + pv.getAttribute('data-path');
-          if (url) {
-            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
-              // 是当前页面就自增
-              let curPath = window.location.pathname;
-              if (curPath.includes('index.html')) {
-                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
-              }
-              if (pv.getAttribute('data-path') == curPath) {
-                incrArr.push(this.buildIncrement(record.objectId));
-              }
-              if (pv) {
-                var ele = pv.querySelector('#lc-pv #number');
-                if (ele) {
-                  if (pv.getAttribute('data-path') == curPath) {
-                    ele.innerText = (record.times || 0) + 1;
-                  } else {
-                    ele.innerText = record.times || 0;
-                  }
-                  pv.style.display = 'inline';
-                }
-              }
-            });
-            getterArr.push(viewGetter);
-          }
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && this.increment(Counter, incrArr);
-        })
-      }
-
-    },
-
-
-    fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': this.app_id,
-            'X-LC-Key': this.app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      this.addCount(Counter);
-    },
-
-    refreshCounter() {
-      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-      if (api_server) {
-        this.fetchData(api_server);
-      } else {
-        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
-          .then(resp => resp.json())
-          .then(({api_server}) => {
-            this.fetchData('https://' + api_server);
-          });
-      }
-    }
-
-  };
-
-  LCCounter.refreshCounter();
-
-  document.addEventListener('pjax:complete', function () {
-    LCCounter.refreshCounter();
-  });
-</script>
-
-
-
-
-
-
-
-
-<script>
-function listennSidebarTOC() {
-  const navItems = document.querySelectorAll(".toc li");
-  if (!navItems.length) return;
-  const sections = [...navItems].map((element) => {
-    const link = element.querySelector(".toc-link");
-    const target = document.getElementById(
-      decodeURI(link.getAttribute("href")).replace("#", "")
-    );
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({
-		top: target.offsetTop + 100,
-		
-		behavior: "smooth"
-		
-	  });
-    });
-    return target;
-  });
-
-  function activateNavByIndex(target) {
-    if (target.classList.contains("active-current")) return;
-
-    document.querySelectorAll(".toc .active").forEach((element) => {
-      element.classList.remove("active", "active-current");
-    });
-    target.classList.add("active", "active-current");
-    let parent = target.parentNode;
-    while (!parent.matches(".toc")) {
-      if (parent.matches("li")) parent.classList.add("active");
-      parent = parent.parentNode;
-    }
-  }
-
-  function findIndex(entries) {
-    let index = 0;
-    let entry = entries[index];
-    if (entry.boundingClientRect.top > 0) {
-      index = sections.indexOf(entry.target);
-      return index === 0 ? 0 : index - 1;
-    }
-    for (; index < entries.length; index++) {
-      if (entries[index].boundingClientRect.top <= 0) {
-        entry = entries[index];
-      } else {
-        return sections.indexOf(entry.target);
-      }
-    }
-    return sections.indexOf(entry.target);
-  }
-
-  function createIntersectionObserver(marginTop) {
-    marginTop = Math.floor(marginTop + 10000);
-    let intersectionObserver = new IntersectionObserver(
-      (entries, observe) => {
-        let scrollHeight = document.documentElement.scrollHeight + 100;
-        if (scrollHeight > marginTop) {
-          observe.disconnect();
-          createIntersectionObserver(scrollHeight);
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>ITthreeの博客</h1>
+                <h3></h3>
+                <h5>ITthreeの博客,我思故我在</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2020/10/16/thread-05/">
+        <h2>
+            Thread与Runable
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <pre><code class="java">import java.io.*;
+import java.lang.Thread;
+/**
+ * 多个线程加载同一个Runnable可实现共享数据*/
+
+class MyThread extends Thread&amp;#123;
+    public int x = 0;
+
+    public void run()&amp;#123;
+        System.out.println(++x);
+    &amp;#125;
+&amp;#125;
+class RThread implements Runnable&amp;#123;
+    private int x = 0;
+    public void run()&amp;#123;
+        System.out.println(++x);
+    &amp;#125;
+&amp;#125;
+
+public class Java_3 &amp;#123;
+    public static void main(String[] args) throws Exception&amp;#123;
+        for(int i=0;i&lt;5;i++)&amp;#123;
+            Thread t = new MyThread();
+            t.start();
+        &amp;#125;
+        Thread.sleep(1000);
+        System.out.println();
+        RThread r = new RThread();
+        for(int i=0;i&lt;5;i++)&amp;#123;
+            Thread t = new Thread(r);//多个线程同时加载一个Runnable
+            t.start();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+/**运行结果：
+1
+1
+1
+1
+1
+
+1
+2
+3
+4
+5
+
+*/</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java多线程编程" style=color:#006674>
+                Java多线程编程
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/thread-05/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/thread-04/">
+        <h2>
+            线程加载与线程组
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="饿汉模式-立即加载"><a href="#饿汉模式-立即加载" class="headerlink" title="饿汉模式(立即加载)"></a>饿汉模式(立即加载)</h1><ul>
+<li>使用类时已创建对象</li>
+</ul>
+<pre><code class="java">package cn.day.b8;
+
+public class MyObject &amp;#123;
+    private static MyObject myObject = new MyObject();//使用类时已创建对象
+    public static MyObject getInstance()&amp;#123;
+        return myObject;
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread &amp;#123;
+    @Override
+    public void run()&amp;#123;
+        System.out.println(MyObject.getInstance().hashCode());
+    &amp;#125;
+&amp;#125;
+class Run&amp;#123;
+    public static void main(String[] args) &amp;#123;
+        var t1 = new Thread1();
+        var t2 = new Thread1();
+        var t3 = new Thread1();
+        t1.start();
+        t2.start();
+        t3.start();
+    &amp;#125;
+&amp;#125;</code></pre>
+<h1 id="懒汉模式（延迟加载）"><a href="#懒汉模式（延迟加载）" class="headerlink" title="懒汉模式（延迟加载）"></a>懒汉模式（延迟加载）</h1><ul>
+<li>在属性方法（get方法）中实例化对象</li>
+<li>双检查锁实现懒汉单例模式</li>
+</ul>
+<pre><code class="java">package cn.day.b8;
+public class MyObject &amp;#123;
+    private  volatile static MyObject myObject ;// volatile增加了可见性，阻止了创建MyObject时的代码重排
+    public static MyObject getInstance()&amp;#123;
+        try &amp;#123;
+            if (myObject != null)&amp;#123;
+            &amp;#125;else &amp;#123;
+                Thread.sleep(3000);
+                synchronized (MyObject.class)&amp;#123;
+                    if (myObject == null)&amp;#123;
+                        myObject = new MyObject();
+                    &amp;#125;
+                &amp;#125;
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+        return myObject;
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread &amp;#123;
+    @Override
+    public void run()&amp;#123;
+        System.out.println(MyObject.getInstance().hashCode());
+    &amp;#125;
+&amp;#125;
+class Run&amp;#123;
+    public static void main(String[] args) &amp;#123;
+        var t1 = new Thread1();
+        var t2 = new Thread1();
+        var t3 = new Thread1();
+        t1.start();
+        t2.start();
+        t3.start();
+    &amp;#125;
+&amp;#125;</code></pre>
+<ul>
+<li>静态内部类实现懒汉模式</li>
+</ul>
+<pre><code class="java">package cn.day.b8;
+
+public class MyObject &amp;#123;
+    /*静态代码块实现懒汉模式
+        private static MyObject myObject = null;
+        static&amp;#123;
+            myObject = new MyObject();
+        &amp;#125;
+    */
+    private static class MyObjectHandler &amp;#123;
+        private volatile static MyObject myObject = new MyObject();
+    &amp;#125;
+    public static MyObject getInstance() &amp;#123;
+        return MyObjectHandler.myObject;
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread &amp;#123;
+    @Override
+    public void run()&amp;#123;
+        System.out.println(MyObject.getInstance().hashCode());
+    &amp;#125;
+&amp;#125;
+class Run&amp;#123;
+    public static void main(String[] args) &amp;#123;
+        var t1 = new Thread1();
+        var t2 = new Thread1();
+        var t3 = new Thread1();
+        t1.start();
+        t2.start();
+        t3.start();
+    &amp;#125;
+&amp;#125;</code></pre>
+<h1 id="线程组"><a href="#线程组" class="headerlink" title="线程组"></a>线程组</h1><ul>
+<li>一级关联：组中有线程而无线程下的线程</li>
+</ul>
+<pre><code class="java">package cn.day.b8;
+
+public class MyThread &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        ThreadA aRunnable = new ThreadA();
+        ThreadB bRunnable = new ThreadB();
+        ThreadGroup group = new ThreadGroup(&quot;一级关联组&quot;);//构造一个新线程组。
+        Thread aThread = new Thread(group,aRunnable);//加入线程组
+        Thread bThread = new Thread(group,bRunnable);
+        aThread.start();
+        bThread.start();
+        System.out.println(&quot;线组中线程程数 &quot;+ group.activeCount());//返回该线程组及其子组的数量的估计值
+        System.out.println(&quot;线程组名 &quot;+ group.getName());//返回该线程组的名称
+        Thread.sleep(3000);
+        group.interrupt();//停止此线程组中所有线程
+        Thread.enumerate(group);//将当前线程的线程组整体复制到指定线程组
+    &amp;#125;
+&amp;#125;
+class ThreadA extends Thread&amp;#123;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            while (!Thread.currentThread().isInterrupted())&amp;#123;
+                System.out.println(&quot;ThreadName &quot;+ Thread.currentThread().getName());
+                Thread.sleep(3000);
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class ThreadB extends Thread&amp;#123;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            while (!Thread.currentThread().isInterrupted())&amp;#123;
+                System.out.println(&quot;ThreadName &quot;+ Thread.currentThread().getName());
+                Thread.sleep(3000);
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java多线程编程" style=color:#607d8b>
+                Java多线程编程
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/thread-04/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/thread-03/">
+        <h2>
+            Lock对象
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="ReentrantLockTest"><a href="#ReentrantLockTest" class="headerlink" title="ReentrantLockTest"></a>ReentrantLockTest</h1><p>jdk5加入的，<strong>synchronized</strong>增强版</p>
+<h2 id="lock-unlock-condition-await-condition-signal-等"><a href="#lock-unlock-condition-await-condition-signal-等" class="headerlink" title="lock( ) unlock( )  condition.await( ) **condition.signal( )**等"></a>lock( ) unlock( )  condition.await( ) **condition.signal( )**等</h2><ul>
+<li><strong>lock( )**获取锁，</strong>unlock**释放锁（同步代码处在lock、unlock之间）</li>
+<li><strong>condition.await( )**效果同</strong>wait( )**,调用此方法前，该线程必须获得锁</li>
+<li><strong>condition.signal( )</strong>,唤醒线程，效果同<strong>notify（）</strong>。</li>
+<li><strong>condition.signalAll( )**，唤醒所有线程（倒序）效果同</strong>notifyAll（）**</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+import cn.day.b6.MyThread;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+/*3个线程同步知晓，均不打印B*/
+public class MyService &amp;#123;
+    private ReentrantLock lock = new ReentrantLock();//创建此对象用于获取锁、释放锁等操作
+    //new ReentrantLock(true);当设置为 true 时，在多个线程的争用下，这些锁倾向于将访问权授予等待时间最长的线程。//未定时的 tryLock 方法并没有使用公平设置。
+    private Condition condition = lock.newCondition();//用以使线程等待、唤醒等操作
+    public void waitMethod()&amp;#123;
+        try &amp;#123;
+            lock.lock();
+            System.out.println(&quot;A&quot;);
+            condition.await();//等待唤醒
+            System.out.println(&quot;B&quot;);
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;finally &amp;#123;
+            lock.unlock();
+            System.out.println(&quot;释放锁&quot;);
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class MyThreadA extends Thread&amp;#123;
+    private MyService myService;
+    public MyThreadA(MyService myService)&amp;#123;
+        super();
+        this.myService =  myService;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        myService.waitMethod();
+    &amp;#125;
+&amp;#125;
+class TestMyService &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        MyService myService = new MyService();
+        MyThreadA a1 = new MyThreadA(myService);
+        a1.start();
+        MyThreadA a2 = new MyThreadA(myService);
+        a2.start();
+        MyThreadA a3 = new MyThreadA(myService);
+        a3.start();
+
+    &amp;#125;
+
+&amp;#125;</code></pre>
+<h2 id="唤醒部分线程"><a href="#唤醒部分线程" class="headerlink" title="唤醒部分线程"></a>唤醒部分线程</h2><pre><code class="java">package cn.day.b7;
+
+import cn.day.b6.MyThread;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class MyService &amp;#123;
+    private ReentrantLock lock = new ReentrantLock();
+    /*创建两个Condition对象，分别用来唤醒A、B线程*/
+    private Condition conditionA = lock.newCondition();
+    private Condition conditionB = lock.newCondition();
+
+    public void awaitA()&amp;#123;
+        try &amp;#123;
+            lock.lock();
+            System.out.println(&quot;A&quot;);
+            conditionA.await();//等待唤醒
+            System.out.println(&quot;A被唤醒&quot;);
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;finally &amp;#123;
+            lock.unlock();
+            System.out.println(&quot;释放锁&quot;);
+        &amp;#125;
+    &amp;#125;
+    public void awaitB()&amp;#123;
+        try &amp;#123;
+            lock.lock();
+            System.out.println(&quot;B&quot;);
+            conditionB.await();//等待唤醒
+            System.out.println(&quot;B被唤醒&quot;);
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;finally &amp;#123;
+            lock.unlock();
+            System.out.println(&quot;释放锁&quot;);
+        &amp;#125;
+    &amp;#125;
+
+
+    public void signalAll_B()&amp;#123;
+        lock.lock();
+        System.out.println(&quot;唤醒B线程&quot;);
+        conditionB.signalAll();//仅唤醒全部B种线程（相同锁）
+        lock.unlock();
+    &amp;#125;
+    public void signalAll_A()&amp;#123;
+        lock.lock();
+        System.out.println(&quot;唤醒A线程&quot;);////仅唤醒全部A种线程（相同锁）
+        conditionA.signalAll();
+        lock.unlock();
+    &amp;#125;
+&amp;#125;
+
+
+class MyThreadA extends Thread&amp;#123;
+    private MyService myService;
+    public MyThreadA(MyService myService)&amp;#123;
+        super();
+        this.myService =  myService;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        myService.awaitA();
+    &amp;#125;
+&amp;#125;
+class MyThreadB extends Thread&amp;#123;
+    private MyService myService;
+    public MyThreadB(MyService myService)&amp;#123;
+        super();
+        this.myService =  myService;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        myService.awaitB();
+    &amp;#125;
+&amp;#125;
+class TestMyService &amp;#123;
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        MyService myService = new MyService();
+        MyThreadA a1 = new MyThreadA(myService);
+        MyThreadA a2 = new MyThreadA(myService);
+        MyThreadB b1 = new MyThreadB(myService);
+        a1.setName(&quot;A1&quot;);
+        a2.setName(&quot;A2&quot;);
+        b1.setName(&quot;B&quot;);
+        a1.start();
+        a2.start();
+        b1.start();
+        System.out.println(&quot;等待3s&quot;);
+        Thread.sleep(3000);
+        myService.signalAll_A();//仅唤醒A种线程
+    &amp;#125;
+
+&amp;#125;</code></pre>
+<h1 id="生产者、消费者"><a href="#生产者、消费者" class="headerlink" title="生产者、消费者"></a>生产者、消费者</h1><p>1V1(生产、消费一对一)、多对多5V5</p>
+<pre><code class="java">package cn.day.b7.ConditionTest;
+
+import cn.day.b6.MyThread;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class MyService &amp;#123;
+    private ReentrantLock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
+    private boolean hasValue = false;
+    public void set()&amp;#123;
+        try &amp;#123;
+            lock.lock();
+            if (hasValue == true) &amp;#123;
+                condition.await();
+            &amp;#125;
+            System.out.println(&quot;生产者&quot;);
+            hasValue = true;
+            condition.signalAll();
+        &amp;#125;catch (InterruptedException e)&amp;#123;
+            e.printStackTrace();
+        &amp;#125;finally &amp;#123;
+            lock.unlock();
+        &amp;#125;
+    &amp;#125;
+    public void get()&amp;#123;
+        try &amp;#123;
+            lock.lock();
+            if (hasValue == false) &amp;#123;
+                condition.await();
+            &amp;#125;
+            System.out.println(&quot;消费者&quot;);
+            hasValue = false;
+            condition.signalAll();
+        &amp;#125;catch (InterruptedException e)&amp;#123;
+            e.printStackTrace();
+        &amp;#125;finally &amp;#123;
+            lock.unlock();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class MyThreadA extends Thread&amp;#123;
+    private MyService myService;
+    public MyThreadA(MyService myService)&amp;#123;
+        super();
+        this.myService = myService;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        for (int i =0; i &lt; Integer.MAX_VALUE;i++)&amp;#123;
+            myService.set();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class MyThreadB extends Thread&amp;#123;
+    private MyService myService;
+    public MyThreadB(MyService myService)&amp;#123;
+        super();
+        this.myService = myService;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        for (int i =0; i &lt; Integer.MAX_VALUE;i++)&amp;#123;//Integer.MAX_VALUE常量的最大值
+            myService.get();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class Run&amp;#123;
+    public static void main(String[] args) &amp;#123;
+        MyService myService = new MyService();
+        MyThreadA a = new MyThreadA(myService);
+        a.start();
+        MyThreadB b = new MyThreadB(myService);
+        b.start();
+    &amp;#125;
+&amp;#125;
+/*多对多*/
+class Run1&amp;#123;
+    public static void main(String[] args) &amp;#123;
+        MyService Service = new MyService();
+        MyThreadA[] threadA = new MyThreadA[5];
+        MyThreadB[] threadB = new MyThreadB[5];
+        for (int i = 0; i &lt; 5; i++)&amp;#123;
+            threadA[i] = new MyThreadA(Service);
+            threadB[i] = new MyThreadB(Service);
+            threadA[i].start();
+            threadB[i].start();
+
+        &amp;#125;
+    &amp;#125;
+&amp;#125;</code></pre>
+<h1 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h1><ul>
+<li><p>共享锁（只读）</p>
+<p>共享锁使只读的线程可异步执行；与写操作的线程同步执行</p>
+</li>
+</ul>
+<pre><code class="java">public class MyService &amp;#123;
+    private ReentrantLock lock = new ReentrantReadWriteLock();//共享、排他锁
+    private String name = &quot;张三&quot;
+    public void get()&amp;#123;
+        try &amp;#123;
+            lock.readlock();//共享锁（异步，只读）
+            System.out.println(name);
+            Thread.sleep(4000);
+            lock.readLock().unlock();//释放共享锁
+
+        &amp;#125;catch (InterruptedException e)&amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;</code></pre>
+<ul>
+<li><p>排他锁（写）</p>
+<p>与其它锁同步执行</p>
+</li>
+</ul>
+<pre><code class="java">public class MyService &amp;#123;
+    private ReentrantLock lock = new ReentrantReadWriteLock();//共享、排他锁
+    private String name = &quot;张三&quot;
+    public void set(String name)&amp;#123;
+        try &amp;#123;
+            lock.writelock();//排他锁（同步，只写）
+            System.out.println(name);
+            this.name = name;
+            Thread.sleep(4000);
+            lock.writeLock().unlock();//释放排他锁
+
+        &amp;#125;catch (InterruptedException e)&amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;</code></pre>
+<h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><h2 id="一个定时任务实例"><a href="#一个定时任务实例" class="headerlink" title="一个定时任务实例"></a>一个定时任务实例</h2><pre><code class="java">package cn.day.b8;
+
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MyTask extends TimerTask &amp;#123;//注意其父类哦
+    @Override
+    public void run() &amp;#123;
+        System.out.println(&quot;start Time：&quot; + System.currentTimeMillis());
+    &amp;#125;
+&amp;#125;
+class Test&amp;#123;
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        long nowTime = System.currentTimeMillis();
+        System.out.println(&quot;当前时间为： &quot;+ nowTime );
+        long scheduleTime = (nowTime +10000);
+        System.out.println(&quot;计划时间为： &quot;+ scheduleTime);
+        MyTask task = new MyTask();
+        Timer timer = new Timer();//创建一个新计时器
+        Thread.sleep(1000);
+        timer.schedule(task,new Date(scheduleTime));
+        //在指定的时间执行任务，如指定时间早于当前时间则立即执行任务
+        Thread.sleep(Integer.MAX_VALUE);
+    &amp;#125;
+&amp;#125;</code></pre>
+<ul>
+<li><p>创建一个Timer对象时，内部就创建了一个新线程（TimerTread）</p>
+</li>
+<li><p>TimerTread线程管理一个队列，队列按顺序执行Task任务</p>
+</li>
+<li><p>定时任务可由于当前任务的复杂度而导致下个任务延期执行</p>
+</li>
+</ul>
+<h2 id="执行多个定时任务实例"><a href="#执行多个定时任务实例" class="headerlink" title="执行多个定时任务实例"></a>执行多个定时任务实例</h2><ul>
+<li>任务执行算法每次将最后一个任务放入队头（第一次仍保持原序列）</li>
+</ul>
+<pre><code class="java">/*省略代码同上*/
+class DoubleTest&amp;#123;
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        long nowTime = System.currentTimeMillis();
+        System.out.println(&quot;当前时间为： &quot;+ nowTime );
+        long scheduleTime1 = (nowTime +5000);
+        long scheduleTime2 = (nowTime +6000);
+        System.out.println(&quot;A计划时间为： &quot;+ scheduleTime1);
+        System.out.println(&quot;B计划时间为： &quot;+ scheduleTime2);
+        MyTask task1 = new MyTask();
+        MyTask task2 = new MyTask();
+        Timer timer = new Timer();//只用一个新计时器
+        timer.schedule(task1,new Date(scheduleTime1));
+        timer.schedule(task2,new Date(scheduleTime2));
+    &amp;#125;
+&amp;#125;</code></pre>
+<h2 id="定时间隔执行任务"><a href="#定时间隔执行任务" class="headerlink" title="定时间隔执行任务"></a>定时间隔执行任务</h2><ul>
+<li>任务间隔也会因当前任务的复杂度而延期执行，也会因为任务中的Thread.sleep( 50000)而改变任务执行的间隔时间</li>
+</ul>
+<pre><code class="java">class Test&amp;#123;
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        long nowTime = System.currentTimeMillis();
+        System.out.println(&quot;当前时间为： &quot;+ nowTime );
+        long scheduleTime = (nowTime +10000);
+        System.out.println(&quot;计划时间为： &quot;+ scheduleTime);
+        MyTask task = new MyTask();
+        Timer timer = new Timer();
+        timer.schedule(task,new Date(scheduleTime),4000);
+        //在指定时间执行任务（计划时间早于当前时间则立刻执行），且每间隔4s再次执行任务
+        //timer.schedule(task,4000)则是延迟4s执行
+        //timer.schedule(task,4000，2000)则是延迟4s执行并间隔2s无限执行此任务
+
+    &amp;#125;
+&amp;#125;</code></pre>
+<h2 id="移除TimerTread线程队列任务"><a href="#移除TimerTread线程队列任务" class="headerlink" title="移除TimerTread线程队列任务"></a>移除TimerTread线程队列任务</h2><ul>
+<li><p>定时任务执行完毕后，进程也不会被销毁</p>
+</li>
+<li><p>TimerTask.cancel 移除当前任务</p>
+</li>
+<li><p>Timer.cancel 移除全部任务</p>
+</li>
+</ul>
+<pre><code class="java">package cn.day.b8;
+
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MyTask1 extends TimerTask &amp;#123;
+
+    @Override
+    public void run() &amp;#123;
+        System.out.println(&quot;A run Timer &quot;+ System.currentTimeMillis());
+        this.cancel();//将此任务移除TimerTread线程队列（不会中断本次任务）
+        System.out.println(&quot;A任务移除&quot;);
+    &amp;#125;
+&amp;#125;
+class MyTask2 extends TimerTask &amp;#123;
+    @Override
+    public void run() &amp;#123;
+        System.out.println(&quot;B run Timer &quot;+ System.currentTimeMillis());
+    &amp;#125;
+&amp;#125;
+class Test&amp;#123;
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        long nowTime = System.currentTimeMillis();
+        System.out.println(&quot;当前时间为： &quot;+ nowTime );
+        MyTask1 task1 = new MyTask1();
+        MyTask2 task2 = new MyTask2();
+        Timer timer = new Timer();
+        timer.schedule(task1,new Date(nowTime),2000);
+        timer.schedule(task2,new Date(nowTime),2000);
+        Thread.sleep(5000);
+        /*如 timer.cancel();前有死循环，则无法执行到 timer.cancel();这行； 
+        timer.cancel()将无法获得队列锁，更无法移除队列中任务
+        while(true)&amp;#123;
+            int i ++;
+        &amp;#125;*/
+        timer.cancel();//移除TimerTread线程队列中所有任务
+    &amp;#125;
+&amp;#125;</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java多线程编程" style=color:#6484be>
+                Java多线程编程
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/thread-03/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/thread-02/">
+        <h2>
+            线程安全与通信
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h1><ul>
+<li><p>线程优先级具有可继承性</p>
+</li>
+<li><p>cpu将资源让与优先级更高的线程（运行更快）</p>
+</li>
+<li><p>随机性：并不是执行完高优先级线程再执行低优先级线程，只是说首先执行高优先级线程的概率更大一点</p>
+</li>
+<li><p>可使用**setPriority( )**设置优先级（范围：0-10）</p>
+</li>
+<li><p>Jdk预设了3个优先级值： </p>
+<pre><code>MIN_PRIORITY = 1
+NORM_PRIORITY = 5
+MAX_PRIORITY = 10</code></pre>
+</li>
+</ul>
+<h1 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h1><ul>
+<li>Java中存在<strong>用户线程</strong>、<strong>守护线程</strong>两种线程</li>
+<li>守护线程为其它线程运行提供便利，如GC</li>
+<li>最后一个用户线程、守护线程退出，进程也就结束了（只要有一个用户进程在运行，那么这个进程就不会结束）               </li>
+</ul>
+<pre><code class="java">package cn.day.b4;
+
+public class MyThread2 extends Thread &amp;#123;
+    private int i = 1;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            while (true)&amp;#123;//死循环
+                System.out.println(&quot;i&quot; + (i));
+                Thread.sleep(1000);
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        try &amp;#123;
+            var thread = new MyThread2();
+            thread.setDaemon(false);//这是个用户线程，此进程将不停的执行下去
+//            thread.setDaemon(false);这是个守护线程，它将随着用户进程（main）的结束而结束
+            //setDaemon() 将线程标记为守护线程(true)或用户线程(false)。
+            thread.start();
+            Thread.sleep(5000);
+            System.out.println(&quot;end&quot;);
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<ul>
+<li>对象、变量的并发访问：A线程获得了X对象的锁，此时B线程只能调用X对象中没有synchronized标记的方法</li>
+</ul>
+<h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><ul>
+<li><p>方法中的变量不受线程安全影响，而实例字段（变量）将受到非线程安全的影响</p>
+</li>
+<li><p>当多个线程执行同一个业务对象中的方法时，线程与业务属于多对以一的关系，会产生非线程<strong>安全问题</strong></p>
+<ol>
+<li>可使用synchronized关键词实现同步执行。</li>
+<li>可分别创建两个对象实例（线程与对象方法就是一对一啦），实现异步执行。</li>
+</ol>
+</li>
+<li><p>在方法声明处添加synchronized是锁对象而非锁方法（Java没有锁方法一说）</p>
+</li>
+<li><p>Java中，<strong>锁</strong> 就是<strong>对象</strong>， <strong>对象</strong>可以<strong>映射</strong>为<strong>锁</strong>。线程拿到锁就可以执行对象中的synchronized同步方法</p>
+</li>
+<li><p>线程发生异常时将释放对象锁</p>
+</li>
+</ul>
+<h2 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h2><ul>
+<li>比如：在main主线程中，一个其它线程正在执行( 原想在结束后main线程再调用某个方法（属性）)，结果main在未结束的线程前调用了（属性）方法，产生了不理想的结果，这就是导致脏读。</li>
+<li>解决方法：对该（属性）方法使用synchronized上锁。</li>
+</ul>
+<h2 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h2><ul>
+<li><p>已知线程获取了某个对象锁，则其在线程未结束（对象锁未释放）前仍可获取该对象锁（）</p>
+<pre><code class="java">package cn.day.b5;
+
+public class Service &amp;#123;
+    synchronized public void service1()&amp;#123;
+        System.out.println(&quot;service1&quot;);
+        service2();
+    &amp;#125;
+    synchronized public void service2()&amp;#123;
+        System.out.println(&quot;service2&quot;);
+        service3();
+    &amp;#125;
+    synchronized public void service3()&amp;#123;
+        System.out.println(&quot;service3&quot;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var t = new MyThread();
+        t.start();//在此线程运行时：service1可调用上锁的service2，service2可调用上锁的service3，而不会被线程t2干扰
+        var t2 = new MyThread1();
+        t2.start();
+    &amp;#125;
+&amp;#125;
+class MyThread extends Thread&amp;#123;
+    @Override
+    public void run()&amp;#123;
+        Service service = new Service();
+        service.service1();
+    &amp;#125;
+&amp;#125;
+class MyThread1 extends Thread&amp;#123;
+    @Override
+    public void run()&amp;#123;
+        Service service = new Service();
+        service.service2();
+    &amp;#125;
+&amp;#125;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>继承状态下，线程还可重入调用父类的（同步）方法</li>
+</ul>
+<h2 id="holdsLock（）"><a href="#holdsLock（）" class="headerlink" title="holdsLock（）"></a>holdsLock（）</h2><ul>
+<li>对象持有锁时返回True</li>
+</ul>
+<pre><code class="java">package cn.day.b5;
+
+public class Test &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        System.out.println(&quot;A &quot;+Thread.currentThread().holdsLock(Test.class));
+        synchronized (Test.class)&amp;#123;//synchronized块
+            System.out.println(&quot;B &quot;+Thread.currentThread().holdsLock(Test.class));
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<h2 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h2><ul>
+<li><p>当某个对象的<strong>synchronized</strong>代码块（this）被某个线程访问时，其它线程将被阻塞，并且不能访问该对象的其它同步代码块</p>
+</li>
+<li><p><strong>synchronized</strong>代码块（）内写入一个类的Class对象，那么这个锁对所有该类实例有效</p>
+</li>
+<li><p>使用同步代码块时：一般不使用String作为对象锁如，而使用Object。</p>
+<pre><code class="java">package cn.day.b5;
+
+public class String1 &amp;#123;
+    public static void print(String t)&amp;#123;
+        try &amp;#123;
+            synchronized (t)&amp;#123;//锁的是变量T的值
+                while (true)&amp;#123;
+                    System.out.println(Thread.currentThread().getName());
+                    Thread.sleep(1000);//两个线程传入相同的String值会导致一个线程休眠时另一个线程仍无法执行
+
+                &amp;#125;
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var string1 = new String1();
+        var a = new Thread1(string1);
+        a.setName(&quot;A&quot;);
+        a.start();
+        var b = new Thread2(string1);
+        b.setName(&quot;B&quot;);
+        b.start();
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread&amp;#123;
+    private String1 string1;
+    public Thread1(String1 string1)&amp;#123;
+        super();
+        this.string1 =string1;
+
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        string1.print(&quot;AA&quot;);
+    &amp;#125;
+&amp;#125;
+class Thread2 extends Thread&amp;#123;
+    private String1 string2;
+    public Thread2(String1 string1)&amp;#123;
+        super();
+        this.string2 =string1;
+
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        string2.print(&quot;AA&quot;);//两个线程传入相同的String值会导致一个线程休眠时另一个线程仍无法执行
+    &amp;#125;
+&amp;#125;</code></pre>
+</li>
+</ul>
+<h2 id="锁对象"><a href="#锁对象" class="headerlink" title="锁对象"></a>锁对象</h2><ul>
+<li><p>锁对象改变则异步执行，否则依旧同步执行(只要锁对象相同就同步执行 )</p>
+<pre><code class="java">package cn.day.b5;
+
+public class String2 &amp;#123;
+    private String lock = &quot;123&quot;;
+    public void testMethod()&amp;#123;
+        try &amp;#123;
+            synchronized (lock)&amp;#123;
+                System.out.println(Thread.currentThread().getName()+&quot;begin &quot;+System.currentTimeMillis());
+                lock =&quot;456&quot;;//改变锁对象
+                Thread.sleep(2000);
+                System.out.println(Thread.currentThread().getName() + &quot;end &quot;+ System.currentTimeMillis());
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        var string2 = new String2();
+        Thread1 a = new Thread1(string2);
+        a.setName(&quot;A&quot;);
+        Thread2 b = new Thread2(string2);
+        a.setName(&quot;B&quot;);
+        a.start();
+        Thread.sleep(50);
+        b.start();
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread&amp;#123;
+    private String2 string1;
+    public Thread1(String2 string1)&amp;#123;
+        super();
+        this.string1 =string1;
+
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        string1.testMethod();
+    &amp;#125;
+&amp;#125;
+class Thread2 extends Thread&amp;#123;
+    private String2 string2;
+    public Thread2(String2 string1)&amp;#123;
+        super();
+        this.string2 =string1;
+
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        string2.testMethod();
+    &amp;#125;&amp;#125;</code></pre>
+</li>
+</ul>
+<h2 id="静态方法的锁"><a href="#静态方法的锁" class="headerlink" title="静态方法的锁"></a>静态方法的锁</h2><ul>
+<li><strong>synchronized</strong>加到<strong>静态方法</strong>是将<strong>Class类</strong>对象作为锁（而<strong>synchronized</strong>加到<strong>非静态</strong>是将方法所在类的对象作为锁）</li>
+<li>如果A类中方法都是静态方法且加锁，那么即使创建两个A类实例对象仍无法实现异步。（静态方法可直接导入类再调用:A.方法名;实现异步）</li>
+</ul>
+<h2 id="volatile（synchronized也可）"><a href="#volatile（synchronized也可）" class="headerlink" title="volatile（synchronized也可）"></a>volatile（<strong>synchronized</strong>也可）</h2><ul>
+<li>让B线程立刻看见A线程更改的数据</li>
+<li>禁止代码重排序</li>
+</ul>
+<h1 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h1><h2 id="wait-notify"><a href="#wait-notify" class="headerlink" title="wait/notify"></a>wait/notify</h2><ul>
+<li>解决资源浪费</li>
+</ul>
+<pre><code class="java">package cn.day.b6;
+
+import java.util.ArrayList;
+import java.util.List;
+/**线程 Thread2 （B）一直监视list.size造成了资源浪费*/
+public class MyList &amp;#123;
+    volatile private List list = new ArrayList();//实现多线程之间的可视性，不然线程B将一直执行
+    public void add()&amp;#123;
+        list.add(&quot;1&quot;);
+    &amp;#125;
+    public int size()&amp;#123;
+        return list.size();
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var service = new MyList();
+        var a = new Thread1(service);
+        a.setName(&quot;A&quot;);
+        a.start();
+        var b = new Thread2(service);
+        b.setName(&quot;B&quot;);
+        b.start();
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread&amp;#123;
+    private MyList list;
+    public Thread1 (MyList list)&amp;#123;
+        super();
+        this.list = list;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        try&amp;#123;
+            for (int i = 0; i &lt; 10; i++)&amp;#123;
+                list.add();
+                System.out.println(&quot;添加了&quot;+(i + 1)+&quot;个元素&quot;);
+                Thread.sleep(1000);
+            &amp;#125;
+            &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;class Thread2 extends Thread&amp;#123;
+    private MyList list;
+    public Thread2 (MyList list)&amp;#123;
+        super();
+        this.list = list;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        try&amp;#123;
+            while (true)&amp;#123;
+                //Thread.sleep(2000);//B线程将因错过list.size==5而不会终止。
+                if (list.size()==5)&amp;#123;
+                    System.out.println(&quot;==5了，b线程退出&quot;);
+                    throw new InterruptedException();
+                &amp;#125;
+            &amp;#125;
+            &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;</code></pre>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait( )"></a>wait( )</h2><ul>
+<li><p>暂停当前线程并等待被唤醒</p>
+</li>
+<li><p><strong>wait(1000 )</strong> ,在1s后如无**notify( )**唤醒，则自动唤醒（持有锁后继续执行）</p>
+<pre><code class="java">package cn.day.b6;
+
+public class Thread_A extends Thread &amp;#123;
+    private Object lock;
+    public Thread_A(Object lock)&amp;#123;
+        super();
+        this.lock = lock;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            synchronized (lock)&amp;#123;
+                System.out.println(&quot;我跳出来了&quot;);
+                lock.wait(1000);
+                System.out.println(&quot;打我啊笨蛋&quot;);
+
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class Thread_B extends Thread &amp;#123;
+    private Object lock;
+    public Thread_B(Object lock)&amp;#123;
+        super();
+        this.lock = lock;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+            synchronized (lock)&amp;#123;
+               while (true)&amp;#123;//B线程执行完毕后，A线程自动唤醒
+                   System.out.println(&quot;停不下来&quot;);
+                   try &amp;#123;
+                       Thread.sleep(1000);
+                   &amp;#125; catch (InterruptedException e) &amp;#123;
+                       e.printStackTrace();
+                   &amp;#125;
+               &amp;#125;
+
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+class TestRun&amp;#123;
+    public static void main(String[] args) &amp;#123;
+            Object lock = new Object();
+            var t1 = new Thread_A(lock);
+            var t2 = new Thread_B(lock);
+            t1.start();
+            t2.start();
+
+        &amp;#125;
+    &amp;#125;
+
+</code></pre>
+</li>
+</ul>
+<pre><code>
+
+
+## **notify( )**
+
+* 执行完当前同步代码块内代码后，选择同一个（唤醒多个需要多次调用）锁的等待线程**wait( )**将其唤醒（按照执行wait的顺序）
+
+## notifyAll( )
+
+* （倒序）唤醒全部等待线程**wait( )**
+
+```java
+package cn.day.b6;
+
+public class Thread_A extends Thread &amp;#123;
+  private Object lock;
+  public Thread_A(Object lock)&amp;#123;
+      super();
+      this.lock = lock;
+  &amp;#125;
+  @Override
+  public void run()&amp;#123;
+      try &amp;#123;
+          synchronized (lock)&amp;#123;
+              System.out.println(&quot;Start wait time= &quot;+System.currentTimeMillis());
+              lock.wait();//暂停并等待被唤醒
+              System.out.println(&quot;End wait time= &quot;+System.currentTimeMillis());
+
+          &amp;#125;
+      &amp;#125; catch (InterruptedException e) &amp;#123;
+          e.printStackTrace();
+      &amp;#125;
+  &amp;#125;
+&amp;#125;
+class Thread_B extends Thread &amp;#123;
+  private Object lock;
+  public Thread_B(Object lock)&amp;#123;
+      super();
+      this.lock = lock;
+  &amp;#125;
+  @Override
+  public void run()&amp;#123;
+          synchronized (lock)&amp;#123;
+              System.out.println(&quot;Start notify time= &quot;+System.currentTimeMillis());
+             // lock.notify();//选择同一个锁的等待线程将其唤醒（按照执行wait的顺序，依次唤醒）
+              lock.notifyAll()//同notify()，但按相反的顺序唤醒
+              System.out.println(&quot;End notify time= &quot;+System.currentTimeMillis());
+
+          &amp;#125;
+      &amp;#125;
+  &amp;#125;
+class TestRun&amp;#123;
+  public static void main(String[] args) &amp;#123;
+      try &amp;#123;
+          Object lock = new Object();//同一个对象同一个梦想，哈哈
+          var t1 = new Thread_A(lock);
+          t1.start();
+          Thread.sleep(3000);
+          var t2 = new Thread_B(lock);
+          t2.start();
+      &amp;#125; catch (InterruptedException e) &amp;#123;
+          e.printStackTrace();
+      &amp;#125;
+  &amp;#125;
+&amp;#125;
+</code></pre>
+<h1 id="综合运用"><a href="#综合运用" class="headerlink" title="综合运用"></a>综合运用</h1><ul>
+<li><p>共享变量+<strong>notifyAll( )</strong>+while+<strong>synchronized</strong>+volatile实现交叉执行</p>
+<pre><code class="java">package cn.day.b6;
+
+public class MyThread &amp;#123;
+    volatile private boolean prevIsA = false;//volatile，修改值时其它线程均可知晓
+    synchronized public void backupA()&amp;#123;
+        try&amp;#123;
+            while (prevIsA == true)&amp;#123;//全场依据PrevIsA的值判断该线程是否该休息（释放锁）
+                wait();
+            &amp;#125;
+            for (int i = 0;i &lt; 5;i++)&amp;#123;
+                System.out.println(&quot;++++++&quot;);
+            &amp;#125;
+            prevIsA = true;//此线程主要步骤执行完后再修改prevIsA值
+            notifyAll();
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+    synchronized public void backupB()&amp;#123;
+        try&amp;#123;
+            while (prevIsA == false) &amp;#123;////全场依据PrevIsA的值判断该线程是否该休息（释放锁）
+                wait();
+            &amp;#125;
+                for (int i = 0;i &lt; 5; i++)&amp;#123;
+                    System.out.println(&quot;------&quot;);
+                &amp;#125;
+                prevIsA = false;////全场依据PrevIsA的值判断该线程是否该休息（释放锁）
+                notifyAll();
+
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class Thread1 extends Thread&amp;#123;
+    private MyThread dbTools;
+    public Thread1(MyThread dbTools)&amp;#123;
+        super();
+        this.dbTools = dbTools;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        dbTools.backupA();
+    &amp;#125;
+&amp;#125;
+class Thread2 extends Thread&amp;#123;
+    private MyThread dbTools;
+    public Thread2(MyThread dbTools)&amp;#123;
+        super();
+        this.dbTools = dbTools;
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        dbTools.backupB();
+    &amp;#125;
+&amp;#125;
+class MyRun&amp;#123;
+    public static void main(String[] args) &amp;#123;
+        var dbtools = new MyThread();
+        for (int i = 0; i &lt; 20; i++)&amp;#123;//循环20波，100行
+            var output = new Thread2(dbtools);
+            output.start();
+            var input = new Thread1(dbtools);
+            input.start();
+        &amp;#125;
+
+    &amp;#125;
+&amp;#125;</code></pre>
+</li>
+</ul>
+<h2 id="join"><a href="#join" class="headerlink" title="join( )"></a>join( )</h2><ul>
+<li>当前线程释放锁并进入无休止的等待状态，等其它线程结束再执行</li>
+<li>join( 2000)，当前线程释放锁，2s后如获得锁，继续执行（无法获得锁，则一直尝试获得锁）</li>
+</ul>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><ul>
+<li>将数据放于map中<ol>
+<li>Map中的key存储ThreadLocal对象，value存储值</li>
+<li>每个线程的value仅对此线程可见</li>
+<li>当线程销毁时，map也随之销毁，如map的数据没有被引用则随时未GC回收</li>
+</ol>
+</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+public class Tools &amp;#123;
+    public static ThreadLocal t1 = new ThreadLocal();
+&amp;#125;
+class MyThreadA extends Thread&amp;#123;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            for (int i = 0; i &lt; 10; i++)&amp;#123;
+                Tools.t1.set(&quot;A&quot;+(i++));
+                System.out.println(&quot;A get &quot;+ Tools.t1.get());
+                int sleepValue = (int)(Math.random()*1000);
+                Thread.sleep(sleepValue);
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class MyThreadB extends Thread&amp;#123;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            for (int i = 0; i &lt; 10; i++)&amp;#123;
+                Tools.t1.set(&quot;B&quot;+(i++));
+                System.out.println(&quot;B get &quot;+ Tools.t1.get());
+                int sleepValue = (int)(Math.random()*1000);
+                Thread.sleep(sleepValue);
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+class Test&amp;#123;
+    public static void main(String[] args) throws InterruptedException &amp;#123;
+        var a = new MyThreadA();
+        var b = new MyThreadB();
+        a.start();
+        b.start();
+        for (int i = 0; i &lt; 10; i++)&amp;#123;
+            Tools.t1.set(&quot;main&quot;+(i+1));
+            System.out.println(&quot;main get &quot;+ Tools.t1.get());
+            int sleepValue = (int)(Math.random()*1000);
+            try &amp;#123;
+                Thread.sleep(sleepValue);
+            &amp;#125; catch (InterruptedException e) &amp;#123;
+                e.printStackTrace();
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+&amp;#125;</code></pre>
+<ul>
+<li>可通过重写initialValue( )方法，改变map中无值时get（）返回的数据（null）</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+public class ThreadLocalExt extends ThreadLocal &amp;#123;
+    @Override
+    protected Object initialValue()&amp;#123;
+        return &quot;改变&quot;;
+    &amp;#125;
+&amp;#125;
+class Run&amp;#123;
+    public static  ThreadLocalExt t1= new ThreadLocalExt();
+
+    public static void main(String[] args) &amp;#123;
+        System.out.println(t1.get());
+    &amp;#125;
+&amp;#125;</code></pre>
+<h2 id="inheritableThreadLocal"><a href="#inheritableThreadLocal" class="headerlink" title="inheritableThreadLocal"></a>inheritableThreadLocal</h2><ul>
+<li>从创建这个线程对象的线程继承map值(继承后并不随着map值的更新而更新)</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+public class TestInheritableThreadLocal extends Thread&amp;#123;
+    public void run()&amp;#123;
+        try &amp;#123;
+            for (int i = 0; i&lt;10; i++)&amp;#123;
+                System.out.println(&quot;在ThreadA线程中取值=&quot;+Tools1.t1.get());
+                Thread.sleep(100);
+            &amp;#125;
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        try &amp;#123;
+            for (int i = 0; i &lt;10; i++)&amp;#123;
+                if (Tools1.t1.get() == null)&amp;#123;
+                    Tools1.t1.set(&quot;此值是main&quot;);
+                &amp;#125;
+                System.out.println(&quot;在main线程中取值=&quot; + Tools1.t1.get());
+                Thread.sleep(100);
+            &amp;#125;
+            Thread.sleep(5000);
+            var a = new TestInheritableThreadLocal();
+            a.start();
+        &amp;#125; catch (Exception e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;    &amp;#125;
+&amp;#125;
+class Tools1&amp;#123;
+    public static InheritableThreadLocal t1 = new InheritableThreadLocal();
+&amp;#125;</code></pre>
+<p>重写childValue( )方法可对继承的值进行“加工”。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java多线程编程" style=color:#016a99>
+                Java多线程编程
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/thread-02/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/thread-01/">
+        <h2>
+            线程方法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>实现多线程必须继承<strong>Thread</strong>类，已有父类的类可通过实现<strong>Runnable</strong>实现多线程</p>
+<p><strong>Thread</strong>也实现了<strong>Runnable</strong>接口，<strong>Runnable</strong>接口实现的多线程步骤比<strong>Thread</strong>更为繁琐</p>
+</blockquote>
+<h1 id="线程安全共享变量"><a href="#线程安全共享变量" class="headerlink" title="线程安全共享变量"></a>线程安全共享变量</h1><ul>
+<li>这是一个不共享变量的线程：</li>
+</ul>
+<pre><code class="java">package cn.day.b2;
+
+public class MyThread extends Thread &amp;#123;
+    private int count = 5;
+    public MyThread(String name)&amp;#123;
+        super();
+        this.setName(name);
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        super.run();
+        while (count &gt; 0)&amp;#123;
+            count--;
+            System.out.println(&quot;由&quot; + this.currentThread().getName() + &quot;计算， count =&quot; + count);
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        MyThread a = new MyThread(&quot;A&quot;);
+        MyThread b = new MyThread(&quot;B&quot;);
+        MyThread c = new MyThread(&quot;C&quot;);
+        a.start();
+        b.start();
+        c.start();
+    &amp;#125;
+&amp;#125;</code></pre>
+<ul>
+<li>可能出现多个线程同时修改变量（不安全）的情况</li>
+</ul>
+<pre><code class="java">package cn.day.b2;
+
+public class MyThread extends Thread &amp;#123;
+    private int count = 5;
+    @Override
+    public void run()&amp;#123;
+        super.run();
+            count--;
+            System.out.println(&quot;由&quot; + this.currentThread().getName() + &quot;计算， count =&quot; + count);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var mythread = new MyThread();
+        var a = new Thread(mythread,&quot;A&quot;);
+        var b = new Thread(mythread,&quot;B&quot;);
+        var c = new Thread(mythread,&quot;C&quot;);
+        var d = new Thread(mythread,&quot;D&quot;);
+        var e = new Thread(mythread,&quot;E&quot;);//分配新的 Thread 对象，以便将 mythread 作为其运行对象，将指定的 E 作为其名称
+        a.start();
+        b.start();
+        c.start();
+        d.start();
+        e.start();
+    &amp;#125;
+&amp;#125;</code></pre>
+<ul>
+<li>安全的共享变量（添加互斥区）</li>
+</ul>
+<pre><code class="java">package cn.day.b2;
+
+public class MyThread extends Thread &amp;#123;
+    private int count = 5;
+    @Override
+    synchronized public void run()&amp;#123;//加入锁，只有等一个线程停止后另一个线程才能调用run（）方法
+        super.run();
+            count--;
+            System.out.println(&quot;由&quot; + this.currentThread().getName() + &quot;计算， count =&quot; + count);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var mythread = new MyThread();
+        var a = new Thread(mythread,&quot;A&quot;);
+        var b = new Thread(mythread,&quot;B&quot;);
+        var c = new Thread(mythread,&quot;C&quot;);
+        var d = new Thread(mythread,&quot;D&quot;);
+        var e = new Thread(mythread,&quot;E&quot;);
+        a.start();
+        b.start();
+        c.start();
+        d.start();
+        e.start();
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<h1 id="run-与start"><a href="#run-与start" class="headerlink" title="run( )与start( )"></a>run( )与start( )</h1><ul>
+<li>**run( )**立即执行，不创建新的线程。</li>
+<li><strong>start( )</strong>,创建新线程并用其执行。</li>
+<li><strong>run( )**的执行顺序与</strong>start( )**顺序无关</li>
+</ul>
+<h1 id="currentThread"><a href="#currentThread" class="headerlink" title="currentThread()"></a>currentThread()</h1><ul>
+<li>返回对当前正在执行的线程对象的引用</li>
+</ul>
+<pre><code class="java">package cn.day.b2.currentThreadExt;
+
+public class CountOperate extends Thread &amp;#123;
+    public CountOperate()&amp;#123;
+        System.out.println(&quot;CountOperate---begin&quot;);
+        System.out.println(&quot;Thread.currentThread().getName()=&quot; + Thread.currentThread().getName());//返回对当前正在执行的线程对象的引用
+
+        System.out.println(&quot;this.getName()= &quot; +  this.getName());//this指代带CountOperate对象，CountOperate对象的名字并未发生改变，故默认线程名为Thread-0
+        System.out.println(&quot;CountOperate---end&quot;);
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        System.out.println(&quot;run---begin&quot;);
+        System.out.println(&quot;Thread.currentThread.getName()=&quot;+ Thread.currentThread().getName());
+        System.out.println(&quot;this.getName() =&quot; + this.getName());//此时线程名为“B”
+        System.out.println(&quot;run---end&quot;);
+    &amp;#125;
+&amp;#125;
+
+
+package cn.day.b2.currentThreadExt;
+
+public class Run &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        var c = new CountOperate();
+        c.setName(&quot;B&quot;);//调用构造器之前并未指定线程名称
+        var t1 = new Thread(c);
+        t1.setName(&quot;A&quot;);
+        t1.start();
+    &amp;#125;
+&amp;#125;
+
+/*运行结果*
+CountOperate---begin
+Thread.currentThread().getName()=main
+this.getName()= Thread-0
+CountOperate---end
+run---begin
+Thread.currentThread.getName()=A
+this.getName() =B
+run---end
+*/</code></pre>
+<h1 id="isAlive"><a href="#isAlive" class="headerlink" title="isAlive( )"></a>isAlive( )</h1><ul>
+<li>判断线程是否存活</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+public class CountOperate extends Thread &amp;#123;
+    public CountOperate()&amp;#123;//构造函数时主线程main确认存活
+        System.out.println(&quot;CountOperate---begin&quot;);
+        System.out.println(&quot;Thread.currentThread().getName()= &quot; + Thread.currentThread().getName());
+        System.out.println(&quot;Thread.currentThread().isAlive()= &quot; + Thread.currentThread().isAlive());
+        System.out.println(&quot;this.getName() =&quot; + this.getName());
+        System.out.println(&quot;this.isAlive() =&quot; + this.isAlive());
+        System.out.println(&quot;CountOpreate---end&quot;);
+    &amp;#125;
+    @Override
+    public void run()&amp;#123;
+        System.out.println(&quot;run---begin&quot;);
+        System.out.println(&quot;Thread.currentThread().getName() =&quot; + Thread.currentThread().getName());
+        System.out.println(&quot;Thread.currentThread().isAlive() =&quot; + Thread.currentThread().isAlive());
+        System.out.println(&quot;this.getName() =&quot; + this.getName());
+        System.out.println(&quot;this.isAlive() =&quot; + this.isAlive());//为false，而重命名的A线程存活
+        System.out.println(&quot;run---end&quot;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var c = new CountOperate();//构造完对象后，main线程失活为false
+        var t1 = new Thread(c);//main线程又存活了
+        System.out.println(&quot;main begin t1 isAlive=&quot; + t1.isAlive());//isAlive()判断该线程是否存活
+        t1.setName(&quot;A&quot;);
+        t1.start();
+        System.out.println(&quot;main end t1 isAlive=&quot; + t1.isAlive());
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<h1 id="sleep（）"><a href="#sleep（）" class="headerlink" title="sleep（）"></a>sleep（）</h1><ul>
+<li>使线程休眠</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+
+public class MyThread2 extends Thread &amp;#123;
+    @Override
+    public void run()&amp;#123;
+        try &amp;#123;
+            System.out.println(&quot;run threadName=&quot; + this.currentThread().getName() + &quot;begin =&quot; + System.currentTimeMillis());
+            //currentTimeMillis()返回以毫秒为单位的当前时间
+            Thread.sleep(2000);//线程休眠2s
+            System.out.println(&quot;run threadName=&quot; + this.currentThread().getName() + &quot;end =&quot; + System.currentTimeMillis() );
+        &amp;#125;catch (InterruptedException e)&amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var mythread = new MyThread2();
+        System.out.println(&quot;begin =&quot; + System.currentTimeMillis());
+        mythread.start();
+        System.out.println(&quot;end =&quot; + System.currentTimeMillis());
+        /*begin =1594439524699  main线程执行100多毫秒
+            end =1594439524710
+            run threadName=Thread-0begin =1594439524710 Thread线程执行2s多
+            run threadName=Thread-0end =1594439526721*/
+    &amp;#125;
+&amp;#125;</code></pre>
+<h1 id="线程堆栈方法"><a href="#线程堆栈方法" class="headerlink" title="线程堆栈方法"></a>线程堆栈方法</h1><h2 id="StackTraceElement-getStackTrace"><a href="#StackTraceElement-getStackTrace" class="headerlink" title="StackTraceElement[] getStackTrace( )"></a>StackTraceElement[] getStackTrace( )</h2><ul>
+<li>返回一个表示该线程堆栈跟踪元素的数组。（线程未启动或终止则返回length为0的数组即null）</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+public class Test &amp;#123;
+    public void a()&amp;#123;
+        b();
+    &amp;#125;
+    public void b()&amp;#123;
+        c();
+    &amp;#125;public void c()&amp;#123;
+        d();
+    &amp;#125;public void d()&amp;#123;
+        e();
+    &amp;#125;
+    public void e()&amp;#123;
+        StackTraceElement[] array = Thread.currentThread().getStackTrace();
+        if (array != null)&amp;#123;
+            for (int i = 0; i &lt; array.length; i++)&amp;#123;
+                var eachElement = array[i];
+                System.out.println(&quot;className=&quot; + eachElement.getClassName() + &quot; methodName=&quot; + eachElement.getMethodName() + &quot; fileName=&quot;
+                + eachElement.getFileName() + &quot; lineNumber=&quot;+eachElement.getLineNumber());
+                //eachElement.getClassName()返回包含由该堆栈跟踪元素表示的执行点的类的全限定名。
+                //eachElement.getMethodName()返回包含由该堆栈跟踪元素所表示的执行点的方法的名称
+                //eachElement.getLineNumber()返回包含由该堆栈跟踪元素表示的执行点源极线的行号
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var test = new Test();
+        test.a();
+    &amp;#125;
+&amp;#125;
+/*结果：
+className=java.lang.Thread methodName=getStackTrace fileName=Thread.java lineNumber=1598
+className=cn.day.b3.Test methodName=e fileName=Test.java lineNumber=15 
+// 最后（最新）调用的为栈顶
+className=cn.day.b3.Test methodName=d fileName=Test.java lineNumber=12
+className=cn.day.b3.Test methodName=c fileName=Test.java lineNumber=10
+className=cn.day.b3.Test methodName=b fileName=Test.java lineNumber=8
+className=cn.day.b3.Test methodName=a fileName=Test.java lineNumber=5
+//最先的调用为栈底
+className=cn.day.b3.Test methodName=main fileName=Test.java lineNumber=27
+*/</code></pre>
+<h2 id="dumpStack"><a href="#dumpStack" class="headerlink" title="dumpStack( )"></a>dumpStack( )</h2><ul>
+<li>将当前线程堆栈跟踪信息输出至标准错误流</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+public class Test &amp;#123;
+    public void a()&amp;#123;
+        b();
+    &amp;#125;
+    public void b()&amp;#123;
+        c();
+    &amp;#125;public void c()&amp;#123;
+        d();
+    &amp;#125;public void d()&amp;#123;
+        e();
+    &amp;#125;
+    public void e()&amp;#123;
+       int age = 0;
+       age = 100;
+       if (age == 100)&amp;#123;
+           Thread.dumpStack();//将当前线程堆栈跟踪信息输出至标准错误流
+       &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var test = new Test();
+        test.a();
+    &amp;#125;
+&amp;#125;
+/*结果
+java.lang.Exception: Stack trace
+    at java.base/java.lang.Thread.dumpStack(Thread.java:1379)
+    at cn.day.b3.Test.e(Test.java:18)
+    at cn.day.b3.Test.d(Test.java:12)
+    at cn.day.b3.Test.c(Test.java:10)
+    at cn.day.b3.Test.b(Test.java:8)
+    at cn.day.b3.Test.a(Test.java:5)
+    at cn.day.b3.Test.main(Test.java:24)
+    */</code></pre>
+<h2 id="staric-Map-lt-Thread-StackTraceElement-gt-getAllStackTraces"><a href="#staric-Map-lt-Thread-StackTraceElement-gt-getAllStackTraces" class="headerlink" title="staric Map&lt;Thread,StackTraceElement[]&gt; getAllStackTraces( )"></a>staric Map&lt;Thread,StackTraceElement[]&gt; getAllStackTraces( )</h2><ul>
+<li>返回所有活动线程的堆栈跟踪（映射）信息</li>
+<li>映射的键即线程，而每个值都是一个StackTraceElement数组</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+import java.util.Iterator;
+import java.util.Map;
+
+public class Test &amp;#123;
+    public void a()&amp;#123;
+        b();
+    &amp;#125;
+    public void b()&amp;#123;
+        c();
+    &amp;#125;public void c()&amp;#123;
+        d();
+    &amp;#125;public void d()&amp;#123;
+        e();
+    &amp;#125;
+
+    public void e()&amp;#123;
+       Map&lt;Thread,StackTraceElement[]&gt; map = Thread.currentThread().getAllStackTraces();
+       if (map != null &amp;&amp; map.size() != 0)&amp;#123;
+           Iterator keyIterator = map.keySet().iterator();
+           while (keyIterator.hasNext())&amp;#123;
+               Thread eachThread = (Thread) keyIterator.next();//键即线程
+               StackTraceElement[] array = map.get(eachThread);//返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。
+               System.out.println(&quot;------每个线程的基本信息&quot;);
+               System.out.println(&quot;  线程名称：&quot; + eachThread.getName());
+               System.out.println(&quot;StackTraceElement[].length=&quot; + array.length);
+               System.out.println(&quot;  线程状态：&quot; + eachThread.getState());
+               if (array.length != 0)&amp;#123;
+                   System.out.println(&quot;输出stackTraceElement[] 数组具体信息：&quot;);
+                   for (int i = 0; i &lt; array.length; i++) &amp;#123;
+                       StackTraceElement eachElement = array[i];
+                       System.out.println(&quot; &quot;+ eachElement.getClassName() + &quot; &quot; +eachElement.getMethodName() +
+                               &quot; &quot; + eachElement.getFileName() + &quot; &quot; + eachElement.getLineNumber());
+                   &amp;#125;
+               &amp;#125;
+               else &amp;#123;
+                   System.out.println(&quot;没有StackTraceElement[]信息，因为线程&quot; + eachThread.getName() + &quot;中的StackTraceElement[].length==0&quot;);
+               &amp;#125;
+               System.out.println();
+               System.out.println();
+           &amp;#125;
+
+       &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        var test = new Test();
+        test.a();
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<h1 id="getId"><a href="#getId" class="headerlink" title="getId( )"></a>getId( )</h1><ul>
+<li>获取线程Id</li>
+</ul>
+<h1 id="interrupted-、isinterrupted"><a href="#interrupted-、isinterrupted" class="headerlink" title="interrupted( )、isinterrupted( )"></a>interrupted( )、isinterrupted( )</h1><ul>
+<li>**interrupted( )**测试当前线程是否已经中断。线程的中断状态 由该方法清除。换句话说，如果连续两次调用该方法，则第二次调用将返回 false（在第一次调用已清除了其中断状态之后，且第二次调用检验完中断状态前，当前线程再次中断的情况除外）。 </li>
+<li><strong>isinterrupted( )</strong> 测试线程对象是否为中断状态且不清除状态标志。</li>
+</ul>
+<h1 id="interrupt-、中断处理"><a href="#interrupt-、中断处理" class="headerlink" title="interrupt( )、中断处理"></a>interrupt( )、中断处理</h1><ul>
+<li><p>在线程中做一个停止标记，配合异常或<strong>return</strong>终止线程</p>
+</li>
+<li><p><strong>return</strong>中断法</p>
+<pre><code class="java">package cn.day.b4;
+
+</code></pre>
+</li>
+</ul>
+<p>  public class MyThread1 extends Thread &#123;<br>      @Override<br>      public void run( ) &#123;<br>          System.out.println(“线程开始”);<br>          super.run();</p>
+<pre><code>      if (Thread.interrupted()) &amp;#123;//检测线程状态
+          System.out.println(&quot;已经停止状态了！&quot;);
           return;
-        }
-        let index = findIndex(entries);
-        activateNavByIndex(navItems[index]);
-      },
-      {
-        rootMargin: marginTop + "px 0px -100% 0px",
-        threshold: 0,
-      }
-    );
-    sections.forEach((element) => {
-      element && intersectionObserver.observe(element);
-    });
-  }
-  createIntersectionObserver(document.documentElement.scrollHeight);
-}
+      &amp;#125;
+  &amp;#125;
 
-document.addEventListener("DOMContentLoaded", listennSidebarTOC);
-document.addEventListener("pjax:success", listennSidebarTOC);
-</script>
+  public static void main(String[] args) &amp;#123;
 
-<!-- more -->
+          var thread = new MyThread1();
+          thread.start();
+          thread.interrupt();//中断该线程
+  &amp;#125;</code></pre>
+<p>  &#125;</p>
+<pre><code>
 
 
+* 异常中断法（一般采用）：可在**catch**块中对异常信息进行统一处理。
 
+```java
+package cn.day.b4;
 
-    
-      
+public class MyThread extends Thread &amp;#123;
+    @Override
+    public void run( )&amp;#123;
+        super.run();
+        try&amp;#123;
+            for (int i = 0; i &lt; 50000000; i++) &amp;#123;//此循环数值要足够大，否则在main中方法标记中断线程之前循环就结束了
+//                 if (this.interrupted())&amp;#123;//检测线程状态
+                 if (Thread.interrupted())&amp;#123;//检测线程状态
+//                 if (this.isInterrupted())&amp;#123;//检测线程状态
+                     System.out.println(&quot;已经停止状态了！&quot;);
+                     throw new InterruptedException();
+                 &amp;#125;
+                System.out.println(&quot;i=&quot;+(i + 1));
+            &amp;#125;
+        &amp;#125;catch (InterruptedException e)&amp;#123;
+            System.out.println(&quot;进MyThread.java类run方法中的catch了&quot;);
+            e.printStackTrace();//打印此throwable及其追踪到标准错误流,错误的栈轨迹等
+        &amp;#125;
+    &amp;#125;
 
+    public static void main(String[] args) &amp;#123;
+        try &amp;#123;
+            var thread = new MyThread();
+            thread.start();
+            Thread.sleep(2000);
+            thread.interrupt();//中断该线程
+        &amp;#125;catch (InterruptedException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125;
+        System.out.println(&quot;end&quot;);
+        System.out.println(Thread.interrupted());
+    &amp;#125;
+&amp;#125;</code></pre>
+<p>  <strong>interrupt方法遇到sleep方法（wait也一样）同样会发生异常(中断线程)</strong></p>
+<pre><code class="java">package cn.day.b4;
 
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+public class MyThread extends Thread &amp;#123;
+    @Override
+    public void run() &amp;#123;
+        super.run();
+        try &amp;#123;
+            for (int i = 0; i &lt; 50000; i++) &amp;#123;
+                System.out.println(&quot;i=&quot; + (i + 1));
+            &amp;#125;
+            System.out.println(&quot;run begin&quot;);
+            Thread.sleep(200000);
+            System.out.println(&quot;run end&quot;);
+        &amp;#125; catch (InterruptedException e) &amp;#123;
+            System.out.println(&quot;进MyThread.java类run方法中的catch了&quot;);
+            e.printStackTrace();//打印此throwable及其追踪到标准错误流,错误的栈轨迹等
+        &amp;#125;
+    &amp;#125;
 
-<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+    public static void main(String[] args) &amp;#123;
+        var thread = new MyThread();
+        thread.start();
+        thread.interrupt();//中断该线程
+        System.out.println(&quot;end&quot;);
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<h1 id="其它中断线程的方法（已废弃）"><a href="#其它中断线程的方法（已废弃）" class="headerlink" title="其它中断线程的方法（已废弃）"></a>其它中断线程的方法（已废弃）</h1><p><strong>stop（）</strong></p>
+<ul>
+<li><strong>Stop（）</strong>对线程的停止具有不确定性，如线程在添加元素而不知道添加到哪里就被中断了</li>
+<li>此方法抛出的<strong>ThreadDeath</strong>异常不需要显式捕捉</li>
+<li>此方法用于销毁线程对象，如想重启线程，需使用<strong>Start（）</strong>方法</li>
+</ul>
+<p><strong>suspend( )、resume（）</strong></p>
+<ul>
+<li>**suspend( )**暂停线程，</li>
+<li><strong>resume（）</strong>恢复线程</li>
+<li>易独占公共同步对象，导致其它线程无法访问公共同步对象</li>
+<li>易导致数据不完整</li>
+</ul>
+<p><strong>yield（）</strong></p>
+<ul>
+<li>放弃产品CPU资源，让与其它任务（线程）</li>
+<li>时间不确定：如刚放弃又拾起</li>
+</ul>
 
-<div class="pjax-animate">
-  
-    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
-    <script>
-      window.ShowLoading = function() {
-        NProgress.start();
-      };
-      window.HideLoading = function() {
-        NProgress.done();
-      }
-    </script>
-  
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java多线程编程" style=color:#006674>
+                Java多线程编程
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/thread-01/ " class="go-post">
+        阅读全文
+    </a>
 </div>
 
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          "#l_cover",
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
+<div class="post">
 
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
+    <a href="/2020/10/16/sql-01/">
+        <h2>
+            SQL基础
+        </h2>
+    </a>
 
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/SQL">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                SQL
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="常见注释"><a href="#常见注释" class="headerlink" title="常见注释"></a>常见注释</h1><ul>
+<li>– 很少支持</li>
+<li>#行内注释</li>
+<li>/**/段落注释</li>
+</ul>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><h3 id="检索数据"><a href="#检索数据" class="headerlink" title="检索数据"></a>检索数据</h3><table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">作用</th>
+<th align="center">例子</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">select</td>
+<td align="center">查找列，并返回行</td>
+<td align="center">select prod_name from products；<br/>#可使用,分隔列名来查找多个列。</td>
+<td>查找prod_name列，并返回其下的所有行，在products表中。</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">通配符</td>
+<td align="center">select * from products；</td>
+<td>查找所有列并返回所有行，在products表中。</td>
+</tr>
+<tr>
+<td align="center">distinct</td>
+<td align="center">返回不重复的值</td>
+<td align="center">select  distinct vend_id from products；<br/>#不可配合通配符使用除非所有列完全相同</td>
+<td>查找vend_id列并返回其下所有行中不重复的值，在products表中。</td>
+</tr>
+<tr>
+<td align="center">limit</td>
+<td align="center">限制</td>
+<td align="center">select prod_name from products limit 5,5;</td>
+<td>查找prod_name列并返回其下第5行起5行的值，在products表中。</td>
+</tr>
+</tbody></table>
+<h3 id="排序检索数据"><a href="#排序检索数据" class="headerlink" title="排序检索数据"></a>排序检索数据</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+<th>例子</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>order by</td>
+<td>排序</td>
+<td>select prod_id,prod_price,prod_name<br/>from Products<br/>order by 2;<br/>#默认升序（ASC）排列<br/>#指定按多个列排列时：仅当指定的第一列中有重复元素时，才对其（存在重复值的）按指定的下一列进行排序。</td>
+<td>即按照查找的第二个列进行排序，也可指定列名（prod_price）</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>降序</td>
+<td>select prod_id,prod_price,prod_name<br/>from Products<br/>order by 2 DESC,3 desc;</td>
+<td>即按照查找的第二个列进行降序排序，desc仅对其前的列有效；</td>
+</tr>
+</tbody></table>
+<h3 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+<th>例子</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>where</td>
+<td>在客户端过滤数据</td>
+<td>select *<br/>from Products<br/>where prod_price &gt;= 5.99<br/>order by prod_price desc;<br/>#同排序操作一同使用时，不得位于排序操作之前#支持&lt;&gt;=!=等操作，其中&lt;&gt;操作等同于!=<br/>例：<br/>select *<br/>from Products<br/>where prod_id &lt;&gt;’fc’<br/>order by prod_price desc;<br/>#过滤字符串不区分大小写</td>
+<td>1.查找所有列，在Products表中，并返回prod_price &gt;=5.99的所有行<br/>2.查找所有列，在Products表中，并返回除prod_id = “fc”之外的所有行</td>
+</tr>
+<tr>
+<td>between</td>
+<td>值的范围过滤</td>
+<td>select  prod_name,prod_price<br/>from Products<br/>where prod_price between 4 and 10</td>
+<td>查找prod_name,prod_price两列在Products表中，并返回prod_price值为4-10范围内的的的所有行</td>
+</tr>
+<tr>
+<td>is</td>
+<td>可用来检查null（空值）</td>
+<td>select  prod_name,prod_price<br/>from Products<br/>where prod_price is null</td>
+<td>返回所有没有价格的商品</td>
+</tr>
+<tr>
+<td>and,or</td>
+<td>逻辑操作符<br/>and且<br/>or与，这里是短路的</td>
+<td>select  *<br/>from Products<br/>where vend_vend_id =’1001’ and prod_price &lt;=4;<br/>#and的优先级比or要高，and，or共同使用时为避免错误应用（）明确分组，<br/>#也可使用in代替or，例：<br/>select prod_name,prod_price from products where vend_id in(‘1001’,’1002’)<br/>order by prod_name<br/>等同于：<br/>select prod_name,prod_price from products where vend_id = ‘1001’ or vend_id = ‘1002’<br/>order by prod_name</td>
+<td>返回所有vend_vend_id =’1001’ 且 prod_price &lt;=4;的行</td>
+</tr>
+<tr>
+<td>not</td>
+<td>否定其后的条件</td>
+<td>select prod_name,prod_price from products where not vend_id in(‘1001’,’1002’)<br/>order by prod_name</td>
+<td>可与in连用，返回vend_id=1001 vend_id=1002外的所有行</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="通配符搜索"><a href="#通配符搜索" class="headerlink" title="通配符搜索"></a>通配符搜索</h3><table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">作用</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%</td>
+<td align="center">匹配0、1或多个字符包含空格。不会匹配到null</td>
+<td>select prod_name<br/>from products<br/>where prod_name like ‘f%%’</td>
+</tr>
+<tr>
+<td align="center">_</td>
+<td align="center">匹配单个字符，包含空格</td>
+<td>select prod_name<br/>from products<br/>where prod_name like ‘fuse_’</td>
+</tr>
+<tr>
+<td align="center">rtrim（）ltrim（）</td>
+<td align="center">去除右边、左边空格</td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<h4 id="创建计算字段"><a href="#创建计算字段" class="headerlink" title="创建计算字段"></a>创建计算字段</h4></blockquote>
+<pre><code class="mysql">select prod_id ,quantity,item_price,quantity*item_price as expanded_price
+from orderitems
+where order_num = 20008;
+#如上创建了一个expanded_price字段（quantity*item_price的结果的别名），其仅在此时有效而不会存放到表中。</code></pre>
+<blockquote>
+<h4 id="使用函数"><a href="#使用函数" class="headerlink" title="使用函数"></a>使用函数</h4></blockquote>
+<pre><code class="mysql">select vend_name, upper(vend_name) as vend_name_upcase
+from vendors
+#将vend_name列下的所有行以大写形式返回
+select avg(prod_price) as avg_peice from products where vend_id =&#39;1001&#39;
+#返回平均值
+select count(*) as num_cust from customers
+#返回长度（数目），也可对列表中特定值进行计数
+</code></pre>
+<blockquote>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4></blockquote>
+<pre><code class="mysql">select  vend_id,count(*) as num_prods from  products #对vend_id每行进行计数
+group by vend_id;#按照vend_id排序并分组
+
+select cust_id,count(*) as orders
+from orders 
+group by cust_id 
+having count(*)&gt;=2#过滤分组中&gt;=2的，having支持where的所有操作
+
+select order_num,count(*) as items
+from orderitems group by order_num
+having count(*) &gt;=3
+order by items,order_num desc#对分组依照选定的列进行排序
+</code></pre>
+<blockquote>
+<h4 id="子句查询"><a href="#子句查询" class="headerlink" title="子句查询"></a>子句查询</h4></blockquote>
+<pre><code class="mysql">
+select cust_name,cust_contact from customers where cust_id =(select cust_id 
+from orders
+where order_num = (select order_num from orderitems where prod_id = &#39;jp2000&#39;));
+#由内而外，哈哈
+等效于：
+select order_num 
+from orderitems
+where prod_id = &#39;jp2000&#39;；
+select cust_id 
+from orders
+where order_num =20006
+select cust_name,cust_contact from customers where cust_id =10003</code></pre>
+<h3 id="联结（返回不在同一个表中的行）"><a href="#联结（返回不在同一个表中的行）" class="headerlink" title="联结（返回不在同一个表中的行）"></a>联结（返回不在同一个表中的行）</h3><pre><code class="mysql">/*等值语法*/
+select vend_name, prod_name,prod_price
+from vendors,products
+where vendors.vend_id=products.vend_id;#此处过滤联结条件。
+#如没有联结条件过滤，将检索出“笛卡尔积”：表1行数*表2行数
+/*规范语法*/
+select vend_name, prod_name,prod_price
+from vendors inner join products
+on vendors.vend_id=products.vend_id</code></pre>
+<h3 id="自联结（比子查询更快）"><a href="#自联结（比子查询更快）" class="headerlink" title="自联结（比子查询更快）"></a>自联结（比子查询更快）</h3><pre><code class="mysql">/*子查询*/
+select cust_id, cust_name, cust_contact
+from customers
+where cust_name = (select cust_name from customers where cust_contact =&#39;jim jones&#39;);
+/*自联结*/
+select c1.cust_id, c1.cust_name,c1.cust_contact
+from customers as c1,customers as c2#不以别名进行会引发错误
+where c1.cust_name=c2.cust_name and c2.cust_contact=&#39;jim jones&#39;#联结cust_name与c2.cust_name ，并过滤cust_contact=&#39;jim jones&#39;的行
+/*（c1的cust_name同c2相同，找到了c2的cust_contact=&#39;jim jones&#39;也就相当于找到了c1cust_contact=&#39;jim jones&#39;，知道了cust_contact=&#39;jim jones&#39;就可知道cust_id）*/</code></pre>
+<h3 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h3><pre><code class="mysql">select cust_name,cust_contact,cust_email,cust_state
+from customers
+where cust_state in(&#39;il&#39;,&#39;in&#39;,&#39;mi&#39;)
+union  #组合上下select多个select之间需要多个union分隔，union默认排除重复，union all则不排除
+select cust_name,cust_contact,cust_email,cust_state#union中每个查询必须包含相同的列、表达式、或聚集函数
+from customers
+where cust_name =&#39;wascals&#39;
+order by cust_name;#不能分别对每条union指定不同的排序</code></pre>
+<h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><h3 id="依赖于次序的插入"><a href="#依赖于次序的插入" class="headerlink" title="依赖于次序的插入"></a>依赖于次序的插入</h3><pre><code class="mysql">/*在得知列的次序后才可使用此方式添加，若发生了列的次序变动此添加方式将不安全*/
+insert into customers
+values(&#39;1000000006&#39;,&#39;toy land&#39;,&#39;123 any street&#39;,&#39;new york&#39;,&#39;ny&#39;, &#39;11111&#39;,&#39;usa&#39;,null, null);
+#依赖于次序的插入，必须为每一列提供一个值，如某列无添加则应写上null</code></pre>
+<h3 id="提供列名的插入"><a href="#提供列名的插入" class="headerlink" title="提供列名的插入"></a>提供列名的插入</h3><pre><code class="mysql">insert into customers(cust_id,cust_contact,cust_email,cust_name,cust_address,cust_city,cust_state,cust_zip)
+#必须为提供了列名的列给出一个值
+values(null, null,&#39;1000000006&#39;,&#39;toy land&#39;,&#39;123 any street&#39;,&#39;new york&#39;,&#39;ny&#39;, &#39;11111&#39;);</code></pre>
+<h3 id="从另一个表插入"><a href="#从另一个表插入" class="headerlink" title="从另一个表插入"></a>从另一个表插入</h3><pre><code class="mysql">insert into 表名（列名）
+select 列名
+from 表名
+where 过滤</code></pre>
+<blockquote>
+<h4 id="复制一个表"><a href="#复制一个表" class="headerlink" title="复制一个表"></a>复制一个表</h4></blockquote>
+<pre><code class="mysql">/*sql*/
+select * 
+into custcopy 
+from customers;
+/* mysql*/
+create table custcopy as
+select * 
+from customers;</code></pre>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><h3 id="更新单个列"><a href="#更新单个列" class="headerlink" title="更新单个列"></a>更新单个列</h3><pre><code class="mysql">update customers
+set cust_email = &#39;kim@@thetoystore.com&#39;
+where cust_id = &#39;100000000005&#39;#如不指定，将更新customers表cust_email列下的所有行</code></pre>
+<h3 id="更新多个列"><a href="#更新多个列" class="headerlink" title="更新多个列"></a>更新多个列</h3><pre><code class="mysql">update customers
+set cust_email = &#39;kim@@thetoystore.com&#39;,cust_contact=&#39;sam roberts&#39;
+where cust_id = &#39;100000000006&#39;</code></pre>
+<h2 id="DELLETE"><a href="#DELLETE" class="headerlink" title="DELLETE"></a>DELLETE</h2><pre><code class="mysql">delete from customers
+where cust_id = &#39;1000000006&#39;#删除此行，不过滤则删除所有行
+#update删除列
+#truncate删除表</code></pre>
+<h2 id="添加删除列-amp-amp-表"><a href="#添加删除列-amp-amp-表" class="headerlink" title="添加删除列&amp;&amp;表"></a>添加删除列&amp;&amp;表</h2><pre><code class="mysql">/*添加表时为防止覆盖，应删除表后再进行添加*/
+create table orderitems
+(order_num integer not null,
+order_item integer not null,
+prod_id char(10) not null,
+quantity integer not null default 1,#设置quantity列下的行默认值为1
+item_price decimal(8,2) not null);#not null即不允许填入null，默认可填入null，只有为 not null的列方可为主键及唯一标识</code></pre>
+<pre><code class="mysql">/*add列*/
+alter table vendors
+add vend_phone char (20);
+/*del列*/
+alter table vendors
+drop column vend_phone;#此操作不可逆
+/*删除表*/
+drop table custcopy;#此操作不可逆</code></pre>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><pre><code class="mysql">create view#创建视图
+drop view 视图名#删除视图
+/*以视图简化联结，创建视图*/
+create view productcustomers as
+select cust_name , cust_contact,prod_id
+from customers,orders,orderitems
+where customers.cust_id=orders.cust_id
+and orderitems.order_num=orders.order_num;
+/*可对视图采取与表相同的查询操作*/
+select *
+from productcustomers;
+/*一个视图过滤查询例子*/
+create view customeremaillist as
+select cust_id, cust_name,cust_email
+from customers
+where cust_email is not null;#返回查询中所有cust_email不为空的，并将其添加到视图中
+/*视图计算字段例子*/
+create view orderitemsexpanded as 
+select order_num,prod_id,quantity,item_price,quantity*item_price,quantity*item_price as
+expanded_price
+from orderitems</code></pre>
+<h1 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h1><pre><code>/*撤销整体*/
+start transaction ;
+-- 标识事务处理块,块中内容未执行完则整体撤销
+/*撤销部分操作*/
+savepoint delete1;#标识
+rollback to delete1;返回标识delete1</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/SQL入门" style=color:#016a99>
+                SQL入门
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/sql-01/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/shell-01/">
+        <h2>
+            Shell入门
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Ubuntu">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Ubuntu
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
+<li>变量分为用户变量与系统变量</li>
+<li>为变量赋值时“=”号两边不能有空格</li>
+<li>可在``中写入命令，并将其交给变量引用，也可采用：       变量=$(命令 )     达到相同的效果</li>
+</ul>
+<pre><code class="shell">#!/bin/bash  
+#头文件，表明此脚本使用bash shell编写
+echo &quot;hello,world!&quot; #打印字符串
+echo &quot;PATH=$PATH&quot; #$表示变量引用，此处引用的是系统变量
+echo &quot;user=$USER&quot;
+A=100
+echo &quot;A=$A&quot; #打印用户定义的变量
+unset#扰乱，就是删除前一个变量的值
+echo &quot;A=$A&quot;
+
+RESULT=`ls -l /home`#这个变量引用一个命令ls -l /home
+echo $RESULT #打印这个变量（命令运行的结果）
+echo &quot;&quot;
+MY_DATE=$(date)#这个变量引用一个命令date
+echo &quot;data=$MY_DATE&quot;</code></pre>
+<h3 id="环境变量（全局变量）"><a href="#环境变量（全局变量）" class="headerlink" title="环境变量（全局变量）"></a>环境变量（全局变量）</h3><ul>
+<li>在/etc/profile 文件中定义环境变量<code>TOMCAT_HOME=/opt/tomcat export TOMCAT_HOME</code>export将 shell 变量输出为环境变量</li>
+<li>定义环境变量后使用<code>source /etc/profile</code>让其生效</li>
+</ul>
+<pre><code class="shell">#!/bin/bash
+:&lt;&lt;!
+注释代码块使用:&lt;&lt;!将要被注释的代码块!
+echo &quot;hello,world!&quot;
+echo &quot;PATH=$PATH&quot;
+echo &quot;user=$USER&quot;
+a=100
+echo &quot;a=$a&quot;
+unset
+echo &quot;a=$a&quot;
+
+RESULT=`ls -l /home`
+echo $RESULT
+echo &quot;&quot;
+MY_DATE=$(date)
+echo &quot;data=$MY_DATE&quot;
+!
+echo $TOMCAT_HOME
+readonly B=10#静态变量无视unset
+unset
+echo $B       </code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/28/ZEUp9VBFqQoKJGW.png" alt="image-20200728224210596"  /></p>
+<h3 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h3><pre><code class="shell">#!/bin/bash
+
+echo $$#当前进程的进程号(PID)
+./a.sh &amp; #执行此脚本，后台运行
+echo $! #后台运行的进程号
+echo $? #上一次执行命令返回的状态（0为正常，否则上一个命令没有正确执行）
+~        </code></pre>
+<h3 id="位置参数变量"><a href="#位置参数变量" class="headerlink" title="位置参数变量"></a>位置参数变量</h3><pre><code class="shell">#!/bin/bash
+
+echo &quot;$0 $1 $2&quot; #分别对应第 0 1 2个位置参数 ，0对应命令本身，如下图 参数1对应4、参数2对应5 
+echo $* #所有位置参数（不包括位置0），将其作为整体对待
+echo $@  #所有位置参数（不包括位置0），将其分别对待
+echo $#    #所有位置参数个数（不包括位置0）</code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/QHgrA1v4Y5lCZjT.png"></p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><ul>
+<li>3种书写形式：<ol>
+<li><code>$((运算式))</code></li>
+<li><code>$[运算式]</code></li>
+<li><code>expr m + n</code> <code>expr m - n</code>   注意 expr 运算符间要有空格<br>  乘,除,取余：<code>expr \*, /, %</code></li>
+</ol>
+</li>
+</ul>
+<pre><code class="shell">#!/bin/bash
+#注意运算符前后的空格，必须有哦
+A=$((4 + 8))
+B=$[4 * 8]
+C=`expr 4 \* 8`
+echo &quot;$A&quot;
+echo &quot;$B&quot;
+echo &quot;$C&quot;
+</code></pre>
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><ul>
+<li>常用判断条件<ol>
+<li>两个整数的比较<br>= 字符串比较<br>-lt 小于<br>-le 小于等于<br>-eq 等于<br>-gt 大于<br>-ge 大于等于-ne 不等于</li>
+<li>按照文件权限进行判断<br>-r 有读的权限 [ -r 文件 ]<br>-w 有写的权限<br>-x 有执行的权限</li>
+<li>按照文件类型进行判断<br>-f 文件存在并且是一个常规的文件<br>-e 文件存在<br>-d 文件存在并是一个目录</li>
+</ol>
+</li>
+</ul>
+<pre><code class="shell">#!/bin/bash
+#比较字符串
+if [ &quot;b&quot; = &quot;b&quot; ]
+then
+        echo &quot;Yes&quot;
+fi
+#比较数值
+if [ 4 -eq 4 ]
+then
+        echo &quot;Yes&quot;
+fi
+#判断文件
+if [ -d /home ]
+then#满足条件执行：
+        echo &quot;Yes&quot;       
+fi #if反过来结尾</code></pre>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><ul>
+<li>if elif </li>
+</ul>
+<pre><code class="shell">#!/bin/bash
+
+if [ $0 = &quot;./a.sh&quot; ]#注意[ 之间的 ]空格
+then
+        echo &quot;Yes&quot;
+elif [ $1 -eq 4 ]
+then
+        echo &quot;Yes&quot;
+elif [ $2 = &quot;b&quot; ]
+then
+        echo &quot;Yes&quot;
+fi
+</code></pre>
+<p>运行结果：</p>
+<p><img src="https://i.loli.net/2020/07/30/PoYBhMnImCUqXJc.png"></p>
+<ul>
+<li>case</li>
+</ul>
+<pre><code class="shell">#!/bin/bash
+case $1 in
+&quot;1&quot;)
+echo &quot;Yes&quot;;;
+&quot;2&quot;)#位置参数1的值为2时执行
+echo &quot;No&quot;;;
+*)#以上所有条件都不满足则执行
+echo &quot;All&quot;;;
+esac#case反写作结尾                                                                                    </code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/6OljZLWC3aex4tc.png"></p>
+<ul>
+<li><p>for</p>
+<ol>
+<li><p>for in</p>
+<pre><code class="shell">#!/bin/bash
+
+for i in &quot;$@&quot;
+do
+echo &quot;对单个进行处理=$i&quot;
+done
+echo &quot;&quot;
+for i in &quot;$*&quot;
+do
+echo &quot;作为整体对待=$i&quot;
+done#表示循环结束
+~           </code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/zZ9bsm1BAxUaDpg.png"></p>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>for常规</p>
+<pre><code class="shell">#!/bin/bash
+
+SUM=0#赋值运算符前后不能有空格
+for((i=1;i&lt;=10000;i++))#for循环（（））中运算符的空格可有可无
+do
+SUM=$[$SUM+$i]#像这样两个变量与运算符直接有无空格均可
+done
+echo &quot;sum=$SUM&quot;</code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/V9IDSofWYpbBCx4.png"></p>
+</li>
+</ol>
+<ul>
+<li>while</li>
+</ul>
+<pre><code class="shell">#!/bin/bash
+
+SUM=0
+i=0
+while [ $i -lt $1 ]#[]内外两边均有空格，需要注意。
+do
+SUM=$[$SUM+$i]
+i=$[$i+1]
+done
+echo &quot;sum=$SUM&quot;                      </code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/2aT39NuVMWvfQsw.png"></p>
+<h2 id="从控制台读入"><a href="#从控制台读入" class="headerlink" title="从控制台读入"></a>从控制台读入</h2><pre><code class="shell">#!/bin/bash
+read -p &quot;你是一个哈皮（Yes/No）?&quot; WHY#-p即附带提示，WHY保存输入值
+echo &quot;$WHY&quot;
+
+read -t 10 -p &quot;你是一个哈皮（Yes/No）?&quot; WHY#-t计时，超过定义的10s即停止输入
+echo &quot;$WHY&quot;</code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/aBqlR1KXzOfinP2.png"></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li><p>系统函数</p>
+<ol>
+<li><p>basename [string] [suffix]<br>删掉所有的前缀包括最后一个(‘/’)字符,然后将余下的字符串显示出来。<br>指定了suffix,basename命令会将指定的后缀也去掉</p>
+</li>
+<li><p>dirname<br>返回完整路径最后 / 的前面的部分</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/dieGZhJHgxpIqoW.png"></p>
+<ul>
+<li>自定义函数</li>
+</ul>
+<pre><code>#!/bin/bash
+function getSum()&amp;#123;#不用写参数
+SUM=$[$2 + $1]
+echo &quot;sum=$SUM&quot;
+&amp;#125;
+getSum $1 $2#方法名后面是传入的参数
+~                  </code></pre>
+<p>运行结果：<img src="https://i.loli.net/2020/07/30/i6Vl2WEH9ro31qS.png"></p>
+<h2 id="GitHub自动提交远程库实例"><a href="#GitHub自动提交远程库实例" class="headerlink" title="GitHub自动提交远程库实例"></a>GitHub自动提交远程库实例</h2><p>shell的内容：</p>
+<pre><code class="shell">#!/bin/bash
+
+GITPATH=/home/garfield/文档 #本地仓库路径
+ADD=$(git add .) #添加所有文件到暂存区
+DATE=$(date +%y%m%d)
+GITPUSH=$(git push blog master)#推送到远程库
+GITPULL=$(git pull blog master)#同步远程库到本地（防止冲突）
+cd $GITPATH
+$ADD
+git commit -m &quot;$DATE&quot;#提交到版本库并备注时间
+$GITPULL
+$GITPUSH
+~         
+~                </code></pre>
+<p>运行结果<img src="https://i.loli.net/2020/07/30/v6ble3USd8YIgpk.png"></p>
+<p>定时任务内容：</p>
+<pre><code>*20*** /home/garfield/文档/git_push.sh</code></pre>
+<p><img src="https://i.loli.net/2020/07/30/4okIgw3ZSYuJ7s8.png"> </p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/shell" style=color:#016a99>
+                shell
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/shell-01/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/mysql-00/">
+        <h2>
+            mysql for cmd
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/mysql">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                mysql
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>初始化数据库：<code>mysqld --initialize --console</code></p>
+<p>安装数据库：<code>mysqld install</code></p>
+<p>启动mysql服务：<code>net start mysql</code></p>
+<p>终止mysql服务：<code>net stop mysql</code></p>
+<p>创建数据库到创建表：</p>
+<p><img src="http://img.lbkzw.cn/img/20200917142838.png" alt="image-20200917142838617"></p>
+<p>创建了一个名为db4的数据库，并选择数据库db4，在其中创建一个装有数据名为user的表。</p>
+<h2 id="MySQL提示使用ALTERUSER语句修改密码"><a href="#MySQL提示使用ALTERUSER语句修改密码" class="headerlink" title="MySQL提示使用ALTERUSER语句修改密码"></a>MySQL提示使用ALTERUSER语句修改密码</h2><p>安装mysql 登陆后，添加数据库时提示：<code>ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</code></p>
+<p>解决方式如下：</p>
+<p>MySQL版本5.7.6版本以前用户可以使用如下命令：</p>
+<p> <code>SET PASSWORD = PASSWORD(&#39;新密码&#39;); </code></p>
+<p>MySQL版本5.7.6版本开始的用户可以使用如下命令：</p>
+<p><code> ALTER USER USER() IDENTIFIED BY &#39;新密码&#39;;</code></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/JavaWeb" style=color:#006674>
+                JavaWeb
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/mysql" style=color:#016a99>
+                mysql
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/mysql-00/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/jvm-03/">
+        <h2>
+            Class文件结构
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>class文件是以8个字节为基础的二进制流；</p>
+<p>class文件中存在表、无符号数这两种数据结构，同时每个class文件均可视为一张表；</p>
+<p>无符号数以<strong>u1、u2、u3、u4</strong>分别指代<strong>1、2、4、8字节</strong>，而所有表均以<code>_info</code>结尾</p>
+<h1 id="魔数"><a href="#魔数" class="headerlink" title="魔数"></a>魔数</h1><p>class文件开头的4个字节<code>CA FE BA BE</code>被称为魔数，用以区分该文件是否为class文件</p>
+<h1 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h1><p>第5、6个字节是次版本号，第7、8个字节是主版本号；</p>
+<p>虚拟机无法执行超过其版本号的class文件。</p>
+<h1 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h1><blockquote>
+<p>常量池中主要存放字面量、符号引用；为第9到第30个字节</p>
+</blockquote>
+<img src="http://img.lbkzw.cn/img/20200830120618.png" alt="screenshot_2020_08_25T09_29_24+0800" style="zoom:50%;" />
+
+<p>常量池入口有一项u2数据用来保存常量池的容量大小，即容量计数值；</p>
+<p>容量计数值从1开始（计数范围1-21），不引用任何一个常量池项目时为0，而集合类型的容量计数从0开始；</p>
+<p>虚拟机加载类时，首先从常量池获得对应的符号引用，并选择在类创建或运行时解析、翻译到具体内存地址中；</p>
+<p>常量池中所有常量都是一个表；</p>
+<p>tag（标志位）用于区分常量类型，name_index是常量池的索引值。</p>
+<img src="http://img.lbkzw.cn/img/20200830122133.png" alt="screenshot_2020_08_26T14_57_26+0800" style="zoom:50%;" />
+
+<img src="http://img.lbkzw.cn/img/20200830122149.png" alt="screenshot_2020_08_26T14_58_20+0800" style="zoom:50%;" />
+
+<img src="http://img.lbkzw.cn/img/20200830122202.png" alt="screenshot_2020_08_26T14_58_24+0800" style="zoom:50%;" />
+
+<h1 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h1><p>紧接着常量池后的两个字节便是<strong>访问标志</strong>，用来识别信息如：这是个接口、模块，这是个public访问修饰类型等；</p>
+<p>两个为真的地址做<strong>并运算</strong>结果即为<strong>访问标识符</strong>（access_flags）的值。</p>
+<img src="http://img.lbkzw.cn/img/20200830122241.png" alt="screenshot_2020_08_26T14_59_01+0800" style="zoom:50%;" />
+
+<img src="http://img.lbkzw.cn/img/20200830122305.png" alt="screenshot_2020_08_28T13_14_28+0800" style="zoom:50%;" />
+
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>类索引、父类索引均为u2类型数据而接口索引为u2类型集合；</p>
+<p>类索引、父类索引均指向一个类型为<strong>CONSTANT_Class_info</strong>的类型描述符常量，通过此常量中的索引值可以找到定义在<strong>CONSTANT_Utf-8_info</strong>类型中的全限定名字符串；</p>
+<p>除java.lang.Object类外其他类的父类索引均不为0；</p>
+<p>如图：<img src="http://img.lbkzw.cn/img/20200830122523.png" alt="screenshot_2020_08_28T15_30_58+0800" style="zoom:50%;" /></p>
+<p>从0x000000F1开始的3个u2类型数据分别为0x0001、0x0003、0x0000，即类索引为1，父类索引为3，接口索引集合大小为0</p>
+<h1 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h1><p>仅包含类的字段变量，从0x000000F8开始，而不包含方法内部的局部变量、继承来的字段。</p>
+<p>如图：<img src="http://img.lbkzw.cn/img/20200830122328.png" alt="screenshot_2020_08_28T14_53_43+0800" style="zoom:50%;" /></p>
+<p><strong>fields_count</strong>的值说明这个类仅有一个字段表数据；</p>
+<p><strong>access_flags</strong>的值0x0002代表访问修饰符private为真；</p>
+<p>字段名称即<strong>name_index</strong>值为0x0005在常量表中对应值为“m”；</p>
+<p>字段描述符即<strong>descriptor_index</strong>值为0x0006指向常量池字符串“I”，至此我们可以推断出该字段为<code> private int m</code></p>
+<h1 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h1><p>与字段表集合相似，方法表集合也依次采用了：访问标志<strong>access_flags</strong>、名称索引<strong>name_index</strong>、描述符索引<strong>descriptor_index</strong>、属性表集合<strong>attributes</strong>；</p>
+<p>方法中的代码编译为字节码后存放在<strong>方法属性表集合</strong>的Code属性中</p>
+<p>如图：</p>
+<p>第一个u2类型数据表示集合中有两个方法；</p>
+<p>第一个方法的访问标志值为0x0001，即public；</p>
+<p>名称索引值为0x0007，对应常量池方法名为<int>；</p>
+<p>描述索引值为0x0008，对应常量为（）v；</p>
+<p>属性表计数器值为0x0001，表示此方法仅有1个属性，属性名为索引值0x0009对应的常量</p>
+<img src="http://img.lbkzw.cn/img/20200830122620.png" alt="screenshot_2020_08_28T15_59_53+0800" style="zoom:50%;" />
+
+<img src="http://img.lbkzw.cn/img/20200830122704.png" alt="screenshot_2020_08_28T16_00_05+0800" style="zoom:50%;" />
+
+<h1 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h1><p>class文件、字段表、方法表都有自己的属性表集合；</p>
+<p>虚拟机规范预定义属性：</p>
+<p>对于每个属性，它的名称都要从常量池中引用一个<strong>CONSTANT_Utf-8_info</strong>类型常量来表示；</p>
+<p>属性值的结构是完全自定义的，仅需通过一个u4说明属性值占有位数即可</p>
+<h2 id="Code属性"><a href="#Code属性" class="headerlink" title="Code属性"></a>Code属性</h2><p>接口与抽象类中不存在Code属性，</p>
+<p>如图：<img src="http://img.lbkzw.cn/img/20200830122905.png" alt="screenshot_2020_08_28T17_43_41+0800" style="zoom:50%;" /></p>
+<p><strong>attribute_name_index</strong>代表该属性的名称，它指向了<strong>CONSTANT_Utf-8_info</strong>类型常量“Code”；</p>
+<p><strong>attribute_length</strong>表示属性值长度，属性值长度为属性表长度减去6个字节（<strong>attribute_name_index</strong>与<strong>attribute_length</strong>共占6个字节）；</p>
+<p><strong>max_stack</strong>表示操作栈的最大深度值，虚拟机需要根据这个值来确定栈帧中操作栈的深度；</p>
+<p><strong>max_locals</strong>表示局部变量需要的存储空间，单位为变量槽即分配局部变量时的最小单位，32位数据类型用1个变量槽，64位数据类型用2个变量槽如double、long；</p>
+<ol>
+<li><strong>变量槽重用：</strong>当执行的代码超过一个变量的作用域时，此变量的变量槽可被其它局部变量<strong>重用</strong>；</li>
+<li><strong>max_locals的大小：</strong>javac编译器将根据变量作用域大小分配变量槽给各个变量，根据同时存在的最大局部变量数量和类型计算出max_locals的大小</li>
+</ol>
+<p>code_length用于存储编译后所得字节码的长度，code用于存储编译后所得的字节码指令；</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/JVM虚拟机" style=color:#6484be>
+                JVM虚拟机
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/jvm-03/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/16/jvm-02/">
+        <h2>
+            追踪式垃圾回收算法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="四种引用："><a href="#四种引用：" class="headerlink" title="四种引用："></a>四种引用：</h1><ol>
+<li>强引用：指程序中普遍存在的引用赋值；被强引用关联的对象<strong>只要强引用关系存在</strong>，被引用的对象就不会被回收</li>
+<li>软引用：指有用而非必须的对象；被软引用关联的对象在<strong>系统发生内存溢出之前</strong>会将其回收</li>
+<li>弱引用：指非必须的对象（比软引用弱）；被弱引用关联的对象<strong>在下一次垃圾回收前无论内存是否足够</strong>，均将其回收</li>
+<li>虚引用：无法通过此引用来取得对象实例，使用此引用<strong>只是为了在对象被回收时收到一个系统通知</strong></li>
+</ol>
+<h1 id="分代收集"><a href="#分代收集" class="headerlink" title="分代收集"></a>分代收集</h1><ul>
+<li>分代假说</li>
+</ul>
+<ol>
+<li>弱分代假说（新生代）：大多数对象都是朝生夕灭</li>
+<li>强分代假说（老年代）：对象熬过的收集次数越多就越难被回收</li>
+<li>跨代引用假说：跨代引用相对于同代引用仅占少数</li>
+</ol>
+<ul>
+<li>垃圾分类：根据强、弱分代假说，将<strong>Java堆</strong>分为两个内存区域分别<strong>存储新生代与老年代</strong>，每次回收后存活的新生代对象将逐步晋升到老年代中。</li>
+<li>老年代引用新生代：相互引用的两个对象应<strong>同生同灭</strong>，所以该<strong>新生代会逐步晋升</strong>到老年代中从而<strong>消除跨代引用</strong></li>
+<li>根据跨带引用假说，在新生代上建立全局数据结构“记忆集”，这个集合中标记存在<strong>跨代引用</strong>的老年代，收集扫描时仅扫描此集合中标识的老年代</li>
+</ul>
+<h1 id="标记算法"><a href="#标记算法" class="headerlink" title="标记算法"></a>标记算法</h1><h2 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h2><ul>
+<li><p>标记需要<strong>回收</strong>的对象，清除所有<strong>标记</strong>的对象</p>
+</li>
+<li><p>标记需要<strong>保</strong>存的对象，清除所有<strong>未标记</strong>的对象</p>
+</li>
+<li><p>缺点：<strong>标记清除算法</strong>需要大量的标记、清除动作，且清除后会产生大量不连续的内存空间（可能导致无法为大的对象分配内存）</p>
+</li>
+</ul>
+<img src="https://i.loli.net/2020/08/19/3yCNL6twl1xVYFd.jpg" alt="screenshot_2020_07_31T12_32_20+0800" style="zoom:50%;" />
+
+<h2 id="标记整理算法"><a href="#标记整理算法" class="headerlink" title="标记整理算法"></a>标记整理算法</h2><ul>
+<li>标记过程与<strong>标记清除算法</strong>相同，但并不直接对可回收对象进行回收，而是让所有存活对象向内存空间一端移动，然后直接清除另外一端</li>
+<li>缺点：移动对象操作时需全程暂停用户应用程序</li>
+<li>和稀泥式解决方案：令虚拟机使用<strong>标记清除算法</strong>直到内存碎片化程度影响到对象内存分配，再使用<strong>标记整理算法</strong></li>
+</ul>
+<img src="https://i.loli.net/2020/08/19/Pyc8XSEThekfHAI.jpg" alt="screenshot_2020_07_31T12_359+0800" style="zoom:50%;" />
+
+<h2 id="标记复制算法"><a href="#标记复制算法" class="headerlink" title="标记复制算法"></a>标记复制算法</h2><ul>
+<li><p>将内存分为两块，每次只使用一块，当这块内存满时将其中存活的对象复制到另一块内存中，并自我清除。</p>
+</li>
+<li><p>缺点：<strong>标记复制算法</strong>需要大量的内存空间，且内存中回收对象的数量直接影响着此算法的效率。</p>
+</li>
+<li><p>此算法常用于<strong>新生代</strong>回收</p>
+<img src="https://i.loli.net/2020/08/19/PSIqUYjOnxXaJcs.jpg" alt="screenshot_2020_07_31T12_35_49+0800" style="zoom:50%;" />
+
+</li>
+</ul>
+<h2 id="Appel式回收（标记复制算法的改进）"><a href="#Appel式回收（标记复制算法的改进）" class="headerlink" title="Appel式回收（标记复制算法的改进）"></a>Appel式回收（标记复制算法的改进）</h2><ul>
+<li>将新生代分为一块较大的Eden空间与两块较小的Survivor空间。</li>
+<li>分配内存时使用Eden与一块Survivor，回收时将使用的Eden与Survivor上存活的对象复制到另一块Survivor上，并自我清除。</li>
+<li>当另一块Survivor空间装不下<strong>已使用</strong>的Eden与Survivor中的存活对象时，就会发生<strong>分配担保</strong>（装不下的存活对象直接晋升至老年代）</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Jvm虚拟机" style=color:#607d8b>
+                Jvm虚拟机
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/16/jvm-02/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/2/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+
+            
+
+            
+            <a href="/">
+                <span class="page-num">1</span>
+            </a>
+            
+
+            
+
+            
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            3
+        </span>
+
+        
+        <span>
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            <a href="/page/5">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+            
+
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/4/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="../images/icon.jpg " alt="头像">
+        </div>
+        <div class="name">
+            ITthree
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                待到山花烂漫时，她在丛中笑~
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/main2035">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://lbkzw.cn">
+                    导航页面
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
             }
-          });
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
         }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-      if (typeof $.fancybox != "undefined") {
-        $.fancybox.close();    // 关闭弹窗
-      }
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-      window.ShowLoading();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      // 关于百度统计对 SPA 页面的处理：
-      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
-      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
-      // 
-
-      // 关于谷歌统计对 SPA 页面的处理：
-      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
-      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
-      
-
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-          if (typeof $.fancybox == "undefined") {
-            SCload_fancybox();
-          } else {
-            pjax_fancybox();
-          }
-        
-        
-        
-        
-        
-        
-          pjax_valine();
-        
-        
-        
-        
-      } catch (e) {
-        console.log(e);
-      }
-      window.HideLoading();
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-      window.HideLoading();
-      window.location.href = e.triggerElement.href;
-    });
+    })
 </script>
 
-    
-  </div>
 </body>
+
 </html>

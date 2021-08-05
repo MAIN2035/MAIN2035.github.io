@@ -1,1961 +1,2272 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1'>
-  <meta charset="utf-8">
-  <!-- SEO相关 -->
-  
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
     
-      
-        <meta name="robots" content="index,follow">
-      
+    <link rel="stylesheet" href="/css/night-theme.css">
     
-  
-  <!-- 渲染优化 -->
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <meta name="renderer" content="webkit">
-  <meta name="force-rendering" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- 页面元数据 -->
-  
-  <title>ThreeClothの博客</title>
-  
-
-  
-    <meta name="description" content="ThreeClothの博客,我思故我在">
-  
-
-  <!-- feed -->
-  
-
-  <!-- import meta -->
-  
-
-  <!-- link -->
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- import link -->
-  
-
-  
-  
-    
-<link rel="stylesheet" href="/css/style.css">
-
-  
-
-  <script id="loadcss"></script>
-
-</head>
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.0.1"></head>
 
 <body>
-  
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
-  <div class='container'>
-  <div id='wrapper'>
-    <div class='nav-sub'>
-      <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-      </ul>
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-		<div class="nav-main">
-      
-        
-        <a class="title flat-box" target="_self" href='/'>
-          
-          
-          
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
         </a>
-      
-
-			<div class='menu navigation'>
-				<ul class='nav-list-h m-pc'>
-          
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-          
-				</ul>
-			</div>
-
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
-        </form>
-      </div>
-
-			<ul class='switcher nav-list-h m-phone'>
-				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
-				
-				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
-          <ul class="menu-phone list-v navigation white-box">
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-            
-          </ul>
-        </li>
-			</ul>
-		</div>
-	</div>
-  </div>
-</header>
-
-  <div id="l_body">
-    <div id="l_cover">
-  
-    
-        <div id="full" class='cover-wrapper  dock' style="display: ;">
-          
-            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
-          
-          <div class='cover-body'>
-  <div class='top'>
-    
-    
-      <p class="title">ThreeCloth</p>
-    
-    
-  </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
         
-          
-            <a href="/archives/"
-              
-              
-              id="archives">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              id="about">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>关于</p>
-            </a>
-          
-            <a href="/categories/"
-              
-              
-              id="categories">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>分类</p>
-            </a>
-          
-            <a href="/tags/"
-              
-              
-              id="tags">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>标签</p>
-            </a>
-          
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-        </div>
-    
-  
-  </div>
-
-    <div id='safearea'>
-      <div class='body-wrapper' id="pjax-container">
-        
-
-<div class='l_main'>
-  
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/08/05/20210805/">
-        找回宝塔面板信息|ssh密钥免密登录服务器
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        找回宝塔面板信息
-ssh连接服务器
-输入 /etc/init.d/bt default
-解决
-
-补充：
-
-不用使用额外的ssh工具连接服务器，Linux下shell终端即可（win系统使用git终端也可）
-
-附ssh常用命令：
-123ssh root@127.0.0.1 #以root用户登入服务器地址为127.0.0.1的服务器ssh root@127.0.0.1 -i id_rsa #使用...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-08-05</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/ubuntu/">ubuntu</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/08/05/20210805/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/03/20/Python-1/">
-        anaconda入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-安装不做介绍，下载链接https://anaconda.en.softonic.com/
-
-
-环境命令：
-
-创建一个名称为python37的虚拟环境并指定python版本为3.7 ：
-1conda  create -n python37 python=3.7
-
-查看环境：conda info --envs
-激活某个环境：conda activate python34
-
-包命令
-
-安装包：c...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-03-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Python/">Python</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/03/20/Python-1/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/03/03/PriorityQueue/">
-        2021年3月3日
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        PriorityQueue插入元素
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748 //代理方法public boolean add(E e) &#123;        return offer(e);    &#125;//目标方法    public bool...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-03-03</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/03/03/PriorityQueue/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/02/13/20210213/">
-        2021年2月13日
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        很久没有更新blog了。
-多年以后你会想起么，也会同样哼着这首歌。
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-02-13</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/02/13/20210213/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/14/2020-dataB-End/">
-        期末作业-数据库mysql
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        原题如下设有一个工程供应数据库系统，包括如下四个关系模式： 
-S(SNO，SNAME， STATUS，CITY)；（SNO的域为1001-1999） 
-P(PNO，PNAME，COLOR，WEIGHT)； （PNO的域为2001-2999）
-J(JNO，JNAME，CITY)；（JNO的域为3001-3999） 
-SPJ(SNO，PNO，JNO，QTY)； 
-供应商表S由供应商号、供应商名、...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-14</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/14/2020-dataB-End/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/10/java-mybatis-01/">
-        2020年12月10日
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        #基础支持层
-解析器模块常见的三种解析方式： DOM SAX StAX
-DOM整体将XML整体解析为树状样式
-优点：便于获取数据，如在父子兄弟节点间切换很自然
-缺点：占用资源较大
-SAX基于事件模型的解析方式，解析时只将xml的一部分加载到内存，可在任一节点注册回调函数。
-解析器解析到此节点（注册回调函数的节点）时会通过回调函数将事件发送给应用程序（推模式）
-StAx同SAX将XML作为一个...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-10</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/10/java-mybatis-01/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/30/Java-Aop/">
-        简单使用动态代理
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        简单使用动态代理
-使用Aop在不改变原有结构下对类的功能进行增强
-
-1.目标类接口
-12345678910package cn.itthree.aop.service;/** * 目标接口* */public interface UsbSell &#123;    /*amount表示单次购买数量     * 返回值是一个u盘的价格*/    float sell(int amount);&...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-30</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/30/Java-Aop/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/06/Ajax-01/">
-        Ajax
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-用于局部刷新
-
-异步对象(XMLHttpRequest) readyState属性表示异步对象请求的状态变化     0：创建异步对象时， new XMLHttpRequest();     1: 初始异步请求对象， xmlHttp.open()     2：发送请求， xmlHttp.send()     3: 从服务器端获取了数据，此时3， 注意3是异步对象内部使用， 获取了原始的数据...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-06</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/JavaWeb/">JavaWeb</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/06/Ajax-01/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/01/Java-Jsp-01/">
-        Jsp
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Jsp书写规则&lt;% %&gt;中书写Java代码
-123456789&lt;%    Students stu1 &#x3D; new Students(&quot;张三&quot;,1);    Students stu2 &#x3D; new Students(&quot;李四&quot;,2);    Students stu3 &#x3D; new Students(&quot...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-01</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/JavaWeb/">JavaWeb</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/01/Java-Jsp-01/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/27/Java-datas-heap/">
-        heap,heap-sort
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        堆：以完全二叉树的形式展现：
-除了树的最后一层结点不需要是满的，其它的每一层从左到右都是满的，如果最后一层结点不 是满的，那么要求左满右不满
-
-并以数组进行存储。每个结点都大于等于它的两个子结点。
-如下图，如用k表示当前结点，则其的左右结点分别为2k，2k+1，任意结点的父节点为k/2
-k/2(包括k/2)前是非叶子结点k/2之后是叶子结点。
-
-堆实现12345678910111213141...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/dataStructure/">dataStructure</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/27/Java-datas-heap/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 5
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
-
-
-</div>
-<aside class='l_side'>
-  
-  
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
         </a>
-      
-    
-    
-      <div class='text'>
         
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
         
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
         
-          <p><span id="jinrishici-sentence">ThreeClothの博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
         
-      </div>
-    
-    
-      <div class="social-wrapper">
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
         
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/JS/" href="/categories/JS/"
-            id="categoriesJS"
-            ><div class='name'>JS</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Java/" href="/categories/Java/"
-            id="categoriesJava"
-            ><div class='name'>Java</div><div class='badge'>(25)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/JavaWeb/" href="/categories/JavaWeb/"
-            id="categoriesJavaWeb"
-            ><div class='name'>JavaWeb</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/SQL/" href="/categories/SQL/"
-            id="categoriesSQL"
-            ><div class='name'>SQL</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Ubuntu/" href="/categories/Ubuntu/"
-            id="categoriesUbuntu"
-            ><div class='name'>Ubuntu</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/dataStructure/" href="/categories/dataStructure/"
-            id="categoriesdataStructure"
-            ><div class='name'>dataStructure</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/hexo/" href="/categories/hexo/"
-            id="categorieshexo"
-            ><div class='name'>hexo</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/mysql/" href="/categories/mysql/"
-            id="categoriesmysql"
-            ><div class='name'>mysql</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/ubuntu/" href="/categories/ubuntu/"
-            id="categoriesubuntu"
-            ><div class='name'>ubuntu</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
     </div>
-  </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/AOP/" style="font-size: 14px; color: #999">AOP</a> <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/Cookie/" style="font-size: 14px; color: #999">Cookie</a> <a href="/tags/EffectiveJava/" style="font-size: 14px; color: #999">EffectiveJava</a> <a href="/tags/JDBC/" style="font-size: 14px; color: #999">JDBC</a> <a href="/tags/JS%E5%9F%BA%E7%A1%80/" style="font-size: 21.5px; color: #666">JS基础</a> <a href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 14px; color: #999">JVM虚拟机</a> <a href="/tags/Java/" style="font-size: 21.5px; color: #666">Java</a> <a href="/tags/JavaWeb/" style="font-size: 14px; color: #999">JavaWeb</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 24px; color: #555">Java基础</a> <a href="/tags/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" style="font-size: 21.5px; color: #666">Java多线程编程</a> <a href="/tags/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 19px; color: #777">Java设计模式</a> <a href="/tags/Jsp/" style="font-size: 14px; color: #999">Jsp</a> <a href="/tags/Jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 16.5px; color: #888">Jvm虚拟机</a> <a href="/tags/SQL%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">SQL入门</a> <a href="/tags/Session/" style="font-size: 14px; color: #999">Session</a> <a href="/tags/Tomcat/" style="font-size: 14px; color: #999">Tomcat</a> <a href="/tags/anaconda/" style="font-size: 14px; color: #999">anaconda</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/shell/" style="font-size: 16.5px; color: #888">shell</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
     </div>
-  </section>
 
+</nav>
+                </div>
 
-  
-
-  
-
-
-</aside>
-
-
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
-<!--思路大概是将值藏到重加载的区域内-->
-
-<script>
-  window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
-  pdata.commentPath="";
-  pdata.commentPlaceholder="";
-
-  var l_header=document.getElementById("l_header");
-  
-  l_header.classList.remove("show");
-  
-</script>
-
-        
-      </div>
-      
-  
-  <footer class="footer clearfix">
-    <br><br>
-    
-      
-        <div class="aplayer-container">
-          
-
-
-        </div>
-      
-    
-      
-        <br>
-        <div class="social-wrapper">
-          
-            
-          
-            
-          
-            
-          
-        </div>
-      
-    
-      
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
-</div>
-      
-    
-      
-        
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
-</div>
-        
-      
-    
-      
-        本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1" target="_blank" class="codename">Volantis</a>
-        作为主题
-      
-    
-      
-        <div class='copyright'>
-        <p><a href="/">Copyright © 2017-2020 ThreeCloth</a></p>
-
-        </div>
-      
-    
-  </footer>
-
-
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
-    </div>
-  </div>
-  <div>
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
     <script>
-window.volantis={};
-/********************脚本懒加载函数********************************/
-function loadScript(src, cb) {
-var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-var script = document.createElement('script');
-script.setAttribute('type','text/javascript');
-if (cb) script.onload = cb;
-script.setAttribute('src', src);
-HEAD.appendChild(script);
-}
-//https://github.com/filamentgroup/loadCSS
-var loadCSS = function( href, before, media, attributes ){
-	var doc = window.document;
-	var ss = doc.createElement( "link" );
-	var ref;
-	if( before ){
-		ref = before;
-	}
-	else {
-		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
-		ref = refs[ refs.length - 1];
-	}
-	var sheets = doc.styleSheets;
-	if( attributes ){
-		for( var attributeName in attributes ){
-			if( attributes.hasOwnProperty( attributeName ) ){
-				ss.setAttribute( attributeName, attributes[attributeName] );
-			}
-		}
-	}
-	ss.rel = "stylesheet";
-	ss.href = href;
-	ss.media = "only x";
-	function ready( cb ){
-		if( doc.body ){
-			return cb();
-		}
-		setTimeout(function(){
-			ready( cb );
-		});
-	}
-	ready( function(){
-		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
-	});
-	var onloadcssdefined = function( cb ){
-		var resolvedHref = ss.href;
-		var i = sheets.length;
-		while( i-- ){
-			if( sheets[ i ].href === resolvedHref ){
-				return cb();
-			}
-		}
-		setTimeout(function() {
-			onloadcssdefined( cb );
-		});
-	};
-	function loadCB(){
-		if( ss.addEventListener ){
-			ss.removeEventListener( "load", loadCB );
-		}
-		ss.media = media || "all";
-	}
-	if( ss.addEventListener ){
-		ss.addEventListener( "load", loadCB);
-	}
-	ss.onloadcssdefined = onloadcssdefined;
-	onloadcssdefined( loadCB );
-	return ss;
-};
-</script>
-<!-- required -->
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
-
-<script>
-  function pjax_fancybox() {
-    $(".md .gallery").find("img").each(function () { //渲染 fancybox
-      var element = document.createElement("a"); // a 标签
-      $(element).attr("class", "fancybox");
-      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
-      $(element).attr("href", $(this).attr("src"));
-      if ($(this).attr("data-original")) {
-        $(element).attr("href", $(this).attr("data-original"));
-      }
-      $(element).attr("data-fancybox", "images");
-      var caption = "";   // 描述信息
-      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
-        $(element).attr('data-caption', $(this).attr('alt'));
-        caption = $(this).attr('alt');
-      }
-      var div = document.createElement("div");
-      $(div).addClass("fancybox");
-      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
-      var span = document.createElement("span");
-      $(span).addClass("image-caption");
-      $(span).text(caption); // 加描述
-      $(this).after(span);  // 再套一层描述
-      $(this).wrap(element);  // 最后套 a 标签
-    })
-    $(".md .gallery").find("img").fancybox({
-      selector: '[data-fancybox="images"]',
-      hash: false,
-      loop: false,
-      closeClick: true,
-      helpers: {
-        overlay: {closeClick: true}
-      },
-      buttons: [
-        "zoom",
-        "close"
-      ]
-    });
-  };
-  function SCload_fancybox() {
-    if ($(".md .gallery").find("img").length == 0) return;
-    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
-    setTimeout(function() {
-      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
-    }, 1);
-  };
-  $(function () {
-    SCload_fancybox();
-  });
-</script>
-
-
-<!-- internal -->
-
-
-
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-
-
-  
-  
-    <script>
-      window.FPConfig = {
-        delay: 0,
-        ignoreKeywords: [],
-        maxRPS: 5,
-        hoverDelay: 25
-      };
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
     </script>
-    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-<script src="/js/valine.js"></script>
-
-
-<script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '/wiki/volantis/# 全局评论地址';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-
-    var valine = new Valine();
-    valine.init({
-      el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
-      path: path,
-      appId: "h8nJRe53Bw2xNxk98JPCkYPn-gzGzoHsz",
-      appKey: "quPPyHETb0KbIoTjALf6niEb",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
-  }
-
-  $(function () {
-    pjax_valine();
-  });
-</script>
-
-
-
-
-
-  
-<script src="/js/app.js"></script>
-
-
-
-
-  
-    
-<script src="/js/search.js"></script>
-
-  
-
-
-<!-- optional -->
-
-  <script>
-const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
-const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
-(function ($) {
-  
-    customSearch = new HexoSearch({
-      imagePath: SearchServiceimagePath
-    });
-  
-})(jQuery);
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-  <script defer>
-
-  const LCCounter = {
-    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
-    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
-    custom_api_server: '',
-
-    // 查询存储的记录
-    getRecord(Counter, url, title) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {url, title: title, times: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    },
-
-    // 发起自增请求
-    increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    },
-
-    // 构建自增请求体
-    buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "times": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    },
-
-    // 校验是否为有效的 UV
-    validUV() {
-      var key = 'LeanCloudUVTimestamp';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    },
-
-    addCount(Counter) {
-      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
-      enableIncr = true;
-      var getterArr = [];
-      var incrArr = [];
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#lc-sv');
-      if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-sv', 'Visits').then((record) => {
-          incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-sv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + 1;
-              if (pvCtn) {
-                pvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#lc-uv');
-      if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-uv', 'Visitors').then((record) => {
-          var vuv = this.validUV();
-          vuv && incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-uv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + (vuv ? 1 : 0);
-              if (uvCtn) {
-                uvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 请求文章的浏览数，如果是当前页面就自增
-      var allPV = document.querySelectorAll('#lc-pv');
-      if (allPV.length > 0 || enableIncr) {
-        for (i = 0; i < allPV.length; i++) {
-          let pv = allPV[i];
-          let title = pv.getAttribute('data-title');
-          var url = 'https://main2035.github.io' + pv.getAttribute('data-path');
-          if (url) {
-            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
-              // 是当前页面就自增
-              let curPath = window.location.pathname;
-              if (curPath.includes('index.html')) {
-                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
-              }
-              if (pv.getAttribute('data-path') == curPath) {
-                incrArr.push(this.buildIncrement(record.objectId));
-              }
-              if (pv) {
-                var ele = pv.querySelector('#lc-pv #number');
-                if (ele) {
-                  if (pv.getAttribute('data-path') == curPath) {
-                    ele.innerText = (record.times || 0) + 1;
-                  } else {
-                    ele.innerText = record.times || 0;
-                  }
-                  pv.style.display = 'inline';
-                }
-              }
-            });
-            getterArr.push(viewGetter);
-          }
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && this.increment(Counter, incrArr);
-        })
-      }
-
-    },
-
-
-    fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': this.app_id,
-            'X-LC-Key': this.app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      this.addCount(Counter);
-    },
-
-    refreshCounter() {
-      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-      if (api_server) {
-        this.fetchData(api_server);
-      } else {
-        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
-          .then(resp => resp.json())
-          .then(({api_server}) => {
-            this.fetchData('https://' + api_server);
-          });
-      }
-    }
-
-  };
-
-  LCCounter.refreshCounter();
-
-  document.addEventListener('pjax:complete', function () {
-    LCCounter.refreshCounter();
-  });
-</script>
-
-
-
-
-
-
-
-
-<script>
-function listennSidebarTOC() {
-  const navItems = document.querySelectorAll(".toc li");
-  if (!navItems.length) return;
-  const sections = [...navItems].map((element) => {
-    const link = element.querySelector(".toc-link");
-    const target = document.getElementById(
-      decodeURI(link.getAttribute("href")).replace("#", "")
-    );
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({
-		top: target.offsetTop + 100,
-		
-		behavior: "smooth"
-		
-	  });
-    });
-    return target;
-  });
-
-  function activateNavByIndex(target) {
-    if (target.classList.contains("active-current")) return;
-
-    document.querySelectorAll(".toc .active").forEach((element) => {
-      element.classList.remove("active", "active-current");
-    });
-    target.classList.add("active", "active-current");
-    let parent = target.parentNode;
-    while (!parent.matches(".toc")) {
-      if (parent.matches("li")) parent.classList.add("active");
-      parent = parent.parentNode;
-    }
-  }
-
-  function findIndex(entries) {
-    let index = 0;
-    let entry = entries[index];
-    if (entry.boundingClientRect.top > 0) {
-      index = sections.indexOf(entry.target);
-      return index === 0 ? 0 : index - 1;
-    }
-    for (; index < entries.length; index++) {
-      if (entries[index].boundingClientRect.top <= 0) {
-        entry = entries[index];
-      } else {
-        return sections.indexOf(entry.target);
-      }
-    }
-    return sections.indexOf(entry.target);
-  }
-
-  function createIntersectionObserver(marginTop) {
-    marginTop = Math.floor(marginTop + 10000);
-    let intersectionObserver = new IntersectionObserver(
-      (entries, observe) => {
-        let scrollHeight = document.documentElement.scrollHeight + 100;
-        if (scrollHeight > marginTop) {
-          observe.disconnect();
-          createIntersectionObserver(scrollHeight);
-          return;
-        }
-        let index = findIndex(entries);
-        activateNavByIndex(navItems[index]);
-      },
-      {
-        rootMargin: marginTop + "px 0px -100% 0px",
-        threshold: 0,
-      }
-    );
-    sections.forEach((element) => {
-      element && intersectionObserver.observe(element);
-    });
-  }
-  createIntersectionObserver(document.documentElement.scrollHeight);
-}
-
-document.addEventListener("DOMContentLoaded", listennSidebarTOC);
-document.addEventListener("pjax:success", listennSidebarTOC);
-</script>
-
-<!-- more -->
-
-
-
-
-    
-      
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
-
-<div class="pjax-animate">
-  
-    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
-    <script>
-      window.ShowLoading = function() {
-        NProgress.start();
-      };
-      window.HideLoading = function() {
-        NProgress.done();
-      }
-    </script>
-  
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>ITthreeの博客</h1>
+                <h3></h3>
+                <h5>ITthreeの博客,我思故我在</h5>
+            </div>
+        </span>
+    </div>
+     
 </div>
 
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          "#l_cover",
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
 
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
 
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2021/08/05/20210805/">
+        <h2>
+            找回宝塔面板信息|ssh密钥免密登录服务器
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/ubuntu">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                ubuntu
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/8/5
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="找回宝塔面板信息"><a href="#找回宝塔面板信息" class="headerlink" title="找回宝塔面板信息"></a>找回宝塔面板信息</h1><ol>
+<li>ssh连接服务器</li>
+<li>输入 <code>/etc/init.d/bt default</code></li>
+<li>解决</li>
+</ol>
+<p>补充：</p>
+<ul>
+<li><p>不用使用额外的ssh工具连接服务器，Linux下shell终端即可（win系统使用git终端也可）</p>
+</li>
+<li><p>附ssh常用命令：</p>
+<pre><code class="shell">
+ssh root@127.0.0.1 #以root用户登入服务器地址为127.0.0.1的服务器
+ssh root@127.0.0.1 -i id_rsa #使用密钥登录，通常不用输入密码（不过要事先设置，如何设置请看下：）</code></pre>
+</li>
+</ul>
+<p>  <strong>前情提示：win系统需要借助git终端</strong></p>
+<p>  下面我们三步走：</p>
+<ol>
+<li><p>生成密钥——一路回车</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210805133916778.png"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>上传密钥</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210805134301432.png" alt="image-20210805134301432"></p>
+</li>
+<li><p>使用密钥链接</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210805134359023.png" alt="image-20210805134359023"></p>
+</li>
+</ol>
+<ul>
+<li><p>上面操作用到的command</p>
+<pre><code class="ssh">#注意密钥默认存放在.ssh目录（注意你的位置）
+#生成密钥
+ssh-keygen -t rsa 
+#上传密钥
+ssh-copy-id -i id_rsa.pub root@127.0.0.1 -p 22</code></pre>
+</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/shell" style=color:#6484be>
+                shell
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/08/05/20210805/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/03/20/Python-1/">
+        <h2>
+            anaconda入门
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Python">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Python
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/3/20
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>安装不做介绍，下载链接<a target="_blank" rel="noopener" href="https://anaconda.en.softonic.com/">https://anaconda.en.softonic.com/</a></p>
+</blockquote>
+<ol>
+<li>环境命令：</li>
+</ol>
+<p>创建一个名称为python37的虚拟环境并指定python版本为3.7 ：</p>
+<pre><code class="python">conda  create -n python37 python=3.7</code></pre>
+<p>查看环境：<code>conda info --envs</code></p>
+<p>激活某个环境：<code>conda activate python34</code></p>
+<ol start="2">
+<li>包命令</li>
+</ol>
+<p>安装包：<code>conda install package_name</code></p>
+<p>卸载包：<code>conda remove pandas</code></p>
+<p>更新包：<code>conda update package_name</code></p>
+<ol start="3">
+<li>Pycharm 配置anaconda</li>
+</ol>
+<p>File -&gt; Settings<br><img src="http://img.lbkzw.cn/img/20190105173256159.png" alt="20190105173256159"></p>
+<p><img src="http://img.lbkzw.cn/img/20190105173419992.png" alt="20190105173419992"></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/anaconda" style=color:#006674>
+                anaconda
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/03/20/Python-1/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/03/03/PriorityQueue/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/3/3
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h1><p>插入元素</p>
+<pre><code class="java"> //代理方法
+public boolean add(E e) &amp;#123;
+        return offer(e);
+    &amp;#125;
+
+//目标方法
+    public boolean offer(E e) &amp;#123;
+        //添加元素为null时抛出异常，添加结束
+        if (e == null)
+            throw new NullPointerException();
+        modCount++;
+        //    
+        int i = size;
+        //这段扩容代码...
+        //数组满了便调用grow()扩容，size+1
+        if (i &gt;= queue.length)
+            grow(i + 1);
+        size = i + 1;
+        //数组为空便直接插入，否则进行上浮操作
+        if (i == 0)
+            queue[0] = e;
+        else
+            //上浮
+            siftUp(i, e);
+        return true;
+    &amp;#125;
+
+
+private void grow(int minCapacity) &amp;#123;
+        int oldCapacity = queue.length;
+        // Double size if small; else grow by 50%
+        //原数组大小小于64便扩容到其2倍+2，否则扩容百分之50
+        int newCapacity = oldCapacity + ((oldCapacity &lt; 64) ?
+                                         (oldCapacity + 2) :
+                                         (oldCapacity &gt;&gt; 1));
+
+        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+            newCapacity = hugeCapacity(minCapacity);
+        queue = Arrays.copyOf(queue, newCapacity);
+    &amp;#125;
+
+   private static int hugeCapacity(int minCapacity) &amp;#123;
+        if (minCapacity &lt; 0) // overflow
+            throw new OutOfMemoryError();
+        return (minCapacity &gt; MAX_ARRAY_SIZE) ?
+            Integer.MAX_VALUE :
+            MAX_ARRAY_SIZE;
+    &amp;#125;</code></pre>
+<p>曾经的写法</p>
+<pre><code class="java">//siftUp()
+private void siftUp(int k, E x) &amp;#123;
+    while (k &gt; 0) &amp;#123;
+        int parent = (k - 1) &gt;&gt;&gt; 1;//parentNo = (nodeNo-1)/2
+        Object e = queue[parent];
+        if (comparator.compare(x, (E) e) &gt;= 0)//调用比较器的比较方法
+            break;
+        queue[k] = e;
+        k = parent;
+    &amp;#125;
+    queue[k] = x;
+&amp;#125;</code></pre>
+<p>现在的写法</p>
+<pre><code class="java">  private void siftUp(int k, E x) &amp;#123;
+        if (comparator != null)
+            siftUpUsingComparator(k, x);
+        else
+            siftUpComparable(k, x);
+    &amp;#125;
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private void siftUpComparable(int k, E x) &amp;#123;
+        Comparable&lt;? super E&gt; key = (Comparable&lt;? super E&gt;) x;
+        while (k &gt; 0) &amp;#123;
+            int parent = (k - 1) &gt;&gt;&gt; 1;
+            Object e = queue[parent];
+            if (key.compareTo((E) e) &gt;= 0)
+                break;
+            queue[k] = e;
+            k = parent;
+        &amp;#125;
+        queue[k] = key;
+    &amp;#125;
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private void siftUpUsingComparator(int k, E x) &amp;#123;
+        while (k &gt; 0) &amp;#123;
+            int parent = (k - 1) &gt;&gt;&gt; 1;
+            Object e = queue[parent];
+            if (comparator.compare(x, (E) e) &gt;= 0)
+                break;
+            queue[k] = e;
+            k = parent;
+        &amp;#125;
+        queue[k] = x;
+    &amp;#125;</code></pre>
+<pre><code class="java">@SuppressWarnings(&quot;unchecked&quot;)
+    public E peek() &amp;#123;
+        return (size == 0) ? null : (E) queue[0];
+    &amp;#125;</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2021/03/03/PriorityQueue/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/02/13/20210213/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/2/13
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>很久没有更新blog了。</p>
+<p>多年以后你会想起么，也会同样哼着这首歌。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2021/02/13/20210213/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/12/14/2020-dataB-End/">
+        <h2>
+            期末作业-数据库mysql
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/12/14
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="原题如下"><a href="#原题如下" class="headerlink" title="原题如下"></a>原题如下</h1><p>设有一个工程供应数据库系统，包括如下四个关系模式： </p>
+<p>S(SNO，SNAME， STATUS，CITY)；（SNO的域为1001-1999） </p>
+<p>P(PNO，PNAME，COLOR，WEIGHT)； （PNO的域为2001-2999）</p>
+<p>J(JNO，JNAME，CITY)；（JNO的域为3001-3999） </p>
+<p>SPJ(SNO，PNO，JNO，QTY)； </p>
+<p>供应商表S由供应商号、供应商名、状态、城市组成； </p>
+<p>零件表P 由零件号、零件名、颜色、重量组成； </p>
+<p>工程项目表J由项目号、项目名、城市组成； </p>
+<p>供应情况表SPJ由供应商号、零件号、项目号、供应数量组成； </p>
+<p>1、创建数据库SPJ；</p>
+<p>2、使用数据库SPJ；</p>
+<p>3、创建4个具体表，分别为供应商表S、零件表P、工程项目表J、供应情况表SPJ；</p>
+<p>4、每个表分别插入2-3条数据（供应商名为自己姓名）；</p>
+<p>5、用SQL查询供应工程J3001零件为红色的工程号JNO；</p>
+<p>6、用SQL查询没有使用天津供应商生产的零件的工程号；</p>
+<p>7、用SQL语句将全部红色零件改为蓝色； </p>
+<p>8、用SQL语句将（S1001，P2001，J3001，400）插入供应情况关系；</p>
+<p>9、用SQL语句删除供应商表S中SNO为1001的供应商；</p>
+<h1 id="答题操作"><a href="#答题操作" class="headerlink" title="答题操作"></a>答题操作</h1><p>沙雕第一步建库再删库</p>
+<h2 id="1、创建数据库SPJ"><a href="#1、创建数据库SPJ" class="headerlink" title="1、创建数据库SPJ"></a>1、创建数据库SPJ</h2><p><code>CREATE DATABASE SPJ;</code></p>
+<h2 id="2-使用数据库SPJ"><a href="#2-使用数据库SPJ" class="headerlink" title="2.使用数据库SPJ"></a>2.使用数据库SPJ</h2><p><code>USE spj;</code></p>
+<h2 id="3、创建4个具体表"><a href="#3、创建4个具体表" class="headerlink" title="3、创建4个具体表"></a>3、创建4个具体表</h2><p>分别为供应商表S、零件表P、工程项目表J、供应情况表SPJ</p>
+<p><strong>创建供应商表S</strong></p>
+<pre><code class="sql">
+CREATE TABLE `S`(
+`SNO` INT NOT NULL AUTO_INCREMENT, -- 不为null 自增长 
+`SNAME` VARCHAR(100) NOT NULL,
+`STATUS`VARCHAR(100) NOT NULL,
+`CITY` VARCHAR(100) NOT NULL,
+PRIMARY KEY ( `SNO` ),   -- 设置SNO为主键
+CHECK(`SNO`&gt;=1001 AND `SNO`&lt;1999) -- 设置列范围
+)ENGINE=INNODB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;  -- 设置数据库引擎为INNODB 主键自增长从1001开始 默认编码为utf8
+
+
+</code></pre>
+<p><strong>创建零件表P</strong></p>
+<pre><code class="sql">CREATE TABLE `P`(
+`PNO` INT NOT NULL AUTO_INCREMENT,
+`PNAME` VARCHAR(100) NOT NULL,
+`COLOR`VARCHAR(100) NOT NULL,
+`WEIGHT` VARCHAR(100) NOT NULL,
+PRIMARY KEY ( `PNO` ),
+CHECK(`PNO`&gt;=2001 AND `PNO`&lt;2999)
+)ENGINE=INNODB AUTO_INCREMENT=2001 DEFAULT CHARSET=utf8;
+</code></pre>
+<p><strong>创建工程项目表J</strong></p>
+<pre><code class="sql">CREATE TABLE `J`(
+`JNO` INT NOT NULL AUTO_INCREMENT,
+`JNAME` VARCHAR(100) NOT NULL,
+`CITY`VARCHAR(100) NOT NULL,
+PRIMARY KEY ( `JNO` ),
+CHECK(`JNO`&gt;=3001 AND `JNO`&lt;3999)
+)ENGINE=INNODB AUTO_INCREMENT=2001 DEFAULT CHARSET=utf8;
+</code></pre>
+<p><strong>供应情况表SPJ</strong></p>
+<pre><code class="sql">CREATE TABLE `SPJ`(
+`SNO` VARCHAR(100) NOT NULL,
+`PNO` VARCHAR(100) NOT NULL,
+`JNO` VARCHAR(100) NOT NULL,
+`QTY` VARCHAR(100) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=utf8;</code></pre>
+<h2 id="4、每个表分别插入2-3条数据（供应商名为自己姓名）"><a href="#4、每个表分别插入2-3条数据（供应商名为自己姓名）" class="headerlink" title="4、每个表分别插入2-3条数据（供应商名为自己姓名）"></a>4、每个表分别插入2-3条数据（供应商名为自己姓名）</h2><p><strong>供应商表S插入数据</strong></p>
+<pre><code class="sql">INSERT INTO `s`
+VALUES (&#39;1001&#39;,&#39;赵玉豪&#39;,&#39;火爆&#39;,&#39;深圳&#39;);
+INSERT INTO `s`
+VALUES (&#39;1002&#39;,&#39;赵玉豪&#39;,&#39;火爆&#39;,&#39;深圳&#39;);</code></pre>
+<p><strong>供零件表S插入数据</strong></p>
+<pre><code class="sql">INSERT INTO `p`
+VALUES (&#39;2002&#39;,&#39;把手&#39;,&#39;白色&#39;,&#39;5kg&#39;);
+INSERT INTO `p`
+VALUES (&#39;2002&#39;,&#39;把手&#39;,&#39;白色&#39;,&#39;5kg&#39;);</code></pre>
+<p><strong>工程项目表S插入数据</strong></p>
+<pre><code class="sql">INSERT INTO `j`
+VALUES (&#39;3001&#39;,&#39;wwz666&#39;,&#39;深圳&#39;);</code></pre>
+<pre><code class="sql">INSERT INTO `j`
+VALUES (&#39;3002&#39;,&#39;wwz666666&#39;,&#39;深圳&#39;);</code></pre>
+<p><strong>供应情况表SPJ插入数据</strong></p>
+<pre><code class="sql">INSERT INTO `spj`
+VALUES (&#39;1001&#39;,&#39;2001&#39;,&#39;3001&#39;,&#39;100&#39;);
+INSERT INTO `spj`
+VALUES (&#39;1002&#39;,&#39;2002&#39;,&#39;3002&#39;,&#39;200&#39;);</code></pre>
+<h2 id="5、用SQL查询供应工程J3001零件为红色的工程号JNO；"><a href="#5、用SQL查询供应工程J3001零件为红色的工程号JNO；" class="headerlink" title="5、用SQL查询供应工程J3001零件为红色的工程号JNO；"></a>5、用SQL查询供应工程J3001零件为红色的工程号JNO；</h2><pre><code class="sql">SELECT DISTINCT JNO,COLOR FROM J,P
+WHERE JNO=&#39;J3001&#39; AND COLOR=&#39;红色&#39;</code></pre>
+<h2 id="6、用SQL查询没有使用天津供应商生产的零件的工程号；"><a href="#6、用SQL查询没有使用天津供应商生产的零件的工程号；" class="headerlink" title="6、用SQL查询没有使用天津供应商生产的零件的工程号；"></a>6、用SQL查询没有使用天津供应商生产的零件的工程号；</h2><pre><code class="sql">SELECT JNO FROM J
+WHERE NOT CITY IN(&#39;天津&#39;)</code></pre>
+<h2 id="7、用SQL语句将全部红色零件改为蓝色；"><a href="#7、用SQL语句将全部红色零件改为蓝色；" class="headerlink" title="7、用SQL语句将全部红色零件改为蓝色；"></a>7、用SQL语句将全部红色零件改为蓝色；</h2><pre><code class="sql">UPDATE p
+SET COLOR=&#39;蓝色&#39;;</code></pre>
+<h2 id="8、用SQL语句将（S1001，P2001，J3001，400）插入供应情况关系"><a href="#8、用SQL语句将（S1001，P2001，J3001，400）插入供应情况关系" class="headerlink" title="8、用SQL语句将（S1001，P2001，J3001，400）插入供应情况关系"></a>8、用SQL语句将（S1001，P2001，J3001，400）插入供应情况关系</h2><pre><code class="sql">INSERT INTO `spj`
+VALUES (&#39;S1001&#39;,&#39;P2001&#39;,&#39;J3001&#39;,&#39;400&#39;);</code></pre>
+<h2 id="9、用SQL语句删除供应商表S中SNO为1001的供应商"><a href="#9、用SQL语句删除供应商表S中SNO为1001的供应商" class="headerlink" title="9、用SQL语句删除供应商表S中SNO为1001的供应商"></a>9、用SQL语句删除供应商表S中SNO为1001的供应商</h2><pre><code class="sql">DELETE FROM s
+WHERE SNO=&#39;1001&#39;;</code></pre>
+<h1 id="最终效果如下："><a href="#最终效果如下：" class="headerlink" title="最终效果如下："></a>最终效果如下：</h1><p>暂未上传<br><img src="https://img.lbkzw.cn/img/image-20201214090605188.png"></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/sql" style=color:#016a99>
+                sql
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/12/14/2020-dataB-End/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/12/10/java-mybatis-01/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/12/10
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>#基础支持层</p>
+<h2 id="解析器模块"><a href="#解析器模块" class="headerlink" title="解析器模块"></a>解析器模块</h2><p>常见的三种解析方式： DOM SAX StAX</p>
+<p>DOM整体将XML整体解析为树状样式</p>
+<p>优点：便于获取数据，如在父子兄弟节点间切换很自然</p>
+<p>缺点：占用资源较大</p>
+<p>SAX基于事件模型的解析方式，解析时只将xml的一部分加载到内存，可在任一节点注册回调函数。</p>
+<p>解析器解析到此节点（注册回调函数的节点）时会通过回调函数将事件发送给应用程序（推模式）</p>
+<p>StAx同SAX将XML作为一个事件流处理，应用程序调用调用解析器进行解析，最后解析器返回结果</p>
+<p>优点：占用资源小</p>
+<p>缺点：只能向后单向进行无法支持XPath（查询XML文档）</p>
+<pre><code class="java">//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package org.apache.ibatis.builder.xml;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Locale;
+import org.apache.ibatis.io.Resources;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+public class XMLMapperEntityResolver implements EntityResolver &amp;#123;
+    ////mybatis-config文件与指定文件的SystemId
+    private static final String IBATIS_CONFIG_SYSTEM = &quot;ibatis-3-config.dtd&quot;;
+    private static final String IBATIS_MAPPER_SYSTEM = &quot;ibatis-3-mapper.dtd&quot;;
+    private static final String MYBATIS_CONFIG_SYSTEM = &quot;mybatis-3-config.dtd&quot;;
+    private static final String MYBATIS_MAPPER_SYSTEM = &quot;mybatis-3-mapper.dtd&quot;;
+    //mybatis-config.xml文件位置
+    private static final String MYBATIS_CONFIG_DTD = &quot;org/apache/ibatis/builder/xml/mybatis-3-config.dtd&quot;;
+    //映射文件位置
+    private static final String MYBATIS_MAPPER_DTD = &quot;org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd&quot;;
+
+    public XMLMapperEntityResolver() &amp;#123;
+    &amp;#125;
+
+    //查找指定的dtd文档调用getInputSource读取文档
+    public InputSource resolveEntity(String publicId, String systemId) throws SAXException &amp;#123;
+        try &amp;#123;
+            if (systemId != null) &amp;#123;
+                //将传入的SystemId转为小写
+                String lowerCaseSystemId = systemId.toLowerCase(Locale.ENGLISH);
+
+                if (lowerCaseSystemId.contains(&quot;mybatis-3-config.dtd&quot;) || lowerCaseSystemId.contains(&quot;ibatis-3-config.dtd&quot;)) &amp;#123;
+                    return this.getInputSource(&quot;org/apache/ibatis/builder/xml/mybatis-3-config.dtd&quot;, publicId, systemId);
+                &amp;#125;
+
+                if (lowerCaseSystemId.contains(&quot;mybatis-3-mapper.dtd&quot;) || lowerCaseSystemId.contains(&quot;ibatis-3-mapper.dtd&quot;)) &amp;#123;
+                    return this.getInputSource(&quot;org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd&quot;, publicId, systemId);
+                &amp;#125;
+            &amp;#125;
+
+            return null;
+        &amp;#125; catch (Exception var4) &amp;#123;
+            throw new SAXException(var4.toString());
+        &amp;#125;
+    &amp;#125;
+//读取dtd文档生成InputSource对象
+    private InputSource getInputSource(String path, String publicId, String systemId) &amp;#123;
+        InputSource source = null;
+        if (path != null) &amp;#123;
+            try &amp;#123;
+                InputStream in = Resources.getResourceAsStream(path);
+                source = new InputSource(in);
+                source.setPublicId(publicId);
+                source.setSystemId(systemId);
+            &amp;#125; catch (IOException var6) &amp;#123;
+            &amp;#125;
+        &amp;#125;
+
+        return source;
+    &amp;#125;
+&amp;#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2020/12/10/java-mybatis-01/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/11/30/Java-Aop/">
+        <h2>
+            简单使用动态代理
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Java
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/11/30
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="简单使用动态代理"><a href="#简单使用动态代理" class="headerlink" title="简单使用动态代理"></a>简单使用动态代理</h1><blockquote>
+<p>使用Aop在不改变原有结构下对类的功能进行增强</p>
+</blockquote>
+<p>1.目标类接口</p>
+<pre><code class="java">package cn.itthree.aop.service;
+/**
+ *
+ 目标接口* */
+public interface UsbSell &amp;#123;
+    /*amount表示单次购买数量
+     * 返回值是一个u盘的价格*/
+    float sell(int amount);
+&amp;#125;
+</code></pre>
+<p>2.目标方法</p>
+<pre><code class="java">package cn.itthree.aop.factory;
+
+
+import cn.itthree.aop.service.UsbSell;
+
+/**目标类*/
+public class UsbKingFactory implements UsbSell &amp;#123;
+    @Override
+    //目标方法
+    public float sell(int amount) &amp;#123;
+        System.out.println(&quot;目标类中执行了目标方法调用&quot;);
+        return 85.0f;
+    &amp;#125;
+&amp;#125;</code></pre>
+<p>3.一个简单的代理类</p>
+<pre><code class="java">package cn.itthree.aop.handler;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+public class MySellHandler implements InvocationHandler &amp;#123;
+    private Object target = null;
+    public MySellHandler(Object target) &amp;#123;
+        this.target = target;
+    &amp;#125;
+
+    @Override
+    //动态代理对象需要传入
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &amp;#123;
+        //执行目标方法并获取返回值
+        Object res = null;
+        res = method.invoke(target,args);
+        //功能增强
+        //在不改变结构的情况下对目标类进行增强
+        if (res != null)&amp;#123;
+            Float price = (Float)res;
+            price += 25;
+            res = price;
+        &amp;#125;
+        return res;
+
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<p>4.测试主程序</p>
+<pre><code class="java">package cn.itthree.aop;
+
+import cn.itthree.aop.factory.UsbKingFactory;
+import cn.itthree.aop.handler.MySellHandler;
+import cn.itthree.aop.service.UsbSell;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+
+public class MainShop &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        //1.创建目标对象
+        UsbSell factory =  new UsbKingFactory();
+        //2.创建InvocationHandler对象
+        InvocationHandler handler = new MySellHandler(factory);
+        //3.创建代理对象
+        /*
+        public static Object newProxyInstance(ClassLoader loader,
+                                          Class&lt;?&gt;[] interfaces,
+                                          InvocationHandler h)
+                                          */
+        //传入3个参数：
+        //1.目标类
+        //3.目标类的接口
+        //3.InvocationHandler对象
+        UsbSell proxy  = (UsbSell) Proxy.newProxyInstance(factory.getClass().getClassLoader(),factory.getClass().getInterfaces(),handler);
+        //4.通过代理执行方法
+        float price = proxy.sell(1);
+        System.out.println(&quot;动态代理对象，调用方法： &quot;+price);
+    &amp;#125;
+&amp;#125;</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/AOP" style=color:#607d8b>
+                AOP
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/11/30/Java-Aop/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/11/06/Ajax-01/">
+        <h2>
+            Ajax
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/JavaWeb">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                JavaWeb
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/11/6
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>用于局部刷新</p>
+</blockquote>
+<h1 id="异步对象-XMLHttpRequest"><a href="#异步对象-XMLHttpRequest" class="headerlink" title="异步对象(XMLHttpRequest)"></a>异步对象(XMLHttpRequest)</h1><p> readyState属性表示异步对象请求的状态变化<br>     0：创建异步对象时， new XMLHttpRequest();<br>     1: 初始异步请求对象， xmlHttp.open()<br>     2：发送请求， xmlHttp.send()<br>     3: 从服务器端获取了数据，此时3， 注意3是异步对象内部使用， 获取了原始的数据。<br>     4：异步对象把接收的数据处理完成后。 此时开发人员在4的时候处理数据。<br>        在4的时候，开发人员更新当前页面。</p>
+<h2 id="计算bmi"><a href="#计算bmi" class="headerlink" title="计算bmi"></a>计算bmi</h2><p>demo全局刷新：</p>
+<pre><code class="java">//servlet部分
+public class BmiServlet extends HttpServlet &amp;#123;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &amp;#123;
+        String name = request.getParameter(&quot;name&quot;);
+        String height = request.getParameter(&quot;height&quot;);
+        String weight = request.getParameter(&quot;weight&quot;);
+
+        float h = Float.valueOf(height);
+        float w = Float.valueOf(weight);
+        float bmi = w/(h*h);
+        //判断bmi
+        String msg = &quot;&quot;;
+        if( bmi &lt;= 18.5) &amp;#123;
+            msg = &quot;您比较瘦&quot;;
+        &amp;#125; else if( bmi &gt; 18.5 &amp;&amp; bmi &lt;= 23.9 )&amp;#123;
+            msg = &quot;你的bmi是正常的&quot;;
+        &amp;#125; else if( bmi &gt;24 &amp;&amp; bmi &lt;=27)&amp;#123;
+            msg = &quot;你的身体比较胖&quot;;
+        &amp;#125; else &amp;#123;
+            msg = &quot;你的身体肥胖&quot;;
+        &amp;#125;
+        System.out.println(&quot;msg=&quot;+msg);
+        msg = &quot;你好，&quot;+ name +&quot; &quot;+&quot;你的bim为&quot;+bmi + msg;
+        //存入bmi数据
+        request.setAttribute(&quot;msg&quot;,msg);
+        //这里通过response并以流的方式将数据传输到前端页面
+           response.setContentType(&quot;text/html;charset=utf-8&quot;);
+        PrintWriter pw = response.getWriter();
+        pw.println(msg);
+        pw.flush();
+        pw.close();
+
+        //注意！！！这里使用的是转发来完成前后端交互
+       // request.getRequestDispatcher(&quot;/result.jsp&quot;).forward(request,response);
+    &amp;#125;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &amp;#123;
+        this.doPost(request, response);
+    &amp;#125;
+&amp;#125;</code></pre>
+<pre><code class="jsp">&lt;%--Jsp提交表单部分--%&gt;
+&lt;%@page contentType=&quot;text/html; charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;全局刷新计算bmi&lt;/p&gt;
+&lt;%--注意这里使用的是表单，而我们案例中的局部刷新并未使用表单来提交前端数据--%&gt;
+&lt;form action=&quot;bmiPrintServlet&quot; method=&quot;get&quot;&gt;
+    姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;br/&gt;
+    身高：&lt;input type=&quot;text&quot; name=&quot;height&quot;&gt;&lt;br/&gt;
+    体重：&lt;input type=&quot;text&quot; name=&quot;weight&quot;&gt;&lt;br/&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="jsp">&lt;%--Jsp显示结果部分--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;显示bmi结果&lt;/h3&gt;
+&lt;p&gt;$&amp;#123;msg&amp;#125;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>demo局部刷新</p>
+<pre><code class="jsp">&lt;%--Jsp提交并显示结果部分--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;局部刷新-ajax&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        //使用内存中的异步对象，代替浏览器发起请求。异步对象使用js创建和管理的。
+
+        function  doAjax() &amp;#123;
+            //1.创建异步对象
+            var xmlHttp = new XMLHttpRequest();
+            //2.绑定事件
+            xmlHttp.onreadystatechange = function () &amp;#123;
+                //处理服务器端返回的数据，更新当前页面
+                //alert(&quot;readyState属性值======&quot; + xmlHttp.readyState + &quot;| status:&quot; + xmlHttp.status)
+                if( xmlHttp.readyState == 4 &amp;&amp; xmlHttp.status ==200)&amp;#123;
+                    var  data = xmlHttp.responseText;
+                    //更新dom对象， 更新页面数据
+                    document.getElementById(&quot;mydata&quot;).innerText = data;
+                &amp;#125;
+            &amp;#125;
+
+            //3.初始请求数据
+            //获取dom对象的value属性值
+            var name = document.getElementById(&quot;name&quot;).value;
+            var w = document.getElementById(&quot;w&quot;).value;
+            var h = document.getElementById(&quot;h&quot;).value;
+
+            //bmiPrint?name=李四&amp;w=82&amp;h=1.8
+            var param = &quot;name=&quot;+name + &quot;&amp;w=&quot;+w+&quot;&amp;h=&quot;+h;
+            //alert(&quot;param=&quot;+param);
+            xmlHttp.open(&quot;get&quot;,&quot;bmiAjax?&quot;+param,true);
+
+            //4.发起请求
+            xmlHttp.send();
+        &amp;#125;
+
+
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;局部刷新ajax-计算bmi&lt;/p&gt;
+&lt;div&gt;
+    &lt;!-- 没有使用form  --&gt;
+    姓名：&lt;input type=&quot;text&quot; id=&quot;name&quot; /&gt; &lt;br/&gt;
+    体重（公斤）:&lt;input type=&quot;text&quot; id=&quot;w&quot; /&gt; &lt;br/&gt;
+    身高（米）：&lt;input type=&quot;text&quot; id=&quot;h&quot; /&gt; &lt;br/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;计算bmi&quot; onclick=&quot;doAjax()&quot;&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;div id=&quot;mydata&quot;&gt;等待加载数据....&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h1><blockquote>
+<p>将对象转为Json格式的字符串</p>
+</blockquote>
+<p>Servlet:</p>
+<pre><code class="java">package cn.it.three.controller;
+
+import cn.it.three.dao.ProvinceDao;
+import cn.it.three.entity.Province;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+public class QueryJsonServlet extends HttpServlet &amp;#123;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &amp;#123;
+        String json = &quot;&amp;#123;&amp;#125;&quot;;
+        String strProid = request.getParameter(&quot;proid&quot;);
+        if (strProid != null &amp;&amp; strProid.trim().length()&gt;0 )&amp;#123;
+            //查询数据库
+            ProvinceDao dao = new ProvinceDao();
+            Province p = dao.queryProvinceById(Integer.valueOf(strProid));//将以对象的形式返回查询结果
+            //将对象转换为json数据
+            ObjectMapper om = new ObjectMapper();
+            json =om.writeValueAsString(p);
+        &amp;#125;
+        //返回数据到前端
+        response.setContentType(&quot;application/json;charset=utf-8&quot;);//设置json输出编码为utf-8
+        PrintWriter printWriter = response.getWriter();
+        printWriter.println(json);
+        printWriter.flush();
+        printWriter.close();
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<p>DAO：</p>
+<pre><code class="java">package cn.it.three.dao;
+
+import cn.it.three.entity.Province;
+
+import java.sql.*;
+
+//返回单个数据
+public class ProvinceDao &amp;#123;
+
+    //根据id获取名称
+    public String queryProvinceNameById(Integer provinceId) &amp;#123;
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = &quot;&quot;;
+
+        String url = &quot;jdbc:mysql://localhost:3306/springdb&quot;;
+        String username = &quot;root&quot;;
+        String password = &quot;root&quot;;
+
+        String name = &quot;&quot;;
+
+        try &amp;#123;
+            //加载驱动包
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+            //建立数据库连接
+            conn = DriverManager.getConnection(url, username, password);
+            //创建PreparedStatement
+            sql = &quot;select  name from province where id=?&quot;;
+            pst = conn.prepareStatement(sql);
+            //设置参数值
+            pst.setInt(1, provinceId);
+            //执行sql
+            rs = pst.executeQuery();
+            //遍历rs
+            /*while(rs.next())&amp;#123; //当你的rs中有多余一条记录时。
+               name =  rs.getString(&quot;name&quot;);
+            &amp;#125;*/
+
+            if (rs.next()) &amp;#123;
+                name = rs.getString(&quot;name&quot;);
+            &amp;#125;
+
+        &amp;#125; catch (ClassNotFoundException | SQLException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125; finally &amp;#123;
+            //关闭资源
+            try &amp;#123;
+                if (rs != null) &amp;#123;
+                    rs.close();
+                &amp;#125;
+                if (pst != null) &amp;#123;
+                    pst.close();
+                &amp;#125;
+                if (conn != null) &amp;#123;
+                    conn.close();
+                &amp;#125;
+
+            &amp;#125; catch (Exception e) &amp;#123;
+                e.printStackTrace();
+            &amp;#125;
+
+        &amp;#125;
+        return name;
+    &amp;#125;
+
+    //查询单个数据返回一个包含多个数据的对象
+    public Province queryProvinceById(Integer provinceId) &amp;#123;
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = &quot;&quot;;
+
+        String url = &quot;jdbc:mysql://localhost:3306/springdb&quot;;
+        String username = &quot;root&quot;;
+        String password = &quot;root&quot;;
+
+        Province province = null;//借助json返回多个信息时，我们采用返回对象的方式（json会对对象进行处理）
+
+        try &amp;#123;
+            //加载驱动包
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+            //建立数据库连接
+            conn = DriverManager.getConnection(url, username, password);
+            //创建PreparedStatement
+            sql = &quot;select  id,name,jiancheng,shenghui from province where id=?&quot;;
+            pst = conn.prepareStatement(sql);
+            //设置参数值
+            pst.setInt(1, provinceId);
+            //执行sql
+            rs = pst.executeQuery();
+            //遍历rs
+            /*while(rs.next())&amp;#123; //当你的rs中有多余一条记录时。
+               name =  rs.getString(&quot;name&quot;);
+            &amp;#125;*/
+
+            if (rs.next()) &amp;#123;
+                province = new Province();
+                //将查询到的数据写入对象中
+                province.setId(rs.getInt(&quot;id&quot;));
+                province.setJiancheng(rs.getString(&quot;jiancheng&quot;));
+                province.setName(rs.getString(&quot;name&quot;));
+                province.setShenghui(rs.getString(&quot;shenghui&quot;));
+
+            &amp;#125;
+
+        &amp;#125; catch (ClassNotFoundException | SQLException e) &amp;#123;
+            e.printStackTrace();
+        &amp;#125; finally &amp;#123;
+            //关闭资源
+            try &amp;#123;
+                if (rs != null) &amp;#123;
+                    rs.close();
+                &amp;#125;
+                if (pst != null) &amp;#123;
+                    pst.close();
+                &amp;#125;
+                if (conn != null) &amp;#123;
+                    conn.close();
+                &amp;#125;
+
+            &amp;#125; catch (Exception e) &amp;#123;
+                e.printStackTrace();
+            &amp;#125;
+
+        &amp;#125;
+        return province;
+    &amp;#125;
+&amp;#125;</code></pre>
+<p>存储数据的对象</p>
+<pre><code class="java">package cn.it.three.entity;
+
+public class Province &amp;#123;
+    /**
+     * 用以存储查询数据*/
+
+    private Integer id;
+    private String name;
+    private String jiancheng;
+    private String shenghui;
+
+    public Integer getId() &amp;#123;
+        return id;
+    &amp;#125;
+
+    public void setId(Integer id) &amp;#123;
+        this.id = id;
+    &amp;#125;
+
+    public String getName() &amp;#123;
+        return name;
+    &amp;#125;
+
+    public void setName(String name) &amp;#123;
+        this.name = name;
+    &amp;#125;
+
+    public String getJiancheng() &amp;#123;
+        return jiancheng;
+    &amp;#125;
+
+    public void setJiancheng(String jiancheng) &amp;#123;
+        this.jiancheng = jiancheng;
+    &amp;#125;
+
+    public String getShenghui() &amp;#123;
+        return shenghui;
+    &amp;#125;
+
+    public void setShenghui(String shenghui) &amp;#123;
+        this.shenghui = shenghui;
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<p>jsp</p>
+<pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;ajax根据省份id获取名称&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function search() &amp;#123;
+            //发起ajax请求，传递参数给服务器， 服务器返回数据
+            //1.创建异步对象
+            var  xmlHttp  = new XMLHttpRequest();
+            //2.绑定事件
+            //readyState属性每更新一次，下面方法就执行一次
+     //        0：创建异步对象时， new XMLHttpRequest();
+     //        1: 初始异步请求对象， xmlHttp.open()
+     //        2：发送请求， xmlHttp.send()
+     //        3: 从服务器端获取了数据，此时3， 注意3是异步对象内部使用， 获取了原始的数据。
+     //        4：异步对象把接收的数据处理完成后。 此时开发人员在4的时候处理数据。
+     //    在4的时候，开发人员更新当前页面。
+            xmlHttp.onreadystatechange = function () &amp;#123;
+                if( xmlHttp.readyState == 4 &amp;&amp; xmlHttp.status== 200)&amp;#123;
+                    //alert(xmlHttp.responseText)
+                    //更新页面，就是更新dom对象
+                    document.getElementById(&quot;proname&quot;).value= xmlHttp.responseText;
+                &amp;#125;
+            &amp;#125;
+            //3.初始异步对象
+            //获取proid文本框的值
+            var proid = document.getElementById(&quot;proid&quot;).value;
+            xmlHttp.open(&quot;get&quot;,&quot;queryProvince?proid=&quot;+proid,true);//以get方式发起请求
+
+            //4.发送请求
+            xmlHttp.send();
+        &amp;#125;
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;ajax根据省份id获取名称&lt;/p&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;省份编号：&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;proid&quot;/&gt;
+            &lt;input type=&quot;button&quot; value=&quot;搜索&quot; onclick=&quot;search()&quot; /&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;省份名称：&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;proname&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;a href=&quot;html/main.jsp&quot;&gt;link&lt;/a&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Jquery</p>
+<pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;使用json格式的数据&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery-3.4.1.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(function ()&amp;#123;
+            $(&quot;:button&quot;).click(function ()&amp;#123;//为按钮标签绑定监听事件
+                var proid =$(&quot;#proid&quot;).val();//获取输入值
+                $.ajax(&amp;#123;
+                    url:&quot;queryJsonServlet&quot;,
+                    data:&amp;#123;&quot;proid&quot;:proid&amp;#125;,
+                    dataType:&quot;json&quot;,//期望服务端返回json数据
+                    //更新页面显示返回数据
+                    success:function (resp)&amp;#123;
+                        $(&quot;#proname&quot;).val(resp.name)
+                        $(&quot;#projiancheng&quot;).val(resp.jiancheng)
+                        $(&quot;#proshenghui&quot;).val(resp.shenghui)
+                    &amp;#125;
+                &amp;#125;)
+            &amp;#125;)
+        &amp;#125;)
+
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;ajax请求使用json格式的数据&lt;/p&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;省份编号：&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;proid&quot;&gt;
+            &lt;input type=&quot;button&quot; value=&quot;搜索&quot;&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;省份名称：&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;proname&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;省份简称：&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;projiancheng&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;省会名称：&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;proshenghui&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code></code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Ajax" style=color:#6484be>
+                Ajax
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/11/06/Ajax-01/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/11/01/Java-Jsp-01/">
+        <h2>
+            Jsp
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/JavaWeb">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                JavaWeb
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/11/1
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="Jsp书写规则"><a href="#Jsp书写规则" class="headerlink" title="Jsp书写规则"></a>Jsp书写规则</h1><p><code>&lt;% %&gt;</code>中书写Java代码</p>
+<pre><code>&lt;%
+    Students stu1 = new Students(&quot;张三&quot;,1);
+    Students stu2 = new Students(&quot;李四&quot;,2);
+    Students stu3 = new Students(&quot;Li Si&quot;,3);
+    List&lt;Students&gt; list = new ArrayList&lt;&gt;();
+    list.add(stu1);
+    list.add(stu2);
+    list.add(stu3);
+%&gt;</code></pre>
+<p><code>&lt;%= %&gt;</code>用于变量传值</p>
+<p>如下代码，for循环为一个整体，用&lt;%分隔包裹实现输出值到页面。</p>
+<p>究其根本，仍是使用流，如：</p>
+<pre><code class="java">PrintWriter out = servletResponse.getWriter();
+out.print(&quot;&lt;center&gt;&lt;h1&gt;廉颇老矣，尚能饭否？&lt;/h1&gt;&lt;/center&gt;&quot;);</code></pre>
+<pre><code class="jsp">&lt;table border=&quot;2&quot; align=&quot;center&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;姓名&lt;/td&gt;
+        &lt;td&gt;学号&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;%
+        for (Students value:list)&amp;#123;
+
+    %&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;%=value.getName()%&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%=value.getId()%&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;%
+        &amp;#125;
+    %&gt;
+&lt;/table&gt;</code></pre>
+<h1 id="Jsp内置对象"><a href="#Jsp内置对象" class="headerlink" title="Jsp内置对象"></a>Jsp内置对象</h1><h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><p>​     类型：HttpServletRequest<br>​     作用: 在JSP文件运行时读取请求包信息并与Servlet在请求转发过程中实现数据共享</p>
+<pre><code class="jsp">&lt;!--
+  浏览器输入： http://localhost:8080/myWeb/request.jsp?userName=张三&amp;password=123
+--&gt;
+&lt;%
+   //在JSP文件执行时，借助于内置request对象读取请求包参数信息
+    String userName = request.getParameter(&quot;userName&quot;);
+    String password =request.getParameter(&quot;password&quot;);
+%&gt;
+
+来访用户姓名:&lt;%=userName%&gt;&lt;br/&gt;
+来访用户密码:&lt;%=password%&gt;
+</code></pre>
+<p>效果图：</p>
+<p><img src="http://img.lbkzw.cn/img/20201101154914.png" alt="image-20201101154914442"></p>
+<h3 id="ServletContext-全局作用域对象"><a href="#ServletContext-全局作用域对象" class="headerlink" title="ServletContext(全局作用域对象)"></a>ServletContext(全局作用域对象)</h3><p>同一个网站中Servlet与Jsp，都可以通过ServletContext实现数据共享</p>
+<p>jsp中设置全局作用域对象：</p>
+<pre><code class="jsp">&lt;%
+    application.setAttribute(&quot;key1&quot;, &quot;hello world&quot;);
+%&gt;</code></pre>
+<pre><code class="java">@WebServlet(&quot;/Servlet1&quot;)
+public class Servlet1 extends HttpServlet &amp;#123;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &amp;#123;
+        ServletContext application = request.getServletContext();//获取全局作用域对象
+        String value = (String)application.getAttribute(&quot;key1&quot;);//通过键获取值（获取作用域内的数据）
+        System.out.println(value);
+    &amp;#125;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &amp;#123;
+        this.doPost(request, response);
+    &amp;#125;
+&amp;#125;</code></pre>
+<p><img src="http://img.lbkzw.cn/img/20201101161507.png" alt="image-20201101161507410"></p>
+<pre><code>###  session</code></pre>
+<p>数据共享：</p>
+<p>第一个jsp文件</p>
+<pre><code class="jsp">&lt;%
+     Integer value=(Integer) session.getAttribute(&quot;key1&quot;);
+%&gt;</code></pre>
+<p>第二个jsp文件</p>
+<pre><code class="jsp">&lt;%
+   // HttpSession session = request.getSession();
+   session.setAttribute(&quot;key1&quot;, 200);
+%&gt;
+</code></pre>
+<h1 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h1><blockquote>
+<p>jsp默认支持el表达式。如要忽略el表达式需要设置jsp中<code>page</code>指令中：<code>isELIgnored=&quot;true&quot; ;</code>忽略当前这个el表达式则于<code>$&#123;&#125;</code>前加<code>/</code>即可</p>
+</blockquote>
+<p>##运算符</p>
+<p>算数运算符： + - * /(div) %(mod)</p>
+<p>比较运算符： &gt; &lt; &gt;= &lt;= == !=</p>
+<p>逻辑运算符： &amp;&amp;(and) ||(or) !(not)</p>
+<p>空运算符： empty</p>
+<ul>
+<li>功能：用于判断字符串、集合、数组对象是否为null或者长度是否为0</li>
+<li>如：<code>$&#123;empty list&#125;</code>判断字符串、集合、数组对象是否为null或者长度为0</li>
+<li><code>$&#123;not empty str&#125;</code>判断字符串、集合、数组对象是否不为null 并且 长度&gt;0\</li>
+</ul>
+<pre><code class="jsp">&lt;h3&gt;EL运算&lt;/h3&gt;
+$&amp;#123;1+2&amp;#125;
+$&amp;#123;1-2&amp;#125;
+$&amp;#123;1*2&amp;#125;
+$&amp;#123;1/2&amp;#125;
+&lt;h3&gt;empty&lt;/h3&gt;
+&lt;%
+    String str = &quot;&quot;;
+    request.setAttribute(&quot;str&quot;,str);
+
+    List list = new ArrayList();
+    request.setAttribute(&quot;list&quot;,list);
+%&gt;
+$&amp;#123;not empty str&amp;#125;
+$&amp;#123;not empty list&amp;#125;
+
+&lt;h3&gt;EL传值&lt;/h3&gt;
+&lt;%
+request.setAttribute(&quot;name&quot;,&quot;张三&quot;);
+session.setAttribute(&quot;name&quot;,&quot;李四&quot;);
+request.setAttribute(&quot;age&quot;,&quot;19&quot;);
+%&gt;
+$&amp;#123;requestScope.name&amp;#125;
+$&amp;#123;requestScope.age&amp;#125;
+&lt;%--不指定域时依次从最小的域中查找是否有该键对应的值，直到找到为止。--%&gt;
+$&amp;#123;name&amp;#125;
+$&amp;#123;sessionScope.name&amp;#125;</code></pre>
+<p>运行结果：</p>
+<p><img src="http://img.lbkzw.cn/img/20201101231746.png" alt="image-20201101231746003"></p>
+<p>User.java</p>
+<pre><code class="java">package cn.threecloth.el;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class User &amp;#123;
+    //逻辑视图
+    private String name;
+    private int age;
+    private Date birthday;
+    public String getBir()&amp;#123;
+        //格式化日期返回String日期数据
+        if(birthday!=null)&amp;#123;
+            SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+            return sdf.format(birthday);
+        &amp;#125;else &amp;#123;
+            return &quot;&quot;;
+
+        &amp;#125;
+    &amp;#125;
+
+    public String getName() &amp;#123;
+        return name;
+    &amp;#125;
+
+    public int getAge() &amp;#123;
+        return age;
+    &amp;#125;
+
+    public Date getBirthday(Date date) &amp;#123;
+        return birthday;
+    &amp;#125;
+
+    public void setName(String name) &amp;#123;
+        this.name = name;
+    &amp;#125;
+
+    public void setAge(int age) &amp;#123;
+        this.age = age;
+    &amp;#125;
+
+    public void setBirthday(Date birthday) &amp;#123;
+        this.birthday = birthday;
+    &amp;#125;
+&amp;#125;</code></pre>
+<p>##获取值</p>
+<blockquote>
+<p> el表达式只能从域对象中获取值.    </p>
+</blockquote>
+<p><code>$&#123;域名称.键名&#125;</code>：从指定域中获取指定键的值.</p>
+<p>如果不指明域，那么将依次从最小的域中查找是否有该键对应的值，直到找到为止。如：<code> $&#123;键名&#125;</code></p>
+<ul>
+<li>域名称：<ol>
+<li>pageScope        –&gt; pageContext</li>
+<li>requestScope     –&gt; request</li>
+<li>sessionScope     –&gt; session</li>
+<li>applicationScope –&gt; application（ServletContext）</li>
+</ol>
+</li>
+</ul>
+<pre><code class="jsp">&lt;%
+    User user = new User();
+    user.setAge(19);
+    user.setName(&quot;张三&quot;);
+    user.setBirthday(new Date());
+    request.setAttribute(&quot;user&quot;,user);
+
+    List list = new ArrayList();
+    list.add(&quot;aaa&quot;);
+    list.add(&quot;bbb&quot;);
+    list.add(&quot;ccc&quot;);
+    request.setAttribute(&quot;list&quot;,list);
+
+    Map map = new HashMap();
+    map.put(&quot;name&quot;,&quot;张三&quot;);
+    map.put(&quot;user&quot;,user);
+    map.put(&quot;list&quot;,list);
+
+    request.setAttribute(&quot;map&quot;,map);
+%&gt;
+&lt;h3&gt;el获取对象中的值&lt;/h3&gt;
+&lt;%--
+    * 通过的是对象的属性来获取
+        * setter或getter方法，去掉set或get，在将剩余部分，首字母变为小写。
+        * setName --&gt; Name --&gt; name
+--%&gt;
+$&amp;#123;user.bir&amp;#125;&lt;br&gt;
+&lt;%--指定作用域获取值--%&gt;
+$&amp;#123;requestScope.user.age&amp;#125;&lt;br&gt;
+$&amp;#123;requestScope.user.name&amp;#125;&lt;br&gt;
+&lt;h3&gt;获取list集合中的值&lt;/h3&gt;
+$&amp;#123;list&amp;#125;&lt;br&gt;
+$&amp;#123;list[0]&amp;#125;&lt;br&gt;
+$&amp;#123;list[1]&amp;#125;&lt;br&gt;
+$&amp;#123;list[2]&amp;#125;&lt;br&gt;
+&lt;h3&gt;获取map集合中的值与对象&lt;/h3&gt;
+$&amp;#123;map.name&amp;#125;
+$&amp;#123;map.user&amp;#125;
+$&amp;#123;map.user.age&amp;#125;
+$&amp;#123;map.list[0]&amp;#125;
+&lt;h3&gt;动态获取虚拟目录&lt;/h3&gt;
+$&amp;#123;pageContext.request.contextPath&amp;#125;</code></pre>
+<p>运行结果：</p>
+<img src="http://img.lbkzw.cn/img/20201101232011.png" alt="image-20201101232011676" style="zoom:50%;" />
+
+<h1 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h1><blockquote>
+<p>用于简化和替换jsp页面上的java代码</p>
+</blockquote>
+<pre><code class="jsp">
+&lt;%
+    List list = new ArrayList();
+    list.add(new User(&quot;张三&quot;,23,new Date()));
+    list.add(new User(&quot;李四&quot;,18,new Date()));
+    list.add(new User(&quot;王五&quot;,19,new Date()));
+    request.setAttribute(&quot;list&quot;,list);
+%&gt;
+&lt;table border=&quot;1&quot; width=&quot;500&quot; align=&quot;center&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;编号&lt;/th&gt;
+        &lt;th&gt;姓名&lt;/th&gt;
+        &lt;th&gt;年龄&lt;/th&gt;
+        &lt;th&gt;生日&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;c:forEach  var=&quot;user&quot; varStatus=&quot;s&quot; items=&quot;$&amp;#123;list&amp;#125;&quot;&gt;
+        &lt;%--foreach:相当于java代码的for语句--%&gt;
+
+        &lt;c:if test=&quot;$&amp;#123;s.count % 2 != 0&amp;#125;&quot;&gt;
+           &lt;%--if:相当于java代码的if语句,test中写布尔表达式--%&gt;
+            &lt;%--如果表达式为true，则显示if标签体内容，如果为false，则不显示标签体内容--%&gt;
+            &lt;tr bgcolor=&quot;red&quot;&gt;
+                &lt;td&gt;$&amp;#123;s.count&amp;#125;&lt;/td&gt;
+                &lt;td&gt;$&amp;#123;user.name&amp;#125;&lt;/td&gt;
+                &lt;td&gt;$&amp;#123;user.age&amp;#125;&lt;/td&gt;
+                &lt;td&gt;$&amp;#123;user.bir&amp;#125;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/c:if&gt;
+        &lt;c:if test=&quot;$&amp;#123;s.count % 2 == 0&amp;#125;&quot;&gt;
+            &lt;tr  bgcolor=&quot;green&quot;&gt;
+                &lt;td&gt;$&amp;#123;s.count&amp;#125;&lt;/td&gt;
+                &lt;td&gt;$&amp;#123;user.name&amp;#125;&lt;/td&gt;
+                &lt;td&gt;$&amp;#123;user.age&amp;#125;&lt;/td&gt;
+                &lt;td&gt;$&amp;#123;user.bir&amp;#125;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/c:if&gt;
+    &lt;/c:forEach&gt;</code></pre>
+<pre><code class="jsp">&lt;%@ page import=&quot;java.util.ArrayList&quot; %&gt;
+&lt;%@ page import=&quot;java.util.List&quot; %&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;%--引入jsl表达式包--%&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+    List list = new ArrayList();
+    list.add(&quot;aaa&quot;);
+    list.add(&quot;bbb&quot;);
+    list.add(&quot;ccc&quot;);
+    request.setAttribute(&quot;list&quot;,list);
+    request.setAttribute(&quot;number&quot;,4);
+%&gt;
+&lt;%--取出域中集合的值--%&gt;
+&lt;c:if test=&quot;$&amp;#123;not empty list&amp;#125;&quot;&gt;
+    $&amp;#123;list[0]&amp;#125;
+&lt;/c:if&gt;
+&lt;br&gt;
+&lt;c:forEach items=&quot;$&amp;#123;list&amp;#125;&quot; var=&quot;str&quot; varStatus=&quot;s&quot;&gt;
+    第$&amp;#123;s.count&amp;#125;次遍历&amp;nbsp;当前索引$&amp;#123;s.index&amp;#125;&amp;nbsp;当前值$&amp;#123;str&amp;#125;&amp;nbsp;当前状态$&amp;#123;s&amp;#125;
+    &lt;br&gt;
+&lt;/c:forEach&gt;
+&lt;hr&gt;
+&lt;%--
+属性：
+begin：开始值
+end：结束值
+var：临时变量
+step：步长
+varStatus:循环状态对象
+index:容器中元素的索引，从0开始
+count:循环次数，从1开始
+items:容器对象
+&lt;%--判断奇偶--%&gt;
+&lt;br&gt;
+&lt;c:if test=&quot;$&amp;#123;number%2==0&amp;#125;&quot;&gt;
+    $&amp;#123;number&amp;#125;为偶数
+&lt;/c:if&gt;
+&lt;c:if test=&quot;$&amp;#123;number%2!=0&amp;#125;&quot;&gt;
+    $&amp;#123;number&amp;#125;为奇数
+&lt;/c:if&gt;
+&lt;HR color=#987cb9 SIZE=1&gt;
+&lt;h3&gt;switch&lt;/h3&gt;
+    &lt;%--choose:相当于java代码的switch语句
+        1. 使用choose标签声明                     相当于switch声明
+        2. 使用when标签做判断                     相当于case
+        3. 使用otherwise标签做其他情况的声明        相当于default--%&gt;
+&lt;c:choose&gt;
+&lt;%--    以下相当于case ：--%&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==1&amp;#125;&quot;&gt;星期一&lt;/c:when&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==2&amp;#125;&quot;&gt;星期二&lt;/c:when&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==3&amp;#125;&quot;&gt;星期三&lt;/c:when&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==4&amp;#125;&quot;&gt;星期四&lt;/c:when&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==5&amp;#125;&quot;&gt;星期五&lt;/c:when&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==6&amp;#125;&quot;&gt;星期六&lt;/c:when&gt;
+    &lt;c:when test=&quot;$&amp;#123;number==7&amp;#125;&quot;&gt;星期日&lt;/c:when&gt;
+&lt;%--以下相当于default    --%&gt;
+    &lt;c:otherwise&gt;
+        输入数字有误
+    &lt;/c:otherwise&gt;
+&lt;/c:choose&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java" style=color:#607d8b>
+                Java
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Jsp" style=color:#006674>
+                Jsp
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/11/01/Java-Jsp-01/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/27/Java-datas-heap/">
+        <h2>
+            heap,heap-sort
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/dataStructure">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                dataStructure
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/27
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>堆：以<strong>完全二叉树</strong>的形式展现：</p>
+<p>除了树的最后一层结点不需要是满的，其它的每一层<strong>从左到右</strong>都是满的，如果最后一层结点不 是满的，那么要求<strong>左满右不满</strong></p>
+<p><img src="http://img.lbkzw.cn/img/20201029185145.png" alt="image-20201029185145002"></p>
+<p>并以<strong>数组</strong>进行存储。每个结点都大于等于它的两个<strong>子结点</strong>。</p>
+<p>如下图，如用k表示<strong>当前结点</strong>，则其的<strong>左右结点</strong>分别为2k，2k+1，任意结点的<strong>父节点</strong>为k/2</p>
+<p>k/2(包括k/2)前是<strong>非叶子结点</strong>k/2之后是<strong>叶子结点</strong>。</p>
+<p><img src="http://img.lbkzw.cn/img/20201027152457.png" alt="image-20201027152457648"></p>
+<h1 id="堆实现"><a href="#堆实现" class="headerlink" title="堆实现"></a>堆实现</h1><pre><code class="java">package cn.three.cloth.heap;
+
+public class Heap&lt;T extends  Comparable &lt;T&gt;&gt; &amp;#123;//类型 T 必须实现 Comparable 接口，并且这个接口的类型是 T
+    private T[] items;//存储堆
+    private int N;//堆元素的数量
+
+    public Heap(int x) &amp;#123;
+        this.items = (T[]) new Comparable[x+1];//数组索引0处不存放元素
+    &amp;#125;
+
+    //判断堆中索引i处的元素是否小于索引j处的元素
+    private boolean less(int i,int j)&amp;#123;
+        return items[i].compareTo(items[j])&lt;0;
+    &amp;#125;
+    //交换堆中i索引和j索引处的值
+    private void exch(int i,int j)&amp;#123;
+        T temp = items[i];
+        items[i] = items[j];
+        items[j] = temp;
+    &amp;#125;
+
+    //删除堆中最大的元素,并返回这个最大元素
+    public T delMax()&amp;#123;
+        T max = items[1];
+        exch(1,N);//交换最大元素与末尾元素的位置
+        items[N]=null;//清除游离元素
+        N--;//元素数量减一
+        sink(1);//下沉
+        return max;
+    &amp;#125;
+    //使用下沉算法，使索引k处的元素能在堆中处于一个正确的位置
+    private void sink(int k)&amp;#123;
+        //将当前结点k与其较大的一个子结点对比，如果当前结点k小，则交换位置父子双方双方位置
+        while(2*k&lt;=N)&amp;#123;
+            //当前结点无左子节点时停止循环
+            int max;
+            //找出左右子结点中最大的一个，并存入max
+            if (2*k+1&lt;=N)&amp;#123;//当前结点是否有右结点
+                if (less(2*k,2*k+1))&amp;#123;
+                    max = 2*k+1;
+                &amp;#125;else&amp;#123;
+                    max = 2*k;
+                &amp;#125;
+            &amp;#125;else &amp;#123;
+                max = 2*k;
+            &amp;#125;
+
+            //判断max是否小于当前结点
+            if (!less(k,max))&amp;#123;
+                break;
+            &amp;#125;
+            exch(k,max);//交换k与max的位置
+            k = max;//并改变下次循环时k的值为max，进行后续的下沉循环操作
+        &amp;#125;
+
+
+
+    &amp;#125;
+
+    //插入要上浮，删除要下沉
+    //往堆中插入一个元素
+    public void insert(T t)&amp;#123;
+        items[++N]=t;
+        swim(N);//插入一个大的数值会影响堆内的顺序，故需要将元素置于一个恰当的位置
+    &amp;#125;
+    //使用上浮算法，使索引k处的元素能在堆中处于一个正确的位置
+    private void swim(int k)&amp;#123;
+        while (k&gt;1)&amp;#123;
+            if (less(k/2,k))&amp;#123;//比较k结点与其父节点的大小
+                exch(k/2,k);//将k与其父节点交换位置
+            &amp;#125;
+            k = k / 2;//比较与交换结束后更新k的位置为其父结点
+        &amp;#125;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+            Heap&lt;String&gt; heap = new Heap&lt;String&gt;(20);
+            heap.insert(&quot;A&quot;);
+            heap.insert(&quot;B&quot;);
+            heap.insert(&quot;C&quot;);
+            heap.insert(&quot;D&quot;);
+            heap.insert(&quot;E&quot;);
+            heap.insert(&quot;F&quot;);
+            heap.insert(&quot;G&quot;);
+
+
+            String del;
+            while((del=heap.delMax())!=null)&amp;#123;
+                System.out.print(del+&quot;,&quot;);
+            &amp;#125;
+        &amp;#125;
+&amp;#125;</code></pre>
+<p>#堆排序</p>
+<p>创建一个新数组，在其索引1（包含索引1）处往后对原数组进行复制，再从新数组长度的一半处开始往1索引处扫描（从右往左），然后 对扫描到的每一个元素做下沉操作。</p>
+<pre><code class="java">package cn.three.cloth.heap;
+
+import java.util.Arrays;
+
+public class HeapSort1 &amp;#123;
+    //调用此方法使用堆排序（从小到大排序）
+    public static  void sort(Comparable[] source) &amp;#123;
+        Comparable[] heap = new Comparable[source.length+1];//创建一个大小为传入数组length+1的数组（此数组0索引下不添加数据）
+        createHeap(source,heap);//创建堆
+        int N = heap.length-1;//定义一个变量，记录未排序的元素中最大的索引
+
+        //通过循环将小的元素排列在前
+        while(N!=1)&amp;#123;
+            exch(heap,1,N);//交换元素
+            N--; //排序交换后最大元素所在的索引，不参与此后的堆下沉
+            sink(heap,1, N);//需要对索引1处的元素进行对的下沉调整
+        &amp;#125;
+        //用排序好的数据覆盖原数组
+        System.arraycopy(heap,1,source,0,source.length);
+
+    &amp;#125;
+
+    private static  boolean less(Comparable[] heap, int i, int j) &amp;#123;
+        return heap[i].compareTo(heap[j])&lt;0;
+        //heap[i]小于heap[j]时返回True，否则返回false
+        //compareTo根据第一个参数小于、等于或大于第二个参数分别返回负整数、零或正整数。
+    &amp;#125;
+
+    //交换位置
+    private static  void exch(Comparable[] heap, int i, int j) &amp;#123;
+        Comparable tmp = heap[i];
+        heap[i] = heap[j];
+        heap[j] = tmp;
+    &amp;#125;
+
+    //构造堆进行排序
+    private static void createHeap(Comparable[] source, Comparable[] heap) &amp;#123;
+        //复制数组source从下标0开始，复制到heap数组从索引1开始的位置往后
+        System.arraycopy(source,0,heap,1,source.length);
+        for (int i = (heap.length)/2;i&gt;0;i--)&amp;#123;//从最后一个非叶结点开始下沉操作，直到所有非叶结点下沉完毕
+            sink(heap,i,heap.length-1);
+        &amp;#125;
+        //循环结束后将得到一个有序的堆（自根结点元素依次减小）
+
+    &amp;#125;
+
+    //在heap堆中，对target处的元素做下沉
+    //下沉之后大的元素在前.
+    private static void sink(Comparable[] heap, int target, int range)&amp;#123;
+
+        while(2*target&lt;=range)&amp;#123;//当前结点无左子节点时停止循环
+            //1.找出当前结点的较大的子结点
+            int max = 2*target;
+            if (2*target+1&lt;=range)&amp;#123;
+                if (less(heap,2*target,2*target+1))&amp;#123;
+                    max = 2*target+1;
+                &amp;#125;
+            &amp;#125;
+            //2.比较当前结点的值和较大子结点的值
+            if (less(heap,target,max))&amp;#123;
+                //小于则交换父子结点位置
+                exch(heap,target,max);
+                target = max;
+            &amp;#125;else &amp;#123;
+                break;//大于则退出下沉循环
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+
+
+
+    public static void main(String[] args) &amp;#123;
+        String[] arry =&amp;#123;&quot;a&quot;,&quot;d&quot;,&quot;b&quot;,&quot;s&quot;,&quot;Z&quot;,&quot;z&quot;&amp;#125;;
+        HeapSort1.sort(arry);
+        System.out.println(Arrays.toString(arry));
+    &amp;#125;
+&amp;#125;
+
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Java" style=color:#607d8b>
+                Java
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/27/Java-datas-heap/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+    </div>
+
+    <div class="page-index">
+
+        
+
+        <span class="current">
+            1
+        </span>
+
+        
+        <span>
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+            
+            <a href="/page/3">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/5">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/2/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="../images/icon.jpg " alt="头像">
+        </div>
+        <div class="name">
+            ITthree
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                待到山花烂漫时，她在丛中笑~
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/main2035">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://lbkzw.cn">
+                    导航页面
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
             }
-          });
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
         }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-      if (typeof $.fancybox != "undefined") {
-        $.fancybox.close();    // 关闭弹窗
-      }
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-      window.ShowLoading();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      // 关于百度统计对 SPA 页面的处理：
-      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
-      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
-      // 
-
-      // 关于谷歌统计对 SPA 页面的处理：
-      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
-      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
-      
-
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-          if (typeof $.fancybox == "undefined") {
-            SCload_fancybox();
-          } else {
-            pjax_fancybox();
-          }
-        
-        
-        
-        
-        
-        
-          pjax_valine();
-        
-        
-        
-        
-      } catch (e) {
-        console.log(e);
-      }
-      window.HideLoading();
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-      window.HideLoading();
-      window.location.href = e.triggerElement.href;
-    });
+    })
 </script>
 
-    
-  </div>
 </body>
+
 </html>

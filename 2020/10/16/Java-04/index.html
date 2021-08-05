@@ -1,419 +1,199 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1'>
-  <meta charset="utf-8">
-  <!-- SEO相关 -->
-  
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 流的创建与基础操作</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
     
-  
-  <!-- 渲染优化 -->
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <meta name="renderer" content="webkit">
-  <meta name="force-rendering" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- 页面元数据 -->
-  
-  <title>流的创建与基础操作 - ThreeClothの博客</title>
-  
-    <meta name="keywords" content="Java基础">
-  
-
-  
-
-  <!-- feed -->
-  
-
-  <!-- import meta -->
-  
-
-  <!-- link -->
-  
+    <link rel="stylesheet" href="/css/night-theme.css">
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- import link -->
-  
-
-  
-  
-    
-<link rel="stylesheet" href="/css/style.css">
-
-  
-
-  <script id="loadcss"></script>
-
-</head>
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.0.1"></head>
 
 <body>
-  
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
-  <div class='container'>
-  <div id='wrapper'>
-    <div class='nav-sub'>
-      <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-      </ul>
-    </div>
-		<div class="nav-main">
-      
-        
-        <a class="title flat-box" target="_self" href='/'>
-          
-          
-          
-        </a>
-      
-
-			<div class='menu navigation'>
-				<ul class='nav-list-h m-pc'>
-          
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-          
-				</ul>
-			</div>
-
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
-        </form>
-      </div>
-
-			<ul class='switcher nav-list-h m-phone'>
-				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
-				
-				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
-          <ul class="menu-phone list-v navigation white-box">
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-            
-          </ul>
-        </li>
-			</ul>
-		</div>
-	</div>
-  </div>
-</header>
-
-  <div id="l_body">
-    <div id="l_cover">
-  
-    
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
-          
-            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
-          
-          <div class='cover-body'>
-  <div class='top'>
-    
-    
-      <p class="title">ThreeCloth</p>
-    
-    
-  </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
-        
-          
-            <a href="/archives/"
-              
-              
-              id="archives">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              id="about">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>关于</p>
-            </a>
-          
-            <a href="/categories/"
-              
-              
-              id="categories">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>分类</p>
-            </a>
-          
-            <a href="/tags/"
-              
-              
-              id="tags">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>标签</p>
-            </a>
-          
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
         </div>
-    
-  
-  </div>
+    </div>
 
-    <div id='safearea'>
-      <div class='body-wrapper' id="pjax-container">
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
         
-
-<div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
-  
-
-
-  
-  <div class="article-meta" id="top">
-    
-    
-    
-      <h1 class="title">
-        流的创建与基础操作
-      </h1>
-      <div class='new-meta-box'>
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
         
-          
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
             
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>Three Cloth</p>
-  </a>
-</div>
-
-          
-        
-          
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
             
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Java/">Java</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年10月16日</p>
-  </a>
-</div>
-
-          
-        
-          
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
             
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
-      
-      <div id="lc-pv" data-title="流的创建与基础操作" data-path="/2020/10/16/Java-04/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
 
+</nav>
+                </div>
 
-          
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>流的创建与基础操作 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
         
-      </div>
-    
-  </div>
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
 
+        
 
-  
-  <blockquote>
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java基础" style=color:#607d8b>
+                    Java基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
 <p>流是一系列与特定存储机制无关的元素——实际上，流并没有“存储”之说;</p>
 <p>利用流，我们无需迭代集合中的元素，就可以提取和操作它们。这些管道通常被组合在一起，在流上形成一条操作管道;</p>
 <p>流的一个核心好处是，它使得程序更加短小并且更易理解。当 Lambda 表达式和方法引用（method references）和流一起使用的时候会让人感觉自成一体;</p>
@@ -428,31 +208,130 @@
 <li>截断并获取流中元素</li>
 <li>如填入7，则获取前7个元素</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// streams/Randoms.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Randoms</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Random(<span class="number">47</span>)</span><br><span class="line">            .ints(<span class="number">5</span>, <span class="number">20</span>)<span class="comment">//生成整数流，设定边界如5-20（不包括20）</span></span><br><span class="line">            .distinct()<span class="comment">//收集不重复的</span></span><br><span class="line">            .limit(<span class="number">7</span>)<span class="comment">//截断，获取7个元素</span></span><br><span class="line">            .sorted()<span class="comment">//排序</span></span><br><span class="line">            .forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">// streams/Randoms.java
+import java.util.*;
+public class Randoms &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        new Random(47)
+            .ints(5, 20)//生成整数流，设定边界如5-20（不包括20）
+            .distinct()//收集不重复的
+            .limit(7)//截断，获取7个元素
+            .sorted()//排序
+            .forEach(System.out::println);
+    &amp;#125;
+&amp;#125;</code></pre>
 <h1 id="创建流"><a href="#创建流" class="headerlink" title="创建流"></a>创建流</h1><h2 id="Stream-of"><a href="#Stream-of" class="headerlink" title="Stream.of()"></a>Stream.of()</h2><p>将一组元素转化成为流</p>
 <h2 id="stream"><a href="#stream" class="headerlink" title="stream()"></a>stream()</h2><p>集合可通过调用此方法产生一个流</p>
 <h2 id="entrySet"><a href="#entrySet" class="headerlink" title="entrySet()"></a>entrySet()</h2><ul>
 <li>产生一个对象流，每个对象都包含一个 <code>key</code> 键以及与其相关联的 <code>value</code> 值。 </li>
 <li>可使用getKey()和getValue() 获取对象流的键值</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// streams/CollectionToStream.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionToStream</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Bubble&gt; bubbles = Arrays.asList(<span class="keyword">new</span> Bubble(<span class="number">1</span>), <span class="keyword">new</span> Bubble(<span class="number">2</span>), <span class="keyword">new</span> Bubble(<span class="number">3</span>));</span><br><span class="line">        System.out.println(bubbles.stream()</span><br><span class="line">            .mapToInt(b -&gt; b.i)</span><br><span class="line">            .sum());</span><br><span class="line"></span><br><span class="line">        Set&lt;String&gt; w = <span class="keyword">new</span> HashSet&lt;&gt;(Arrays.asList(<span class="string">&quot;It&#x27;s a wonderful day for pie!&quot;</span>.split(<span class="string">&quot; &quot;</span>)));</span><br><span class="line">        w.stream()</span><br><span class="line">         .map(x -&gt; x + <span class="string">&quot; &quot;</span>)</span><br><span class="line">         .forEach(System.out::print);</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, Double&gt; m = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        m.put(<span class="string">&quot;pi&quot;</span>, <span class="number">3.14159</span>);</span><br><span class="line">        m.put(<span class="string">&quot;e&quot;</span>, <span class="number">2.718</span>);</span><br><span class="line">        m.put(<span class="string">&quot;phi&quot;</span>, <span class="number">1.618</span>);</span><br><span class="line">        m.entrySet().stream()<span class="comment">//entrySet() 产生一个对象流，每个对象都包含一个 `key` 键以及与其相关联的 `value` 值。 。</span></span><br><span class="line">                    .map(e -&gt; e.getKey() + <span class="string">&quot;: &quot;</span> + e.getValue())<span class="comment">//getKey()和getValue() 获取键值</span></span><br><span class="line">            <span class="comment">//中间操作 `map()` 会获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中。</span></span><br><span class="line">                    .forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">// streams/CollectionToStream.java
+import java.util.*;
+import java.util.stream.*;
+public class CollectionToStream &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        List&lt;Bubble&gt; bubbles = Arrays.asList(new Bubble(1), new Bubble(2), new Bubble(3));
+        System.out.println(bubbles.stream()
+            .mapToInt(b -&gt; b.i)
+            .sum());
 
+        Set&lt;String&gt; w = new HashSet&lt;&gt;(Arrays.asList(&quot;It&#39;s a wonderful day for pie!&quot;.split(&quot; &quot;)));
+        w.stream()
+         .map(x -&gt; x + &quot; &quot;)
+         .forEach(System.out::print);
+        System.out.println();
+
+        Map&lt;String, Double&gt; m = new HashMap&lt;&gt;();
+        m.put(&quot;pi&quot;, 3.14159);
+        m.put(&quot;e&quot;, 2.718);
+        m.put(&quot;phi&quot;, 1.618);
+        m.entrySet().stream()//entrySet() 产生一个对象流，每个对象都包含一个 `key` 键以及与其相关联的 `value` 值。 。
+                    .map(e -&gt; e.getKey() + &quot;: &quot; + e.getValue())//getKey()和getValue() 获取键值
+            //中间操作 `map()` 会获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中。
+                    .forEach(System.out::println);
+    &amp;#125;
+&amp;#125;</code></pre>
 <h2 id="boxed"><a href="#boxed" class="headerlink" title="boxed()"></a>boxed()</h2><ul>
 <li>把基本类型包装成为对应的装箱类型</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomGenerators</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(Stream&lt;T&gt; stream)</span> </span>&#123;</span><br><span class="line">        stream</span><br><span class="line">        .limit(<span class="number">4</span>)</span><br><span class="line">        .forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        show(rand.ints().boxed());<span class="comment">//boxed() 流操作将会自动地把基本类型包装成为对应的装箱类型，从而使得 show() 能够接受流</span></span><br><span class="line">        show(rand.longs().boxed());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class RandomGenerators &amp;#123;
+    public static &lt;T&gt; void show(Stream&lt;T&gt; stream) &amp;#123;
+        stream
+        .limit(4)
+        .forEach(System.out::println);
+    &amp;#125;
 
+    public static void main(String[] args) &amp;#123;
+        Random rand = new Random(47);
+        show(rand.ints().boxed());//boxed() 流操作将会自动地把基本类型包装成为对应的装箱类型，从而使得 show() 能够接受流
+        show(rand.longs().boxed());
+    &amp;#125;
+&amp;#125;</code></pre>
 <h2 id="collect"><a href="#collect" class="headerlink" title="collect()"></a>collect()</h2><p>收集操作，它根据参数来组合所有流中的元素。</p>
 <h2 id="Collectors-joining"><a href="#Collectors-joining" class="headerlink" title="Collectors.joining()"></a>Collectors.joining()</h2><p>每个元素都根据 <code>joining()</code> 的参数来进行分割。</p>
 <p>得到一个 <code>String</code> 类型的结果</p>
 <h2 id="Stream-generate"><a href="#Stream-generate" class="headerlink" title="Stream.generate()"></a>Stream.generate()</h2><ul>
 <li>把任意  <code>Supplier&lt;T&gt;</code> 用于生成 <code>T</code> 类型的流。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// streams/RandomWords.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.*;</span><br><span class="line"><span class="keyword">import</span> java.util.function.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomWords</span> <span class="keyword">implements</span> <span class="title">Supplier</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    List&lt;String&gt; words = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">    RandomWords(String fname) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        List&lt;String&gt; lines = Files.readAllLines(Paths.get(fname));</span><br><span class="line">        <span class="comment">// 略过第一行</span></span><br><span class="line">        <span class="keyword">for</span> (String line : lines.subList(<span class="number">1</span>, lines.size())) &#123;</span><br><span class="line">            <span class="keyword">for</span> (String word : line.split(<span class="string">&quot;[ .?,]+&quot;</span>))</span><br><span class="line">                words.add(word.toLowerCase());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> words.get(rand.nextInt(words.size()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> words.stream()</span><br><span class="line">            .collect(Collectors.joining(<span class="string">&quot; &quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(</span><br><span class="line">            Stream.generate(<span class="keyword">new</span> RandomWords(<span class="string">&quot;Cheese.dat&quot;</span>))</span><br><span class="line">                .limit(<span class="number">10</span>)</span><br><span class="line">                .collect(Collectors.joining(<span class="string">&quot; &quot;</span>)));<span class="comment">//以空格分隔流元素并收集</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">// streams/RandomWords.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+import java.io.*;
+import java.nio.file.*;
+public class RandomWords implements Supplier&lt;String&gt; &amp;#123;
+    List&lt;String&gt; words = new ArrayList&lt;&gt;();
+    Random rand = new Random(47);
+    RandomWords(String fname) throws IOException &amp;#123;
+        List&lt;String&gt; lines = Files.readAllLines(Paths.get(fname));
+        // 略过第一行
+        for (String line : lines.subList(1, lines.size())) &amp;#123;
+            for (String word : line.split(&quot;[ .?,]+&quot;))
+                words.add(word.toLowerCase());
+        &amp;#125;
+    &amp;#125;
+    public String get() &amp;#123;
+        return words.get(rand.nextInt(words.size()));
+    &amp;#125;
+    @Override
+    public String toString() &amp;#123;
+        return words.stream()
+            .collect(Collectors.joining(&quot; &quot;));
+    &amp;#125;
+    public static void main(String[] args) throws Exception &amp;#123;
+        System.out.println(
+            Stream.generate(new RandomWords(&quot;Cheese.dat&quot;))
+                .limit(10)
+                .collect(Collectors.joining(&quot; &quot;)));//以空格分隔流元素并收集
+    &amp;#125;
+&amp;#125;</code></pre>
+<pre><code class="java">package com.test.day15;
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test.day15;</span><br><span class="line"></span><br><span class="line"><span class="comment">// streams/Generator.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.function.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Generator</span> <span class="keyword">implements</span> <span class="title">Supplier</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">    <span class="keyword">char</span>[] letters = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>.toCharArray();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span> + letters[rand.nextInt(letters.length)];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String word = Stream.generate(<span class="keyword">new</span> Generator())</span><br><span class="line">                <span class="comment">////Stream.generate() 的用法，它可以把任意 Supplier&lt;T&gt; 用于生成 T 类型的流。</span></span><br><span class="line">                .limit(<span class="number">30</span>)<span class="comment">//获取前30个</span></span><br><span class="line">                .collect(Collectors.joining(<span class="string">&quot; &quot;</span>));<span class="comment">//collect() 收集操作，它根据参数来组合所有流中的元素。</span></span><br><span class="line">        <span class="comment">//使用 Collectors.joining()，你将会得到一个 String 类型的结果，</span></span><br><span class="line">        <span class="comment">// 每个元素都根据 joining() 的参数来进行分割。</span></span><br><span class="line"></span><br><span class="line">        System.out.println(word);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+// streams/Generator.java
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
 
+public class Generator implements Supplier&lt;String&gt; &amp;#123;
+    Random rand = new Random(47);
+    char[] letters = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;.toCharArray();
+
+    public String get() &amp;#123;
+        return &quot;&quot; + letters[rand.nextInt(letters.length)];
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        String word = Stream.generate(new Generator())
+                ////Stream.generate() 的用法，它可以把任意 Supplier&lt;T&gt; 用于生成 T 类型的流。
+                .limit(30)//获取前30个
+                .collect(Collectors.joining(&quot; &quot;));//collect() 收集操作，它根据参数来组合所有流中的元素。
+        //使用 Collectors.joining()，你将会得到一个 String 类型的结果，
+        // 每个元素都根据 joining() 的参数来进行分割。
+
+        System.out.println(word);
+    &amp;#125;
+&amp;#125;</code></pre>
 <h2 id="toArray"><a href="#toArray" class="headerlink" title="toArray()"></a>toArray()</h2><p>将元素装入数组</p>
 <h2 id="Arrays的stream"><a href="#Arrays的stream" class="headerlink" title="Arrays的stream()"></a>Arrays的stream()</h2><p>把数组转换成为流;</p>
 <p>（）中可加入两个额外的参数。第一个参数告诉 <code>stream()</code> 从数组的哪个位置开始选择元素，第二个参数用于告知在哪里停止。</p>
@@ -461,18 +340,93 @@
 <h2 id="skip"><a href="#skip" class="headerlink" title="skip()"></a>skip()</h2><ul>
 <li>根据参数丢弃指定数量的流元素。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test.day15;</span><br><span class="line"></span><br><span class="line"><span class="comment">// streams/Fibonacci.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.stream.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fibonacci</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Stream&lt;Integer&gt; <span class="title">numbers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Stream.iterate(<span class="number">0</span>, i -&gt; &#123;<span class="comment">//terate() 以种子（第一个参数）开头，并将其传给方法（第二个参数）。</span></span><br><span class="line">            <span class="comment">// iterate() 只能记忆结果，因此我们需要利用一个变量 x 追踪另外一个元素。</span></span><br><span class="line">            <span class="keyword">int</span> result = x + i;</span><br><span class="line">            x = i;</span><br><span class="line">            <span class="keyword">return</span> result;<span class="comment">//返回值赋予i</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Fibonacci().numbers()</span><br><span class="line">                .skip(<span class="number">20</span>) <span class="comment">// 过滤前 20 个</span></span><br><span class="line">                .limit(<span class="number">10</span>) <span class="comment">// 然后取 10 个</span></span><br><span class="line">                .forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.test.day15;
 
+// streams/Fibonacci.java
+import java.util.stream.*;
+public class Fibonacci &amp;#123;
+    int x = 1;
+
+    Stream&lt;Integer&gt; numbers() &amp;#123;
+        return Stream.iterate(0, i -&gt; &amp;#123;//terate() 以种子（第一个参数）开头，并将其传给方法（第二个参数）。
+            // iterate() 只能记忆结果，因此我们需要利用一个变量 x 追踪另外一个元素。
+            int result = x + i;
+            x = i;
+            return result;//返回值赋予i
+        &amp;#125;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        new Fibonacci().numbers()
+                .skip(20) // 过滤前 20 个
+                .limit(10) // 然后取 10 个
+                .forEach(System.out::println);
+    &amp;#125;
+&amp;#125;</code></pre>
 <h1 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h1><h2 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h2><p>获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中。</p>
 <h2 id="mapToInt-ToIntFunction"><a href="#mapToInt-ToIntFunction" class="headerlink" title="mapToInt(ToIntFunction)"></a>mapToInt(ToIntFunction)</h2><p>操作同上，但结果是 <strong>IntStream</strong>;</p>
 <p>mapToLong(ToLongFunction)</p>
 <p>操作同上，但结果是 <strong>LongStream</strong>;</p>
 <p>mapToDouble(ToDoubleFunction)</p>
 <p>操作同上，但结果是 <strong>DoubleStream</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test.day15;</span><br><span class="line"></span><br><span class="line"><span class="comment">// streams/FunctionMap.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.*;</span><br><span class="line"><span class="keyword">import</span> java.util.function.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FunctionMap</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> String[] elements = &#123; <span class="string">&quot;12&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;23&quot;</span>, <span class="string">&quot;45&quot;</span> &#125;;</span><br><span class="line">    <span class="keyword">static</span> Stream&lt;String&gt;</span><br><span class="line">    testStream() &#123;</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(elements);<span class="comment">//把数组转换成为流并返回</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String descr, Function&lt;String, String&gt; func)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; ---( &quot;</span> + descr + <span class="string">&quot; )---&quot;</span>);</span><br><span class="line">        testStream()</span><br><span class="line">                .map(func)<span class="comment">//将函数操作应用在输入流的元素中，并将返回值传递到输出流中。</span></span><br><span class="line">                .forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        test(<span class="string">&quot;add brackets&quot;</span>, s -&gt; <span class="string">&quot;[&quot;</span> + s + <span class="string">&quot;]&quot;</span>);</span><br><span class="line">        test(<span class="string">&quot;Increment&quot;</span>, s -&gt; &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">//                        return s + 1;//错误的拼接了，流中一切元素为字符</span></span><br><span class="line">                        <span class="keyword">return</span> Integer.parseInt(s) + <span class="number">1</span> + <span class="string">&quot;&quot;</span>;<span class="comment">//将字符串参数作为有符号的十进制整数进行解析并还原为字符串</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">catch</span>(NumberFormatException e) &#123;</span><br><span class="line">                        <span class="keyword">return</span> s;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        );</span><br><span class="line">        test(<span class="string">&quot;Replace&quot;</span>, s -&gt; s.replace(<span class="string">&quot;2&quot;</span>, <span class="string">&quot;9&quot;</span>));</span><br><span class="line">        <span class="comment">//返回一个新的字符串，将所有字符”2“替换成”9“</span></span><br><span class="line">        test(<span class="string">&quot;Take last digit&quot;</span>, s -&gt; s.length() &gt; <span class="number">0</span> ?</span><br><span class="line">                s.charAt(s.length() - <span class="number">1</span>) + <span class="string">&quot;&quot;</span> : s);<span class="comment">//charAt返回指定索引处的 char 值。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.test.day15;
 
-<h2 id="流中元素基本类型的转换"><a href="#流中元素基本类型的转换" class="headerlink" title="流中元素基本类型的转换"></a>流中元素基本类型的转换</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test.day15;</span><br><span class="line"></span><br><span class="line"><span class="comment">// streams/FunctionMap3.java</span></span><br><span class="line"><span class="comment">// Producing numeric output streams（ 产生数值输出流）</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FunctionMap3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Stream.of(<span class="string">&quot;5&quot;</span>, <span class="string">&quot;7&quot;</span>, <span class="string">&quot;9&quot;</span>)</span><br><span class="line">                .mapToInt(Integer::parseInt)<span class="comment">//int类型</span></span><br><span class="line">                .forEach(n -&gt; System.out.format(<span class="string">&quot;%d &quot;</span>, n));</span><br><span class="line">        System.out.println();</span><br><span class="line">        Stream.of(<span class="string">&quot;17&quot;</span>, <span class="string">&quot;19&quot;</span>, <span class="string">&quot;23&quot;</span>)</span><br><span class="line">                .mapToLong(Long::parseLong)<span class="comment">//long类型</span></span><br><span class="line">                .forEach(n -&gt; System.out.format(<span class="string">&quot;%d &quot;</span>, n));</span><br><span class="line">        System.out.println();</span><br><span class="line">        Stream.of(<span class="string">&quot;17&quot;</span>, <span class="string">&quot;1.9&quot;</span>, <span class="string">&quot;.23&quot;</span>)</span><br><span class="line">                .mapToDouble(Double::parseDouble)<span class="comment">//double类型</span></span><br><span class="line">                .forEach(n -&gt; System.out.format(<span class="string">&quot;%f &quot;</span>, n));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+// streams/FunctionMap.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class FunctionMap &amp;#123;
+    static String[] elements = &amp;#123; &quot;12&quot;, &quot;&quot;, &quot;23&quot;, &quot;45&quot; &amp;#125;;
+    static Stream&lt;String&gt;
+    testStream() &amp;#123;
+        return Arrays.stream(elements);//把数组转换成为流并返回
+    &amp;#125;
+    static void test(String descr, Function&lt;String, String&gt; func) &amp;#123;
+        System.out.println(&quot; ---( &quot; + descr + &quot; )---&quot;);
+        testStream()
+                .map(func)//将函数操作应用在输入流的元素中，并将返回值传递到输出流中。
+                .forEach(System.out::println);
+    &amp;#125;
+    public static void main(String[] args) &amp;#123;
+        test(&quot;add brackets&quot;, s -&gt; &quot;[&quot; + s + &quot;]&quot;);
+        test(&quot;Increment&quot;, s -&gt; &amp;#123;
+                    try &amp;#123;
+//                        return s + 1;//错误的拼接了，流中一切元素为字符
+                        return Integer.parseInt(s) + 1 + &quot;&quot;;//将字符串参数作为有符号的十进制整数进行解析并还原为字符串
+                    &amp;#125;
+                    catch(NumberFormatException e) &amp;#123;
+                        return s;
+                    &amp;#125;
+                &amp;#125;
+        );
+        test(&quot;Replace&quot;, s -&gt; s.replace(&quot;2&quot;, &quot;9&quot;));
+        //返回一个新的字符串，将所有字符”2“替换成”9“
+        test(&quot;Take last digit&quot;, s -&gt; s.length() &gt; 0 ?
+                s.charAt(s.length() - 1) + &quot;&quot; : s);//charAt返回指定索引处的 char 值。
+    &amp;#125;
+&amp;#125;</code></pre>
+<h2 id="流中元素基本类型的转换"><a href="#流中元素基本类型的转换" class="headerlink" title="流中元素基本类型的转换"></a>流中元素基本类型的转换</h2><pre><code class="java">package com.test.day15;
 
+// streams/FunctionMap3.java
+// Producing numeric output streams（ 产生数值输出流）
+import java.util.*;
+import java.util.stream.*;
+class FunctionMap3 &amp;#123;
+
+    public static void main(String[] args) &amp;#123;
+        Stream.of(&quot;5&quot;, &quot;7&quot;, &quot;9&quot;)
+                .mapToInt(Integer::parseInt)//int类型
+                .forEach(n -&gt; System.out.format(&quot;%d &quot;, n));
+        System.out.println();
+        Stream.of(&quot;17&quot;, &quot;19&quot;, &quot;23&quot;)
+                .mapToLong(Long::parseLong)//long类型
+                .forEach(n -&gt; System.out.format(&quot;%d &quot;, n));
+        System.out.println();
+        Stream.of(&quot;17&quot;, &quot;1.9&quot;, &quot;.23&quot;)
+                .mapToDouble(Double::parseDouble)//double类型
+                .forEach(n -&gt; System.out.format(&quot;%f &quot;, n));
+    &amp;#125;
+&amp;#125;</code></pre>
 <h3 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap()"></a>flatMap()</h3><ul>
 <li><p>获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中（与 <code>map()</code> 所做的相同）</p>
 </li>
@@ -481,10 +435,7 @@
 <li><p>可用来组合流中的方法（实现方式是将元素扁平化再实现流）例：</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; a = words.stream().flatMap(w -&gt; codePoints(w));</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">Stream&lt;String&gt; a = words.stream().flatMap(w -&gt; codePoints(w));</code></pre>
 <ul>
 <li><p><code>flatMap(Function)</code>：当 <code>Function</code> 产生流时使用。</p>
 </li>
@@ -498,1015 +449,107 @@
 <h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><ul>
 <li>以参数顺序组合两个流。 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test.day15;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.IntStream;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Stream;</span><br><span class="line"><span class="comment">/*一个整数流开始，然后使用每一个整数去创建更多的随机数。*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StreamOfRandoms</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">    <span class="comment">//一个种子为47的随机数生成，多个相同种子的随机生成实例，生成的结果一致</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">        .flatMapToInt(i -&gt; IntStream.concat(</span><br><span class="line">            <span class="comment">//concat()，以参数顺序组合两个流，我们在每个随机 `Integer` 流的末尾添加一个 -1 作为标记</span></span><br><span class="line">                rand.ints(<span class="number">0</span>,<span class="number">100</span>).limit(i)<span class="comment">//根据i的值返回i个元素</span></span><br><span class="line">                ,</span><br><span class="line">                <span class="comment">//生成随机数，仅返回0（包含）-100（不包含）之间的数</span></span><br><span class="line">                IntStream.of(-<span class="number">1</span>)<span class="comment">//生成一个整数流包含-1</span></span><br><span class="line">                )).forEach(n -&gt; System.out.format(<span class="string">&quot;%d\n&quot;</span>,n));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.test.day15;
 
+import java.util.Random;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+/*一个整数流开始，然后使用每一个整数去创建更多的随机数。*/
+public class StreamOfRandoms &amp;#123;
+    static Random rand = new Random(47);
+    //一个种子为47的随机数生成，多个相同种子的随机生成实例，生成的结果一致
+
+    public static void main(String[] args) &amp;#123;
+        Stream.of(1,2,3,4,5)
+        .flatMapToInt(i -&gt; IntStream.concat(
+            //concat()，以参数顺序组合两个流，我们在每个随机 `Integer` 流的末尾添加一个 -1 作为标记
+                rand.ints(0,100).limit(i)//根据i的值返回i个元素
+                ,
+                //生成随机数，仅返回0（包含）-100（不包含）之间的数
+                IntStream.of(-1)//生成一个整数流包含-1
+                )).forEach(n -&gt; System.out.format(&quot;%d\n&quot;,n));
+    &amp;#125;
+&amp;#125;
+</code></pre>
 <h3 id="peek"><a href="#peek" class="headerlink" title="peek()"></a>peek()</h3><p>帮助调试。可无修改地查看流中的元素。</p>
 <h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct()"></a>distinct()</h3><p>收集流中不重复的元素</p>
 <h3 id="空流-Stream-empty"><a href="#空流-Stream-empty" class="headerlink" title="空流 Stream.empty()"></a>空流 Stream.empty()</h3><ul>
 <li><p>如果你在没有任何上下文环境的情况下调用 Stream.empty()，Java 并不知道它的数据类型；</p>
 </li>
 <li><p>解决这个问题:1、2均可</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> Stream.&lt;String&gt;empty()<span class="comment">//限定类型为String</span></span><br><span class="line">    <span class="number">2.</span>    Stream&lt;String&gt; s = Stream.empty();</span><br></pre></td></tr></table></figure>
+<pre><code class="java">1. Stream.&lt;String&gt;empty()//限定类型为String
+    2.    Stream&lt;String&gt; s = Stream.empty();</code></pre>
 </li>
 </ul>
 
-  
-  
-    
-    <div class='footer'>
-      
-      
-        
-  <div class="related_posts">
-    <section class='header'>
-      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
-    </section>
-    <section class='body'>
-      <div class="vlts-rps"><a class="item" href="\2020\10\16\Java-01\" title="接口" rel="bookmark "><img src="http://img.lbkzw.cn/img/20200821084956.jpeg" class="lazyload" data-srcset="http://img.lbkzw.cn/img/20200821084956.jpeg" srcset="data:image/png;base64,666" /><span class="title">接口</span></a><a class="item" href="\2020\10\16\Java-03\" title="函数式编程" rel="bookmark "><img src="data:image/png;base64,666" /><span class="title">函数式编程</span></a><a class="item" href="\2020\10\16\Java-06\" title="终端操作(收集)" rel="bookmark "><img src="data:image/png;base64,666" /><span class="title">终端操作(收集)</span></a><a class="item" href="\2020\10\16\Java-05\" title="Optional类" rel="bookmark "><img src="data:image/png;base64,666" /><span class="title">Optional类</span></a><a class="item" href="\2020\10\16\Java-07\" title="异常" rel="bookmark "><img src="http://img.lbkzw.cn/img/20200821102446.png" class="lazyload" data-srcset="http://img.lbkzw.cn/img/20200821102446.png" srcset="data:image/png;base64,666" /><span class="title">异常</span></a></div></section></div>
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+    </div>
 
-              
-            
-              
-                <p>本文永久链接是：<a href=https://main2035.github.io/2020/10/16/Java-04/>https://main2035.github.io/2020/10/16/Java-04/</a></p>
-              
-            
-          </blockquote>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
         </div>
-      
-      
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
     </div>
-  
-  
-    
 
+</footer>
 
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-30T18:48:30+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年8月30日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Java基础</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://main2035.github.io/2020/10/16/Java-04/&title=流的创建与基础操作 - ThreeClothの博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://main2035.github.io/2020/10/16/Java-04/&title=流的创建与基础操作 - ThreeClothの博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://main2035.github.io/2020/10/16/Java-04/&title=流的创建与基础操作 - ThreeClothの博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
     </div>
-  </div>
 
-
-  
-  
-
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2020/10/16/Java-05/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Optional类</p>
-          <p class='content'>
-用于，查看的流中元素返回提示而不是发生异常。
-
-findFirst() 返回一个包含第一个元素的 Optional 对象，如果流为空则返回 Optional.empty;
-findAny() ...</p>
-        </a>
-      
-      
-        <a class='next' href='/2020/10/16/Java-03/'>
-          <p class='title'>函数式编程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-任何 Lambda 表达式的基本语法是：
-
-参数。
-接着 -&gt;，可视为“产出”。
--&gt; 之后的内容都是方法体。
-
-
-当只用一个参数，可以不需要括号 ()。 然而，这是一个特例;
- ...</p>
-        </a>
-      
-    </div>
-  
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
-    
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-  </article>
-
-
-
-
-
-
-</div>
-<aside class='l_side'>
-  
-  
-    
-    
-
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ints"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">.ints( )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">.limit()</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">创建流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-of"><span class="toc-number">2.1.</span> <span class="toc-text">Stream.of()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stream"><span class="toc-number">2.2.</span> <span class="toc-text">stream()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#entrySet"><span class="toc-number">2.3.</span> <span class="toc-text">entrySet()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#boxed"><span class="toc-number">2.4.</span> <span class="toc-text">boxed()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#collect"><span class="toc-number">2.5.</span> <span class="toc-text">collect()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collectors-joining"><span class="toc-number">2.6.</span> <span class="toc-text">Collectors.joining()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-generate"><span class="toc-number">2.7.</span> <span class="toc-text">Stream.generate()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toArray"><span class="toc-number">2.8.</span> <span class="toc-text">toArray()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays%E7%9A%84stream"><span class="toc-number">2.9.</span> <span class="toc-text">Arrays的stream()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-iterate"><span class="toc-number">2.10.</span> <span class="toc-text">Stream.iterate()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skip"><span class="toc-number">2.11.</span> <span class="toc-text">skip()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">中间操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">3.1.</span> <span class="toc-text">map()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapToInt-ToIntFunction"><span class="toc-number">3.2.</span> <span class="toc-text">mapToInt(ToIntFunction)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E4%B8%AD%E5%85%83%E7%B4%A0%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.3.</span> <span class="toc-text">流中元素基本类型的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flatMap"><span class="toc-number">3.3.1.</span> <span class="toc-text">flatMap()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat"><span class="toc-number">3.3.2.</span> <span class="toc-text">concat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#peek"><span class="toc-number">3.3.3.</span> <span class="toc-text">peek()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#distinct"><span class="toc-number">3.3.4.</span> <span class="toc-text">distinct()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%B5%81-Stream-empty"><span class="toc-number">3.3.5.</span> <span class="toc-text">空流 Stream.empty()</span></a></li></ol></li></ol></li></ol>
-    </div>
-  </section>
-
-
-  
-
-
-</aside>
-
-
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
-<!--思路大概是将值藏到重加载的区域内-->
-
-<script>
-  window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="流的创建与基础操作";
-  pdata.commentPath="";
-  pdata.commentPlaceholder="";
-
-  var l_header=document.getElementById("l_header");
-  
-  l_header.classList.add("show");
-  
-</script>
-
-        
-      </div>
-      
-  
-  <footer class="footer clearfix">
-    <br><br>
-    
-      
-        <div class="aplayer-container">
-          
-
-
-        </div>
-      
-    
-      
-        <br>
-        <div class="social-wrapper">
-          
-            
-          
-            
-          
-            
-          
-        </div>
-      
-    
-      
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
-</div>
-      
-    
-      
-        
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
-</div>
-        
-      
-    
-      
-        本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1" target="_blank" class="codename">Volantis</a>
-        作为主题
-      
-    
-      
-        <div class='copyright'>
-        <p><a href="/">Copyright © 2017-2020 ThreeCloth</a></p>
-
-        </div>
-      
-    
-  </footer>
-
-
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
-    </div>
-  </div>
-  <div>
     <script>
-window.volantis={};
-/********************脚本懒加载函数********************************/
-function loadScript(src, cb) {
-var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-var script = document.createElement('script');
-script.setAttribute('type','text/javascript');
-if (cb) script.onload = cb;
-script.setAttribute('src', src);
-HEAD.appendChild(script);
-}
-//https://github.com/filamentgroup/loadCSS
-var loadCSS = function( href, before, media, attributes ){
-	var doc = window.document;
-	var ss = doc.createElement( "link" );
-	var ref;
-	if( before ){
-		ref = before;
-	}
-	else {
-		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
-		ref = refs[ refs.length - 1];
-	}
-	var sheets = doc.styleSheets;
-	if( attributes ){
-		for( var attributeName in attributes ){
-			if( attributes.hasOwnProperty( attributeName ) ){
-				ss.setAttribute( attributeName, attributes[attributeName] );
-			}
-		}
-	}
-	ss.rel = "stylesheet";
-	ss.href = href;
-	ss.media = "only x";
-	function ready( cb ){
-		if( doc.body ){
-			return cb();
-		}
-		setTimeout(function(){
-			ready( cb );
-		});
-	}
-	ready( function(){
-		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
-	});
-	var onloadcssdefined = function( cb ){
-		var resolvedHref = ss.href;
-		var i = sheets.length;
-		while( i-- ){
-			if( sheets[ i ].href === resolvedHref ){
-				return cb();
-			}
-		}
-		setTimeout(function() {
-			onloadcssdefined( cb );
-		});
-	};
-	function loadCB(){
-		if( ss.addEventListener ){
-			ss.removeEventListener( "load", loadCB );
-		}
-		ss.media = media || "all";
-	}
-	if( ss.addEventListener ){
-		ss.addEventListener( "load", loadCB);
-	}
-	ss.onloadcssdefined = onloadcssdefined;
-	onloadcssdefined( loadCB );
-	return ss;
-};
-</script>
-<!-- required -->
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
-
-<script>
-  function pjax_fancybox() {
-    $(".md .gallery").find("img").each(function () { //渲染 fancybox
-      var element = document.createElement("a"); // a 标签
-      $(element).attr("class", "fancybox");
-      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
-      $(element).attr("href", $(this).attr("src"));
-      if ($(this).attr("data-original")) {
-        $(element).attr("href", $(this).attr("data-original"));
-      }
-      $(element).attr("data-fancybox", "images");
-      var caption = "";   // 描述信息
-      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
-        $(element).attr('data-caption', $(this).attr('alt'));
-        caption = $(this).attr('alt');
-      }
-      var div = document.createElement("div");
-      $(div).addClass("fancybox");
-      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
-      var span = document.createElement("span");
-      $(span).addClass("image-caption");
-      $(span).text(caption); // 加描述
-      $(this).after(span);  // 再套一层描述
-      $(this).wrap(element);  // 最后套 a 标签
-    })
-    $(".md .gallery").find("img").fancybox({
-      selector: '[data-fancybox="images"]',
-      hash: false,
-      loop: false,
-      closeClick: true,
-      helpers: {
-        overlay: {closeClick: true}
-      },
-      buttons: [
-        "zoom",
-        "close"
-      ]
-    });
-  };
-  function SCload_fancybox() {
-    if ($(".md .gallery").find("img").length == 0) return;
-    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
-    setTimeout(function() {
-      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
-    }, 1);
-  };
-  $(function () {
-    SCload_fancybox();
-  });
-</script>
-
-
-<!-- internal -->
-
-
-
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-
-
-  
-  
-    <script>
-      window.FPConfig = {
-        delay: 0,
-        ignoreKeywords: [],
-        maxRPS: 5,
-        hoverDelay: 25
-      };
-    </script>
-    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-<script src="/js/valine.js"></script>
-
-
-<script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '/wiki/volantis/# 全局评论地址';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-
-    var valine = new Valine();
-    valine.init({
-      el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
-      path: path,
-      appId: "h8nJRe53Bw2xNxk98JPCkYPn-gzGzoHsz",
-      appKey: "quPPyHETb0KbIoTjALf6niEb",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
-  }
-
-  $(function () {
-    pjax_valine();
-  });
-</script>
-
-
-
-
-
-  
-<script src="/js/app.js"></script>
-
-
-
-
-  
-    
-<script src="/js/search.js"></script>
-
-  
-
-
-<!-- optional -->
-
-  <script>
-const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
-const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
-(function ($) {
-  
-    customSearch = new HexoSearch({
-      imagePath: SearchServiceimagePath
-    });
-  
-})(jQuery);
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-  <script defer>
-
-  const LCCounter = {
-    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
-    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
-    custom_api_server: '',
-
-    // 查询存储的记录
-    getRecord(Counter, url, title) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
             }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {url, title: title, times: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    },
-
-    // 发起自增请求
-    increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    },
-
-    // 构建自增请求体
-    buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "times": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    },
-
-    // 校验是否为有效的 UV
-    validUV() {
-      var key = 'LeanCloudUVTimestamp';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    },
-
-    addCount(Counter) {
-      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
-      enableIncr = true;
-      var getterArr = [];
-      var incrArr = [];
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#lc-sv');
-      if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-sv', 'Visits').then((record) => {
-          incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-sv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + 1;
-              if (pvCtn) {
-                pvCtn.style.display = 'inline';
-              }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
             })
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#lc-uv');
-      if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-uv', 'Visitors').then((record) => {
-          var vuv = this.validUV();
-          vuv && incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-uv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + (vuv ? 1 : 0);
-              if (uvCtn) {
-                uvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 请求文章的浏览数，如果是当前页面就自增
-      var allPV = document.querySelectorAll('#lc-pv');
-      if (allPV.length > 0 || enableIncr) {
-        for (i = 0; i < allPV.length; i++) {
-          let pv = allPV[i];
-          let title = pv.getAttribute('data-title');
-          var url = 'https://main2035.github.io' + pv.getAttribute('data-path');
-          if (url) {
-            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
-              // 是当前页面就自增
-              let curPath = window.location.pathname;
-              if (curPath.includes('index.html')) {
-                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
-              }
-              if (pv.getAttribute('data-path') == curPath) {
-                incrArr.push(this.buildIncrement(record.objectId));
-              }
-              if (pv) {
-                var ele = pv.querySelector('#lc-pv #number');
-                if (ele) {
-                  if (pv.getAttribute('data-path') == curPath) {
-                    ele.innerText = (record.times || 0) + 1;
-                  } else {
-                    ele.innerText = record.times || 0;
-                  }
-                  pv.style.display = 'inline';
-                }
-              }
-            });
-            getterArr.push(viewGetter);
-          }
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && this.increment(Counter, incrArr);
-        })
-      }
-
-    },
-
-
-    fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': this.app_id,
-            'X-LC-Key': this.app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      this.addCount(Counter);
-    },
-
-    refreshCounter() {
-      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-      if (api_server) {
-        this.fetchData(api_server);
-      } else {
-        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
-          .then(resp => resp.json())
-          .then(({api_server}) => {
-            this.fetchData('https://' + api_server);
-          });
-      }
-    }
-
-  };
-
-  LCCounter.refreshCounter();
-
-  document.addEventListener('pjax:complete', function () {
-    LCCounter.refreshCounter();
-  });
-</script>
-
-
-
-
-
-
-
-
-<script>
-function listennSidebarTOC() {
-  const navItems = document.querySelectorAll(".toc li");
-  if (!navItems.length) return;
-  const sections = [...navItems].map((element) => {
-    const link = element.querySelector(".toc-link");
-    const target = document.getElementById(
-      decodeURI(link.getAttribute("href")).replace("#", "")
-    );
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({
-		top: target.offsetTop + 100,
-		
-		behavior: "smooth"
-		
-	  });
-    });
-    return target;
-  });
-
-  function activateNavByIndex(target) {
-    if (target.classList.contains("active-current")) return;
-
-    document.querySelectorAll(".toc .active").forEach((element) => {
-      element.classList.remove("active", "active-current");
-    });
-    target.classList.add("active", "active-current");
-    let parent = target.parentNode;
-    while (!parent.matches(".toc")) {
-      if (parent.matches("li")) parent.classList.add("active");
-      parent = parent.parentNode;
-    }
-  }
-
-  function findIndex(entries) {
-    let index = 0;
-    let entry = entries[index];
-    if (entry.boundingClientRect.top > 0) {
-      index = sections.indexOf(entry.target);
-      return index === 0 ? 0 : index - 1;
-    }
-    for (; index < entries.length; index++) {
-      if (entries[index].boundingClientRect.top <= 0) {
-        entry = entries[index];
-      } else {
-        return sections.indexOf(entry.target);
-      }
-    }
-    return sections.indexOf(entry.target);
-  }
-
-  function createIntersectionObserver(marginTop) {
-    marginTop = Math.floor(marginTop + 10000);
-    let intersectionObserver = new IntersectionObserver(
-      (entries, observe) => {
-        let scrollHeight = document.documentElement.scrollHeight + 100;
-        if (scrollHeight > marginTop) {
-          observe.disconnect();
-          createIntersectionObserver(scrollHeight);
-          return;
-        }
-        let index = findIndex(entries);
-        activateNavByIndex(navItems[index]);
-      },
-      {
-        rootMargin: marginTop + "px 0px -100% 0px",
-        threshold: 0,
-      }
-    );
-    sections.forEach((element) => {
-      element && intersectionObserver.observe(element);
-    });
-  }
-  createIntersectionObserver(document.documentElement.scrollHeight);
-}
-
-document.addEventListener("DOMContentLoaded", listennSidebarTOC);
-document.addEventListener("pjax:success", listennSidebarTOC);
-</script>
-
-<!-- more -->
-
-
-
-
-    
-      
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
-
-<div class="pjax-animate">
-  
-    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
-    <script>
-      window.ShowLoading = function() {
-        NProgress.start();
-      };
-      window.HideLoading = function() {
-        NProgress.done();
-      }
-    </script>
-  
-</div>
-
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          "#l_cover",
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
-
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
             }
-          });
         }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-      if (typeof $.fancybox != "undefined") {
-        $.fancybox.close();    // 关闭弹窗
-      }
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-      window.ShowLoading();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      // 关于百度统计对 SPA 页面的处理：
-      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
-      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
-      // 
-
-      // 关于谷歌统计对 SPA 页面的处理：
-      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
-      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
-      
-
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-          if (typeof $.fancybox == "undefined") {
-            SCload_fancybox();
-          } else {
-            pjax_fancybox();
-          }
-        
-        
-        
-        
-        
-        
-          pjax_valine();
-        
-        
-        
-        
-      } catch (e) {
-        console.log(e);
-      }
-      window.HideLoading();
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-      window.HideLoading();
-      window.location.href = e.triggerElement.href;
-    });
+    })
 </script>
 
-    
-  </div>
 </body>
+
 </html>

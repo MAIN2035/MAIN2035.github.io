@@ -1,430 +1,232 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1'>
-  <meta charset="utf-8">
-  <!-- SEO相关 -->
-  
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || JS对象</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
     
-  
-  <!-- 渲染优化 -->
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <meta name="renderer" content="webkit">
-  <meta name="force-rendering" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- 页面元数据 -->
-  
-  <title>JS对象 - ThreeClothの博客</title>
-  
-    <meta name="keywords" content="JS基础">
-  
-
-  
-
-  <!-- feed -->
-  
-
-  <!-- import meta -->
-  
-
-  <!-- link -->
-  
+    <link rel="stylesheet" href="/css/night-theme.css">
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- import link -->
-  
-
-  
-  
-    
-<link rel="stylesheet" href="/css/style.css">
-
-  
-
-  <script id="loadcss"></script>
-
-</head>
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.0.1"></head>
 
 <body>
-  
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
-  <div class='container'>
-  <div id='wrapper'>
-    <div class='nav-sub'>
-      <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-      </ul>
-    </div>
-		<div class="nav-main">
-      
-        
-        <a class="title flat-box" target="_self" href='/'>
-          
-          
-          
-        </a>
-      
-
-			<div class='menu navigation'>
-				<ul class='nav-list-h m-pc'>
-          
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-          
-				</ul>
-			</div>
-
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
-        </form>
-      </div>
-
-			<ul class='switcher nav-list-h m-phone'>
-				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
-				
-				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
-          <ul class="menu-phone list-v navigation white-box">
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/
-                  
-                  
-                  
-                    id="home"
-                  >
-                  <i class='fas fa-rss fa-fw'></i>首页
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
-                  
-                  
-                  
-                    id="categories"
-                  >
-                  <i class='fas fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
-                  
-                  
-                  
-                    id="tags"
-                  >
-                  <i class='fas fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
-                  
-                  
-                  
-                    id="archives"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
-                  
-                  
-                  
-                    id="about"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-            
-          </ul>
-        </li>
-			</ul>
-		</div>
-	</div>
-  </div>
-</header>
-
-  <div id="l_body">
-    <div id="l_cover">
-  
-    
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
-          
-            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
-          
-          <div class='cover-body'>
-  <div class='top'>
-    
-    
-      <p class="title">ThreeCloth</p>
-    
-    
-  </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
-        
-          
-            <a href="/archives/"
-              
-              
-              id="archives">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              id="about">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>关于</p>
-            </a>
-          
-            <a href="/categories/"
-              
-              
-              id="categories">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>分类</p>
-            </a>
-          
-            <a href="/tags/"
-              
-              
-              id="tags">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>标签</p>
-            </a>
-          
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
         </div>
-    
-  
-  </div>
+    </div>
 
-    <div id='safearea'>
-      <div class='body-wrapper' id="pjax-container">
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
         
-
-<div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
-  
-
-
-  
-  <div class="article-meta" id="top">
-    
-    
-    
-      <h1 class="title">
-        JS对象
-      </h1>
-      <div class='new-meta-box'>
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
         
-          
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
             
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>Three Cloth</p>
-  </a>
-</div>
-
-          
-        
-          
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
             
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/JS/">JS</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年10月16日</p>
-  </a>
-</div>
-
-          
-        
-          
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
             
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
-      
-      <div id="lc-pv" data-title="JS对象" data-path="/2020/10/16/js-04/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
 
+</nav>
+                </div>
 
-          
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>JS对象 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/16
+        </span>
+
         
-      </div>
-    
-  </div>
+        <span class="category">
+            <a href="/categories/JS">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                JS
+            </a>
+        </span>
+        
 
+        
 
-  
-  <h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><ul>
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/JS基础" style=color:#006674>
+                    JS基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><ul>
 <li>字符串、布尔值、数字等可通过包装器，构造一个临时对象</li>
 <li>必要时，js会进行包装器与字符串、数字、布尔值的相互转换</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> word = a.substring(a.indexOf(<span class="string">&quot;&quot;</span>)+<span class="number">1</span>,a.length);<span class="comment">//结果word=ello</span></span><br><span class="line"><span class="comment">//substring() 方法用于提取字符串中介于两个指定下标之间的字符。</span></span><br><span class="line"><span class="comment">//indexOf() 方法返回某个指定的字符串值在字符串中首次出现的位置。</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*像py里的字典*/</span></span><br><span class="line"><span class="keyword">var</span> book =&#123;</span><br><span class="line">    <span class="string">&quot;main title&quot;</span>:<span class="string">&quot;The Definitive Guide&quot;</span>,</span><br><span class="line">    <span class="string">&quot;author&quot;</span>:<span class="string">&quot;David Flanagan&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//对象直接量的原型为constructor.prototype</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="new创建对象"><a href="#new创建对象" class="headerlink" title="new创建对象"></a>new创建对象</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mydate = <span class="keyword">new</span> <span class="built_in">Date</span>();<span class="comment">//new+构造函数创建对象 </span></span><br></pre></td></tr></table></figure>
-
-<h1 id="删除、查询、添加、继承"><a href="#删除、查询、添加、继承" class="headerlink" title="删除、查询、添加、继承"></a>删除、查询、添加、继承</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*添加、查询对象属性 */</span></span><br><span class="line"> <span class="keyword">var</span> customer=&#123;<span class="attr">a1</span>:<span class="string">&quot;1&quot;</span>,<span class="attr">a2</span>:<span class="string">&quot;2&quot;</span>,<span class="attr">a3</span>:<span class="string">&quot;3&quot;</span>&#125;</span><br><span class="line"> <span class="keyword">var</span> addr=<span class="string">&quot;&quot;</span>;</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>,i++)&#123;<span class="comment">//拼接customer属性</span></span><br><span class="line">     addr+=customer[<span class="string">&quot;a&quot;</span>+i]+<span class="string">&#x27;\n&#x27;</span></span><br><span class="line"> &#125;</span><br><span class="line"> customer.a4 =<span class="string">&#x27;4&#x27;</span>;<span class="comment">//为customer创建一个名为a4的属性，值为4</span></span><br><span class="line"> customer[a5]=<span class="string">&quot;5&quot;</span><span class="comment">//为customer创建一个名为a5的属性，值为5</span></span><br><span class="line"> <span class="keyword">var</span> mynumber =customer.a4;<span class="comment">//查询customer的a4属性，并将其赋值于此变量</span></span><br><span class="line"><span class="comment">/*继承对象、删除对象属性*/</span></span><br><span class="line"> <span class="keyword">var</span> o = &#123;&#125;</span><br><span class="line"> o.x = <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">var</span> p = inherit(o);<span class="comment">//继承对象，包含其toString方法与属性</span></span><br><span class="line"> p.y = <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">delete</span> p.x;<span class="comment">//delete无法删除对象继承的属性，可直接在其父上操作 delete o.x;</span></span><br><span class="line"> <span class="keyword">var</span> q = inherit(p);</span><br><span class="line"> q.z = <span class="number">3</span>;</span><br><span class="line"> <span class="keyword">var</span> s = q.toString();</span><br><span class="line"><span class="comment">/*delete:用来删除对象属性（包含数组元素），也可删除未使用var声明的变量包含（this.的全局变量）*/</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var a = &quot;hello&quot;;
+var word = a.substring(a.indexOf(&quot;&quot;)+1,a.length);//结果word=ello
+//substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+//indexOf() 方法返回某个指定的字符串值在字符串中首次出现的位置。</code></pre>
+<h1 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h1><pre><code class="js">/*像py里的字典*/
+var book =&amp;#123;
+    &quot;main title&quot;:&quot;The Definitive Guide&quot;,
+    &quot;author&quot;:&quot;David Flanagan&quot;
+&amp;#125;;
+//对象直接量的原型为constructor.prototype</code></pre>
+<h1 id="new创建对象"><a href="#new创建对象" class="headerlink" title="new创建对象"></a>new创建对象</h1><pre><code class="js">var mydate = new Date();//new+构造函数创建对象 </code></pre>
+<h1 id="删除、查询、添加、继承"><a href="#删除、查询、添加、继承" class="headerlink" title="删除、查询、添加、继承"></a>删除、查询、添加、继承</h1><pre><code class="js">/*添加、查询对象属性 */
+ var customer=&amp;#123;a1:&quot;1&quot;,a2:&quot;2&quot;,a3:&quot;3&quot;&amp;#125;
+ var addr=&quot;&quot;;
+ for(i=0;i&lt;4,i++)&amp;#123;//拼接customer属性
+     addr+=customer[&quot;a&quot;+i]+&#39;\n&#39;
+ &amp;#125;
+ customer.a4 =&#39;4&#39;;//为customer创建一个名为a4的属性，值为4
+ customer[a5]=&quot;5&quot;//为customer创建一个名为a5的属性，值为5
+ var mynumber =customer.a4;//查询customer的a4属性，并将其赋值于此变量
+/*继承对象、删除对象属性*/
+ var o = &amp;#123;&amp;#125;
+ o.x = 1;
+ var p = inherit(o);//继承对象，包含其toString方法与属性
+ p.y = 2;
+ delete p.x;//delete无法删除对象继承的属性，可直接在其父上操作 delete o.x;
+ var q = inherit(p);
+ q.z = 3;
+ var s = q.toString();
+/*delete:用来删除对象属性（包含数组元素），也可删除未使用var声明的变量包含（this.的全局变量）*/</code></pre>
 <h1 id="存取器属性"><a href="#存取器属性" class="headerlink" title="存取器属性"></a>存取器属性</h1><ul>
 <li><p>读取、写入、可枚举、可配置</p>
 </li>
@@ -433,28 +235,73 @@
 <li><p>只有setter方法 ，就是只写属性  </p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*直接定义存储器属性*/</span></span><br><span class="line"><span class="keyword">var</span> random = &#123;</span><br><span class="line">    <span class="keyword">get</span> <span class="title">octet</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() *<span class="number">256</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">get</span> <span class="title">uint16</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() *<span class="number">65536</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">get</span> <span class="title">int16</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() *<span class="number">65536</span>)<span class="number">-32768</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*老式api*/</span></span><br><span class="line">__lookupGetter__(),__lookupSetter__()<span class="comment">//返回属性的getter与setter方法；</span></span><br><span class="line">__defineSetter__(),__defineGetter__()<span class="comment">//定义属性的getter与setter方法；//有两个参数，第一个为属性名字，第二个是getter与seeter方法</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">/*直接定义存储器属性*/
+var random = &amp;#123;
+    get octet()&amp;#123;
+        return Math.floor(Math.random() *256);
+    &amp;#125;,
+    get uint16()&amp;#123;
+        return Math.floor(Math.random() *65536);
+    &amp;#125;,
+    get int16()&amp;#123;
+        return Math.floor(Math.random() *65536)-32768;
+    &amp;#125;
+&amp;#125;;</code></pre>
+<pre><code class="js">/*老式api*/
+__lookupGetter__(),__lookupSetter__()//返回属性的getter与setter方法；
+__defineSetter__(),__defineGetter__()//定义属性的getter与setter方法；//有两个参数，第一个为属性名字，第二个是getter与seeter方法</code></pre>
 <h2 id="设置属性特性"><a href="#设置属性特性" class="headerlink" title="设置属性特性"></a>设置属性特性</h2><p><strong>属性特性</strong>  包括：值、可写性、可枚举性、可配置性，分别对应：value,writable,enumerable,configurable</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置属性特性</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/*单个 */</span></span><br><span class="line"><span class="keyword">var</span> o =&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">&quot;x&quot;</span>,&#123;<span class="attr">value</span>:<span class="number">1</span>,<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">false</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;);</span><br><span class="line"><span class="comment">//Object.defineProperty方法修改自己已有属性或创建自有属性，不可修改继承属性</span></span><br><span class="line"><span class="built_in">Object</span>.keys(o);<span class="comment">//将o.x属性变为只读</span></span><br><span class="line">o.x =<span class="number">2</span> ;<span class="comment">//操作失败</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">&quot;x&quot;</span>,&#123;<span class="attr">value</span>:<span class="number">2</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*多个 */</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.defineProperties(&#123;&#125;,&#123;<span class="attr">x</span>:&#123;<span class="attr">value</span>:<span class="number">1</span>,<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">    y:&#123;<span class="attr">value</span>:<span class="number">1</span>,<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">    r:&#123;<span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="built_in">this</span>.x*<span class="built_in">this</span>.x+<span class="built_in">this</span>.y*<span class="built_in">this</span>.y)&#125;,</span><br><span class="line">enumerable:<span class="literal">true</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*复制属性特性 */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Object</span>.prototype,<span class="string">&quot;extend&quot;</span>,</span><br><span class="line"><span class="comment">/*定义Object.prototype.extend*/</span></span><br><span class="line">&#123;<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">false</span>,<span class="attr">configurable</span>:<span class="literal">true</span>,<span class="attr">value</span>:<span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> names = <span class="built_in">Object</span>.getOwnPropertyNames(o);<span class="comment">//得到所有自由属性包括不可枚举属性</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i&lt; names.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(names[i]<span class="keyword">in</span> <span class="built_in">this</span>)<span class="keyword">continue</span>;<span class="comment">//如果属性已存在，则跳过</span></span><br><span class="line">        <span class="keyword">var</span> desc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(o,names[i]);<span class="comment">//为this创建一个属性</span></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(<span class="built_in">this</span>,names[i],desc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">/**
+ * 设置属性特性
+ */
+/*单个 */
+var o =&amp;#123;&amp;#125;;
+Object.defineProperty(o,&quot;x&quot;,&amp;#123;value:1,writable:true,enumerable:false,configurable:true&amp;#125;);
+//Object.defineProperty方法修改自己已有属性或创建自有属性，不可修改继承属性
+Object.keys(o);//将o.x属性变为只读
+o.x =2 ;//操作失败
+Object.defineProperty(o,&quot;x&quot;,&amp;#123;value:2&amp;#125;);
 
+/*多个 */
+var p = Object.defineProperties(&amp;#123;&amp;#125;,&amp;#123;x:&amp;#123;value:1,writable:true,enumerable:true,configurable:true&amp;#125;,
+    y:&amp;#123;value:1,writable:true,enumerable:true,configurable:true&amp;#125;,
+    r:&amp;#123;get:function()&amp;#123;return Math.sqrt(this.x*this.x+this.y*this.y)&amp;#125;,
+enumerable:true,configurable:true&amp;#125;
+&amp;#125;);
+
+
+
+/*复制属性特性 */
+Object.defineProperty(Object.prototype,&quot;extend&quot;,
+/*定义Object.prototype.extend*/
+&amp;#123;writable:true,enumerable:false,configurable:true,value:function(o)&amp;#123;
+    var names = Object.getOwnPropertyNames(o);//得到所有自由属性包括不可枚举属性
+    for (var i = 0; i&lt; names.length; i++)&amp;#123;
+        if(names[i]in this)continue;//如果属性已存在，则跳过
+        var desc = Object.getOwnPropertyDescriptor(o,names[i]);//为this创建一个属性
+        Object.defineProperty(this,names[i],desc);
+    &amp;#125;
+&amp;#125;&amp;#125;);</code></pre>
 <h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><ul>
 <li>获取对象的属性描述</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于继承属性与不存在属性均返回<span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">对于继承属性与不存在属性均返回undefined</code></pre>
 <h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><ul>
 <li>修改已创建对象的属性特性，不能修改继承属性</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*用法：Object.defineProperty(操作对象，属性名，&#123;属性描述符对象：value,writable,enumerable,configurable&#125;)*/</span></span><br><span class="line"><span class="keyword">var</span> o =&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">&quot;x&quot;</span>,&#123;<span class="attr">value</span>:<span class="number">1</span>,<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">false</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;);<span class="comment">//为对象O创建一个不可枚举的属性x</span></span><br><span class="line"><span class="comment">//修改或创建完成后返回新的对象</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">/*用法：Object.defineProperty(操作对象，属性名，&amp;#123;属性描述符对象：value,writable,enumerable,configurable&amp;#125;)*/
+var o =&amp;#123;&amp;#125;;
+Object.defineProperty(o,&quot;x&quot;,&amp;#123;value:1,writable:true,enumerable:false,configurable:true&amp;#125;);//为对象O创建一个不可枚举的属性x
+//修改或创建完成后返回新的对象</code></pre>
 <h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties()"></a>Object.defineProperties()</h3><ul>
 <li>同时修改多个对象属性特性，不能修改继承属性</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.defineProperties(&#123;&#125;,&#123;<span class="attr">x</span>:&#123;<span class="attr">value</span>:<span class="number">1</span>,<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;,<span class="comment">//p是一个空对象</span></span><br><span class="line">                                    <span class="comment">/*为其创建x，y，r属性*/</span></span><br><span class="line">    y:&#123;<span class="attr">value</span>:<span class="number">1</span>,<span class="attr">writable</span>:<span class="literal">true</span>,<span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">    r:&#123;<span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="built_in">this</span>.x*<span class="built_in">this</span>.x+<span class="built_in">this</span>.y*<span class="built_in">this</span>.y)&#125;,</span><br><span class="line">enumerable:<span class="literal">true</span>,<span class="attr">configurable</span>:<span class="literal">true</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var p = Object.defineProperties(&amp;#123;&amp;#125;,&amp;#123;x:&amp;#123;value:1,writable:true,enumerable:true,configurable:true&amp;#125;,//p是一个空对象
+                                    /*为其创建x，y，r属性*/
+    y:&amp;#123;value:1,writable:true,enumerable:true,configurable:true&amp;#125;,
+    r:&amp;#123;get:function()&amp;#123;return Math.sqrt(this.x*this.x+this.y*this.y)&amp;#125;,
+enumerable:true,configurable:true&amp;#125;
+&amp;#125;);</code></pre>
 <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><ul>
 <li>通过对象直接量创建的对象使用Object.prototype作为它们的原型</li>
 <li>new创建的对象，prototype作为其原型</li>
@@ -463,1012 +310,101 @@
 <h2 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h2><ul>
 <li>创建</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p =&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o =<span class="built_in">Object</span>.create(p);<span class="comment">//使用原型p创建对象o</span></span><br><span class="line">p.isPrototype(o)<span class="comment">//o继承至p?</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o)<span class="comment">//P继承至Object.prototype？</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var p =&amp;#123;x:1&amp;#125;;
+var o =Object.create(p);//使用原型p创建对象o
+p.isPrototype(o)//o继承至p?
+Object.prototype.isPrototypeOf(o)//P继承至Object.prototype？</code></pre>
 <h2 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h2><ul>
 <li>查询对象原型</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var a = &amp;#123;&amp;#125;;
+Object.getPrototypeOf(a);</code></pre>
 <h1 id="可扩展"><a href="#可扩展" class="headerlink" title="可扩展"></a>可扩展</h1><ul>
 <li>是否可以添加、删除属性；</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*将对象传入*/</span></span><br><span class="line"><span class="built_in">Object</span>.esExtensible()<span class="comment">//判断对象是否可扩展</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed()<span class="comment">//检测对象是否封闭（不可扩展）</span></span><br><span class="line"><span class="built_in">Object</span>.prevenExtensions()<span class="comment">//将对象自身转换为不可扩展的（此操作不可逆），其原型添加属性时此对象仍会继承这些属性</span></span><br><span class="line"><span class="built_in">Object</span>.seal()<span class="comment">//与Object.prevenExtensions()类似</span></span><br><span class="line"><span class="built_in">Object</span>.freeze()<span class="comment">//冻结：不可扩展且数据属性设置为只读（setter存储器属性不受影响）</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen();<span class="comment">//检测是否冻结</span></span><br><span class="line"><span class="comment">/*创建一个封闭（不可扩展）对象，包含一个冻结原型一个不可枚举属性*/</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.seal(<span class="built_in">Object</span>.create(<span class="built_in">Object</span>.freeze(&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;),&#123;<span class="attr">y</span>:&#123;<span class="attr">value</span>:<span class="number">2</span>,<span class="attr">writable</span>:<span class="literal">true</span>&#125;&#125;));</span><br></pre></td></tr></table></figure>
-
-<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*序列化对象 */</span></span><br><span class="line">o = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:&#123;<span class="attr">z</span>:[<span class="literal">false</span>,<span class="literal">null</span>,<span class="string">&quot;&quot;</span>]&#125;&#125;;</span><br><span class="line">s = <span class="built_in">JSON</span>.stringify(o);<span class="comment">//序列化对象o（转换为字符串）</span></span><br><span class="line">p = <span class="built_in">JSON</span>.parse(s);<span class="comment">//还原为对象,p是深度复制</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="js">/*将对象传入*/
+Object.esExtensible()//判断对象是否可扩展
+Object.isSealed()//检测对象是否封闭（不可扩展）
+Object.prevenExtensions()//将对象自身转换为不可扩展的（此操作不可逆），其原型添加属性时此对象仍会继承这些属性
+Object.seal()//与Object.prevenExtensions()类似
+Object.freeze()//冻结：不可扩展且数据属性设置为只读（setter存储器属性不受影响）
+Object.isFrozen();//检测是否冻结
+/*创建一个封闭（不可扩展）对象，包含一个冻结原型一个不可枚举属性*/
+var o = Object.seal(Object.create(Object.freeze(&amp;#123;x:1&amp;#125;),&amp;#123;y:&amp;#123;value:2,writable:true&amp;#125;&amp;#125;));</code></pre>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><pre><code class="js">/*序列化对象 */
+o = &amp;#123;x:1,y:&amp;#123;z:[false,null,&quot;&quot;]&amp;#125;&amp;#125;;
+s = JSON.stringify(o);//序列化对象o（转换为字符串）
+p = JSON.parse(s);//还原为对象,p是深度复制</code></pre>
 <hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-  
-  
-    
-    <div class='footer'>
-      
-      
-        
-  <div class="related_posts">
-    <section class='header'>
-      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
-    </section>
-    <section class='body'>
-      <div class="vlts-rps"><a class="item" href="\2020\10\16\JS-01\" title="JS作用域" rel="bookmark "><img src="http://img.lbkzw.cn/img/20200830120120.png" class="lazyload" data-srcset="http://img.lbkzw.cn/img/20200830120120.png" srcset="data:image/png;base64,666" /><span class="title">JS作用域</span></a><a class="item" href="\2020\10\16\js-02\" title="变量&&语法" rel="bookmark "><img src="data:image/png;base64,666" /><span class="title">变量&&语法</span></a><a class="item" href="\2020\10\16\js-03\" title="JS函数" rel="bookmark "><img src="data:image/png;base64,666" /><span class="title">JS函数</span></a><a class="item" href="\2020\10\16\js-05\" title="JS数组" rel="bookmark "><img src="data:image/png;base64,666" /><span class="title">JS数组</span></a></div></section></div>
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+    </div>
 
-              
-            
-              
-                <p>本文永久链接是：<a href=https://main2035.github.io/2020/10/16/js-04/>https://main2035.github.io/2020/10/16/js-04/</a></p>
-              
-            
-          </blockquote>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
         </div>
-      
-      
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
     </div>
-  
-  
-    
 
+</footer>
 
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-30T18:48:30+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年8月30日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JS%E5%9F%BA%E7%A1%80/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JS基础</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://main2035.github.io/2020/10/16/js-04/&title=JS对象 - ThreeClothの博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://main2035.github.io/2020/10/16/js-04/&title=JS对象 - ThreeClothの博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://main2035.github.io/2020/10/16/js-04/&title=JS对象 - ThreeClothの博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
     </div>
-  </div>
 
-
-  
-  
-
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2020/10/16/js-05/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JS数组</p>
-          <p class='content'>Js数组是无类型的，其元素可以为任意类型，也可以是任意对象或数组；
-Js数组是动态的，无需声明其大小，数组长度会根据需要增长与缩减；
-省略的数组直接量将被赋予undefined值；
-数组是对象的...</p>
-        </a>
-      
-      
-        <a class='next' href='/2020/10/16/js-03/'>
-          <p class='title'>JS函数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>函数方法（方法体同声明均提升到顶部位置）
-123456function printprops(o)&#123;            for(var p in o)&#123;         ...</p>
-        </a>
-      
-    </div>
-  
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
-    
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-  </article>
-
-
-
-
-
-
-</div>
-<aside class='l_side'>
-  
-  
-    
-    
-
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">包装对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9B%B4%E6%8E%A5%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">对象直接量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">new创建对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E3%80%81%E6%9F%A5%E8%AF%A2%E3%80%81%E6%B7%BB%E5%8A%A0%E3%80%81%E7%BB%A7%E6%89%BF"><span class="toc-number">4.</span> <span class="toc-text">删除、查询、添加、继承</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">5.</span> <span class="toc-text">存取器属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7%E7%89%B9%E6%80%A7"><span class="toc-number">5.1.</span> <span class="toc-text">设置属性特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getOwnPropertyDescriptor"><span class="toc-number">5.1.1.</span> <span class="toc-text">Object.getOwnPropertyDescriptor()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperty"><span class="toc-number">5.1.2.</span> <span class="toc-text">Object.defineProperty()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperties"><span class="toc-number">5.1.3.</span> <span class="toc-text">Object.defineProperties()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">原型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-create"><span class="toc-number">6.1.</span> <span class="toc-text">Object.create()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-getPrototypeOf"><span class="toc-number">6.2.</span> <span class="toc-text">Object.getPrototypeOf()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E6%89%A9%E5%B1%95"><span class="toc-number">7.</span> <span class="toc-text">可扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">8.</span> <span class="toc-text">序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.1.</span> <span class="toc-text"></span></a></li></ol></li></ol>
-    </div>
-  </section>
-
-
-  
-
-
-</aside>
-
-
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
-<!--思路大概是将值藏到重加载的区域内-->
-
-<script>
-  window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="JS对象";
-  pdata.commentPath="";
-  pdata.commentPlaceholder="";
-
-  var l_header=document.getElementById("l_header");
-  
-  l_header.classList.add("show");
-  
-</script>
-
-        
-      </div>
-      
-  
-  <footer class="footer clearfix">
-    <br><br>
-    
-      
-        <div class="aplayer-container">
-          
-
-
-        </div>
-      
-    
-      
-        <br>
-        <div class="social-wrapper">
-          
-            
-          
-            
-          
-            
-          
-        </div>
-      
-    
-      
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
-</div>
-      
-    
-      
-        
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
-</div>
-        
-      
-    
-      
-        本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1" target="_blank" class="codename">Volantis</a>
-        作为主题
-      
-    
-      
-        <div class='copyright'>
-        <p><a href="/">Copyright © 2017-2020 ThreeCloth</a></p>
-
-        </div>
-      
-    
-  </footer>
-
-
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
-    </div>
-  </div>
-  <div>
     <script>
-window.volantis={};
-/********************脚本懒加载函数********************************/
-function loadScript(src, cb) {
-var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-var script = document.createElement('script');
-script.setAttribute('type','text/javascript');
-if (cb) script.onload = cb;
-script.setAttribute('src', src);
-HEAD.appendChild(script);
-}
-//https://github.com/filamentgroup/loadCSS
-var loadCSS = function( href, before, media, attributes ){
-	var doc = window.document;
-	var ss = doc.createElement( "link" );
-	var ref;
-	if( before ){
-		ref = before;
-	}
-	else {
-		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
-		ref = refs[ refs.length - 1];
-	}
-	var sheets = doc.styleSheets;
-	if( attributes ){
-		for( var attributeName in attributes ){
-			if( attributes.hasOwnProperty( attributeName ) ){
-				ss.setAttribute( attributeName, attributes[attributeName] );
-			}
-		}
-	}
-	ss.rel = "stylesheet";
-	ss.href = href;
-	ss.media = "only x";
-	function ready( cb ){
-		if( doc.body ){
-			return cb();
-		}
-		setTimeout(function(){
-			ready( cb );
-		});
-	}
-	ready( function(){
-		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
-	});
-	var onloadcssdefined = function( cb ){
-		var resolvedHref = ss.href;
-		var i = sheets.length;
-		while( i-- ){
-			if( sheets[ i ].href === resolvedHref ){
-				return cb();
-			}
-		}
-		setTimeout(function() {
-			onloadcssdefined( cb );
-		});
-	};
-	function loadCB(){
-		if( ss.addEventListener ){
-			ss.removeEventListener( "load", loadCB );
-		}
-		ss.media = media || "all";
-	}
-	if( ss.addEventListener ){
-		ss.addEventListener( "load", loadCB);
-	}
-	ss.onloadcssdefined = onloadcssdefined;
-	onloadcssdefined( loadCB );
-	return ss;
-};
-</script>
-<!-- required -->
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
-
-<script>
-  function pjax_fancybox() {
-    $(".md .gallery").find("img").each(function () { //渲染 fancybox
-      var element = document.createElement("a"); // a 标签
-      $(element).attr("class", "fancybox");
-      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
-      $(element).attr("href", $(this).attr("src"));
-      if ($(this).attr("data-original")) {
-        $(element).attr("href", $(this).attr("data-original"));
-      }
-      $(element).attr("data-fancybox", "images");
-      var caption = "";   // 描述信息
-      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
-        $(element).attr('data-caption', $(this).attr('alt'));
-        caption = $(this).attr('alt');
-      }
-      var div = document.createElement("div");
-      $(div).addClass("fancybox");
-      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
-      var span = document.createElement("span");
-      $(span).addClass("image-caption");
-      $(span).text(caption); // 加描述
-      $(this).after(span);  // 再套一层描述
-      $(this).wrap(element);  // 最后套 a 标签
-    })
-    $(".md .gallery").find("img").fancybox({
-      selector: '[data-fancybox="images"]',
-      hash: false,
-      loop: false,
-      closeClick: true,
-      helpers: {
-        overlay: {closeClick: true}
-      },
-      buttons: [
-        "zoom",
-        "close"
-      ]
-    });
-  };
-  function SCload_fancybox() {
-    if ($(".md .gallery").find("img").length == 0) return;
-    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
-    setTimeout(function() {
-      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
-    }, 1);
-  };
-  $(function () {
-    SCload_fancybox();
-  });
-</script>
-
-
-<!-- internal -->
-
-
-
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-
-
-  
-  
-    <script>
-      window.FPConfig = {
-        delay: 0,
-        ignoreKeywords: [],
-        maxRPS: 5,
-        hoverDelay: 25
-      };
-    </script>
-    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-<script src="/js/valine.js"></script>
-
-
-<script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '/wiki/volantis/# 全局评论地址';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-
-    var valine = new Valine();
-    valine.init({
-      el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
-      path: path,
-      appId: "h8nJRe53Bw2xNxk98JPCkYPn-gzGzoHsz",
-      appKey: "quPPyHETb0KbIoTjALf6niEb",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
-  }
-
-  $(function () {
-    pjax_valine();
-  });
-</script>
-
-
-
-
-
-  
-<script src="/js/app.js"></script>
-
-
-
-
-  
-    
-<script src="/js/search.js"></script>
-
-  
-
-
-<!-- optional -->
-
-  <script>
-const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
-const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
-(function ($) {
-  
-    customSearch = new HexoSearch({
-      imagePath: SearchServiceimagePath
-    });
-  
-})(jQuery);
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-  <script defer>
-
-  const LCCounter = {
-    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
-    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
-    custom_api_server: '',
-
-    // 查询存储的记录
-    getRecord(Counter, url, title) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
             }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {url, title: title, times: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    },
-
-    // 发起自增请求
-    increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    },
-
-    // 构建自增请求体
-    buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "times": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    },
-
-    // 校验是否为有效的 UV
-    validUV() {
-      var key = 'LeanCloudUVTimestamp';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    },
-
-    addCount(Counter) {
-      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
-      enableIncr = true;
-      var getterArr = [];
-      var incrArr = [];
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#lc-sv');
-      if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-sv', 'Visits').then((record) => {
-          incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-sv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + 1;
-              if (pvCtn) {
-                pvCtn.style.display = 'inline';
-              }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
             })
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#lc-uv');
-      if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://main2035.github.io' + '/#lc-uv', 'Visitors').then((record) => {
-          var vuv = this.validUV();
-          vuv && incrArr.push(this.buildIncrement(record.objectId))
-          var eles = document.querySelectorAll('#lc-uv #number');
-          if (eles.length > 0) {
-            eles.forEach((el,index,array)=>{
-              el.innerText = record.times + (vuv ? 1 : 0);
-              if (uvCtn) {
-                uvCtn.style.display = 'inline';
-              }
-            })
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 请求文章的浏览数，如果是当前页面就自增
-      var allPV = document.querySelectorAll('#lc-pv');
-      if (allPV.length > 0 || enableIncr) {
-        for (i = 0; i < allPV.length; i++) {
-          let pv = allPV[i];
-          let title = pv.getAttribute('data-title');
-          var url = 'https://main2035.github.io' + pv.getAttribute('data-path');
-          if (url) {
-            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
-              // 是当前页面就自增
-              let curPath = window.location.pathname;
-              if (curPath.includes('index.html')) {
-                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
-              }
-              if (pv.getAttribute('data-path') == curPath) {
-                incrArr.push(this.buildIncrement(record.objectId));
-              }
-              if (pv) {
-                var ele = pv.querySelector('#lc-pv #number');
-                if (ele) {
-                  if (pv.getAttribute('data-path') == curPath) {
-                    ele.innerText = (record.times || 0) + 1;
-                  } else {
-                    ele.innerText = record.times || 0;
-                  }
-                  pv.style.display = 'inline';
-                }
-              }
-            });
-            getterArr.push(viewGetter);
-          }
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && this.increment(Counter, incrArr);
-        })
-      }
-
-    },
-
-
-    fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': this.app_id,
-            'X-LC-Key': this.app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      this.addCount(Counter);
-    },
-
-    refreshCounter() {
-      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-      if (api_server) {
-        this.fetchData(api_server);
-      } else {
-        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
-          .then(resp => resp.json())
-          .then(({api_server}) => {
-            this.fetchData('https://' + api_server);
-          });
-      }
-    }
-
-  };
-
-  LCCounter.refreshCounter();
-
-  document.addEventListener('pjax:complete', function () {
-    LCCounter.refreshCounter();
-  });
-</script>
-
-
-
-
-
-
-
-
-<script>
-function listennSidebarTOC() {
-  const navItems = document.querySelectorAll(".toc li");
-  if (!navItems.length) return;
-  const sections = [...navItems].map((element) => {
-    const link = element.querySelector(".toc-link");
-    const target = document.getElementById(
-      decodeURI(link.getAttribute("href")).replace("#", "")
-    );
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({
-		top: target.offsetTop + 100,
-		
-		behavior: "smooth"
-		
-	  });
-    });
-    return target;
-  });
-
-  function activateNavByIndex(target) {
-    if (target.classList.contains("active-current")) return;
-
-    document.querySelectorAll(".toc .active").forEach((element) => {
-      element.classList.remove("active", "active-current");
-    });
-    target.classList.add("active", "active-current");
-    let parent = target.parentNode;
-    while (!parent.matches(".toc")) {
-      if (parent.matches("li")) parent.classList.add("active");
-      parent = parent.parentNode;
-    }
-  }
-
-  function findIndex(entries) {
-    let index = 0;
-    let entry = entries[index];
-    if (entry.boundingClientRect.top > 0) {
-      index = sections.indexOf(entry.target);
-      return index === 0 ? 0 : index - 1;
-    }
-    for (; index < entries.length; index++) {
-      if (entries[index].boundingClientRect.top <= 0) {
-        entry = entries[index];
-      } else {
-        return sections.indexOf(entry.target);
-      }
-    }
-    return sections.indexOf(entry.target);
-  }
-
-  function createIntersectionObserver(marginTop) {
-    marginTop = Math.floor(marginTop + 10000);
-    let intersectionObserver = new IntersectionObserver(
-      (entries, observe) => {
-        let scrollHeight = document.documentElement.scrollHeight + 100;
-        if (scrollHeight > marginTop) {
-          observe.disconnect();
-          createIntersectionObserver(scrollHeight);
-          return;
-        }
-        let index = findIndex(entries);
-        activateNavByIndex(navItems[index]);
-      },
-      {
-        rootMargin: marginTop + "px 0px -100% 0px",
-        threshold: 0,
-      }
-    );
-    sections.forEach((element) => {
-      element && intersectionObserver.observe(element);
-    });
-  }
-  createIntersectionObserver(document.documentElement.scrollHeight);
-}
-
-document.addEventListener("DOMContentLoaded", listennSidebarTOC);
-document.addEventListener("pjax:success", listennSidebarTOC);
-</script>
-
-<!-- more -->
-
-
-
-
-    
-      
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
-
-<div class="pjax-animate">
-  
-    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
-    <script>
-      window.ShowLoading = function() {
-        NProgress.start();
-      };
-      window.HideLoading = function() {
-        NProgress.done();
-      }
-    </script>
-  
-</div>
-
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          "#l_cover",
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
-
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
             }
-          });
         }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-      if (typeof $.fancybox != "undefined") {
-        $.fancybox.close();    // 关闭弹窗
-      }
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-      window.ShowLoading();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      // 关于百度统计对 SPA 页面的处理：
-      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
-      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
-      // 
-
-      // 关于谷歌统计对 SPA 页面的处理：
-      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
-      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
-      
-
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-          if (typeof $.fancybox == "undefined") {
-            SCload_fancybox();
-          } else {
-            pjax_fancybox();
-          }
-        
-        
-        
-        
-        
-        
-          pjax_valine();
-        
-        
-        
-        
-      } catch (e) {
-        console.log(e);
-      }
-      window.HideLoading();
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-      window.HideLoading();
-      window.location.href = e.triggerElement.href;
-    });
+    })
 </script>
 
-    
-  </div>
 </body>
+
 </html>
