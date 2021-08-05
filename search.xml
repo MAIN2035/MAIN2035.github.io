@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>找回宝塔面板信息|ssh密钥免密登录服务器</title>
+      <link href="2021/08/05/20210805/"/>
+      <url>2021/08/05/20210805/</url>
+      
+        <content type="html"><![CDATA[<h1 id="找回宝塔面板信息"><a href="#找回宝塔面板信息" class="headerlink" title="找回宝塔面板信息"></a>找回宝塔面板信息</h1><ol><li>ssh连接服务器</li><li>输入 <code>/etc/init.d/bt default</code></li><li>解决</li></ol><p>补充：</p><ul><li><p>不用使用额外的ssh工具连接服务器，Linux下shell终端即可（win系统使用git终端也可）</p></li><li><p>附ssh常用命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh root@127.0.0.1 #以root用户登入服务器地址为127.0.0.1的服务器</span><br><span class="line">ssh root@127.0.0.1 -i id_rsa #使用密钥登录，通常不用输入密码（不过要事先设置，如何设置请看下：）</span><br></pre></td></tr></table></figure></li></ul><p>  <strong>前情提示：win系统需要借助git终端</strong></p><p>  下面我们三步走：</p><ol><li><p>生成密钥——一路回车</p><p><img src="img.lbkzw.cn/img/image-20210805133916778.png" class="lazyload" data-srcset="img.lbkzw.cn/img/image-20210805133916778.png" srcset="data:image/png;base64,666" alt="image-20210805133916778"></p></li><li><p>上传密钥</p><p><img src="img.lbkzw.cn/img/image-20210805134301432.png" class="lazyload" data-srcset="img.lbkzw.cn/img/image-20210805134301432.png" srcset="data:image/png;base64,666" alt="image-20210805134301432"></p></li><li><p>使用密钥链接</p><p><img src="img.lbkzw.cn/img/image-20210805134359023.png" class="lazyload" data-srcset="img.lbkzw.cn/img/image-20210805134359023.png" srcset="data:image/png;base64,666" alt="image-20210805134359023"></p></li></ol><ul><li><p>上面操作用到的command</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#注意密钥默认存放在.ssh目录（注意你的位置）</span><br><span class="line">#生成密钥</span><br><span class="line">ssh-keygen -t rsa </span><br><span class="line">#上传密钥</span><br><span class="line">ssh-copy-id -i id_rsa.pub root@127.0.0.1 -p 22</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>五四（2021）</title>
       <link href="2021/05/05/20210504/"/>
       <url>2021/05/05/20210504/</url>
