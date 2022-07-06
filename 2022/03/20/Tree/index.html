@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="递归生成二叉树"><a href="#递归生成二叉树" class="headerlink" title="递归生成二叉树"></a>递归生成二叉树</h3><p>结点结构：</p>
+<pre><code class="C++">#define TYPE char 
+typedef struct biTNode
+&#123;
+    TYPE data;
+    struct biTNode* lchild, * rchild;
+&#125;biTNode, * biTree;
+</code></pre>
+<pre><code class="C++">//前序生成树
+void CreateTree(biTree&amp; T) &#123;
+    TYPE data;
+    cin&gt;&gt;data;
+    if (data==&#39;#&#39;) &#123;
+        T = NULL;
+    &#125;
+    else &#123;
+        T = new biTNode;
+        T-&gt;data = data;
+        CreateTree(T-&gt;lchild);
+        CreateTree(T-&gt;rchild);
+
+    &#125;
+&#125;
+</code></pre>
+<p>前序遍历树：</p>
+<pre><code class="c++">void PrePrintTree(biTree&amp; T) &#123;
+    if (T == NULL)return;
+    printf(&quot;%c\t&quot;, T-&gt;data);
+    PrePrintTree(T-&gt;lchild);
+    PrePrintTree(T-&gt;rchild);
+&#125;
+</code></pre>
+<p>输入：<code> 123###45##</code></p>
+<p>生成二叉树如下图：</p>
+<p>结点#等同无，画出来是为了更好的展示与输入对应。</p>
+<p><img src="http://img.lbkzw.cn/img/tree_210925.svg" alt="image-20210925163559886"></p>
+<p>标红的结点是输入#的顺序，1#，2#分别对应于输入的第一个、第二个#…以此类推。</p>
+<p><img src="http://img.lbkzw.cn/img/tree210925_1.svg" alt="tree210925_1"></p>
+<h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><h3 id="后继和前驱"><a href="#后继和前驱" class="headerlink" title="后继和前驱"></a>后继和前驱</h3><p><strong>定义：</strong>结点的<strong>后继</strong>，是大于x.key的最小关键字的结点——即<code>&gt;=X.key</code>的结点。</p>
+<p>​      结点的<strong>前驱</strong>，是小于x.key的最大关键字的结点——即<code>&lt;=X.key</code>的结点。</p>
+<p>如图所示:</p>
+<p><img src="http://img.lbkzw.cn/img/1335276-20180909095736739-497790387.png" alt="1335276-20180909095736739-497790387"></p>
+<p>寻找后继：</p>
+<p>规定：若<strong>查找点X的后继</strong>,那么X父母的父母的…父母我们称之为<strong>祖先</strong>，若<strong>X</strong>为其父母的左子树，我们称X的父母为<strong>右父母</strong>，反之为<strong>左父母</strong>；如图中X的左右父母分别为LP,RP;</p>
+<p>那么分以下3种情况，除此之外X便无后继</p>
+<ol>
+<li>X右子树存在：右子树中取最小一点便是X的后继</li>
+<li>X无右子树且无右父母（有左父母），X左祖先的第一个右父母便为X后继</li>
+<li>X无右子树且无左父母（有右父母），X右父母便为X后继</li>
+</ol>
+<pre><code class="c++">BST* successor(BST* &amp;T,BST *X)&#123;
+
+    //1.存在右子树
+    if(X-&gt;rchild != NULL)&#123;
+        return minElenment(X-&gt;rchild);
+    &#125;
+    //无右子树： 
+    BST* Y = searchP(T,X-&gt;data);
+    //2.无右子树且无右父母
+    while (Y!=NULL &amp;&amp; X == Y-&gt;rchild)
+    &#123;
+        //自下而上，寻找左祖先的（第一个）右父母
+        X = Y;
+        Y = searchP(T,Y-&gt;data);
+    &#125;
+    //3.无右子树且无左父母
+    return Y;
+&#125;
+</code></pre>
+<p><img src="http://img.lbkzw.cn/img/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%20(1).svg" alt="二叉搜索树 (1)"></p>
+<p>寻找前驱：</p>
+<p>若存在左子树（LS）则：前驱 = 左子树中的最大值；</p>
+<p>若仅有左父母(LP)，无左子树(LS)则：前驱 = 左父母的值；</p>
+<p>若左子树和左父母均无，则：前驱 = 右父母的左父母，以此类推。</p>
+<h3 id="删除结点"><a href="#删除结点" class="headerlink" title="删除结点"></a>删除结点</h3><p><strong>递归删除</strong></p>
+<pre><code class="c">BST* delNode(BST* T,TYPE x)&#123;
+    //终止条件
+    if(T==NULL)&#123;
+        return NULL;
+    &#125;
+    //查找值为x的结点
+    if(x &lt; T-&gt;data)&#123;
+        T-&gt;lchild = delNode(T-&gt;lchild,x);
+    &#125;else if(x &gt; T-&gt;data)&#123;
+        T-&gt;rchild = delNode(T-&gt;rchild,x);
+    &#125;else&#123;
+        //此时一定找到了x结点
+
+        if(T-&gt;lchild &amp;&amp; T-&gt;rchild)&#123;
+            BST* p = minElenment(T-&gt;rchild);
+            //这里直接改变将删除结点的data，即间接“删除”。
+            T-&gt;data = p-&gt;data;
+            T-&gt;rchild = delNode(T-&gt;rchild,p-&gt;data);
+        &#125;else if(!(T-&gt;rchild &amp;&amp; T-&gt;lchild))&#123;
+            T = NULL;
+        &#125;else if(T-&gt;rchild)&#123;
+            T = T-&gt;rchild;
+        &#125;else if(T-&gt;lchild)&#123;
+            T = T-&gt;lchild;
+        &#125;
+    &#125;
+    return T;
+&#125;
+</code></pre>
+<p><strong>非递归删除</strong></p>
+<pre><code class="c++">
+/**
+ * 非递归删除结点，借助辅助函数transplant(T,u,v)
+ */
+void delNode(BST* &amp;T, TYPE x)&#123;
+    //1.2.待删除结点仅有lchild或rchild、
+    BST* z = search(T,x);
+    if(z-&gt;lchild == NULL)&#123;
+        transplant(T,z,z-&gt;rchild);
+    &#125;else if(z-&gt;rchild == NULL)&#123;
+        transplant(T,z,z-&gt;lchild);
+    &#125;else&#123;
+    //3.左右结点均存在
+    //寻找z的后继y：
+        //a.若y是z的rchild,则y必定无lchild(由寻找后继的规律可知：仅z.rchild.lchild=NULL时，y=z.rchild),此时直接以y替换z,并将y.lchild=z.lchild
+        //b.若y不是z的rchild（y必定无lchild），则用y.rchild替换y,再以y替换z,并将y.lchild=z.lchild
+    BST* y = minElenment(z-&gt;rchild);
+    // BST* z = searchP(T,y-&gt;data);
+    //b
+    if(z-&gt;rchild != y)&#123;
+        //将y.p指向y.rchild
+        transplant(T,y,y-&gt;rchild);
+        y-&gt;rchild = z-&gt;rchild;
+    &#125;    
+    //a.也是b的后半部分——用y替换z
+    transplant(T,z,y);
+    y-&gt;lchild = z-&gt;lchild;
+    &#125;
+
+&#125;
+</code></pre>
+<p>辅助函数transplant(T,u,v)</p>
+<pre><code class="c++">
+/**
+ * 用结点v替换u
+ * 这里仅仅改变u.p的指向
+ */
+void transplant(BST* &amp;T,BST* u, BST* &amp;v)&#123;
+    //u.p
+    BST* p = searchP(T,u-&gt;data);
+    if(p == NULL)&#123;
+        T = v;
+        //我们需要的是将T指向V，而不是用V替代T并抹除T
+        // (*T) = (*v);这将导致树残缺为一半
+    &#125;else if(u == p-&gt;rchild)&#123;
+        p-&gt;rchild = v;
+    &#125;else&#123;
+        p-&gt;lchild = v;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><pre><code class="c">//层次遍历——使用队列
+void levelOrder(BST* T)&#123;
+    //思路：1.从根结点起，依次将其本身并左结点，右结点入队直到所有结点都入队
+    //2.pop，front配合进行遍历即可
+
+    //使用c++提供的queue
+    queue&lt;BST*&gt; Q;
+    Q.push(T);
+    cout&lt;&lt;Q.empty();
+    while (!Q.empty())
+    &#123;    //使用p = Q.front()代替p = Q.pop(),盲猜：可能出队后内存就注销了吧。
+        BST* p = Q.front(); 
+        cout&lt;&lt;p-&gt;data&lt;&lt;endl;
+        //比较cd的地方是这个pop的的类型为void,且无法通过强制类型转换引用。
+        Q.pop();
+        if(p-&gt;lchild)&#123;
+            Q.push(p-&gt;lchild);
+        &#125;
+        if(p-&gt;rchild)&#123;
+            Q.push(p-&gt;rchild);
+        &#125;
+    &#125;
+    
+&#125;
+</code></pre>
+<h3 id="中序遍历——Stack模拟"><a href="#中序遍历——Stack模拟" class="headerlink" title="中序遍历——Stack模拟"></a>中序遍历——Stack模拟</h3><pre><code class="c">//Stack遍历——中序遍历
+void stackInmid(BST* T)&#123;
+    //思路：沿根节点将所有左结点push入Stack,直到触底（即这条线上再无其它左结点，其它线上还有哦）
+    //pop(p) ，访问p, set p = p.rchild继续遍历
+    //如此反复，直到Stack空
+    stack&lt;BST*&gt; S;
+    //T=NULL可能访问了叶结点的子结点
+    while (T || !(S.empty()))
+    &#123;    
+        
+        if(T)&#123;
+            S.push(T);
+            T = T-&gt;lchild;
+        &#125;else&#123;
+             T = S.top();
+             cout&lt;&lt;T-&gt;data&lt;&lt;&quot; &quot;;
+             S.pop();
+             T = T-&gt;rchild;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="插入结点"><a href="#插入结点" class="headerlink" title="插入结点"></a>插入结点</h3><p>非递归插入</p>
+<pre><code class="c">//非递归——插入
+void insert(BST* &amp;T, BST* &amp;X) &#123;
+    //p1负责指向插入位置的父节点
+    BST* p1 = NULL;
+    //p2负责找到插入的位置
+    BST* p2 = T;
+    while (p2 != NULL)
+    &#123;    
+        //p1始终指向p2的上一个指针
+        p1 = p2;
+        if (X-&gt;data &lt; p2-&gt;data)
+        &#123;
+            p2 = p2-&gt;lchild;
+        &#125;
+        else
+        &#123;
+            p2 = p2-&gt;rchild;
+        &#125;
+    &#125;
+    //如果p1循环结束仍为空，即T为空树
+    if (p1 == NULL) &#123;
+        T = X;
+    &#125;
+    else if (p1-&gt;data &gt; X-&gt;data) &#123;
+        p1-&gt;lchild = X;
+    &#125;
+    else
+    &#123;
+        p1-&gt;rchild = X;
+    &#125;
+&#125;
+</code></pre>
+<p>递归插入</p>
+<pre><code class="c">//递归——插入
+BST* insertRecursion(BST*&amp; T, BST*&amp; X) &#123;
+    if (T == NULL) &#123;
+        T = X;
+    &#125;
+    else if(X-&gt;data &lt; T-&gt;data)
+    &#123;
+        T-&gt;lchild = insertRecursion(T-&gt;lchild, X);
+    &#125;else if(X-&gt;data &gt; T-&gt;data)
+    &#123;
+        T-&gt;rchild = insertRecursion(T-&gt;rchild,X);
+    &#125;
+    return T;
+&#125;
+</code></pre>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jasontodd/p/9613836.html">二叉搜索树的前驱和后继详细推导</a></p>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 线程安全与通信</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>线程安全与通信 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java多线程编程" style=color:#006674>
+                    Java多线程编程
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h1><ul>
+<li><p>线程优先级具有可继承性</p>
+</li>
+<li><p>cpu将资源让与优先级更高的线程（运行更快）</p>
+</li>
+<li><p>随机性：并不是执行完高优先级线程再执行低优先级线程，只是说首先执行高优先级线程的概率更大一点</p>
+</li>
+<li><p>可使用**setPriority( )**设置优先级（范围：0-10）</p>
+</li>
+<li><p>Jdk预设了3个优先级值： </p>
+<pre><code>MIN_PRIORITY = 1
+NORM_PRIORITY = 5
+MAX_PRIORITY = 10
+</code></pre>
+</li>
+</ul>
+<h1 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h1><ul>
+<li>Java中存在<strong>用户线程</strong>、<strong>守护线程</strong>两种线程</li>
+<li>守护线程为其它线程运行提供便利，如GC</li>
+<li>最后一个用户线程、守护线程退出，进程也就结束了（只要有一个用户进程在运行，那么这个进程就不会结束）               </li>
+</ul>
+<pre><code class="java">package cn.day.b4;
+
+public class MyThread2 extends Thread &#123;
+    private int i = 1;
+    @Override
+    public void run()&#123;
+        try &#123;
+            while (true)&#123;//死循环
+                System.out.println(&quot;i&quot; + (i));
+                Thread.sleep(1000);
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        try &#123;
+            var thread = new MyThread2();
+            thread.setDaemon(false);//这是个用户线程，此进程将不停的执行下去
+//            thread.setDaemon(false);这是个守护线程，它将随着用户进程（main）的结束而结束
+            //setDaemon() 将线程标记为守护线程(true)或用户线程(false)。
+            thread.start();
+            Thread.sleep(5000);
+            System.out.println(&quot;end&quot;);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>对象、变量的并发访问：A线程获得了X对象的锁，此时B线程只能调用X对象中没有synchronized标记的方法</li>
+</ul>
+<h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><ul>
+<li><p>方法中的变量不受线程安全影响，而实例字段（变量）将受到非线程安全的影响</p>
+</li>
+<li><p>当多个线程执行同一个业务对象中的方法时，线程与业务属于多对以一的关系，会产生非线程<strong>安全问题</strong></p>
+<ol>
+<li>可使用synchronized关键词实现同步执行。</li>
+<li>可分别创建两个对象实例（线程与对象方法就是一对一啦），实现异步执行。</li>
+</ol>
+</li>
+<li><p>在方法声明处添加synchronized是锁对象而非锁方法（Java没有锁方法一说）</p>
+</li>
+<li><p>Java中，<strong>锁</strong> 就是<strong>对象</strong>， <strong>对象</strong>可以<strong>映射</strong>为<strong>锁</strong>。线程拿到锁就可以执行对象中的synchronized同步方法</p>
+</li>
+<li><p>线程发生异常时将释放对象锁</p>
+</li>
+</ul>
+<h2 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h2><ul>
+<li>比如：在main主线程中，一个其它线程正在执行( 原想在结束后main线程再调用某个方法（属性）)，结果main在未结束的线程前调用了（属性）方法，产生了不理想的结果，这就是导致脏读。</li>
+<li>解决方法：对该（属性）方法使用synchronized上锁。</li>
+</ul>
+<h2 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h2><ul>
+<li><p>已知线程获取了某个对象锁，则其在线程未结束（对象锁未释放）前仍可获取该对象锁（）</p>
+<pre><code class="java">package cn.day.b5;
+
+public class Service &#123;
+    synchronized public void service1()&#123;
+        System.out.println(&quot;service1&quot;);
+        service2();
+    &#125;
+    synchronized public void service2()&#123;
+        System.out.println(&quot;service2&quot;);
+        service3();
+    &#125;
+    synchronized public void service3()&#123;
+        System.out.println(&quot;service3&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var t = new MyThread();
+        t.start();//在此线程运行时：service1可调用上锁的service2，service2可调用上锁的service3，而不会被线程t2干扰
+        var t2 = new MyThread1();
+        t2.start();
+    &#125;
+&#125;
+class MyThread extends Thread&#123;
+    @Override
+    public void run()&#123;
+        Service service = new Service();
+        service.service1();
+    &#125;
+&#125;
+class MyThread1 extends Thread&#123;
+    @Override
+    public void run()&#123;
+        Service service = new Service();
+        service.service2();
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>继承状态下，线程还可重入调用父类的（同步）方法</p>
+</li>
+</ul>
+<h2 id="holdsLock（）"><a href="#holdsLock（）" class="headerlink" title="holdsLock（）"></a>holdsLock（）</h2><ul>
+<li>对象持有锁时返回True</li>
+</ul>
+<pre><code class="java">package cn.day.b5;
+
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        System.out.println(&quot;A &quot;+Thread.currentThread().holdsLock(Test.class));
+        synchronized (Test.class)&#123;//synchronized块
+            System.out.println(&quot;B &quot;+Thread.currentThread().holdsLock(Test.class));
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h2><ul>
+<li><p>当某个对象的<strong>synchronized</strong>代码块（this）被某个线程访问时，其它线程将被阻塞，并且不能访问该对象的其它同步代码块</p>
+</li>
+<li><p><strong>synchronized</strong>代码块（）内写入一个类的Class对象，那么这个锁对所有该类实例有效</p>
+</li>
+<li><p>使用同步代码块时：一般不使用String作为对象锁如，而使用Object。</p>
+<pre><code class="java">package cn.day.b5;
+
+public class String1 &#123;
+    public static void print(String t)&#123;
+        try &#123;
+            synchronized (t)&#123;//锁的是变量T的值
+                while (true)&#123;
+                    System.out.println(Thread.currentThread().getName());
+                    Thread.sleep(1000);//两个线程传入相同的String值会导致一个线程休眠时另一个线程仍无法执行
+
+                &#125;
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var string1 = new String1();
+        var a = new Thread1(string1);
+        a.setName(&quot;A&quot;);
+        a.start();
+        var b = new Thread2(string1);
+        b.setName(&quot;B&quot;);
+        b.start();
+    &#125;
+&#125;
+class Thread1 extends Thread&#123;
+    private String1 string1;
+    public Thread1(String1 string1)&#123;
+        super();
+        this.string1 =string1;
+
+    &#125;
+    @Override
+    public void run()&#123;
+        string1.print(&quot;AA&quot;);
+    &#125;
+&#125;
+class Thread2 extends Thread&#123;
+    private String1 string2;
+    public Thread2(String1 string1)&#123;
+        super();
+        this.string2 =string1;
+
+    &#125;
+    @Override
+    public void run()&#123;
+        string2.print(&quot;AA&quot;);//两个线程传入相同的String值会导致一个线程休眠时另一个线程仍无法执行
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="锁对象"><a href="#锁对象" class="headerlink" title="锁对象"></a>锁对象</h2><ul>
+<li><p>锁对象改变则异步执行，否则依旧同步执行(只要锁对象相同就同步执行 )</p>
+<pre><code class="java">package cn.day.b5;
+
+public class String2 &#123;
+    private String lock = &quot;123&quot;;
+    public void testMethod()&#123;
+        try &#123;
+            synchronized (lock)&#123;
+                System.out.println(Thread.currentThread().getName()+&quot;begin &quot;+System.currentTimeMillis());
+                lock =&quot;456&quot;;//改变锁对象
+                Thread.sleep(2000);
+                System.out.println(Thread.currentThread().getName() + &quot;end &quot;+ System.currentTimeMillis());
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    public static void main(String[] args) throws InterruptedException &#123;
+        var string2 = new String2();
+        Thread1 a = new Thread1(string2);
+        a.setName(&quot;A&quot;);
+        Thread2 b = new Thread2(string2);
+        a.setName(&quot;B&quot;);
+        a.start();
+        Thread.sleep(50);
+        b.start();
+    &#125;
+&#125;
+class Thread1 extends Thread&#123;
+    private String2 string1;
+    public Thread1(String2 string1)&#123;
+        super();
+        this.string1 =string1;
+
+    &#125;
+    @Override
+    public void run()&#123;
+        string1.testMethod();
+    &#125;
+&#125;
+class Thread2 extends Thread&#123;
+    private String2 string2;
+    public Thread2(String2 string1)&#123;
+        super();
+        this.string2 =string1;
+
+    &#125;
+    @Override
+    public void run()&#123;
+        string2.testMethod();
+    &#125;&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="静态方法的锁"><a href="#静态方法的锁" class="headerlink" title="静态方法的锁"></a>静态方法的锁</h2><ul>
+<li><strong>synchronized</strong>加到<strong>静态方法</strong>是将<strong>Class类</strong>对象作为锁（而<strong>synchronized</strong>加到<strong>非静态</strong>是将方法所在类的对象作为锁）</li>
+<li>如果A类中方法都是静态方法且加锁，那么即使创建两个A类实例对象仍无法实现异步。（静态方法可直接导入类再调用:A.方法名;实现异步）</li>
+</ul>
+<h2 id="volatile（synchronized也可）"><a href="#volatile（synchronized也可）" class="headerlink" title="volatile（synchronized也可）"></a>volatile（<strong>synchronized</strong>也可）</h2><ul>
+<li>让B线程立刻看见A线程更改的数据</li>
+<li>禁止代码重排序</li>
+</ul>
+<h1 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h1><h2 id="wait-notify"><a href="#wait-notify" class="headerlink" title="wait/notify"></a>wait/notify</h2><ul>
+<li>解决资源浪费</li>
+</ul>
+<pre><code class="java">package cn.day.b6;
+
+import java.util.ArrayList;
+import java.util.List;
+/**线程 Thread2 （B）一直监视list.size造成了资源浪费*/
+public class MyList &#123;
+    volatile private List list = new ArrayList();//实现多线程之间的可视性，不然线程B将一直执行
+    public void add()&#123;
+        list.add(&quot;1&quot;);
+    &#125;
+    public int size()&#123;
+        return list.size();
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var service = new MyList();
+        var a = new Thread1(service);
+        a.setName(&quot;A&quot;);
+        a.start();
+        var b = new Thread2(service);
+        b.setName(&quot;B&quot;);
+        b.start();
+    &#125;
+&#125;
+class Thread1 extends Thread&#123;
+    private MyList list;
+    public Thread1 (MyList list)&#123;
+        super();
+        this.list = list;
+    &#125;
+    @Override
+    public void run()&#123;
+        try&#123;
+            for (int i = 0; i &lt; 10; i++)&#123;
+                list.add();
+                System.out.println(&quot;添加了&quot;+(i + 1)+&quot;个元素&quot;);
+                Thread.sleep(1000);
+            &#125;
+            &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;class Thread2 extends Thread&#123;
+    private MyList list;
+    public Thread2 (MyList list)&#123;
+        super();
+        this.list = list;
+    &#125;
+    @Override
+    public void run()&#123;
+        try&#123;
+            while (true)&#123;
+                //Thread.sleep(2000);//B线程将因错过list.size==5而不会终止。
+                if (list.size()==5)&#123;
+                    System.out.println(&quot;==5了，b线程退出&quot;);
+                    throw new InterruptedException();
+                &#125;
+            &#125;
+            &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait( )"></a>wait( )</h2><ul>
+<li><p>暂停当前线程并等待被唤醒</p>
+</li>
+<li><p><strong>wait(1000 )</strong> ,在1s后如无**notify( )**唤醒，则自动唤醒（持有锁后继续执行）</p>
+<pre><code class="java">package cn.day.b6;
+
+public class Thread_A extends Thread &#123;
+    private Object lock;
+    public Thread_A(Object lock)&#123;
+        super();
+        this.lock = lock;
+    &#125;
+    @Override
+    public void run()&#123;
+        try &#123;
+            synchronized (lock)&#123;
+                System.out.println(&quot;我跳出来了&quot;);
+                lock.wait(1000);
+                System.out.println(&quot;打我啊笨蛋&quot;);
+
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+class Thread_B extends Thread &#123;
+    private Object lock;
+    public Thread_B(Object lock)&#123;
+        super();
+        this.lock = lock;
+    &#125;
+    @Override
+    public void run()&#123;
+            synchronized (lock)&#123;
+               while (true)&#123;//B线程执行完毕后，A线程自动唤醒
+                   System.out.println(&quot;停不下来&quot;);
+                   try &#123;
+                       Thread.sleep(1000);
+                   &#125; catch (InterruptedException e) &#123;
+                       e.printStackTrace();
+                   &#125;
+               &#125;
+
+            &#125;
+        &#125;
+    &#125;
+class TestRun&#123;
+    public static void main(String[] args) &#123;
+            Object lock = new Object();
+            var t1 = new Thread_A(lock);
+            var t2 = new Thread_B(lock);
+            t1.start();
+            t2.start();
+
+        &#125;
+    &#125;
+
+</code></pre>
+</li>
+</ul>
+<h2 id="notify"><a href="#notify" class="headerlink" title="notify( )"></a><strong>notify( )</strong></h2><ul>
+<li>执行完当前同步代码块内代码后，选择同一个（唤醒多个需要多次调用）锁的等待线程**wait( )**将其唤醒（按照执行wait的顺序）</li>
+</ul>
+<h2 id="notifyAll"><a href="#notifyAll" class="headerlink" title="notifyAll( )"></a>notifyAll( )</h2><ul>
+<li>（倒序）唤醒全部等待线程<strong>wait( )</strong></li>
+</ul>
+<pre><code class="java">package cn.day.b6;
+
+public class Thread_A extends Thread &#123;
+    private Object lock;
+    public Thread_A(Object lock)&#123;
+        super();
+        this.lock = lock;
+    &#125;
+    @Override
+    public void run()&#123;
+        try &#123;
+            synchronized (lock)&#123;
+                System.out.println(&quot;Start wait time= &quot;+System.currentTimeMillis());
+                lock.wait();//暂停并等待被唤醒
+                System.out.println(&quot;End wait time= &quot;+System.currentTimeMillis());
+
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+class Thread_B extends Thread &#123;
+    private Object lock;
+    public Thread_B(Object lock)&#123;
+        super();
+        this.lock = lock;
+    &#125;
+    @Override
+    public void run()&#123;
+            synchronized (lock)&#123;
+                System.out.println(&quot;Start notify time= &quot;+System.currentTimeMillis());
+               // lock.notify();//选择同一个锁的等待线程将其唤醒（按照执行wait的顺序，依次唤醒）
+                lock.notifyAll()//同notify()，但按相反的顺序唤醒
+                System.out.println(&quot;End notify time= &quot;+System.currentTimeMillis());
+
+            &#125;
+        &#125;
+    &#125;
+class TestRun&#123;
+    public static void main(String[] args) &#123;
+        try &#123;
+            Object lock = new Object();//同一个对象同一个梦想，哈哈
+            var t1 = new Thread_A(lock);
+            t1.start();
+            Thread.sleep(3000);
+            var t2 = new Thread_B(lock);
+            t2.start();
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="综合运用"><a href="#综合运用" class="headerlink" title="综合运用"></a>综合运用</h1><ul>
+<li><p>共享变量+<strong>notifyAll( )</strong>+while+<strong>synchronized</strong>+volatile实现交叉执行</p>
+<pre><code class="java">package cn.day.b6;
+
+public class MyThread &#123;
+    volatile private boolean prevIsA = false;//volatile，修改值时其它线程均可知晓
+    synchronized public void backupA()&#123;
+        try&#123;
+            while (prevIsA == true)&#123;//全场依据PrevIsA的值判断该线程是否该休息（释放锁）
+                wait();
+            &#125;
+            for (int i = 0;i &lt; 5;i++)&#123;
+                System.out.println(&quot;++++++&quot;);
+            &#125;
+            prevIsA = true;//此线程主要步骤执行完后再修改prevIsA值
+            notifyAll();
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    synchronized public void backupB()&#123;
+        try&#123;
+            while (prevIsA == false) &#123;////全场依据PrevIsA的值判断该线程是否该休息（释放锁）
+                wait();
+            &#125;
+                for (int i = 0;i &lt; 5; i++)&#123;
+                    System.out.println(&quot;------&quot;);
+                &#125;
+                prevIsA = false;////全场依据PrevIsA的值判断该线程是否该休息（释放锁）
+                notifyAll();
+
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+class Thread1 extends Thread&#123;
+    private MyThread dbTools;
+    public Thread1(MyThread dbTools)&#123;
+        super();
+        this.dbTools = dbTools;
+    &#125;
+    @Override
+    public void run()&#123;
+        dbTools.backupA();
+    &#125;
+&#125;
+class Thread2 extends Thread&#123;
+    private MyThread dbTools;
+    public Thread2(MyThread dbTools)&#123;
+        super();
+        this.dbTools = dbTools;
+    &#125;
+    @Override
+    public void run()&#123;
+        dbTools.backupB();
+    &#125;
+&#125;
+class MyRun&#123;
+    public static void main(String[] args) &#123;
+        var dbtools = new MyThread();
+        for (int i = 0; i &lt; 20; i++)&#123;//循环20波，100行
+            var output = new Thread2(dbtools);
+            output.start();
+            var input = new Thread1(dbtools);
+            input.start();
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="join"><a href="#join" class="headerlink" title="join( )"></a>join( )</h2><ul>
+<li>当前线程释放锁并进入无休止的等待状态，等其它线程结束再执行</li>
+<li>join( 2000)，当前线程释放锁，2s后如获得锁，继续执行（无法获得锁，则一直尝试获得锁）</li>
+</ul>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><ul>
+<li>将数据放于map中<ol>
+<li>Map中的key存储ThreadLocal对象，value存储值</li>
+<li>每个线程的value仅对此线程可见</li>
+<li>当线程销毁时，map也随之销毁，如map的数据没有被引用则随时未GC回收</li>
+</ol>
+</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+public class Tools &#123;
+    public static ThreadLocal t1 = new ThreadLocal();
+&#125;
+class MyThreadA extends Thread&#123;
+    @Override
+    public void run()&#123;
+        try &#123;
+            for (int i = 0; i &lt; 10; i++)&#123;
+                Tools.t1.set(&quot;A&quot;+(i++));
+                System.out.println(&quot;A get &quot;+ Tools.t1.get());
+                int sleepValue = (int)(Math.random()*1000);
+                Thread.sleep(sleepValue);
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+class MyThreadB extends Thread&#123;
+    @Override
+    public void run()&#123;
+        try &#123;
+            for (int i = 0; i &lt; 10; i++)&#123;
+                Tools.t1.set(&quot;B&quot;+(i++));
+                System.out.println(&quot;B get &quot;+ Tools.t1.get());
+                int sleepValue = (int)(Math.random()*1000);
+                Thread.sleep(sleepValue);
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+class Test&#123;
+    public static void main(String[] args) throws InterruptedException &#123;
+        var a = new MyThreadA();
+        var b = new MyThreadB();
+        a.start();
+        b.start();
+        for (int i = 0; i &lt; 10; i++)&#123;
+            Tools.t1.set(&quot;main&quot;+(i+1));
+            System.out.println(&quot;main get &quot;+ Tools.t1.get());
+            int sleepValue = (int)(Math.random()*1000);
+            try &#123;
+                Thread.sleep(sleepValue);
+            &#125; catch (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>可通过重写initialValue( )方法，改变map中无值时get（）返回的数据（null）</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+public class ThreadLocalExt extends ThreadLocal &#123;
+    @Override
+    protected Object initialValue()&#123;
+        return &quot;改变&quot;;
+    &#125;
+&#125;
+class Run&#123;
+    public static  ThreadLocalExt t1= new ThreadLocalExt();
+
+    public static void main(String[] args) &#123;
+        System.out.println(t1.get());
+    &#125;
+&#125;
+</code></pre>
+<h2 id="inheritableThreadLocal"><a href="#inheritableThreadLocal" class="headerlink" title="inheritableThreadLocal"></a>inheritableThreadLocal</h2><ul>
+<li>从创建这个线程对象的线程继承map值(继承后并不随着map值的更新而更新)</li>
+</ul>
+<pre><code class="java">package cn.day.b7;
+
+public class TestInheritableThreadLocal extends Thread&#123;
+    public void run()&#123;
+        try &#123;
+            for (int i = 0; i&lt;10; i++)&#123;
+                System.out.println(&quot;在ThreadA线程中取值=&quot;+Tools1.t1.get());
+                Thread.sleep(100);
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        try &#123;
+            for (int i = 0; i &lt;10; i++)&#123;
+                if (Tools1.t1.get() == null)&#123;
+                    Tools1.t1.set(&quot;此值是main&quot;);
+                &#125;
+                System.out.println(&quot;在main线程中取值=&quot; + Tools1.t1.get());
+                Thread.sleep(100);
+            &#125;
+            Thread.sleep(5000);
+            var a = new TestInheritableThreadLocal();
+            a.start();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;    &#125;
+&#125;
+class Tools1&#123;
+    public static InheritableThreadLocal t1 = new InheritableThreadLocal();
+&#125;
+</code></pre>
+<p>重写childValue( )方法可对继承的值进行“加工”。</p>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1351 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Spring Boot</p>
+<p>Spring Boot 是一个快速开发框架，可以迅速搭建出一套基于 Spring 框架体系的应用，是 Spring Cloud 的基础。</p>
+<p>Spring Boot 开启了各种自动装配，从而简化代码的开发，不需要编写各种配置文件，只需要引入相关依赖就可以迅速搭建一个应用。</p>
+<ul>
+<li>特点</li>
+</ul>
+<p>1、不需要 web.xml</p>
+<p>2、不需要 springmvc.xml</p>
+<p>3、不需要 tomcat，Spring Boot 内嵌了 tomcat</p>
+<p>4、不需要配置 JSON 解析，支持 REST 架构</p>
+<p>5、个性化配置非常简单</p>
+<ul>
+<li>如何使用</li>
+</ul>
+<p>1、创建 Maven 工程，导入相关依赖。</p>
+<pre><code class="xml">&lt;!-- 继承父包 --&gt;
+&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;2.0.7.RELEASE&lt;/version&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+  &lt;!-- web启动jar --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;version&gt;1.18.6&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<p>2、创建 Student 实体类</p>
+<pre><code class="java">package com.threeit.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+//生成get，set
+@Data
+//生成带参构造
+@AllArgsConstructor
+public class Student &#123;
+    private long id;
+    private String name;
+    private int age;
+&#125;
+</code></pre>
+<p>3、StudentRepository</p>
+<pre><code class="java">package com.southwind.repository;
+
+import com.southwind.entity.Student;
+
+import java.util.Collection;
+
+public interface StudentRepository &#123;
+    public Collection&lt;Student&gt; findAll();
+    public Student findById(long id);
+    public void saveOrUpdate(Student student);
+    public void deleteById(long id);
+&#125;
+</code></pre>
+<p>4、StudentRepositoryImpl</p>
+<pre><code class="java">package com.southwind.repository.impl;
+
+import com.southwind.entity.Student;
+import com.southwind.repository.StudentRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+@Repository
+public class StudentRepositoryImpl implements StudentRepository &#123;
+
+    private static Map&lt;Long,Student&gt; studentMap;
+
+    static&#123;
+        studentMap = new HashMap&lt;&gt;();
+        studentMap.put(1L,new Student(1L,&quot;张三&quot;,22));
+        studentMap.put(2L,new Student(2L,&quot;李四&quot;,23));
+        studentMap.put(3L,new Student(3L,&quot;王五&quot;,24));
+    &#125;
+
+    @Override
+    public Collection&lt;Student&gt; findAll() &#123;
+        return studentMap.values();
+    &#125;
+
+    @Override
+    public Student findById(long id) &#123;
+        return studentMap.get(id);
+    &#125;
+
+    @Override
+    public void saveOrUpdate(Student student) &#123;
+        studentMap.put(student.getId(),student);
+    &#125;
+
+    @Override
+    public void deleteById(long id) &#123;
+        studentMap.remove(id);
+    &#125;
+&#125;
+</code></pre>
+<p>5、StudentHandler</p>
+<pre><code class="java">package com.threeit.controller;
+
+import com.threeit.entity.Student;
+import com.threeit.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+//一个控制器类
+@RestController
+//控制器请求路径
+@RequestMapping(&quot;/student&quot;)
+public class StudentHandler &#123;
+    //寻找StudentRepository实现类对象注入
+    @Autowired
+    private StudentRepository studentRepository;
+
+    @GetMapping(&quot;/findAll&quot;)
+    public Collection&lt;Student&gt; findAll()&#123;
+        return studentRepository.findAll();
+    &#125;
+
+    @GetMapping(&quot;findById/&#123;id&#125;&quot;)
+    public Student findById(@PathVariable(&quot;id&quot;) long id)&#123;
+        return studentRepository.findById(id);
+    &#125;
+
+    @PostMapping(&quot;/save&quot;)
+    public void save(@RequestBody Student student)&#123;
+        studentRepository.saveOrUpdate(student);
+    &#125;
+
+    @PutMapping(&quot;/update&quot;)
+    public void update(@RequestBody Student student)&#123;
+        studentRepository.saveOrUpdate(student);
+    &#125;
+
+    @DeleteMapping(&quot;/deleteById/&#123;id&#125;&quot;)
+    public void deleteById(@PathVariable(&quot;id&quot;) long id)&#123;
+        studentRepository.deleteById(id);
+
+    &#125;
+
+&#125;
+</code></pre>
+<p>6、application.yml</p>
+<pre><code class="yaml">server:
+  port: 9090
+</code></pre>
+<p>7、启动类</p>
+<pre><code class="java">package com.southwind;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application &#123;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(Application.class,args);
+    &#125;
+&#125;
+</code></pre>
+<p><code>@SpringBootApplication</code> 表示当前类是 Spring Boot 的入口，Application 类的存放位置必须是其他相关业务类的存放位置的父级。</p>
+<h3 id="Spring-Boot-整合-JSP"><a href="#Spring-Boot-整合-JSP" class="headerlink" title="Spring Boot 整合 JSP"></a>Spring Boot 整合 JSP</h3><ul>
+<li>pom.xml</li>
+</ul>
+<pre><code class="xml">&lt;parent&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+  &lt;version&gt;2.0.7.RELEASE&lt;/version&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+  &lt;!-- web --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+
+  &lt;!-- 整合JSP --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+
+  &lt;!-- JSTL --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;jstl&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;version&gt;1.2&lt;/version&gt;
+  &lt;/dependency&gt;
+
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;version&gt;1.18.6&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<ul>
+<li>创建配置文件 application.yml</li>
+</ul>
+<pre><code class="yaml">server:
+  port: 8181
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+</code></pre>
+<ul>
+<li>创建 Handler</li>
+</ul>
+<pre><code class="java">package com.southwind.controller;
+
+import com.southwind.entity.Student;
+import com.southwind.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+@RequestMapping(&quot;/hello&quot;)
+public class HelloHandler &#123;
+
+    @Autowired
+    private StudentRepository studentRepository;
+
+    @GetMapping(&quot;/index&quot;)
+    public ModelAndView index()&#123;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(&quot;index&quot;);
+        modelAndView.addObject(&quot;list&quot;,studentRepository.findAll());
+        return modelAndView;
+    &#125;
+
+    @GetMapping(&quot;/deleteById/&#123;id&#125;&quot;)
+    public String deleteById(@PathVariable(&quot;id&quot;) long id)&#123;
+        studentRepository.deleteById(id);
+        return &quot;redirect:/hello/index&quot;;
+    &#125;
+
+    @PostMapping(&quot;/save&quot;)
+    public String save(Student student)&#123;
+        studentRepository.saveOrUpdate(student);
+        return &quot;redirect:/hello/index&quot;;
+    &#125;
+
+    @PostMapping(&quot;/update&quot;)
+    public String update(Student student)&#123;
+        studentRepository.saveOrUpdate(student);
+        return &quot;redirect:/hello/index&quot;;
+    &#125;
+
+    @GetMapping(&quot;/findById/&#123;id&#125;&quot;)
+    public ModelAndView findById(@PathVariable(&quot;id&quot;) long id)&#123;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(&quot;update&quot;);
+        modelAndView.addObject(&quot;student&quot;,studentRepository.findById(id));
+        return modelAndView;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>JSP</li>
+</ul>
+<pre><code class="jsp">&lt;%--
+  Created by IntelliJ IDEA.
+  User: southwind
+  Date: 2019-03-21
+  Time: 12:02
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%@ page isELIgnored=&quot;false&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;学生信息&lt;/h1&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;学生编号&lt;/th&gt;
+            &lt;th&gt;学生姓名&lt;/th&gt;
+            &lt;th&gt;学生年龄&lt;/th&gt;
+            &lt;th&gt;操作&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;c:forEach items=&quot;$&#123;list&#125;&quot; var=&quot;student&quot;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;$&#123;student.id&#125;&lt;/td&gt;
+                &lt;td&gt;$&#123;student.name&#125;&lt;/td&gt;
+                &lt;td&gt;$&#123;student.age&#125;&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;a href=&quot;/hello/findById/$&#123;student.id&#125;&quot;&gt;修改&lt;/a&gt;
+                    &lt;a href=&quot;/hello/deleteById/$&#123;student.id&#125;&quot;&gt;删除&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/c:forEach&gt;
+    &lt;/table&gt;
+    &lt;a href=&quot;/save.jsp&quot;&gt;添加学生&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="jsp">&lt;%--
+  Created by IntelliJ IDEA.
+  User: southwind
+  Date: 2019-03-21
+  Time: 12:09
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;/hello/save&quot; method=&quot;post&quot;&gt;
+        ID:&lt;input type=&quot;text&quot; name=&quot;id&quot;/&gt;&lt;br/&gt;
+        name:&lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;&lt;br/&gt;
+        age:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;&lt;br/&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;/&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="jsp">&lt;%--
+  Created by IntelliJ IDEA.
+  User: southwind
+  Date: 2019-03-21
+  Time: 12:09
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;/hello/update&quot; method=&quot;post&quot;&gt;
+        ID:&lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;$&#123;student.id&#125;&quot; readonly/&gt;&lt;br/&gt;
+        name:&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;$&#123;student.name&#125;&quot;/&gt;&lt;br/&gt;
+        age:&lt;input type=&quot;text&quot; name=&quot;age&quot; value=&quot;$&#123;student.age&#125;&quot;/&gt;&lt;br/&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;/&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="Spring-Boot-HTML"><a href="#Spring-Boot-HTML" class="headerlink" title="Spring Boot HTML"></a>Spring Boot HTML</h3><p>Spring Boot 可以结合 Thymeleaf 模版来整合 HTML，使用原生的 HTML 作为视图。</p>
+<p>Thymeleaf 模版是面向 Web 和独立环境的 Java 模版引擎，能够处理 HTML、XML、JavaScript、CSS 等。</p>
+<pre><code>&lt;p th:text=&quot;$&#123;message&#125;&quot;&gt;&lt;/p&gt;
+</code></pre>
+<ul>
+<li>pom.xml</li>
+</ul>
+<pre><code class="xml">&lt;!-- 继承父包 --&gt;
+&lt;parent&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+  &lt;version&gt;2.0.7.RELEASE&lt;/version&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+  &lt;!-- web启动jar --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;version&gt;1.18.6&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
+
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<ul>
+<li>appliction.yml</li>
+</ul>
+<pre><code class="yaml">server:
+  port: 9090
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+</code></pre>
+<ul>
+<li>Handler</li>
+</ul>
+<pre><code class="java">package com.southwind.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(&quot;/index&quot;)
+public class IndexHandler &#123;
+
+    @GetMapping(&quot;/index&quot;)
+    public String index()&#123;
+        System.out.println(&quot;index...&quot;);
+        return &quot;index&quot;;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>HTML</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>如果希望客户端可以直接访问 HTML 资源，将这些资源放置在 static 路径下即可，否则必须通过 Handler 的后台映射才可以访问静态资源。</p>
+<h3 id="Thymeleaf-常用语法"><a href="#Thymeleaf-常用语法" class="headerlink" title="Thymeleaf 常用语法"></a>Thymeleaf 常用语法</h3><ul>
+<li>赋值、拼接</li>
+</ul>
+<pre><code class="java">@GetMapping(&quot;/index2&quot;)
+public String index2(Map&lt;String,String&gt; map)&#123;
+  map.put(&quot;name&quot;,&quot;张三&quot;);
+  return &quot;index&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;!--字符拼接的两种方式--&gt;
+&lt;p th:text=&quot;$&#123;name&#125;&quot;&gt;&lt;/p&gt;
+&lt;!--方式一：常规拼接--&gt;
+&lt;p th:text=&quot;&#39;学生姓名是&#39;+$&#123;name&#125;+2&quot;&gt;&lt;/p&gt;
+&lt;!--方式二：使用||包裹完成拼接--&gt;
+&lt;p th:text=&quot;|学生姓名是$&#123;name&#125;|&quot;&gt;&lt;/p&gt;
+</code></pre>
+<ul>
+<li>条件判断：if/unless</li>
+</ul>
+<p>th:if 表示条件成立时显示内容，th:unless 表示条件不成立时显示内容</p>
+<pre><code class="java">@GetMapping(&quot;/if&quot;)
+public String index3(Map&lt;String,Boolean&gt; map)&#123;
+    map.put(&quot;flag&quot;,true);
+    return &quot;index&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;!--条件成立--&gt;
+&lt;p th:if=&quot;$&#123;flag == true&#125;&quot;  th:text=&quot;条件成立&quot;&gt;&lt;/p&gt;
+&lt;!--条件不成立--&gt;
+&lt;p th:unless=&quot;$&#123;flag == true&#125;&quot; th:text=&quot;条件不成立&quot;&gt;&lt;/p&gt;
+</code></pre>
+<ul>
+<li>循环</li>
+</ul>
+<pre><code class="java">@GetMapping(&quot;/index&quot;)
+public String index(Model model)&#123;
+    System.out.println(&quot;index...&quot;);
+    List&lt;Student&gt; list = new ArrayList&lt;&gt;();
+    list.add(new Student(1L,&quot;张三&quot;,22));
+    list.add(new Student(2L,&quot;李四&quot;,23));
+    list.add(new Student(3L,&quot;王五&quot;,24));
+    model.addAttribute(&quot;list&quot;,list);
+    return &quot;index&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;index&lt;/th&gt;
+    &lt;th&gt;count&lt;/th&gt;
+    &lt;th&gt;学生ID&lt;/th&gt;
+    &lt;th&gt;学生姓名&lt;/th&gt;
+    &lt;th&gt;学生年龄&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr th:each=&quot;student,stat:$&#123;list&#125;&quot; th:style=&quot;&#39;background-color:&#39;+@&#123;$&#123;stat.odd&#125;?&#39;#F2F2F2&#39;&#125;&quot;&gt;
+    &lt;td th:text=&quot;$&#123;stat.index&#125;&quot;&gt;&lt;/td&gt;
+    &lt;td th:text=&quot;$&#123;stat.count&#125;&quot;&gt;&lt;/td&gt;
+    &lt;td th:text=&quot;$&#123;student.id&#125;&quot;&gt;&lt;/td&gt;
+    &lt;td th:text=&quot;$&#123;student.name&#125;&quot;&gt;&lt;/td&gt;
+    &lt;td th:text=&quot;$&#123;student.age&#125;&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<p>stat 是状态变量，属性：</p>
+<ul>
+<li>index 集合中元素的index（从0开始）</li>
+<li>count 集合中元素的count（从1开始）</li>
+<li>size 集合的大小</li>
+<li>current 当前迭代变量</li>
+<li>even/odd 当前迭代是否为偶数/奇数（从0开始计算）</li>
+<li>first 当前迭代的元素是否是第一个</li>
+<li>last 当前迭代的元素是否是最后一个</li>
+</ul>
+<ul>
+<li>URL</li>
+</ul>
+<p>Thymeleaf 对于 URL 的处理是通过 <code>@&#123;...&#125;</code> 进行处理，结合 th:href 、th:src</p>
+<pre><code class="html">&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;a th:href=&quot;@&#123;http://www.baidu.com&#125;&quot;&gt;跳转&lt;/a&gt;
+&lt;a th:href=&quot;@&#123;http://localhost:9090/index/url/&#123;na&#125;(na=$&#123;name&#125;)&#125;&quot;&gt;跳转2&lt;/a&gt;
+&lt;img th:src=&quot;$&#123;src&#125;&quot;&gt;
+&lt;div th:style=&quot;&#39;background:url(&#39;+ @&#123;$&#123;src&#125;&#125; +&#39;);&#39;&quot;&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>三元运算</li>
+</ul>
+<pre><code class="java">@GetMapping(&quot;/eq&quot;)
+public String eq(Model model)&#123;
+    model.addAttribute(&quot;age&quot;,30);
+    return &quot;test&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;input th:value=&quot;$&#123;age gt 30?&#39;中年&#39;:&#39;青年&#39;&#125;&quot;/&gt;
+</code></pre>
+<ul>
+<li>gt great than 大于</li>
+<li>ge great equal 大于等于</li>
+<li>eq equal 等于</li>
+<li>lt less than 小于</li>
+<li>le less equal 小于等于</li>
+<li>ne not equal 不等于</li>
+</ul>
+<ul>
+<li>switch</li>
+</ul>
+<pre><code class="java">@GetMapping(&quot;/switch&quot;)
+public String switchTest(Model model)&#123;
+    model.addAttribute(&quot;gender&quot;,&quot;女&quot;);
+    return &quot;test&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;div th:switch=&quot;$&#123;gender&#125;&quot;&gt;
+  &lt;p th:case=&quot;女&quot;&gt;女&lt;/p&gt;
+  &lt;p th:case=&quot;男&quot;&gt;男&lt;/p&gt;
+  &lt;p th:case=&quot;*&quot;&gt;未知&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>基本对象<ul>
+<li><code>#ctx</code> ：上下文对象</li>
+<li><code>#vars</code>：上下文变量</li>
+<li><code>#locale</code>：区域对象</li>
+<li><code>#request</code>：HttpServletRequest 对象</li>
+<li><code>#response</code>：HttpServletResponse 对象</li>
+<li><code>#session</code>：HttpSession 对象</li>
+<li><code>#servletContext</code>：ServletContext 对象</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">@GetMapping(&quot;/object&quot;)
+public String object(HttpServletRequest request)&#123;
+    request.setAttribute(&quot;request&quot;,&quot;request对象&quot;);
+    request.getSession().setAttribute(&quot;session&quot;,&quot;session对象&quot;);
+    return &quot;test&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;p th:text=&quot;$&#123;#request.getAttribute(&#39;request&#39;)&#125;&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;$&#123;#session.getAttribute(&#39;session&#39;)&#125;&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;$&#123;#locale.country&#125;&quot;&gt;&lt;/p&gt;
+</code></pre>
+<ul>
+<li>内嵌对象</li>
+</ul>
+<p>可以直接通过 # 访问。</p>
+<p>1、dates：java.util.Date 的功能方法</p>
+<p>2、calendars：java.util.Calendar 的功能方法</p>
+<p>3、numbers：格式化数字</p>
+<p>4、strings：java.lang.String 的功能方法</p>
+<p>5、objects：Object 的功能方法</p>
+<p>6、bools：对布尔求值的方法</p>
+<p>7、arrays：操作数组的功能方法</p>
+<p>8、lists：操作集合的功能方法</p>
+<p>9、sets：操作集合的功能方法</p>
+<p>10、maps：操作集合的功能方法</p>
+<pre><code class="java">@GetMapping(&quot;/util&quot;)
+public String util(Model model)&#123;
+    model.addAttribute(&quot;name&quot;,&quot;zhangsan&quot;);
+    model.addAttribute(&quot;users&quot;,new ArrayList&lt;&gt;());
+    model.addAttribute(&quot;count&quot;,22);
+    model.addAttribute(&quot;date&quot;,new Date());
+    return &quot;test&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;!-- 格式化时间 --&gt;
+&lt;p th:text=&quot;$&#123;#dates.format(date,&#39;yyyy-MM-dd HH:mm:sss&#39;)&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 创建当前时间，精确到天 --&gt;
+&lt;p th:text=&quot;$&#123;#dates.createToday()&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 创建当前时间，精确到秒 --&gt;
+&lt;p th:text=&quot;$&#123;#dates.createNow()&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 判断是否为空 --&gt;
+&lt;p th:text=&quot;$&#123;#strings.isEmpty(name)&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 判断List是否为空 --&gt;
+&lt;p th:text=&quot;$&#123;#lists.isEmpty(users)&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 输出字符串长度 --&gt;
+&lt;p th:text=&quot;$&#123;#strings.length(name)&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 拼接字符串 --&gt;
+&lt;p th:text=&quot;$&#123;#strings.concat(name,name,name)&#125;&quot;&gt;&lt;/p&gt;
+&lt;!-- 创建自定义字符串 --&gt;
+&lt;p th:text=&quot;$&#123;#strings.randomAlphanumeric(count)&#125;&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="Spring-Boot-数据校验"><a href="#Spring-Boot-数据校验" class="headerlink" title="Spring Boot 数据校验"></a>Spring Boot 数据校验</h3><pre><code class="java">package com.southwind.entity;
+
+import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Data
+public class User &#123;
+    @NotNull(message = &quot;id不能为空&quot;)
+    private Long id;
+    @NotEmpty(message = &quot;姓名不能为空&quot;)
+    @Length(min = 2,message = &quot;姓名长度不能小于2位&quot;)
+    private String name;
+    @Min(value = 16,message = &quot;年龄必须大于16岁&quot;)
+    private int age;
+&#125;
+</code></pre>
+<pre><code class="java">@GetMapping(&quot;/validator&quot;)
+public void validatorUser(@Valid User user,BindingResult bindingResult)&#123;
+  System.out.println(user);
+  if(bindingResult.hasErrors())&#123;
+    List&lt;ObjectError&gt; list = bindingResult.getAllErrors();
+    for(ObjectError objectError:list)&#123;
+      System.out.println(objectError.getCode()+&quot;-&quot;+objectError.getDefaultMessage());
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<h3 id="Spring-Boot-整合-JDBC"><a href="#Spring-Boot-整合-JDBC" class="headerlink" title="Spring Boot 整合 JDBC"></a>Spring Boot 整合 JDBC</h3><ul>
+<li>pom.xml</li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;8.0.11&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>application.yml</li>
+</ul>
+<pre><code class="yaml">server:
+  port: 9090
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+</code></pre>
+<ul>
+<li>User</li>
+</ul>
+<pre><code class="java">package com.southwind.entity;
+
+import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Data
+public class User &#123;
+    @NotNull(message = &quot;id不能为空&quot;)
+    private Long id;
+    @NotEmpty(message = &quot;姓名不能为空&quot;)
+    @Length(min = 2,message = &quot;姓名长度不能小于2位&quot;)
+    private String name;
+    @Min(value = 60,message = &quot;成绩必须大于60分&quot;)
+    private double score;
+&#125;
+</code></pre>
+<ul>
+<li>UserRepository</li>
+</ul>
+<pre><code class="java">package com.southwind.repository;
+
+import com.southwind.entity.User;
+
+import java.util.List;
+
+public interface UserRepository &#123;
+    public List&lt;User&gt; findAll();
+    public User findById(long id);
+    public void save(User user);
+    public void update(User user);
+    public void deleteById(long id);
+&#125;
+</code></pre>
+<ul>
+<li>UserRepositoryImpl</li>
+</ul>
+<pre><code class="java">package com.southwind.repository.impl;
+
+import com.southwind.entity.User;
+import com.southwind.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class UserRepositoryImpl implements UserRepository &#123;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public List&lt;User&gt; findAll() &#123;
+        return jdbcTemplate.query(&quot;select * from user&quot;,new BeanPropertyRowMapper&lt;&gt;(User.class));
+    &#125;
+
+    @Override
+    public User findById(long id) &#123;
+        return jdbcTemplate.queryForObject(&quot;select * from user where id = ?&quot;,new Object[]&#123;id&#125;,new BeanPropertyRowMapper&lt;&gt;(User.class));
+    &#125;
+
+    @Override
+    public void save(User user) &#123;
+        jdbcTemplate.update(&quot;insert into user(name,score) values(?,?)&quot;,user.getName(),user.getScore());
+    &#125;
+
+    @Override
+    public void update(User user) &#123;
+        jdbcTemplate.update(&quot;update user set name = ?,score = ? where id = ?&quot;,user.getName(),user.getScore(),user.getId());
+    &#125;
+
+    @Override
+    public void deleteById(long id) &#123;
+        jdbcTemplate.update(&quot;delete from user where id = ?&quot;,id);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>Handler</li>
+</ul>
+<pre><code class="java">package com.southwind.controller;
+
+import com.southwind.entity.User;
+import com.southwind.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserHandler &#123;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @GetMapping(&quot;/findAll&quot;)
+    public List&lt;User&gt; findAll()&#123;
+        return userRepository.findAll();
+    &#125;
+
+    @GetMapping(&quot;/findById/&#123;id&#125;&quot;)
+    public User findById(@PathVariable(&quot;id&quot;) long id)&#123;
+        return userRepository.findById(id);
+    &#125;
+
+    @PostMapping(&quot;/save&quot;)
+    public void save(@RequestBody User user)&#123;
+        userRepository.save(user);
+    &#125;
+
+    @PutMapping(&quot;/update&quot;)
+    public void update(@RequestBody User user)&#123;
+        userRepository.update(user);
+    &#125;
+
+    @DeleteMapping(&quot;/deleteById/&#123;id&#125;&quot;)
+    public void deleteById(@PathVariable(&quot;id&quot;) long id)&#123;
+        userRepository.deleteById(id);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="Spring-Boot-整合-MyBatis"><a href="#Spring-Boot-整合-MyBatis" class="headerlink" title="Spring Boot 整合 MyBatis"></a>Spring Boot 整合 MyBatis</h3><ul>
+<li>pom.xml</li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+  &lt;version&gt;1.3.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>application.yml</li>
+</ul>
+<pre><code class="yaml">server:
+  port: 9090
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:/mapping/*.xml
+  type-aliases-package: com.southwind.entity
+</code></pre>
+<ul>
+<li>UserRepository</li>
+</ul>
+<pre><code class="java">package com.southwind.mapper;
+
+import com.southwind.entity.User;
+
+import java.util.List;
+
+public interface UserRepository &#123;
+    public List&lt;User&gt; findAll(int index,int limit);
+    public User findById(long id);
+    public void save(User user);
+    public void update(User user);
+    public void deleteById(long id);
+    public int count();
+&#125;
+</code></pre>
+<ul>
+<li>UserRepository.xml</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        &lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.southwind.mapper.UserRepository&quot;&gt;
+
+    &lt;select id=&quot;findAll&quot; resultType=&quot;User&quot;&gt;
+        select * from user limit #&#123;param1&#125;,#&#123;param2&#125;
+    &lt;/select&gt;
+
+    &lt;select id=&quot;count&quot; resultType=&quot;int&quot;&gt;
+        select count(id) from user
+    &lt;/select&gt;
+
+    &lt;select id=&quot;findById&quot; parameterType=&quot;long&quot; resultType=&quot;User&quot;&gt;
+        select * from user where id = #&#123;id&#125;
+    &lt;/select&gt;
+
+    &lt;insert id=&quot;save&quot; parameterType=&quot;User&quot;&gt;
+        insert into user(name,score) values(#&#123;name&#125;,#&#123;score&#125;)
+    &lt;/insert&gt;
+
+    &lt;update id=&quot;update&quot; parameterType=&quot;User&quot;&gt;
+        update user set name = #&#123;name&#125;,score = #&#123;score&#125; where id = #&#123;id&#125;
+    &lt;/update&gt;
+
+    &lt;delete id=&quot;deleteById&quot; parameterType=&quot;long&quot;&gt;
+        delete from user where id = #&#123;id&#125;
+    &lt;/delete&gt;
+&lt;/mapper&gt;
+</code></pre>
+<ul>
+<li>User</li>
+</ul>
+<pre><code class="java">package com.southwind.entity;
+
+import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Data
+public class User &#123;
+    @NotNull(message = &quot;id不能为空&quot;)
+    private Long id;
+    @NotEmpty(message = &quot;姓名不能为空&quot;)
+    @Length(min = 2,message = &quot;姓名长度不能小于2位&quot;)
+    private String name;
+    @Min(value = 60,message = &quot;成绩必须大于60分&quot;)
+    private double score;
+&#125;
+</code></pre>
+<ul>
+<li>Handler</li>
+</ul>
+<pre><code class="java">package com.southwind.controller;
+import com.southwind.entity.User;
+import com.southwind.mapper.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+@RequestMapping(&quot;/mapper&quot;)
+public class UserMapperHandler &#123;
+
+    @Autowired
+    private UserRepository userRepository;
+    private int limit = 10;
+
+    @GetMapping(&quot;/findAll/&#123;page&#125;&quot;)
+    public ModelAndView findAll(@PathVariable(&quot;page&quot;) int page)&#123;
+        ModelAndView modelAndView = new ModelAndView();
+        int index = (page-1)*limit;
+        modelAndView.setViewName(&quot;show&quot;);
+        modelAndView.addObject(&quot;list&quot;,userRepository.findAll(index,limit));
+        modelAndView.addObject(&quot;page&quot;,page);
+        //计算总页数
+        int count = userRepository.count();
+        int pages = 0;
+        if(count%limit == 0)&#123;
+            pages = count/limit;
+        &#125;else&#123;
+            pages = count/limit+1;
+        &#125;
+        modelAndView.addObject(&quot;pages&quot;,pages);
+        return modelAndView;
+    &#125;
+
+    @GetMapping(&quot;/deleteById/&#123;id&#125;&quot;)
+    public String deleteById(@PathVariable(&quot;id&quot;) long id)&#123;
+        userRepository.deleteById(id);
+        return &quot;redirect:/mapper/findAll/1&quot;;
+    &#125;
+
+    @GetMapping(&quot;/findById&quot;)
+    public ModelAndView findById(@RequestParam(&quot;id&quot;) long id)&#123;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject(&quot;user&quot;,userRepository.findById(id));
+        modelAndView.setViewName(&quot;update&quot;);
+        return modelAndView;
+    &#125;
+
+    @PostMapping(&quot;/update&quot;)
+    public String update(User user)&#123;
+        userRepository.update(user);
+        return &quot;redirect:/mapper/findAll/1&quot;;
+    &#125;
+
+    @PostMapping(&quot;/save&quot;)
+    public String save(User user)&#123;
+        userRepository.save(user);
+        return &quot;redirect:/mapper/findAll/1&quot;;
+    &#125;
+
+    @GetMapping(&quot;/redirect/&#123;name&#125;&quot;)
+    public String redirect(@PathVariable(&quot;name&quot;) String name)&#123;
+        return name;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>HTML</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;/mapper/save&quot; method=&quot;post&quot;&gt;
+        用户姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;&lt;br/&gt;
+        用户成绩：&lt;input type=&quot;text&quot; name=&quot;score&quot; /&gt;&lt;br/&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;/&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;/mapper/update&quot; method=&quot;post&quot;&gt;
+        用户ID：&lt;input type=&quot;text&quot; name=&quot;id&quot; th:value=&quot;$&#123;user.id&#125;&quot; readonly/&gt;&lt;br/&gt;
+        用户姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; th:value=&quot;$&#123;user.name&#125;&quot; /&gt;&lt;br/&gt;
+        用户成绩：&lt;input type=&quot;text&quot; name=&quot;score&quot; th:value=&quot;$&#123;user.score&#125;&quot; /&gt;&lt;br/&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;/&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; th:src=&quot;@&#123;/jquery-3.3.1.min.js&#125;&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(function()&#123;
+            $(&quot;#first&quot;).click(function()&#123;
+                var page = $(&quot;#page&quot;).text();
+                page = parseInt(page);
+                if(page == 1)&#123;
+                    return false;
+                &#125;
+                window.location.href=&quot;/mapper/findAll/1&quot;;
+            &#125;);
+            $(&quot;#previous&quot;).click(function()&#123;
+                var page = $(&quot;#page&quot;).text();
+                page = parseInt(page);
+                if(page == 1)&#123;
+                    return false;
+                &#125;
+                page = page-1;
+                window.location.href=&quot;/mapper/findAll/&quot;+page;
+            &#125;);
+            $(&quot;#next&quot;).click(function()&#123;
+                var page = $(&quot;#page&quot;).text();
+                var pages = $(&quot;#pages&quot;).text();
+                if(page == pages)&#123;
+                    return false;
+                &#125;
+                page = parseInt(page);
+                page = page+1;
+                window.location.href=&quot;/mapper/findAll/&quot;+page;
+            &#125;);
+            $(&quot;#last&quot;).click(function()&#123;
+                var page = $(&quot;#page&quot;).text();
+                var pages = $(&quot;#pages&quot;).text();
+                if(page == pages)&#123;
+                    return false;
+                &#125;
+                window.location.href=&quot;/mapper/findAll/&quot;+pages;
+            &#125;);
+        &#125;);
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;用户信息&lt;/h1&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;用户ID&lt;/th&gt;
+            &lt;th&gt;用户名&lt;/th&gt;
+            &lt;th&gt;成绩&lt;/th&gt;
+            &lt;th&gt;操作&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr th:each=&quot;user:$&#123;list&#125;&quot;&gt;
+            &lt;td th:text=&quot;$&#123;user.id&#125;&quot;&gt;&lt;/td&gt;
+            &lt;td th:text=&quot;$&#123;user.name&#125;&quot;&gt;&lt;/td&gt;
+            &lt;td th:text=&quot;$&#123;user.score&#125;&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a th:href=&quot;@&#123;/mapper/deleteById/&#123;id&#125;(id=$&#123;user.id&#125;)&#125;&quot;&gt;删除&lt;/a&gt;
+                &lt;a th:href=&quot;@&#123;/mapper/findById(id=$&#123;user.id&#125;)&#125;&quot;&gt;修改&lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;a id=&quot;first&quot; href=&quot;javascript:void(0)&quot;&gt;首页&lt;/a&gt;
+    &lt;a id=&quot;previous&quot; href=&quot;javascript:void(0)&quot;&gt;上一页&lt;/a&gt;
+    &lt;span id=&quot;page&quot; th:text=&quot;$&#123;page&#125;&quot;&gt;&lt;/span&gt;/&lt;span id=&quot;pages&quot; th:text=&quot;$&#123;pages&#125;&quot;&gt;&lt;/span&gt;
+    &lt;a id=&quot;next&quot; href=&quot;javascript:void(0)&quot;&gt;下一页&lt;/a&gt;
+    &lt;a id=&quot;last&quot; href=&quot;javascript:void(0)&quot;&gt;尾页&lt;/a&gt;&lt;br/&gt;
+    &lt;a href=&quot;/mapper/redirect/save&quot;&gt;添加用户&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

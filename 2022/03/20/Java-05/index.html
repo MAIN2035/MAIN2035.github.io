@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || Optional类</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Optional类 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java基础" style=color:#006674>
+                    Java基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>用于，查看的流中元素返回提示而不是发生异常。</p>
+</blockquote>
+<p><code>findFirst()</code> 返回一个包含第一个元素的 <strong>Optional</strong> 对象，如果流为空则返回 <strong>Optional.empty</strong>;</p>
+<p><code>findAny()</code> 返回包含任意元素的 <strong>Optional</strong> 对象，如果流为空则返回 <strong>Optional.empty;</strong></p>
+<p><code>max()</code> 和 <code>min()</code> 返回一个包含最大值或者最小值的 <strong>Optional</strong> 对象，如果流为空则返回 <strong>Optional.empty</strong>;</p>
+<p><code>reduce()</code> 不再以 <code>identity</code> 形式开头，而是将其返回值包装在 <strong>Optional</strong> 中。（<code>identity</code> 对象成为其他形式的 <code>reduce()</code> 的默认结果，因此不存在空结果的风险）;</p>
+<p>对于数字流 <strong>IntStream</strong>、<strong>LongStream</strong> 和 <strong>DoubleStream</strong>，<code>average()</code> 会将结果包装在 <strong>Optional</strong> 以防止流为空。</p>
+<h1 id="解包-Optional"><a href="#解包-Optional" class="headerlink" title="解包 Optional"></a>解包 <strong>Optional</strong></h1><ul>
+<li><code>ifPresent(Consumer)</code>：当值存在时调用 <strong>Consumer</strong>，否则什么也不做。</li>
+<li><code>orElse(otherObject)</code>：如果值存在则直接返回，否则生成 <strong>otherObject</strong>（括号中可定义）。</li>
+<li><code>orElseGet(Supplier)</code>：如果值存在则直接返回，否则使用 <strong>Supplier</strong> 函数生成一个可替代对象。</li>
+<li><code>orElseThrow(Supplier)</code>：如果值存在直接返回，否则使用 <strong>Supplier</strong> 函数生成一个异常。</li>
+</ul>
+<h1 id="创建-Optional"><a href="#创建-Optional" class="headerlink" title="创建 Optional"></a>创建 Optional</h1><ul>
+<li><code>empty()</code>：生成一个空 <strong>Optional</strong>。</li>
+<li><code>of(value)</code>：将一个非空值包装到 <strong>Optional</strong> 里。</li>
+<li><code>ofNullable(value)</code>：针对一个可能为空的值，为空时自动生成 <strong>Optional.empty</strong>，否则将值包装在 <strong>Optional</strong> 中。</li>
+</ul>
+<pre><code class="java">package com.test.day15;
+
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class CreatingOptionals &#123;
+    static void test(String testName, Optional&lt;String&gt; opt) &#123;
+        System.out.println(&quot; === &quot; + testName + &quot; === &quot;);
+        System.out.println(opt.orElse(&quot;Null&quot;));//定义若不存在值则生成otherObject为null，并打印；若有值返回并打印值。
+    &#125;
+
+    public static void main(String[] args) &#123;
+        test(&quot;empty&quot;, Optional.empty());////empty()：生成一个空 Optional。
+        test(&quot;of&quot;, Optional.of(&quot;Howdy&quot;));//of(value)：将一个非空值包装到 Optional 里。
+        try &#123;
+            test(&quot;of&quot;, Optional.of(null));
+        &#125; catch(Exception e) &#123;
+            System.out.println(e);
+        &#125;
+        test(&quot;ofNullable&quot;, Optional.ofNullable(&quot;Hi&quot;));
+        //ofNullable(value)：针对一个可能为空的值，为空时自动生成 Optional.empty，否则将值包装在 Optional 中
+
+        test(&quot;ofNullable&quot;, Optional.ofNullable(null));
+    &#125;
+&#125;
+</code></pre>
+<h1 id="Optional-对象操作"><a href="#Optional-对象操作" class="headerlink" title="Optional 对象操作"></a>Optional 对象操作</h1><ul>
+<li><p><code>filter(Predicate)</code>：将 <strong>Predicate</strong> 应用于 <strong>Optional</strong> 中的内容并返回结果。当 <strong>Optional</strong> 不满足 <strong>Predicate</strong> 时返回空。如果 <strong>Optional</strong> 为空，则直接返回。而流的 <code>filter()</code> 则会在 <strong>Predicate</strong> 返回 <code>false</code> 时移除流元素。</p>
+</li>
+<li><p><code>map(Function)</code>：如果 <strong>Optional</strong> 不为空，应用 <strong>Function</strong>  于 <strong>Optional</strong> 中的内容，并返回结果。否则直接返回 <strong>Optional.empty</strong>。（与中间操作map类似）</p>
+</li>
+<li><p><code>flatMap(Function)</code>：同 <code>map()</code>，但是提供的映射函数将结果包装在 <strong>Optional</strong> 对象中，因此 <code>flatMap()</code> 不会在最后进行任何包装。（与中间操作flatmap类似）<code>Optional.flatMap()</code> 是为那些自己已经生成 <strong>Optional</strong> 的函数而设计的。可用来组合流中的方法（实现方式是将元素扁平化再实现流）例：</p>
+<pre><code class="java">Optional&lt;Double&gt; a=Optional.of(-4.0).flatMap(Demo:invers).flatMap(Demo:squareRoot)
+</code></pre>
+</li>
+</ul>
+<p>以上方法都不适用于数值型 <strong>Optional</strong>。</p>
+<pre><code class="java">// streams/OptionalFilter.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class OptionalFilter &#123;
+    static String[] elements = &#123;
+            &quot;Foo&quot;, &quot;&quot;, &quot;Bar&quot;, &quot;Baz&quot;, &quot;Bingo&quot;
+    &#125;;
+    static Stream&lt;String&gt; testStream() &#123;
+        return Arrays.stream(elements);
+    &#125;
+    static void test(String descr, Predicate&lt;String&gt; pred) &#123;
+        System.out.println(&quot; ---( &quot; + descr + &quot; )---&quot;);
+        for(int i = 0; i &lt;= elements.length; i++) &#123;/
+            System.out.println(
+                    testStream()
+                            .skip(i)
+                            .findFirst()
+                            .filter(pred));
+        &#125;
+    &#125;
+    public static void main(String[] args) &#123;
+        test(&quot;true&quot;, str -&gt; true);//返回所有元素包括空
+        test(&quot;false&quot;, str -&gt; false);//返回空（Optional.empty）
+        test(&quot;str != \&quot;\&quot;&quot;, str -&gt; str != &quot;&quot;);
+        test(&quot;str.length() == 3&quot;, str -&gt; str.length() == 3);
+        test(&quot;startsWith(\&quot;B\&quot;)&quot;,
+                str -&gt; str.startsWith(&quot;B&quot;));
+    &#125;
+&#125;
+</code></pre>
+<h1 id="Optional-流"><a href="#Optional-流" class="headerlink" title="Optional 流"></a>Optional 流</h1><pre><code class="java">package com.test.day16;
+
+// streams/Signal.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+public class Signal &#123;
+    private final String msg;
+    public Signal(String msg) &#123; this.msg = msg; &#125;
+    public String getMsg() &#123; return msg; &#125;
+    @Override
+    public String toString() &#123;
+        return &quot;Signal(&quot; + msg + &quot;)&quot;;
+    &#125;
+    static Random rand = new Random(47);//随机数
+    public static Signal morse() &#123;
+        switch(rand.nextInt(4)) &#123;//nextInt(4)，返回0-4之间的数
+            case 1: return new Signal(&quot;dot&quot;);
+            case 2: return new Signal(&quot;dash&quot;);
+            default: return null;
+        &#125;
+    &#125;
+    public static Stream&lt;Optional&lt;Signal&gt;&gt; stream() &#123;
+        return Stream.generate(Signal::morse)//通过所提供的产生的每个元件的无限连续的无序流Supplier
+                .map(signal -&gt; Optional.ofNullable(signal));//为空返回Optional.empty，不为空将值包包装在 Optional 中。
+    &#125;
+&#125;
+
+
+package com.test.day16;
+
+// streams/StreamOfOptionals.java
+import java.util.*;
+import java.util.stream.*;
+public class StreamOfOptionals &#123;
+    public static void main(String[] args) &#123;
+        Signal.stream()
+                .limit(10)
+                .forEach(System.out::println);
+        System.out.println(&quot; ---&quot;);
+        Signal.stream()
+                .limit(10)
+                .filter(Optional::isPresent)//返回非空的元素，isPresent值存在返回true否返回flase
+                .map(Optional::get)//从Optional中提取元素
+                .forEach(System.out::println);
+    &#125;
+&#125;
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

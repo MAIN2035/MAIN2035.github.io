@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 流的创建与基础操作</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>流的创建与基础操作 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java基础" style=color:#016a99>
+                    Java基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>流是一系列与特定存储机制无关的元素——实际上，流并没有“存储”之说;</p>
+<p>利用流，我们无需迭代集合中的元素，就可以提取和操作它们。这些管道通常被组合在一起，在流上形成一条操作管道;</p>
+<p>流的一个核心好处是，它使得程序更加短小并且更易理解。当 Lambda 表达式和方法引用（method references）和流一起使用的时候会让人感觉自成一体;</p>
+</blockquote>
+<p>流操作的类型有三种：创建流，修改流元素（中间操作， Intermediate Operations），消费流元素（终端操作， Terminal Operations）。最后一种类型通常意味着收集流元素（通常是到集合中）;</p>
+<p>在接口中添加被 <code>default</code>（<code>默认</code>）修饰的方法，即可将流式（<em>stream</em>）方法平滑地嵌入到现有类中。</p>
+<h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><h4 id="ints"><a href="#ints" class="headerlink" title=".ints( )"></a>.ints( )</h4><ul>
+<li>生成整数流，可设定边界</li>
+<li>如设定边界为ints（5，20）则生成5（包括）-20（不包括）之间的数</li>
+</ul>
+<h4 id="limit"><a href="#limit" class="headerlink" title=".limit()"></a>.limit()</h4><ul>
+<li>截断并获取流中元素</li>
+<li>如填入7，则获取前7个元素</li>
+</ul>
+<pre><code class="java">// streams/Randoms.java
+import java.util.*;
+public class Randoms &#123;
+    public static void main(String[] args) &#123;
+        new Random(47)
+            .ints(5, 20)//生成整数流，设定边界如5-20（不包括20）
+            .distinct()//收集不重复的
+            .limit(7)//截断，获取7个元素
+            .sorted()//排序
+            .forEach(System.out::println);
+    &#125;
+&#125;
+</code></pre>
+<h1 id="创建流"><a href="#创建流" class="headerlink" title="创建流"></a>创建流</h1><h2 id="Stream-of"><a href="#Stream-of" class="headerlink" title="Stream.of()"></a>Stream.of()</h2><p>将一组元素转化成为流</p>
+<h2 id="stream"><a href="#stream" class="headerlink" title="stream()"></a>stream()</h2><p>集合可通过调用此方法产生一个流</p>
+<h2 id="entrySet"><a href="#entrySet" class="headerlink" title="entrySet()"></a>entrySet()</h2><ul>
+<li>产生一个对象流，每个对象都包含一个 <code>key</code> 键以及与其相关联的 <code>value</code> 值。 </li>
+<li>可使用getKey()和getValue() 获取对象流的键值</li>
+</ul>
+<pre><code class="java">// streams/CollectionToStream.java
+import java.util.*;
+import java.util.stream.*;
+public class CollectionToStream &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Bubble&gt; bubbles = Arrays.asList(new Bubble(1), new Bubble(2), new Bubble(3));
+        System.out.println(bubbles.stream()
+            .mapToInt(b -&gt; b.i)
+            .sum());
+
+        Set&lt;String&gt; w = new HashSet&lt;&gt;(Arrays.asList(&quot;It&#39;s a wonderful day for pie!&quot;.split(&quot; &quot;)));
+        w.stream()
+         .map(x -&gt; x + &quot; &quot;)
+         .forEach(System.out::print);
+        System.out.println();
+
+        Map&lt;String, Double&gt; m = new HashMap&lt;&gt;();
+        m.put(&quot;pi&quot;, 3.14159);
+        m.put(&quot;e&quot;, 2.718);
+        m.put(&quot;phi&quot;, 1.618);
+        m.entrySet().stream()//entrySet() 产生一个对象流，每个对象都包含一个 `key` 键以及与其相关联的 `value` 值。 。
+                    .map(e -&gt; e.getKey() + &quot;: &quot; + e.getValue())//getKey()和getValue() 获取键值
+            //中间操作 `map()` 会获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中。
+                    .forEach(System.out::println);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="boxed"><a href="#boxed" class="headerlink" title="boxed()"></a>boxed()</h2><ul>
+<li>把基本类型包装成为对应的装箱类型</li>
+</ul>
+<pre><code class="java">public class RandomGenerators &#123;
+    public static &lt;T&gt; void show(Stream&lt;T&gt; stream) &#123;
+        stream
+        .limit(4)
+        .forEach(System.out::println);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        Random rand = new Random(47);
+        show(rand.ints().boxed());//boxed() 流操作将会自动地把基本类型包装成为对应的装箱类型，从而使得 show() 能够接受流
+        show(rand.longs().boxed());
+    &#125;
+&#125;
+</code></pre>
+<h2 id="collect"><a href="#collect" class="headerlink" title="collect()"></a>collect()</h2><p>收集操作，它根据参数来组合所有流中的元素。</p>
+<h2 id="Collectors-joining"><a href="#Collectors-joining" class="headerlink" title="Collectors.joining()"></a>Collectors.joining()</h2><p>每个元素都根据 <code>joining()</code> 的参数来进行分割。</p>
+<p>得到一个 <code>String</code> 类型的结果</p>
+<h2 id="Stream-generate"><a href="#Stream-generate" class="headerlink" title="Stream.generate()"></a>Stream.generate()</h2><ul>
+<li>把任意  <code>Supplier&lt;T&gt;</code> 用于生成 <code>T</code> 类型的流。</li>
+</ul>
+<pre><code class="java">// streams/RandomWords.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+import java.io.*;
+import java.nio.file.*;
+public class RandomWords implements Supplier&lt;String&gt; &#123;
+    List&lt;String&gt; words = new ArrayList&lt;&gt;();
+    Random rand = new Random(47);
+    RandomWords(String fname) throws IOException &#123;
+        List&lt;String&gt; lines = Files.readAllLines(Paths.get(fname));
+        // 略过第一行
+        for (String line : lines.subList(1, lines.size())) &#123;
+            for (String word : line.split(&quot;[ .?,]+&quot;))
+                words.add(word.toLowerCase());
+        &#125;
+    &#125;
+    public String get() &#123;
+        return words.get(rand.nextInt(words.size()));
+    &#125;
+    @Override
+    public String toString() &#123;
+        return words.stream()
+            .collect(Collectors.joining(&quot; &quot;));
+    &#125;
+    public static void main(String[] args) throws Exception &#123;
+        System.out.println(
+            Stream.generate(new RandomWords(&quot;Cheese.dat&quot;))
+                .limit(10)
+                .collect(Collectors.joining(&quot; &quot;)));//以空格分隔流元素并收集
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">package com.test.day15;
+
+// streams/Generator.java
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+
+public class Generator implements Supplier&lt;String&gt; &#123;
+    Random rand = new Random(47);
+    char[] letters = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;.toCharArray();
+
+    public String get() &#123;
+        return &quot;&quot; + letters[rand.nextInt(letters.length)];
+    &#125;
+
+    public static void main(String[] args) &#123;
+        String word = Stream.generate(new Generator())
+                ////Stream.generate() 的用法，它可以把任意 Supplier&lt;T&gt; 用于生成 T 类型的流。
+                .limit(30)//获取前30个
+                .collect(Collectors.joining(&quot; &quot;));//collect() 收集操作，它根据参数来组合所有流中的元素。
+        //使用 Collectors.joining()，你将会得到一个 String 类型的结果，
+        // 每个元素都根据 joining() 的参数来进行分割。
+
+        System.out.println(word);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="toArray"><a href="#toArray" class="headerlink" title="toArray()"></a>toArray()</h2><p>将元素装入数组</p>
+<h2 id="Arrays的stream"><a href="#Arrays的stream" class="headerlink" title="Arrays的stream()"></a>Arrays的stream()</h2><p>把数组转换成为流;</p>
+<p>（）中可加入两个额外的参数。第一个参数告诉 <code>stream()</code> 从数组的哪个位置开始选择元素，第二个参数用于告知在哪里停止。</p>
+<h2 id="Stream-iterate"><a href="#Stream-iterate" class="headerlink" title="Stream.iterate()"></a>Stream.iterate()</h2><p>以种子（第一个参数）开头，并将其传给方法（第二个参数）；</p>
+<p>方法的结果将添加到流，并存储作为第一个参数用于下次调用 <code>iterate()</code>。</p>
+<h2 id="skip"><a href="#skip" class="headerlink" title="skip()"></a>skip()</h2><ul>
+<li>根据参数丢弃指定数量的流元素。</li>
+</ul>
+<pre><code class="java">package com.test.day15;
+
+// streams/Fibonacci.java
+import java.util.stream.*;
+public class Fibonacci &#123;
+    int x = 1;
+
+    Stream&lt;Integer&gt; numbers() &#123;
+        return Stream.iterate(0, i -&gt; &#123;//terate() 以种子（第一个参数）开头，并将其传给方法（第二个参数）。
+            // iterate() 只能记忆结果，因此我们需要利用一个变量 x 追踪另外一个元素。
+            int result = x + i;
+            x = i;
+            return result;//返回值赋予i
+        &#125;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        new Fibonacci().numbers()
+                .skip(20) // 过滤前 20 个
+                .limit(10) // 然后取 10 个
+                .forEach(System.out::println);
+    &#125;
+&#125;
+</code></pre>
+<h1 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h1><h2 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h2><p>获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中。</p>
+<h2 id="mapToInt-ToIntFunction"><a href="#mapToInt-ToIntFunction" class="headerlink" title="mapToInt(ToIntFunction)"></a>mapToInt(ToIntFunction)</h2><p>操作同上，但结果是 <strong>IntStream</strong>;</p>
+<p>mapToLong(ToLongFunction)</p>
+<p>操作同上，但结果是 <strong>LongStream</strong>;</p>
+<p>mapToDouble(ToDoubleFunction)</p>
+<p>操作同上，但结果是 <strong>DoubleStream</strong>。</p>
+<pre><code class="java">package com.test.day15;
+
+// streams/FunctionMap.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class FunctionMap &#123;
+    static String[] elements = &#123; &quot;12&quot;, &quot;&quot;, &quot;23&quot;, &quot;45&quot; &#125;;
+    static Stream&lt;String&gt;
+    testStream() &#123;
+        return Arrays.stream(elements);//把数组转换成为流并返回
+    &#125;
+    static void test(String descr, Function&lt;String, String&gt; func) &#123;
+        System.out.println(&quot; ---( &quot; + descr + &quot; )---&quot;);
+        testStream()
+                .map(func)//将函数操作应用在输入流的元素中，并将返回值传递到输出流中。
+                .forEach(System.out::println);
+    &#125;
+    public static void main(String[] args) &#123;
+        test(&quot;add brackets&quot;, s -&gt; &quot;[&quot; + s + &quot;]&quot;);
+        test(&quot;Increment&quot;, s -&gt; &#123;
+                    try &#123;
+//                        return s + 1;//错误的拼接了，流中一切元素为字符
+                        return Integer.parseInt(s) + 1 + &quot;&quot;;//将字符串参数作为有符号的十进制整数进行解析并还原为字符串
+                    &#125;
+                    catch(NumberFormatException e) &#123;
+                        return s;
+                    &#125;
+                &#125;
+        );
+        test(&quot;Replace&quot;, s -&gt; s.replace(&quot;2&quot;, &quot;9&quot;));
+        //返回一个新的字符串，将所有字符”2“替换成”9“
+        test(&quot;Take last digit&quot;, s -&gt; s.length() &gt; 0 ?
+                s.charAt(s.length() - 1) + &quot;&quot; : s);//charAt返回指定索引处的 char 值。
+    &#125;
+&#125;
+</code></pre>
+<h2 id="流中元素基本类型的转换"><a href="#流中元素基本类型的转换" class="headerlink" title="流中元素基本类型的转换"></a>流中元素基本类型的转换</h2><pre><code class="java">package com.test.day15;
+
+// streams/FunctionMap3.java
+// Producing numeric output streams（ 产生数值输出流）
+import java.util.*;
+import java.util.stream.*;
+class FunctionMap3 &#123;
+
+    public static void main(String[] args) &#123;
+        Stream.of(&quot;5&quot;, &quot;7&quot;, &quot;9&quot;)
+                .mapToInt(Integer::parseInt)//int类型
+                .forEach(n -&gt; System.out.format(&quot;%d &quot;, n));
+        System.out.println();
+        Stream.of(&quot;17&quot;, &quot;19&quot;, &quot;23&quot;)
+                .mapToLong(Long::parseLong)//long类型
+                .forEach(n -&gt; System.out.format(&quot;%d &quot;, n));
+        System.out.println();
+        Stream.of(&quot;17&quot;, &quot;1.9&quot;, &quot;.23&quot;)
+                .mapToDouble(Double::parseDouble)//double类型
+                .forEach(n -&gt; System.out.format(&quot;%f &quot;, n));
+    &#125;
+&#125;
+</code></pre>
+<h3 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap()"></a>flatMap()</h3><ul>
+<li><p>获取流中的所有元素，并且对流中元素应用操作从而产生新的元素，并将其传递到后续的流中（与 <code>map()</code> 所做的相同）</p>
+</li>
+<li><p>每个结果都是一个流，将其扁平化为单个元素并拼接到一起</p>
+</li>
+<li><p>可用来组合流中的方法（实现方式是将元素扁平化再实现流）例：</p>
+</li>
+</ul>
+<pre><code class="java">Stream&lt;String&gt; a = words.stream().flatMap(w -&gt; codePoints(w));
+</code></pre>
+<ul>
+<li><p><code>flatMap(Function)</code>：当 <code>Function</code> 产生流时使用。</p>
+</li>
+<li><p><code>flatMapToInt(Function)</code>：当 <code>Function</code> 产生 <code>IntStream</code> 时使用。</p>
+</li>
+<li><p><code>flatMapToLong(Function)</code>：当 <code>Function</code> 产生 <code>LongStream</code> 时使用。</p>
+</li>
+<li><p><code>flatMapToDouble(Function)</code>：当 <code>Function</code> 产生 <code>DoubleStream</code> 时使用。</p>
+</li>
+</ul>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><ul>
+<li>以参数顺序组合两个流。 </li>
+</ul>
+<pre><code class="java">package com.test.day15;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+/*一个整数流开始，然后使用每一个整数去创建更多的随机数。*/
+public class StreamOfRandoms &#123;
+    static Random rand = new Random(47);
+    //一个种子为47的随机数生成，多个相同种子的随机生成实例，生成的结果一致
+
+    public static void main(String[] args) &#123;
+        Stream.of(1,2,3,4,5)
+        .flatMapToInt(i -&gt; IntStream.concat(
+            //concat()，以参数顺序组合两个流，我们在每个随机 `Integer` 流的末尾添加一个 -1 作为标记
+                rand.ints(0,100).limit(i)//根据i的值返回i个元素
+                ,
+                //生成随机数，仅返回0（包含）-100（不包含）之间的数
+                IntStream.of(-1)//生成一个整数流包含-1
+                )).forEach(n -&gt; System.out.format(&quot;%d\n&quot;,n));
+    &#125;
+&#125;
+</code></pre>
+<h3 id="peek"><a href="#peek" class="headerlink" title="peek()"></a>peek()</h3><p>帮助调试。可无修改地查看流中的元素。</p>
+<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct()"></a>distinct()</h3><p>收集流中不重复的元素</p>
+<h3 id="空流-Stream-empty"><a href="#空流-Stream-empty" class="headerlink" title="空流 Stream.empty()"></a>空流 Stream.empty()</h3><ul>
+<li><p>如果你在没有任何上下文环境的情况下调用 Stream.empty()，Java 并不知道它的数据类型；</p>
+</li>
+<li><p>解决这个问题:1、2均可</p>
+<pre><code class="java">1. Stream.&lt;String&gt;empty()//限定类型为String
+    2.    Stream&lt;String&gt; s = Stream.empty();
+</code></pre>
+</li>
+</ul>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

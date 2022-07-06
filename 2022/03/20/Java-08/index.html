@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || Java泛型</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Java泛型 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java基础" style=color:#607d8b>
+                    Java基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>泛型是编译时泛型，用于检查类型安全以及类型推断，虚拟机运行时已经被擦除；</p>
+<p>泛型的类型参数T在编译后为Object类型；</p>
+<p>泛型方法能使方法独立于类而产生变化。</p>
+<h1 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h1><pre><code class="java">/**泛型类*/
+//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic&lt;T&gt;&#123; 
+    //key这个成员变量的类型为T由实例化时指定  
+    private T key;
+
+    public Generic(T value) &#123; //只有方法所在类声明了T泛型类，那么成员方法才可接收一个T类型的参数
+        this.key = value;
+    &#125;
+
+    public T getKey()&#123; //这只是类中一个普通的成员方法，只不过其返回值是同泛型类T一样的类型
+        //如为public F getKey()，将发生异常
+        return key;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h1><pre><code class="JAVA">/**泛型接口*/
+//我们可以为接口传入无数个实参，形成无数种类型的Generator接口。
+//定义一个泛型接口
+public interface Generator&lt;T&gt; &#123;
+    public T next();
+&#125;
+
+ //类实现泛型接口时，需将泛型的声明也一起加到类中
+ //即：class FruitGenerator&lt;T&gt; implements Generator&lt;T&gt;&#123;
+ //如果不声明泛型，如：class FruitGenerator implements Generator&lt;T&gt;，编译器会报错：&quot;Unknown class&quot;。
+class FruitGenerator&lt;T&gt; implements Generator&lt;T&gt;&#123;
+    @Override
+    public T next() &#123;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h1><pre><code class="java">/**泛型方法*/
+//在泛型类中声明了一个泛型方法，使用泛型E，E可以为任意类型，可与方法所在类的类型相同，也可以不同。
+//如下：这是一个泛型T的类，它有一个泛型E的泛型方法，这个泛型方法接收并返回一个E类型的参数（类型由实例决定）
+public class Test1 &lt;T&gt; &#123;
+    public &lt;E&gt; E function1(E a)&#123; return  a;&#125;
+&#125;
+
+ //    1）public 与 返回值中间&lt;T&gt;非常重要，可以理解为声明此方法为泛型方法。
+ //    2）只有声明了&lt;T&gt;的方法才是泛型方法，泛型类中的使用了泛型的成员方法并不是泛型方法。
+public &lt;T&gt; T genericMethod(Class&lt;T&gt; tClass)throws InstantiationException ,
+  IllegalAccessException&#123;
+        T instance = tClass.newInstance();
+        return instance;
+&#125;
+/*  public &lt;T&gt; T showKeyName(Generic&lt;E&gt; container)&#123;
+       为T的泛型接收一个为E的形参，这将发生异常
+    &#125;  */
+</code></pre>
+<h1 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h1><p>当操作类型时，不需要使用类型的具体功能而只使用Object类中的功能。那么可以用 ? 通配符来表未知类型。</p>
+<p><strong>？</strong>和Number、String、Integer一样都是一种实际的类型，可以把？看成所有类型的父类。是一种真实的类型。</p>
+<pre><code class="java">//’？’是类型实参，而不是类型形参 
+public void showKeyValue1(Generic&lt;?&gt; obj)&#123;
+    Log.d(&quot;泛型测试&quot;,&quot;key value is &quot; + obj.getKey());
+&#125;
+</code></pre>
+<h1 id="要使静态方法接收泛型参数则必须将其写为泛型方法"><a href="#要使静态方法接收泛型参数则必须将其写为泛型方法" class="headerlink" title="要使静态方法接收泛型参数则必须将其写为泛型方法"></a>要使静态方法接收泛型参数则必须将其写为泛型方法</h1><pre><code class="java">public class StaticGenerator&lt;T&gt; &#123;
+   
+     //如：public static void show(T t)&#123;..&#125;,此时编译器会提示错误信息：
+      //    &quot;StaticGenerator cannot be refrenced from static context&quot;
+    
+    public static &lt;T&gt; void show(T t)&#123;
+
+    &#125;
+&#125;
+</code></pre>
+<h1 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h1><p><strong>泛型的上下边界添加，必须与泛型的声明在一起</strong> </p>
+<pre><code class="java">/*只准传入某种类型的父类或；只准传入某种类型的子类。*/
+public void showKeyValue1(Generic&lt;? extends Number&gt; obj)&#123;
+    Log.d(&quot;泛型测试&quot;,&quot;key value is &quot; + obj.getKey());
+&#125;
+/**泛型类的边界限定*/
+public class Generic&lt;T extends Number&gt;&#123;
+    private T key;
+
+    public Generic(T key) &#123;
+        this.key = key;
+    &#125;
+
+    public T getKey()&#123;
+        return key;
+    &#125;
+&#125;
+/**泛型方法的边界限定*/
+public &lt;T extends Number&gt; T showKeyName(Generic&lt;T&gt; container)&#123;
+    System.out.println(&quot;container key :&quot; + container.getKey());
+    T test = container.getKey();
+    return test;
+&#125;
+</code></pre>
+<h1 id="限定"><a href="#限定" class="headerlink" title="限定"></a>限定</h1><ol>
+<li>一个类如果没有限定类型，那么虚拟机将会使用Object对其类型进行替换</li>
+<li>如果限定了类型，则将类型替换为限定的类型</li>
+<li>如限定多个类型，则默认替换为第一个限定类型</li>
+</ol>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

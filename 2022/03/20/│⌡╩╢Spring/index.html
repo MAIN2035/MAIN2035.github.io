@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="初识Spring"><a href="#初识Spring" class="headerlink" title="初识Spring"></a>初识Spring</h1><h2 id="IOC反转"><a href="#IOC反转" class="headerlink" title="IOC反转"></a>IOC反转</h2><p>由容器管理对象，将对象之间的依赖解耦</p>
+<h3 id="基于XML的注入"><a href="#基于XML的注入" class="headerlink" title="基于XML的注入"></a>基于XML的注入</h3><p>####Set注入</p>
+<p>spring调用类的set方法进行属性操作</p>
+<p>两个实例类：</p>
+<ul>
+<li>User.java</li>
+</ul>
+<pre><code class="java">public class User &#123;
+    private String name;
+    private int age;
+    private Company company;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public int getAge() &#123;
+        return age;
+    &#125;
+
+    public void setAge(int age) &#123;
+        this.age = age;
+    &#125;
+
+    public Company getCompany() &#123;
+        return company;
+    &#125;
+
+    public void setCompany(Company company) &#123;
+        this.company = company;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;User&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &quot;, company=&quot; + company +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>Company.java</li>
+</ul>
+<pre><code class="java">public class Company &#123;
+    private String name;
+    private String address;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public void setAddress(String address) &#123;
+        this.address = address;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Company&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, address=&#39;&quot; + address + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>applicationContext.xml</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    &lt;bean id=&quot;myUser&quot; class=&quot;cn.itthree.spring.bean2.User&quot;&gt;
+        &lt;!--    set注入，即调用set方法对属性进行设置--&gt;
+        &lt;property name=&quot;name&quot; value=&quot;李四&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/property&gt;
+            &lt;!--当指定 bean 的某属性值为另一 bean 的实例时，通过 ref 指定它们间的引用关系。ref
+的值必须为某 bean 的 id 值。
+--&gt;
+        &lt;property name=&quot;company&quot; ref=&quot;myCompany&quot;&gt;&lt;/property&gt;
+
+    &lt;/bean&gt;
+&lt;!--    在加载配置文件applicationContext.xml时spring会此xml将所有bean标签中的类均加载一遍，
+所以不用在意bean标签的书写顺序--&gt;
+    &lt;bean id=&quot;myCompany&quot; class=&quot;cn.itthree.spring.bean2.Company&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;Alibaba&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;address&quot; value=&quot;北京&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<p>####构造器注入</p>
+<p>spring调用有参构造器构造实例并为属性赋值</p>
+<ul>
+<li>User</li>
+</ul>
+<pre><code class="java">//为User类添加一个有参构造器
+    public User(String name, int age, Company company) &#123;
+        this.name = name;
+        this.age = age;
+        this.company = company;
+    &#125;
+</code></pre>
+<ul>
+<li>applicationContext.xml</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    &lt;bean id=&quot;myUser&quot; class=&quot;cn.itthree.spring.bean3.User&quot;&gt;
+        &lt;!--构造器注入spring调用有参构造器为属性赋值--&gt;
+&lt;!--        name属性构造(可以乱序即不用在意属性的位置)--&gt;
+        &lt;constructor-arg name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg name=&quot;company&quot; ref=&quot;myCompany&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg name=&quot;name&quot; value=&quot;张三&quot;&gt;&lt;/constructor-arg&gt;
+&lt;!--        index索引构造(0-1-2分别对应着该类构造器的参数位置)--&gt;
+        &lt;constructor-arg index=&quot;0&quot; value=&quot;张三&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg index=&quot;1&quot; value=&quot;20&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg index=&quot;2&quot; ref=&quot;myCompany&quot;&gt;&lt;/constructor-arg&gt;
+&lt;!--  省略index（不能乱序，必须按构造器的参数顺序进行传值）      --&gt;
+        &lt;constructor-arg value=&quot;张三&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg value=&quot;21&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg ref=&quot;myCompany&quot;&gt;&lt;/constructor-arg&gt;
+
+    &lt;/bean&gt;
+    &lt;!--    在加载配置文件applicationContext.xml时spring会此xml将所有bean标签中的类均加载一遍，
+    所以不用在意bean标签的书写顺序--&gt;
+    &lt;bean id=&quot;myCompany&quot; class=&quot;cn.itthree.spring.bean3.Company&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;Alibaba&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;address&quot; value=&quot;北京&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<h4 id="模块化管理xml"><a href="#模块化管理xml" class="headerlink" title="模块化管理xml"></a>模块化管理xml</h4><p>将原applicationContext.xml按功能及其所需，划分为若个xml每个xml指代一个功能或模块</p>
+<ul>
+<li>spring-company.xml（公司模块）</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id=&quot;company&quot; class=&quot;cn.itthree.spring.bean5.Company&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;Alibaba&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;address&quot; value=&quot;北京&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<ul>
+<li>spring-user.xml(用户模块)</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    &lt;!--   引用类型自动注入
+      1.byName(按名称注入) ： 根据类的引用类型的属性名在bean中寻找有相同的bean id且类型相同的bean实现自动注入--&gt;
+    &lt;bean id=&quot;myUser&quot; class=&quot;cn.itthree.spring.bean5.User&quot; autowire=&quot;byName&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;李四&quot;/&gt;
+        &lt;property name=&quot;age&quot; value=&quot;20&quot;/&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<ul>
+<li>total.xml(指定所有功能模块的spring.xml的位置)</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+&lt;!--    在spring的配置文件中要指定其他文件的位置， 需要使用classpath，告诉spring到哪去加载读取文件。--&gt;
+&lt;!-- 使用通配符加载bean6下所有文件名为spring-开头的xml--&gt;
+&lt;import resource=&quot;classpath:bean5/spring-*.xml&quot;/&gt;
+&lt;/beans&gt;
+</code></pre>
+<ul>
+<li>一个测试类</li>
+</ul>
+<pre><code class="java">package itthree.spring.bean5;
+
+import cn.itthree.spring.bean5.User;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class AppTest 
+&#123;
+    @Test
+    public void TestMyUser()&#123;
+        //1.加载配置文件(注意applicationContext.xml的路径)
+        String config = &quot;bean5/total.xml&quot;;
+        //spring会在加载配置文件时生成对象
+        ApplicationContext ac = new ClassPathXmlApplicationContext(config);
+        User user = (User) ac.getBean(&quot;myUser&quot;);
+        System.out.println(&quot; &quot;+user);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="注解注入"><a href="#注解注入" class="headerlink" title="注解注入"></a>注解注入</h3><p>首先需要在spring配置文件中配置扫描器，写明注解所在包的基本信息</p>
+<ul>
+<li>applicationContext.xml</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+&lt;!--    base-package：指定注解在项目中的包名。
+        spring会扫描遍历base-package指定的包，将包中和子包中的所有类中的注解，按照注解的功能创建对象，或给属性赋值。
+--&gt;
+&lt;context:component-scan base-package=&quot;cn.itthree.spring.ba01&quot;/&gt;
+&lt;/beans&gt;
+</code></pre>
+<p><strong>注解分类</strong>：</p>
+<ul>
+<li>对象注解</li>
+</ul>
+<p>@Component: 等同于spring配置文件中的<bean></p>
+<p><code>@Component(value = &quot;myStudent&quot;)</code>等同于</p>
+<p><code>&lt;bean id=&quot;myStudent&quot; class=&quot;com.bjpowernode.ba01.Student&quot; /&gt; </code></p>
+<ul>
+<li>分层注解</li>
+</ul>
+<p>@Repository，@Service，@Controller是给项目的对象分层的,使用语法和@Component相同。</p>
+<p>1.@Repository（用在持久层类的上面） : 放在dao的实现类上面，表示创建dao对象，dao对象是能访问数据库的。</p>
+<p>2.@Service(用在业务层类的上面)：放在service的实现类上面，创建service对象，service对象是做业务处理，可以有事务等功能的。</p>
+<p>3.@Controller(用在控制器的上面)：放在控制器（处理器）类的上面，创建控制器对象的，控制器对象，能够接受用户提交的参数，显示请求的处理结果。</p>
+<ul>
+<li>属性注解</li>
+</ul>
+<p>以下注解均可以在不包含set方法的类中使用，如果写在set方法上，那么就调用set方法进行属性设置</p>
+<p> <strong>简单类型的属性赋值注解</strong>：</p>
+<p> @Value:，在属性定义的上面，无需set方法。</p>
+<p><strong>引用类型注解</strong>：</p>
+<ol>
+<li><p>@Autowired: 实现引用类型的赋值，持byName, byType，默认使用的是byType自动注入，此注解由spring框架提供。</p>
+<p>如果要使用byName方式，需要在属性上面加入@Autowired再将@Qualifier(value=”bean的id”) 写到属性上面：表示使用指定名称的bean完成赋值。</p>
+</li>
+</ol>
+<p>2.@Resource: 来自jdk中的注解，spring框架提供了对这个注解的功能支持，可以使用它给引用类型赋值，使用的也是自动注入原理，支持byName， byType .默认是byName（当byName失败时使用byType）</p>
+<ul>
+<li>User.java</li>
+</ul>
+<pre><code class="java">package cn.itthree.spring.ba01;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
+
+
+//实例化一个名为myUser的对象
+@Component(&quot;myUser&quot;)
+
+public class User &#123;
+    @Value(&quot;王魏振&quot;)
+    private String name;
+    @Value(&quot;32&quot;)
+    private Integer age;
+
+    //byName自动注入
+    //@Autowired(required = false)时如找不到指定bean id则不报错，默认为@Autowired(required = true)
+    @Autowired
+    @Qualifier(&quot;company&quot;)
+    private Company company;
+
+    //默认是byName： 先使用byName自动注入，如果byName赋值失败，再使用byType
+    @Resource
+    private Car car;
+
+    @Override
+    public String toString() &#123;
+        return &quot;User&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &quot;, company=&quot; + company +
+                &quot;, car=&quot; + car +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>Company.java</li>
+</ul>
+<pre><code class="java">package cn.itthree.spring.ba01;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+//不指定对象名称，由spring提供默认名称: 类名的首字母小写,即此类对象名称为company
+@Component
+public class Company &#123;
+    public Company() &#123;
+
+    &#125;
+    @Value(&quot;Alibaba&quot;)
+    private String name;
+    @Value(&quot;北京&quot;)
+    private String address;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Company&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, address=&#39;&quot; + address + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<p>测试类</p>
+<pre><code class="java">package org.example;
+
+import static org.junit.Assert.assertTrue;
+
+import cn.itthree.spring.ba01.User;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+&#123;
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void testDiA()&#123;
+        String config = &quot;applicationContext.xml&quot;;
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
+        User user = (User) ctx.getBean(&quot;myUser&quot;);
+        System.out.println(&quot; &quot;+ user);
+
+
+    &#125;
+&#125;
+</code></pre>
+<p>Car.java</p>
+<pre><code class="java">package cn.itthree.spring.ba01;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Car &#123;
+
+    private String name;
+    @Value(&quot;五菱宏光&quot;)
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Car&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="AOP面向切面编程"><a href="#AOP面向切面编程" class="headerlink" title="AOP面向切面编程"></a>AOP面向切面编程</h2><h3 id="AspectJ-面向切面编程的实现"><a href="#AspectJ-面向切面编程的实现" class="headerlink" title="AspectJ 面向切面编程的实现"></a>AspectJ 面向切面编程的实现</h3><p>AspectJ 中常用的通知有五种类型： （1）<strong>前置通知</strong> （2）<strong>后置通知 **（3）</strong>环绕通知 **（4）异常通知 （5）最终通知</p>
+<p>AspectJ切入点表达式：</p>
+<p>表达式的原型是：<code>execution(modifiers-pattern? ret-type-pattern declaring-type-pattern?name-pattern(param-pattern) throws-pattern?)</code></p>
+<p>其中：modifiers-pattern] 访问权限类型；</p>
+<p> ret-type-pattern 返回值类型 ；</p>
+<p>declaring-type-pattern 包名类名；</p>
+<p> name-pattern(param-pattern) 方法名(参数类型和参数个数)；</p>
+<p> throws-pattern 抛出异常类型 ；</p>
+<p>带？的表示可选部分</p>
+<p>表达式中可使用以下字符：</p>
+<p><img src="C:\Users\17630\AppData\Roaming\Typora\typora-user-images\image-20201219212752592.png" alt="image-20201219212752592"></p>
+<p>目标类</p>
+<pre><code class="java">package cn.itthree.aop.ba01;
+
+public class SomeServiceImpl implements SomeService&#123;
+    @Override
+    public void doSome(String name, Integer age) &#123;
+        System.out.println(&quot;目标方法doSome&quot;+name+age);
+    &#125;
+
+    @Override
+    public String doOther(String name, int age) &#123;
+        System.out.println(&quot;doOther已执行&quot;);
+        return &quot;123&quot;;
+    &#125;
+    @Override
+    public String doFirst(String name, Integer age) &#123;
+        System.out.println(&quot;====业务方法doFirst()====&quot;);
+
+        return &quot;doFirst&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p>目标类实现接口</p>
+<pre><code class="java">package cn.itthree.aop.ba01;
+
+public interface SomeService &#123;
+    void doSome(String name,Integer age);
+    String doOther(String name, int age);
+    String doFirst(String name,Integer age);
+&#125;
+</code></pre>
+<p><strong>JoinPoint</strong>类型参数可获取切入点表达式、方法签名、目标对象等，所有通知方法均可使用，<strong>JoinPoint</strong>类型参数必须写在方法内第一个参数的位置。</p>
+<h3 id="前置通知"><a href="#前置通知" class="headerlink" title="前置通知"></a>前置通知</h3><p>@Before</p>
+<p>在目标方法之前执行</p>
+<h3 id="后置通知"><a href="#后置通知" class="headerlink" title="后置通知"></a>后置通知</h3><p> @AfterReturning</p>
+<p>在目标方法执行之后执行，可以获取到目标方法的返回 值。</p>
+<h3 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a>环绕通知</h3><ol>
+<li>在目标方法的前后进行功能增强。</li>
+<li>控制目标方法是否被调用执行</li>
+<li>修改原来的目标方法的执行结果。 影响最后的调用结果     </li>
+</ol>
+<pre><code class="java">package cn.itthree.aop.ba01;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import java.util.Date;
+
+@Aspect
+public class MyAspect &#123;
+
+//    @Before(value = &quot;execution(void *..SomeServiceImpl.doSome(String,Integer))&quot;)
+//    public void myBefore()&#123;
+//        System.out.println(&quot;Start&quot;+new Date());
+//    &#125;
+    
+    //@Before: 前置通知注解,value 是切入点表达式，指定切面的功能执行的位置
+    @Before(value = &quot;execution(* do*(..))&quot;)
+
+    public void myBefore(JoinPoint jp)&#123;
+    //JoinPoint参数，可获取切入点表达式、方法签名、目标对象等。
+    //所有通知方法均可使用JoinPoint 类型参数，
+        System.out.println(&quot;Start Time \n&quot;+new Date());
+        for (Object arg:jp.getArgs()) &#123;
+            System.out.println(&quot;前置参数= &quot;+arg);
+        &#125;
+        System.out.println();
+    &#125;
+    
+    
+    
+    //后置通知
+    @AfterReturning(value = &quot;execution(* doSome(..))&quot;)
+    public void myAfter()&#123;
+        System.out.println(&quot;End Time \n&quot;+new Date());
+    &#125;
+
+    // 注解的 returning 属性就是用于指定接收方法返回值的变量名的
+    @AfterReturning(value = &quot;execution(* doOther(..))&quot;,returning = &quot;result&quot;)
+    public Object myAfterR(Object result)&#123;
+        Object return1 =  &quot;&quot;;
+        if (result != null)&#123;
+            String s = (String)result;
+            result = s.indexOf(1);
+            return1 =  result;
+        &#125;
+        System.out.println(&quot;后置通知时改变返回值为： &quot;+result);
+        return return1;
+    &#125;
+    
+
+
+//环绕通知必须有一个返回值，一般使用Object
+//环绕通知的参数类型固定为 ProceedingJoinPoint，用于接收（调用.proceed方法后）执行目标类方法的返回值
+ @Around(value = &quot;myPt()&quot;)
+    public Object myAround(ProceedingJoinPoint pjp) throws Throwable &#123;
+        String name = &quot;&quot;;
+        //目标方法前从参数中取值
+        Object args[] =pjp.getArgs();
+        if (args!=null &amp;&amp; args.length &gt;1)&#123;
+            Object arg = args[0];
+            name = (String)arg;
+        &#125;
+        Object result = null;
+        System.out.println(&quot;已获取目标方法参数，在目标方法前\n&quot;+new Date());
+        //调用目标方法
+        if (&quot;李四&quot;.equals(name))&#123;
+            //proceed方法执行返回的值就是result的值
+            result = pjp.proceed();
+        &#125;
+        System.out.println(&quot;在目标方法后，添加功能\n&quot;+new Date());
+        if (result!=null)&#123;
+            result = &quot;editTime: &quot;+new Date();
+        &#125;
+        return result;
+
+
+    &#125;
+
+
+    //指定SomeServiceImpl.doFirst方法的别名为myPt,可在其他切面方法的切面表达式中使用别名代替原目标方法名
+    @Pointcut(value = &quot;execution(* *..SomeServiceImpl.doFirst(..))&quot;)
+    private void myPt()&#123;
+
+    &#125;
+&#125;
+</code></pre>
+<p>测试类</p>
+<pre><code class="java">package org.example;
+
+import static org.junit.Assert.assertTrue;
+
+import cn.itthree.aop.ba01.SomeService;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+&#123;
+
+    @Test
+    public void shouldAnswerWithTrue()
+    &#123;
+        String config=&quot;applicationContext.xml&quot;;
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
+        //从容器中获取目标对象,此处用到了JDK动态代理
+        SomeService proxy = (SomeService) ctx.getBean(&quot;someService&quot;);
+        System.out.println(&quot;proxy&quot;+proxy.getClass().getName());
+
+//        proxy.doSome(&quot;李四&quot;,3);
+//        String return1 = proxy.doOther(&quot;李四&quot;,3);
+        String return2 = proxy.doFirst(&quot;李四&quot;,9);
+        System.out.println(return2);
+
+        //此时值仍为123
+    &#125;
+&#125;
+</code></pre>
+<p>applicationContext.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+&lt;!--    目标类--&gt;
+    &lt;bean id=&quot;someService&quot; class=&quot;cn.itthree.aop.ba01.SomeServiceImpl&quot;/&gt;
+&lt;!--    切面类--&gt;
+    &lt;bean id=&quot;myAspect&quot; class=&quot;cn.itthree.aop.ba01.MyAspect&quot;/&gt;
+    &lt;!--    使用cglib动态代理--&gt;
+    &lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot;/&gt;
+&lt;/beans&gt;
+</code></pre>
+<h2 id="Spring事务"><a href="#Spring事务" class="headerlink" title="Spring事务"></a>Spring事务</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:context=&quot;http://www.springframework.org/schema/util&quot;
+       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
+
+    &lt;!--1、声明数据源DataSource, 作用是连接数据库的--&gt;
+    &lt;bean id=&quot;myDataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;
+          init-method=&quot;init&quot; destroy-method=&quot;close&quot;&gt;
+        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/test&quot; /&gt;&lt;!--setUrl()--&gt;
+        &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+        &lt;property name=&quot;password&quot; value=&quot;root&quot; /&gt;
+        &lt;property name=&quot;maxActive&quot; value=&quot;20&quot; /&gt;
+    &lt;/bean&gt;
+
+
+    &lt;!--2、声明的是mybatis中提供的SqlSessionFactoryBean类--&gt;
+    &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+        &lt;!--set注入，把数据库连接池付给了dataSource属性--&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;myDataSource&quot; /&gt;
+        &lt;!--mybatis主配置文件的位置
+           configLocation属性是Resource类型，读取配置文件
+           它的赋值，使用value，指定文件的路径，使用classpath:表示文件的位置
+        --&gt;
+        &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis.xml&quot; /&gt;
+    &lt;/bean&gt;
+
+    &lt;!--3、创建dao对象，使用SqlSession的getMapper（StudentDao.class）
+        MapperScannerConfigurer:在内部调用getMapper()生成每个dao接口的代理对象。
+    --&gt;
+    &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+        &lt;!--指定SqlSessionFactory对象的id--&gt;
+        &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot; /&gt;
+        &lt;!--指定包名， 包名是dao接口所在的包名。
+            MapperScannerConfigurer会扫描这个包中的所有接口，把每个接口都执行
+            一次getMapper()方法，得到每个接口的dao对象。
+            创建好的dao对象放入到spring的容器中的。 dao对象的默认名称是 接口名首字母小写
+        --&gt;
+        &lt;property name=&quot;basePackage&quot; value=&quot;cn.itthree.spring.dao&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--声明service--&gt;
+    &lt;bean id=&quot;buyService&quot; class=&quot;cn.itthree.spring.service.Impl.BuyGoodsServiceImpl&quot;&gt;
+        &lt;property name=&quot;goodsDao&quot; ref=&quot;goodsDao&quot; /&gt;
+        &lt;property name=&quot;saleDao&quot; ref=&quot;saleDao&quot; /&gt;
+    &lt;/bean&gt;
+    &lt;!--使用spring的事务处理--&gt;
+    &lt;!--1. 声明事务管理器--&gt;
+    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;!--连接的数据库， 指定数据源--&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;myDataSource&quot; /&gt;
+    &lt;/bean&gt;
+
+    &lt;!--2. 开启事务注解驱动，告诉spring使用注解管理事务，创建代理对象
+           transaction-manager:事务管理器对象的id
+    --&gt;
+    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;
+&lt;/beans&gt;
+</code></pre>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;!--设置别名--&gt;
+    &lt;typeAliases&gt;
+        &lt;!--name:实体类所在的包名
+        --&gt;
+        &lt;package name=&quot;cn.itthree.spring.domain&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;!-- sql mapper(sql映射文件)的位置--&gt;
+    &lt;mappers&gt;
+        &lt;!--
+       name：是包名， 这个包中的所有mapper.xml一次都能加载
+        --&gt;
+        &lt;package name=&quot;cn.itthree.spring.dao&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

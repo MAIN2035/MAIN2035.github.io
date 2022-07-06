@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || JS对象</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>JS对象 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/JS">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                JS
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/JS基础" style=color:#006674>
+                    JS基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><ul>
+<li>字符串、布尔值、数字等可通过包装器，构造一个临时对象</li>
+<li>必要时，js会进行包装器与字符串、数字、布尔值的相互转换</li>
+</ul>
+<pre><code class="js">var a = &quot;hello&quot;;
+var word = a.substring(a.indexOf(&quot;&quot;)+1,a.length);//结果word=ello
+//substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+//indexOf() 方法返回某个指定的字符串值在字符串中首次出现的位置。
+</code></pre>
+<h1 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h1><pre><code class="js">/*像py里的字典*/
+var book =&#123;
+    &quot;main title&quot;:&quot;The Definitive Guide&quot;,
+    &quot;author&quot;:&quot;David Flanagan&quot;
+&#125;;
+//对象直接量的原型为constructor.prototype
+</code></pre>
+<h1 id="new创建对象"><a href="#new创建对象" class="headerlink" title="new创建对象"></a>new创建对象</h1><pre><code class="js">var mydate = new Date();//new+构造函数创建对象 
+</code></pre>
+<h1 id="删除、查询、添加、继承"><a href="#删除、查询、添加、继承" class="headerlink" title="删除、查询、添加、继承"></a>删除、查询、添加、继承</h1><pre><code class="js">/*添加、查询对象属性 */
+ var customer=&#123;a1:&quot;1&quot;,a2:&quot;2&quot;,a3:&quot;3&quot;&#125;
+ var addr=&quot;&quot;;
+ for(i=0;i&lt;4,i++)&#123;//拼接customer属性
+     addr+=customer[&quot;a&quot;+i]+&#39;\n&#39;
+ &#125;
+ customer.a4 =&#39;4&#39;;//为customer创建一个名为a4的属性，值为4
+ customer[a5]=&quot;5&quot;//为customer创建一个名为a5的属性，值为5
+ var mynumber =customer.a4;//查询customer的a4属性，并将其赋值于此变量
+/*继承对象、删除对象属性*/
+ var o = &#123;&#125;
+ o.x = 1;
+ var p = inherit(o);//继承对象，包含其toString方法与属性
+ p.y = 2;
+ delete p.x;//delete无法删除对象继承的属性，可直接在其父上操作 delete o.x;
+ var q = inherit(p);
+ q.z = 3;
+ var s = q.toString();
+/*delete:用来删除对象属性（包含数组元素），也可删除未使用var声明的变量包含（this.的全局变量）*/
+</code></pre>
+<h1 id="存取器属性"><a href="#存取器属性" class="headerlink" title="存取器属性"></a>存取器属性</h1><ul>
+<li><p>读取、写入、可枚举、可配置</p>
+</li>
+<li><p>只有getter方法，就是只读属性</p>
+</li>
+<li><p>只有setter方法 ，就是只写属性  </p>
+</li>
+</ul>
+<pre><code class="js">/*直接定义存储器属性*/
+var random = &#123;
+    get octet()&#123;
+        return Math.floor(Math.random() *256);
+    &#125;,
+    get uint16()&#123;
+        return Math.floor(Math.random() *65536);
+    &#125;,
+    get int16()&#123;
+        return Math.floor(Math.random() *65536)-32768;
+    &#125;
+&#125;;
+</code></pre>
+<pre><code class="js">/*老式api*/
+__lookupGetter__(),__lookupSetter__()//返回属性的getter与setter方法；
+__defineSetter__(),__defineGetter__()//定义属性的getter与setter方法；//有两个参数，第一个为属性名字，第二个是getter与seeter方法
+</code></pre>
+<h2 id="设置属性特性"><a href="#设置属性特性" class="headerlink" title="设置属性特性"></a>设置属性特性</h2><p><strong>属性特性</strong>  包括：值、可写性、可枚举性、可配置性，分别对应：value,writable,enumerable,configurable</p>
+<pre><code class="js">/**
+ * 设置属性特性
+ */
+/*单个 */
+var o =&#123;&#125;;
+Object.defineProperty(o,&quot;x&quot;,&#123;value:1,writable:true,enumerable:false,configurable:true&#125;);
+//Object.defineProperty方法修改自己已有属性或创建自有属性，不可修改继承属性
+Object.keys(o);//将o.x属性变为只读
+o.x =2 ;//操作失败
+Object.defineProperty(o,&quot;x&quot;,&#123;value:2&#125;);
+
+/*多个 */
+var p = Object.defineProperties(&#123;&#125;,&#123;x:&#123;value:1,writable:true,enumerable:true,configurable:true&#125;,
+    y:&#123;value:1,writable:true,enumerable:true,configurable:true&#125;,
+    r:&#123;get:function()&#123;return Math.sqrt(this.x*this.x+this.y*this.y)&#125;,
+enumerable:true,configurable:true&#125;
+&#125;);
+
+
+
+/*复制属性特性 */
+Object.defineProperty(Object.prototype,&quot;extend&quot;,
+/*定义Object.prototype.extend*/
+&#123;writable:true,enumerable:false,configurable:true,value:function(o)&#123;
+    var names = Object.getOwnPropertyNames(o);//得到所有自由属性包括不可枚举属性
+    for (var i = 0; i&lt; names.length; i++)&#123;
+        if(names[i]in this)continue;//如果属性已存在，则跳过
+        var desc = Object.getOwnPropertyDescriptor(o,names[i]);//为this创建一个属性
+        Object.defineProperty(this,names[i],desc);
+    &#125;
+&#125;&#125;);
+</code></pre>
+<h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><ul>
+<li>获取对象的属性描述</li>
+</ul>
+<pre><code class="js">对于继承属性与不存在属性均返回undefined
+</code></pre>
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><ul>
+<li>修改已创建对象的属性特性，不能修改继承属性</li>
+</ul>
+<pre><code class="js">/*用法：Object.defineProperty(操作对象，属性名，&#123;属性描述符对象：value,writable,enumerable,configurable&#125;)*/
+var o =&#123;&#125;;
+Object.defineProperty(o,&quot;x&quot;,&#123;value:1,writable:true,enumerable:false,configurable:true&#125;);//为对象O创建一个不可枚举的属性x
+//修改或创建完成后返回新的对象
+</code></pre>
+<h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties()"></a>Object.defineProperties()</h3><ul>
+<li>同时修改多个对象属性特性，不能修改继承属性</li>
+</ul>
+<pre><code class="js">var p = Object.defineProperties(&#123;&#125;,&#123;x:&#123;value:1,writable:true,enumerable:true,configurable:true&#125;,//p是一个空对象
+                                    /*为其创建x，y，r属性*/
+    y:&#123;value:1,writable:true,enumerable:true,configurable:true&#125;,
+    r:&#123;get:function()&#123;return Math.sqrt(this.x*this.x+this.y*this.y)&#125;,
+enumerable:true,configurable:true&#125;
+&#125;);
+</code></pre>
+<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><ul>
+<li>通过对象直接量创建的对象使用Object.prototype作为它们的原型</li>
+<li>new创建的对象，prototype作为其原型</li>
+<li>Object.create()创建的对象，使用第一个参数作为其原型（可以是null）</li>
+</ul>
+<h2 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h2><ul>
+<li>创建</li>
+</ul>
+<pre><code class="js">var p =&#123;x:1&#125;;
+var o =Object.create(p);//使用原型p创建对象o
+p.isPrototype(o)//o继承至p?
+Object.prototype.isPrototypeOf(o)//P继承至Object.prototype？
+</code></pre>
+<h2 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h2><ul>
+<li>查询对象原型</li>
+</ul>
+<pre><code class="js">var a = &#123;&#125;;
+Object.getPrototypeOf(a);
+</code></pre>
+<h1 id="可扩展"><a href="#可扩展" class="headerlink" title="可扩展"></a>可扩展</h1><ul>
+<li>是否可以添加、删除属性；</li>
+</ul>
+<pre><code class="js">/*将对象传入*/
+Object.esExtensible()//判断对象是否可扩展
+Object.isSealed()//检测对象是否封闭（不可扩展）
+Object.prevenExtensions()//将对象自身转换为不可扩展的（此操作不可逆），其原型添加属性时此对象仍会继承这些属性
+Object.seal()//与Object.prevenExtensions()类似
+Object.freeze()//冻结：不可扩展且数据属性设置为只读（setter存储器属性不受影响）
+Object.isFrozen();//检测是否冻结
+/*创建一个封闭（不可扩展）对象，包含一个冻结原型一个不可枚举属性*/
+var o = Object.seal(Object.create(Object.freeze(&#123;x:1&#125;),&#123;y:&#123;value:2,writable:true&#125;&#125;));
+</code></pre>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><pre><code class="js">/*序列化对象 */
+o = &#123;x:1,y:&#123;z:[false,null,&quot;&quot;]&#125;&#125;;
+s = JSON.stringify(o);//序列化对象o（转换为字符串）
+p = JSON.parse(s);//还原为对象,p是深度复制
+</code></pre>
+<hr>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 追踪式垃圾回收算法</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>追踪式垃圾回收算法 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Jvm虚拟机" style=color:#6484be>
+                    Jvm虚拟机
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="四种引用："><a href="#四种引用：" class="headerlink" title="四种引用："></a>四种引用：</h1><ol>
+<li>强引用：指程序中普遍存在的引用赋值；被强引用关联的对象<strong>只要强引用关系存在</strong>，被引用的对象就不会被回收</li>
+<li>软引用：指有用而非必须的对象；被软引用关联的对象在<strong>系统发生内存溢出之前</strong>会将其回收</li>
+<li>弱引用：指非必须的对象（比软引用弱）；被弱引用关联的对象<strong>在下一次垃圾回收前无论内存是否足够</strong>，均将其回收</li>
+<li>虚引用：无法通过此引用来取得对象实例，使用此引用<strong>只是为了在对象被回收时收到一个系统通知</strong></li>
+</ol>
+<h1 id="分代收集"><a href="#分代收集" class="headerlink" title="分代收集"></a>分代收集</h1><ul>
+<li>分代假说</li>
+</ul>
+<ol>
+<li>弱分代假说（新生代）：大多数对象都是朝生夕灭</li>
+<li>强分代假说（老年代）：对象熬过的收集次数越多就越难被回收</li>
+<li>跨代引用假说：跨代引用相对于同代引用仅占少数</li>
+</ol>
+<ul>
+<li>垃圾分类：根据强、弱分代假说，将<strong>Java堆</strong>分为两个内存区域分别<strong>存储新生代与老年代</strong>，每次回收后存活的新生代对象将逐步晋升到老年代中。</li>
+<li>老年代引用新生代：相互引用的两个对象应<strong>同生同灭</strong>，所以该<strong>新生代会逐步晋升</strong>到老年代中从而<strong>消除跨代引用</strong></li>
+<li>根据跨带引用假说，在新生代上建立全局数据结构“记忆集”，这个集合中标记存在<strong>跨代引用</strong>的老年代，收集扫描时仅扫描此集合中标识的老年代</li>
+</ul>
+<h1 id="标记算法"><a href="#标记算法" class="headerlink" title="标记算法"></a>标记算法</h1><h2 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h2><ul>
+<li><p>标记需要<strong>回收</strong>的对象，清除所有<strong>标记</strong>的对象</p>
+</li>
+<li><p>标记需要<strong>保</strong>存的对象，清除所有<strong>未标记</strong>的对象</p>
+</li>
+<li><p>缺点：<strong>标记清除算法</strong>需要大量的标记、清除动作，且清除后会产生大量不连续的内存空间（可能导致无法为大的对象分配内存）</p>
+</li>
+</ul>
+<img src="https://i.loli.net/2020/08/19/3yCNL6twl1xVYFd.jpg" alt="screenshot_2020_07_31T12_32_20+0800" style="zoom:50%;" />
+
+<h2 id="标记整理算法"><a href="#标记整理算法" class="headerlink" title="标记整理算法"></a>标记整理算法</h2><ul>
+<li>标记过程与<strong>标记清除算法</strong>相同，但并不直接对可回收对象进行回收，而是让所有存活对象向内存空间一端移动，然后直接清除另外一端</li>
+<li>缺点：移动对象操作时需全程暂停用户应用程序</li>
+<li>和稀泥式解决方案：令虚拟机使用<strong>标记清除算法</strong>直到内存碎片化程度影响到对象内存分配，再使用<strong>标记整理算法</strong></li>
+</ul>
+<img src="https://i.loli.net/2020/08/19/Pyc8XSEThekfHAI.jpg" alt="screenshot_2020_07_31T12_359+0800" style="zoom:50%;" />
+
+<h2 id="标记复制算法"><a href="#标记复制算法" class="headerlink" title="标记复制算法"></a>标记复制算法</h2><ul>
+<li><p>将内存分为两块，每次只使用一块，当这块内存满时将其中存活的对象复制到另一块内存中，并自我清除。</p>
+</li>
+<li><p>缺点：<strong>标记复制算法</strong>需要大量的内存空间，且内存中回收对象的数量直接影响着此算法的效率。</p>
+</li>
+<li><p>此算法常用于<strong>新生代</strong>回收</p>
+<img src="https://i.loli.net/2020/08/19/PSIqUYjOnxXaJcs.jpg" alt="screenshot_2020_07_31T12_35_49+0800" style="zoom:50%;" />
+
+</li>
+</ul>
+<h2 id="Appel式回收（标记复制算法的改进）"><a href="#Appel式回收（标记复制算法的改进）" class="headerlink" title="Appel式回收（标记复制算法的改进）"></a>Appel式回收（标记复制算法的改进）</h2><ul>
+<li>将新生代分为一块较大的Eden空间与两块较小的Survivor空间。</li>
+<li>分配内存时使用Eden与一块Survivor，回收时将使用的Eden与Survivor上存活的对象复制到另一块Survivor上，并自我清除。</li>
+<li>当另一块Survivor空间装不下<strong>已使用</strong>的Eden与Survivor中的存活对象时，就会发生<strong>分配担保</strong>（装不下的存活对象直接晋升至老年代）</li>
+</ul>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

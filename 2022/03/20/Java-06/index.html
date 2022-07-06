@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 终端操作(收集)</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>终端操作(收集) </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java基础" style=color:#006674>
+                    Java基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>以下操作将会获取流的最终结果。至此我们无法再继续往后传递流。</p>
+<p>终端操作（Terminal Operations）总是我们在流管道中所做的最后一件事。</p>
+</blockquote>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ul>
+<li><code>toArray()</code>：将流转换成适当类型的数组。</li>
+<li><code>toArray(generator)</code>：在特殊情况下，生成自定义类型的数组。</li>
+</ul>
+<pre><code class="java">// streams/RandInts.java
+package streams;
+import java.util.*;
+import java.util.stream.*;
+public class RandInts &#123;
+    private static int[] rints = new Random(47).ints(0, 1000).limit(100).toArray();
+    public static IntStream rands() &#123;
+        return Arrays.stream(rints);
+    &#125;
+&#125;
+</code></pre>
+<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><ul>
+<li><code>forEach(Consumer)</code>常见如 <code>System.out::println</code> 作为 <strong>Consumer</strong> 函数。</li>
+<li><code>forEachOrdered(Consumer)</code>： 保证 <code>forEach</code> 按照原始流顺序操作。]</li>
+<li><code>parallel()</code>：可实现多处理器并行操作。实现原理为将流分割为多个（通常数目为 CPU 核心数）并在不同处理器上分别执行操作。</li>
+</ul>
+<pre><code class="java">package com.test.day16;
+
+// streams/ForEach.java
+import java.util.*;
+import java.util.stream.*;
+
+public class ForEach &#123;
+    static final int SZ = 14;
+    public static void main(String[] args) &#123;
+        RandInts.rands().limit(SZ)//截取14个
+                .forEach(n -&gt; System.out.format(&quot;%d &quot;, n));
+        System.out.println();
+        RandInts.rands().limit(SZ)
+                .parallel()
+                .forEach(n -&gt; System.out.format(&quot;%d &quot;, n));
+         /*在第一个流中，未使用 parallel() ，所以 rands() 按照元素迭代出现的顺序显示结果；
+        在第二个流中，引入parallel() ，即便流很小，输出的结果顺序也和前面不一样。这是由于多处理器并行操作的原因。
+        多次运行测试，结果均不同。多处理器并行操作带来的非确定性因素造成了这样的结果。*/
+        System.out.println();
+        RandInts.rands().limit(SZ)
+                .parallel()//parallel()：实现多处理器并行操作。
+                // 实现原理为将流分割为多个（通常数目为 CPU 核心数）并在不同处理器上分别执行操作。
+                .forEachOrdered(n -&gt; System.out.format(&quot;%d &quot;, n));//强制保持原始流顺序
+
+    &#125;
+&#125;
+
+package com.test.day16;
+
+// streams/RandInts.java
+import java.util.*;
+import java.util.stream.*;
+public class RandInts &#123;
+    private static int[] rints = new Random(47).ints(0, 1000).limit(100).toArray();
+    public static IntStream rands() &#123;
+        return Arrays.stream(rints);//返回此数组流
+    &#125;
+&#125;
+</code></pre>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><ul>
+<li><code>collect(Collector)</code>：使用 <strong>Collector</strong> 收集流元素到结果集合中。</li>
+<li><code>collect(Supplier, BiConsumer, BiConsumer)</code>：同上，第一个参数 <strong>Supplier</strong> 创建了一个新结果集合，第二个参数 <strong>BiConsumer</strong> 将下一个元素包含到结果中，第三个参数 <strong>BiConsumer</strong> 用于将两个值组合起来。</li>
+<li><strong>Collectors</strong> 里面没有特定的 <code>toTreeSet()</code>，但是我们可以通过将集合的构造函数引用传递给 <code>Collectors.toCollection()</code>，从而构建任何类型的集合。<strong>如下</strong>：</li>
+</ul>
+<pre><code class="java">// streams/TreeSetOfWords.java
+import java.util.*;
+import java.nio.file.*;
+import java.util.stream.*;
+public class TreeSetOfWords &#123;
+    public static void
+    main(String[] args) throws Exception &#123;
+        Set&lt;String&gt; words2 =
+                Files.lines(Paths.get(&quot;TreeSetOfWords.java&quot;))//Paths.get读取全文，Files.lines打开 Path 并将其转换成为行流。
+                        .flatMap(s -&gt; Arrays.stream(s.split(&quot;\\W+&quot;)))// Arrays.stream() 将其转化成为流；并将结果展平映射成为单词流。
+                        .filter(s -&gt; !s.matches(&quot;\\d+&quot;)) // No numbersmatches(\\d+) 查找并移除全数字字符串
+                        .map(String::trim)//String.trim() 去除单词两边的空白，
+                        .filter(s -&gt; s.length() &gt; 2) filter() //过滤所有长度小于3的单词，，最后将
+                        .limit(100)//获取100个单词
+                        .collect(Collectors.toCollection(TreeSet::new));
+        System.out.println(words2);//将元素收集至Tree集合构造器
+    &#125;
+&#125;
+
+//1.将数据收集进一个列表(Stream 转换为 List，允许重复值，有顺序)
+//创建流
+Stream&lt;String&gt; language = Stream.of(&quot;java&quot;, &quot;python&quot;, &quot;C++&quot;,&quot;php&quot;,&quot;java&quot;);
+List&lt;String&gt; listResult = language.collect(Collectors.toList());
+result.forEach(System.out::println);
+//2.将数据收集进一个集合(Stream 转换为 Set，不允许重复值，没有顺序)
+Stream&lt;String&gt; language = Stream.of(&quot;java&quot;, &quot;python&quot;, &quot;C++&quot;,&quot;php&quot;,&quot;java&quot;);
+Set&lt;String&gt; setResult = language.collect(Collectors.toSet());
+setResult.forEach(System.out::println);
+      List&lt;String&gt; list = Arrays.asList(&quot;java&quot;, &quot;python&quot;, &quot;C++&quot;,&quot;php&quot;,&quot;java&quot;);  
+      
+</code></pre>
+<h2 id="自定义收集"><a href="#自定义收集" class="headerlink" title="自定义收集"></a>自定义收集</h2><pre><code class="java">//用LinkedList收集
+      List&lt;String&gt; linkedListResult = list.stream().collect(Collectors.toCollection(LinkedList::new));
+      linkedListResult.forEach(System.out::println);
+      System.out.println(&quot;--------------&quot;);
+      
+      //用CopyOnWriteArrayList收集
+      List&lt;String&gt; copyOnWriteArrayListResult = list.stream().collect(Collectors.toCollection(CopyOnWriteArrayList::new));
+      copyOnWriteArrayListResult.forEach(System.out::println);
+      System.out.println(&quot;--------------&quot;);
+      
+      //用TreeSet收集
+      TreeSet&lt;String&gt; treeSetResult = list.stream().collect(Collectors.toCollection(TreeSet::new));
+      treeSetResult.forEach(System.out::println);
+</code></pre>
+<h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><ul>
+<li><code>reduce(BinaryOperator)</code>：使用 <strong>BinaryOperator</strong> 来组合所有流中的元素。因为流可能为空，其返回值为 <strong>Optional</strong>。</li>
+<li><code>reduce(identity, BinaryOperator)</code>：功能同上，但是使用 <strong>identity</strong> 作为其组合的初始值。因此如果流为空，<strong>identity</strong> 就是结果。</li>
+<li><code>reduce(identity, BiFunction, BinaryOperator)</code>：更复杂的使用形式（暂不介绍），这里把它包含在内，因为它可以提高效率。通常，我们可以显式地组合 <code>map()</code> 和 <code>reduce()</code> 来更简单的表达它。</li>
+</ul>
+<pre><code class="java">package com.test.day16;
+
+// streams/Reduce.java
+import java.util.*;
+import java.util.stream.*;
+class Frobnitz &#123;
+    int size;
+    Frobnitz(int sz) &#123; size = sz; &#125;
+    @Override
+    public String toString() &#123;
+        return &quot;Frobnitz(&quot; + size + &quot;)&quot;;
+    &#125;
+    // Generator:
+    static Random rand = new Random(47);
+    static final int BOUND = 100;
+    static Frobnitz supply() &#123;/*个方法对于 Supplier&lt;Frobnitz&gt; 是签名兼容的，
+    我们可以将其方法引用传递给 Stream.generate()（这种签名兼容性被称作结构一致性）*/
+        return new Frobnitz(rand.nextInt(BOUND));//随机返回0-100之间的数
+    &#125;
+&#125;
+public class Reduce &#123;
+    public static void main(String[] args) &#123;
+        Stream.generate(Frobnitz::supply)//Stream.iterate和Stream.generate。这两个操作可以创建无限流：不像从固定集合创建的流那样有固定大小的流。
+                .limit(10)
+                .peek(System.out::println)//peek接收的参数类型为Consumer，而map接收的参数类型为Function
+        //println 方法可以被调用是因为 Frobnitz 可以通过 toString() 方法转换成 String
+                .reduce((fr0, fr1) -&gt; fr0.size &lt; 50 ? fr0 : fr1)/*reduce() 中的 Lambda 表达式使用了三元表达式来获取结果，
+                当其长度小于 50 的时候获取 fr0 否则获取序列中的下一个值 fr1。当取得第一个长度小于 50 的 Frobnitz，只要得到结果就会忽略其他。*/
+                .ifPresent(System.out::println);
+    &#125;
+&#125;
+</code></pre>
+<h1 id="信息"><a href="#信息" class="headerlink" title="信息"></a>信息</h1><p><code>count()</code>：流中的元素个数;</p>
+<p><code>max(Comparator)</code>：根据所传入的 <strong>Comparator</strong> 所决定的“最大”元素;</p>
+<p><code>min(Comparator)</code>：根据所传入的 <strong>Comparator</strong> 所决定的“最小”元素。</p>
+<h2 id="数字流信息"><a href="#数字流信息" class="headerlink" title="数字流信息"></a>数字流信息</h2><p><code>average()</code> ：求取流元素平均值;</p>
+<p><code>max()</code> 和 <code>min()</code>：数值流操作无需 <strong>Comparator</strong>;</p>
+<p><code>sum()</code>：对所有流元素进行求和;</p>
+<p><code>summaryStatistics()</code>：生成可能有用的数据。目前并不太清楚这个方法存在的必要性，因为我们其实可以用更直接的方法获得需要的数据。</p>
+<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><ul>
+<li><code>findFirst()</code>：返回第一个流元素的 <strong>Optional</strong>，如果流为空返回 <strong>Optional.empty</strong>。</li>
+<li><code>findAny(</code>：返回含有任意流元素的 <strong>Optional</strong>，如果流为空返回 <strong>Optional.empty</strong>。</li>
+</ul>
+<pre><code class="java">package com.test.day16;
+// streams/SelectElement.java
+import java.util.*;
+import java.util.stream.*;
+
+public class SelectElement &#123;
+    public static void main(String[] args) &#123;
+        System.out.println(RandInts.rands().findFirst().getAsInt());//获取随机流中生成的头一个元素，并返回
+        System.out.println(
+                RandInts.rands().parallel().findFirst().getAsInt());
+        System.out.println(RandInts.rands().findAny().getAsInt());//对于非并行流，findAny()会选择流中的第一个元素（即使从定义上来看是选择任意元素）。
+        System.out.println(
+                RandInts.rands().parallel().findAny().getAsInt());//parallel()并行化，findAny选择并行化后的第一个元素
+    &#125;
+&#125;
+</code></pre>
+<h1 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h1><ul>
+<li><code>allMatch(Predicate)</code> ：如果流的每个元素根据提供的 <strong>Predicate</strong> 都返回 true 时，结果返回为 true。在第一个 false 时，则停止执行计算。</li>
+<li><code>anyMatch(Predicate)</code>：如果流中的任意一个元素根据提供的 <strong>Predicate</strong> 返回 true 时，结果返回为 true。在第一个 false 是停止执行计算。</li>
+<li><code>noneMatch(Predicate)</code>：如果流的每个元素根据提供的 <strong>Predicate</strong> 都返回 false 时，结果返回为 true。在第一个 true 时停止执行计算。</li>
+</ul>
+<pre><code class="java">package com.test.day16;
+
+// streams/Matching.java
+// Demonstrates short-circuiting of *Match() operations
+import java.util.stream.*;
+import java.util.function.*;
+
+interface Matcher extends BiPredicate&lt;Stream&lt;Integer&gt;, Predicate&lt;Integer&gt;&gt; &#123;&#125;
+
+public class Matching &#123;
+    static void show(Matcher match, int val) &#123;
+        System.out.println(
+                match.test(
+                        IntStream.rangeClosed(1, 9)//生成1-9
+                                .boxed()//将流元素装入包装器Integer
+                                .peek(n -&gt; System.out.format(&quot;%d &quot;, n)),//返回由该流的元素，作为元素从所得流消耗的每个元件上附加地执行所述提供动作的流。
+                        n -&gt; n &lt; val));//执行peek中操作
+    &#125;/*    allMatch(Predicate) ：返回flase时停止计算
+           anyMatch(Predicate)：在获得true时停止执行，如结尾仍未获得true。返回flase
+    noneMatch(Predicate)：如果流的每个元素根据提供的 Predicate 都返回 false 时，结果返回为 true。在第一个 true 时停止执行计算。*/
+    public static void main(String[] args) &#123;
+        show(Stream::allMatch, 10);
+        show(Stream::allMatch, 4);//第5个值5，大于4，故停止计算（短路时直接结束此操作）
+        show(Stream::anyMatch, 3);//在获得true时停止执行
+        show(Stream::anyMatch, 0);
+        show(Stream::noneMatch, 5);//在第一个 true 时停止执行计算，故返回flase
+        show(Stream::noneMatch, 0);
+    &#125;
+&#125;
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

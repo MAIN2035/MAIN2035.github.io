@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h1><pre><code class="c">/*
+ * @Author: itThree
+ * @Date: 2021-09-10 15:48:10
+ * @LastEditTime: 2021-09-15 15:58:50
+ * @Description: 
+ * @FilePath: \cpp\datas\sparseArr.cpp
+ * 光阴之逆旅，百代之过客，而已
+ */
+
+#include&lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+
+void printArr(int *arr, int row, int col);
+
+/**
+ * 稀疏数组：将二维数组进行“压缩”；
+ * 使用n+1行3列，其中n为原数组中有效（非零）元素个数，稀疏数组第0行用于存放行、列、元素总数信息故需n+1行
+*/
+
+//统计数组中元素的个数，用于确定稀疏数组的行数
+int countElement(int* &amp;p, int row, int col)&#123;
+    int sum;
+    int n = row*col;
+    for(int i=0; i&lt;n; i++)&#123;
+        if(*(p+i) != 0)&#123;
+            sum++;
+        &#125;
+    &#125;
+    printf(&quot;sum:\t%d\n&quot;,sum);
+    return sum;
+
+&#125;
+
+//以指针形式接收矩阵（二维数组）
+void createSparseArr2(int* arr, int row, int col ,int n)&#123;
+    int sparse[n+1][3];
+    sparse[0][0] = row;
+    sparse[0][1] = col;
+    sparse[0][2] = n;
+    int sparseRow = 0;
+    for(int i=0;i&lt;row;i++)&#123;
+        for(int j=0;j&lt;col;j++)&#123;
+            if(*(arr+i*col+j)!=0)&#123;
+               sparseRow++;
+               sparse[sparseRow][0] = i;
+               sparse[sparseRow][1] = j;
+               sparse[sparseRow][2] = *(arr+i*col+j);
+           &#125;
+        &#125;            
+    &#125;
+    printArr((int*)sparse,n+1,3);
+&#125;
+//这个稀疏数组的存储算法为n^2，还可用指针实现一个n。
+
+
+//打印二维数组
+void printArr(int *arr, int row, int col)
+&#123;//指针指向二维数组首地址，依靠row,col判别边界条件
+    //遍历行
+    for(int i=0;i&lt;row;i++)&#123;
+        //遍历列
+        for(int j=0;j&lt;col;j++)printf(&quot;%d \t&quot;,*(arr+i*col+j));
+        printf(&quot;\n&quot;);
+    &#125;
+
+&#125;
+
+int main()&#123;
+    int source[4][8]&#123;
+        &#123;1,7,6,5,2,8,2,8&#125;,
+        &#123;2,7,6,5,2,8,2,8&#125;,
+        &#123;3,7,6,5,2,8,2,8&#125;,
+        &#123;4,7,6,5,2,8,2,8&#125;
+    &#125;;
+    int* p;
+    p = source[0];
+    int n = countElement(p,4,8);
+    printf(&quot;-------------------------------------------\n&quot;);
+    
+    createSparseArr2((int*)source,4,8,n);
+    //int* i[4];
+    //指针i指向二维数组的一行
+    //i[0] = source[0];
+    //i[1] = source [1];
+    //i[2] = source [2];
+    //i[3] = source [3];
+    // createSparseArr1(i,4,8,n);
+    return 0;
+&#125;
+</code></pre>
+<h2 id="使用指针数组方式创建稀疏数组"><a href="#使用指针数组方式创建稀疏数组" class="headerlink" title="使用指针数组方式创建稀疏数组"></a>使用指针数组方式创建稀疏数组</h2><pre><code class="c">//使用指针数组传值
+void createSparseArr1(int* p1[], int row, int col, int n)&#123;
+    //需要多一行来存储原数组大小信息
+    int sparse[n+1][3];
+    sparse[0][0] = row;
+    sparse[0][1] = col;
+    sparse[0][2] = n;
+    //控制稀疏数组的行号
+    int sparseRow = 0;
+    for (int i = 0; i &lt; row; i++)
+   &#123;
+       for (int j = 0; j &lt; col; j++)
+       &#123;    //原数数组索引处有无元素为判断条件，有则放入稀疏数组，无则进行下一次循环
+           if(p1[i][j]!=0)&#123;
+               //第0行已存放数据，故先行++
+               sparseRow++;
+               sparse[sparseRow][0] = i;
+               sparse[sparseRow][1] = j;
+               sparse[sparseRow][2] = p1[i][j];
+           &#125;
+       &#125;
+       
+   &#125;
+    printArr((int*)sparse,n+1,3);
+&#125;
+</code></pre>
+<h1 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h1><h2 id="强制转换数组首地址为指针返回不可行"><a href="#强制转换数组首地址为指针返回不可行" class="headerlink" title="强制转换数组首地址为指针返回不可行"></a>强制转换数组首地址为指针返回不可行</h2><p><img src="http://img.lbkzw.cn/img/image-20210915152000718.png" alt="image-20210915152000718"></p>
+<p>报错的地方：</p>
+<pre><code class="c">int sparse[n+1][3];
+return (int*) sparse;
+</code></pre>
+<p><strong>解答</strong>：在函数执行完毕并return后sparse数组将被销毁，故无法将其强制转换为指针类型并返回；</p>
+<p>不过，指定一个指针指向sparse并返回倒不成问题。</p>
+<h2 id="指针与数组地址"><a href="#指针与数组地址" class="headerlink" title="指针与数组地址"></a>指针与数组地址</h2><pre><code class="c">int source[4][8]&#123;
+        &#123;1,7,6,5,2,8,2,8&#125;,
+        &#123;2,7,6,5,2,8,2,8&#125;,
+        &#123;3,7,6,5,2,8,2,8&#125;,
+        &#123;4,7,6,5,2,8,2,8&#125;
+    &#125;;
+    int* p;
+    p = source[0];
+    int* i[4];
+    //指针i指向二维数组的一行
+    i[0] = source[0];
+    i[1] = source [1];
+    i[2] = source [2];
+    i[3] = source [3];
+//得出结果
+    // source[0]，source[0][0]在同一地址下
+     printf(&quot;p:\t%d\n&quot;, p);
+    printf(&quot;source[0]:\t%d\n&quot;, source[0]);
+    printf(&quot;&amp;source[0][0]:\t%d\n&quot;, &amp;source[0][0]);
+    printf(&quot;source[0][0]:\t%d\n&quot;, source[0][0]);
+    printf(&quot;*p:\t%d\n&quot;, *p);
+    //使用指针数组指向二维数组每行首地址可行
+    printf(&quot;i[1][i]:\t%d\n&quot;, i[1][2]);
+    
+    printf(&quot;*(p+31)\t%d\n&quot;, *(p+31));
+    //下标溢出了哦！
+    printf(&quot;*(p+32)\t%d\n&quot;, *(p+32));
+</code></pre>
+<p>运行结果：<img src="http://img.lbkzw.cn/img/image-20210915153230219.png" alt="image-20210915153230219"></p>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

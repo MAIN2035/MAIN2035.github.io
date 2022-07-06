@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="串匹配"><a href="#串匹配" class="headerlink" title="串匹配"></a>串匹配</h1><h2 id="串的链式存储与朴素-简单-匹配"><a href="#串的链式存储与朴素-简单-匹配" class="headerlink" title="串的链式存储与朴素(简单)匹配"></a>串的链式存储与朴素(简单)匹配</h2><pre><code class="c">/*
+ * @Author: itThree
+ * @Date: 2021-09-17 16:46:14
+ * @LastEditTime: 2021-09-19 15:59:37
+ * @Description: 
+ * @FilePath: \cpp\datas\myString.cpp
+ * 光阴之逆旅，百代之过客，而已
+ */
+#include&lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;malloc.h&gt;
+//定长的串
+#define MAXSIZE 255
+typedef struct 
+&#123;
+   char ch[MAXSIZE];
+   int length;
+&#125;limString;
+
+//动态分配的串
+typedef struct
+&#123;
+    char* ch;
+    int lenght;
+&#125;dyString;
+
+//简单匹配
+int simple(limString* n, limString* m);
+
+//创建一个串
+void createString(limString* &amp;S,int type)&#123;
+    S = (limString*)malloc(sizeof(limString));
+    char inputC[255];
+    scanf(&quot;%s&quot;,inputC);
+    //记录输入串的长度
+    int i = 0;
+    while (inputC[i]!=0)
+    &#123;
+        S-&gt;ch[i] = inputC[i];
+        i++;
+    &#125;
+    S-&gt;length = i;
+&#125;
+
+//此实现，当T中包含多个P时，仅返回最后一个
+int simple(limString* T, limString* P)&#123;
+    
+    int n = T-&gt;length;
+    int m = P-&gt;length;
+    //p记录结果的索引
+    int p = 0;
+    //s为偏移量
+    for (int s=0; s&lt;n-m+1; s++)
+    &#123;
+        for (int i = 0; i &lt; m; i++)
+        &#123;
+            if(P-&gt;ch[i] == T-&gt;ch[s+i])&#123;
+                //当文本T与模式P相同则记录索引
+               p = s+i;
+            &#125;else&#123;
+                break;
+            &#125;
+        &#125;
+    &#125;
+
+    //如果最终记录的索引p,同P中最后一个元素相同，我们认为匹配到了
+    if (T-&gt;ch[p] == P-&gt;ch[m-1])
+    &#123;//返回P对应于T的首索引
+       return p-m+1;
+    &#125;
+    
+    return 0;
+&#125;
+
+int main()&#123;
+
+    limString* T,*P;
+    createString(T,1);
+    createString(P,1);
+    // printf(&quot;%s\t%d&quot;,S,S-&gt;length);
+    int p = simple(T,P);
+    printf(&quot;%d&quot;,p);
+    return 0;
+  
+&#125;
+</code></pre>
+<h2 id="RKM匹配"><a href="#RKM匹配" class="headerlink" title="RKM匹配"></a>RKM匹配</h2><p>使用函数：</p>
+<pre><code class="c">//判断P是否为T的子串
+int ifTP(TYPE* T, TYPE* P, int m, int s, int pHash);
+int simpleComparsion(TYPE* T, TYPE* P, int m);
+//主程序，计算偏移地址，控制程序整体迭代
+int intRKM(TYPE* T, TYPE* P, int m, int n, int q);
+//返回串的Hash
+int countHash(TYPE* P, int m);
+</code></pre>
+<p>主体实现：</p>
+<pre><code class="c">/*
+ * @Author: itThree
+ * @Date: 2021-09-28 17:38:05
+ * @LastEditTime: 2021-09-29 23:08:34
+ * @Description: 实现基于RKM的字符串匹配。
+ * 注意关于char转换到int,直接使用了强制类型转换；
+ * 所得的int将对应于ascll表，对于不在表中的元素，那么将无法匹配（异常终止），由于使用c语言，故不作过多处理。
+ * @FilePath: \cpp\sort\RKM_char.cpp
+ * 光阴之逆旅，百代之过客，而已
+ */
+#include&lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+
+#define TYPE char
+#define M 3
+#define N 10
+
+
+
+
+//传入任意串计算hash
+int countHash(TYPE* P, int m)&#123;
+    int p = 0;
+    //计算hash的基准值
+    int datum = 127;
+    //首地址下元素乘以基准值
+    p = ((int)*(P))*datum;
+    TYPE * I = P;
+    for (int i = 1; i &lt; m; i++)
+    &#123;   
+        I = I+i*sizeof(TYPE);
+        p += ((int)*(I));
+    // printf(&quot;%d\t%d\n&quot;,p,t);
+    &#125;
+    // printf(&quot;p=%d\n&quot;,p);
+    return p;
+
+&#125;
+
+int ifTP(TYPE* T, TYPE* P, int m, int s, int pHash)&#123;
+    //为T加上偏移
+    
+    T = T+s*sizeof(TYPE);
+    
+    int tHash = countHash(T,m);
+    printf(&quot;%d\t%d\n&quot;,pHash,tHash);
+    printf(&quot;------------------------------------\n&quot;);
+    //再次判断
+    if(tHash == pHash)&#123;
+        //此时的T处理过偏移，故无需传入偏移
+        return simpleComparsion(T,P,m);
+    &#125;
+    return 0;
+&#125;
+
+//对hash值相等的串，进行二次检查。
+//这将逐个检查每个元素。
+int simpleComparsion(TYPE* T, TYPE* P, int m)&#123;
+    for (int i = 0; i &lt; m; i++)
+    &#123;  //直接T+i也是可以的
+        T = T + (i)*sizeof(TYPE);
+        P = P + (i)*sizeof(TYPE);
+        if(*(P) != *(T))&#123;
+            return 0;
+        &#125;
+    &#125;
+    
+    return 1;
+&#125;
+
+
+int intRKM(TYPE* T, TYPE* P, int m, int n)&#123;
+    //先计算P的Hash
+    int pHash = countHash(P,m);
+    int z = 0;
+    //循环计算所有可能的T子串的Hash,并分别与pHash进行比较
+    for (int i = 0; i &lt; n-m+1; i++)
+    &#123;   //每次迭代的i即为T的最新偏移地址
+        //偏移地址即每次循环中最新的T子串的首地址。
+        //因为数组下标从0而不是1开始，故判断条件为n-m+1
+        z++;
+        printf(&quot;第%d次执行\n&quot;,z);
+       if(ifTP(T,P,m,i,pHash))&#123;
+           return 1;
+       &#125;
+    &#125;
+    
+    return 0;
+&#125;
+int main()&#123;
+    //P存放匹配串即模式，T存放文本串即被匹配串，从T中找p
+    TYPE P[M],T[N];
+    printf(&quot;请输入文本T:\n&quot;);
+    scanf(&quot;%s&quot;,T);
+    printf(&quot;请输入匹配P:\n&quot;);
+    scanf(&quot;%s&quot;,P);
+    //aBool为1时：T包含P,反之不然
+    int aBool = intRKM(T,P,M,N);
+    printf(&quot;%d&quot;,aBool);
+   
+&#125;
+</code></pre>
+<p>测试结果：</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210929231606933.png" alt="image-20210929231606933"></p>
+<p>附初代版本：</p>
+<pre><code class="c">/*
+ * @Author: itThree
+ * @Date: 2021-09-28 17:38:05
+ * @LastEditTime: 2021-09-29 20:48:02
+ * @Description: 判断int类型串T中是否包含串P
+ * @FilePath: \cpp\sort\RKM.cpp
+ * 光阴之逆旅，百代之过客，而已
+ */
+#include&lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+#include&lt;math.h&gt;
+
+#define TYPE int
+
+int ifTP(TYPE* T, TYPE* P, int m, int q, int s);
+int simpleComparsion(TYPE* T, TYPE* P, int m, int s);
+int intRKM(TYPE* T, TYPE* P, int m, int n, int q);
+
+//判断每次偏移后的T于P是否匹配
+int ifTP(TYPE* T, TYPE* P, int m, int q, int s)&#123;
+    int h = 10;
+    int p = 0;
+    int t = 0;
+    for (int i = 0; i &lt; m; i++)
+    &#123;   
+        int n = pow(h,(m-i-1));
+        p += *(P+i)*n;
+        t += *(T+i+s)*n;
+    // printf(&quot;%d\t%d\n&quot;,p,t);
+
+    &#125;
+    printf(&quot;%d\t%d\n&quot;,p,t);
+    printf(&quot;------------------------------------\n&quot;);
+    //再次判断
+    if((p%q) == (t%q))&#123;
+        return simpleComparsion(T,P,m,s);
+    &#125;
+    return 0;
+&#125;
+
+//对hash值相等的串，进行二次检查。
+//这将逐个检查每个元素。
+int simpleComparsion(TYPE* T, TYPE* P, int m, int s)&#123;
+    for (int i = 0; i &lt; m; i++)
+    &#123;
+        if(*(P+i) != *(T+i+s))&#123;
+            return 0;
+        &#125;
+    &#125;
+    
+    return 1;
+&#125;
+
+
+/**
+ * @description: 
+ * @param &#123;TYPE*&#125; T
+ * @param &#123;TYPE*&#125; P
+ * @param &#123;int&#125; m为P的长度
+ * @param &#123;int&#125; n为T的长度
+ * @param &#123;int&#125; q为mod
+ * @return &#123;
+ *  1:T中包含P;
+ *  0:T中不包含P
+ * &#125;
+ */
+int intRKM(TYPE* T, TYPE* P, int m, int n, int q)&#123;
+    //改变基准地址,进行T/P匹配
+    //因为数组下标从0而不是1开始，故判断条件为n-m+1
+    for (int i = 0; i &lt; n-m+1; i++)
+    &#123;   
+       if(ifTP(T,P,m,q,i))&#123;
+           //如一个T中包含多个P,可在此处改进记录位置
+           return 1;
+       &#125;
+    &#125;
+    
+    return 0;
+&#125;
+int main()&#123;
+    int P[3] = &#123;1,2,3&#125;;
+    int T[10] = &#123;4,5,6,3,2,1,3&#125;;
+    int a = intRKM(T,P,3,10,3);
+    printf(&quot;%d&quot;,a);
+&#125;
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || SQL基础</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>SQL基础 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/SQL">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                SQL
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/SQL入门" style=color:#016a99>
+                    SQL入门
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="常见注释"><a href="#常见注释" class="headerlink" title="常见注释"></a>常见注释</h1><ul>
+<li>– 很少支持</li>
+<li>#行内注释</li>
+<li>/**/段落注释</li>
+</ul>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><h3 id="检索数据"><a href="#检索数据" class="headerlink" title="检索数据"></a>检索数据</h3><table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">作用</th>
+<th align="center">例子</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">select</td>
+<td align="center">查找列，并返回行</td>
+<td align="center">select prod_name from products；<br/>#可使用,分隔列名来查找多个列。</td>
+<td>查找prod_name列，并返回其下的所有行，在products表中。</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">通配符</td>
+<td align="center">select * from products；</td>
+<td>查找所有列并返回所有行，在products表中。</td>
+</tr>
+<tr>
+<td align="center">distinct</td>
+<td align="center">返回不重复的值</td>
+<td align="center">select  distinct vend_id from products；<br/>#不可配合通配符使用除非所有列完全相同</td>
+<td>查找vend_id列并返回其下所有行中不重复的值，在products表中。</td>
+</tr>
+<tr>
+<td align="center">limit</td>
+<td align="center">限制</td>
+<td align="center">select prod_name from products limit 5,5;</td>
+<td>查找prod_name列并返回其下第5行起5行的值，在products表中。</td>
+</tr>
+</tbody></table>
+<h3 id="排序检索数据"><a href="#排序检索数据" class="headerlink" title="排序检索数据"></a>排序检索数据</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+<th>例子</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>order by</td>
+<td>排序</td>
+<td>select prod_id,prod_price,prod_name<br/>from Products<br/>order by 2;<br/>#默认升序（ASC）排列<br/>#指定按多个列排列时：仅当指定的第一列中有重复元素时，才对其（存在重复值的）按指定的下一列进行排序。</td>
+<td>即按照查找的第二个列进行排序，也可指定列名（prod_price）</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>降序</td>
+<td>select prod_id,prod_price,prod_name<br/>from Products<br/>order by 2 DESC,3 desc;</td>
+<td>即按照查找的第二个列进行降序排序，desc仅对其前的列有效；</td>
+</tr>
+</tbody></table>
+<h3 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+<th>例子</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>where</td>
+<td>在客户端过滤数据</td>
+<td>select *<br/>from Products<br/>where prod_price &gt;= 5.99<br/>order by prod_price desc;<br/>#同排序操作一同使用时，不得位于排序操作之前#支持&lt;&gt;=!=等操作，其中&lt;&gt;操作等同于!=<br/>例：<br/>select *<br/>from Products<br/>where prod_id &lt;&gt;’fc’<br/>order by prod_price desc;<br/>#过滤字符串不区分大小写</td>
+<td>1.查找所有列，在Products表中，并返回prod_price &gt;=5.99的所有行<br/>2.查找所有列，在Products表中，并返回除prod_id = “fc”之外的所有行</td>
+</tr>
+<tr>
+<td>between</td>
+<td>值的范围过滤</td>
+<td>select  prod_name,prod_price<br/>from Products<br/>where prod_price between 4 and 10</td>
+<td>查找prod_name,prod_price两列在Products表中，并返回prod_price值为4-10范围内的的的所有行</td>
+</tr>
+<tr>
+<td>is</td>
+<td>可用来检查null（空值）</td>
+<td>select  prod_name,prod_price<br/>from Products<br/>where prod_price is null</td>
+<td>返回所有没有价格的商品</td>
+</tr>
+<tr>
+<td>and,or</td>
+<td>逻辑操作符<br/>and且<br/>or与，这里是短路的</td>
+<td>select  *<br/>from Products<br/>where vend_vend_id =’1001’ and prod_price &lt;=4;<br/>#and的优先级比or要高，and，or共同使用时为避免错误应用（）明确分组，<br/>#也可使用in代替or，例：<br/>select prod_name,prod_price from products where vend_id in(‘1001’,’1002’)<br/>order by prod_name<br/>等同于：<br/>select prod_name,prod_price from products where vend_id = ‘1001’ or vend_id = ‘1002’<br/>order by prod_name</td>
+<td>返回所有vend_vend_id =’1001’ 且 prod_price &lt;=4;的行</td>
+</tr>
+<tr>
+<td>not</td>
+<td>否定其后的条件</td>
+<td>select prod_name,prod_price from products where not vend_id in(‘1001’,’1002’)<br/>order by prod_name</td>
+<td>可与in连用，返回vend_id=1001 vend_id=1002外的所有行</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="通配符搜索"><a href="#通配符搜索" class="headerlink" title="通配符搜索"></a>通配符搜索</h3><table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">作用</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%</td>
+<td align="center">匹配0、1或多个字符包含空格。不会匹配到null</td>
+<td>select prod_name<br/>from products<br/>where prod_name like ‘f%%’</td>
+</tr>
+<tr>
+<td align="center">_</td>
+<td align="center">匹配单个字符，包含空格</td>
+<td>select prod_name<br/>from products<br/>where prod_name like ‘fuse_’</td>
+</tr>
+<tr>
+<td align="center">rtrim（）ltrim（）</td>
+<td align="center">去除右边、左边空格</td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<h4 id="创建计算字段"><a href="#创建计算字段" class="headerlink" title="创建计算字段"></a>创建计算字段</h4></blockquote>
+<pre><code class="mysql">select prod_id ,quantity,item_price,quantity*item_price as expanded_price
+from orderitems
+where order_num = 20008;
+#如上创建了一个expanded_price字段（quantity*item_price的结果的别名），其仅在此时有效而不会存放到表中。
+</code></pre>
+<blockquote>
+<h4 id="使用函数"><a href="#使用函数" class="headerlink" title="使用函数"></a>使用函数</h4></blockquote>
+<pre><code class="mysql">select vend_name, upper(vend_name) as vend_name_upcase
+from vendors
+#将vend_name列下的所有行以大写形式返回
+select avg(prod_price) as avg_peice from products where vend_id =&#39;1001&#39;
+#返回平均值
+select count(*) as num_cust from customers
+#返回长度（数目），也可对列表中特定值进行计数
+</code></pre>
+<blockquote>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4></blockquote>
+<pre><code class="mysql">select  vend_id,count(*) as num_prods from  products #对vend_id每行进行计数
+group by vend_id;#按照vend_id排序并分组
+
+select cust_id,count(*) as orders
+from orders 
+group by cust_id 
+having count(*)&gt;=2#过滤分组中&gt;=2的，having支持where的所有操作
+
+select order_num,count(*) as items
+from orderitems group by order_num
+having count(*) &gt;=3
+order by items,order_num desc#对分组依照选定的列进行排序
+</code></pre>
+<blockquote>
+<h4 id="子句查询"><a href="#子句查询" class="headerlink" title="子句查询"></a>子句查询</h4></blockquote>
+<pre><code class="mysql">
+select cust_name,cust_contact from customers where cust_id =(select cust_id 
+from orders
+where order_num = (select order_num from orderitems where prod_id = &#39;jp2000&#39;));
+#由内而外，哈哈
+等效于：
+select order_num 
+from orderitems
+where prod_id = &#39;jp2000&#39;；
+select cust_id 
+from orders
+where order_num =20006
+select cust_name,cust_contact from customers where cust_id =10003
+</code></pre>
+<h3 id="联结（返回不在同一个表中的行）"><a href="#联结（返回不在同一个表中的行）" class="headerlink" title="联结（返回不在同一个表中的行）"></a>联结（返回不在同一个表中的行）</h3><pre><code class="mysql">/*等值语法*/
+select vend_name, prod_name,prod_price
+from vendors,products
+where vendors.vend_id=products.vend_id;#此处过滤联结条件。
+#如没有联结条件过滤，将检索出“笛卡尔积”：表1行数*表2行数
+/*规范语法*/
+select vend_name, prod_name,prod_price
+from vendors inner join products
+on vendors.vend_id=products.vend_id
+</code></pre>
+<h3 id="自联结（比子查询更快）"><a href="#自联结（比子查询更快）" class="headerlink" title="自联结（比子查询更快）"></a>自联结（比子查询更快）</h3><pre><code class="mysql">/*子查询*/
+select cust_id, cust_name, cust_contact
+from customers
+where cust_name = (select cust_name from customers where cust_contact =&#39;jim jones&#39;);
+/*自联结*/
+select c1.cust_id, c1.cust_name,c1.cust_contact
+from customers as c1,customers as c2#不以别名进行会引发错误
+where c1.cust_name=c2.cust_name and c2.cust_contact=&#39;jim jones&#39;#联结cust_name与c2.cust_name ，并过滤cust_contact=&#39;jim jones&#39;的行
+/*（c1的cust_name同c2相同，找到了c2的cust_contact=&#39;jim jones&#39;也就相当于找到了c1cust_contact=&#39;jim jones&#39;，知道了cust_contact=&#39;jim jones&#39;就可知道cust_id）*/
+</code></pre>
+<h3 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h3><pre><code class="mysql">select cust_name,cust_contact,cust_email,cust_state
+from customers
+where cust_state in(&#39;il&#39;,&#39;in&#39;,&#39;mi&#39;)
+union  #组合上下select多个select之间需要多个union分隔，union默认排除重复，union all则不排除
+select cust_name,cust_contact,cust_email,cust_state#union中每个查询必须包含相同的列、表达式、或聚集函数
+from customers
+where cust_name =&#39;wascals&#39;
+order by cust_name;#不能分别对每条union指定不同的排序
+</code></pre>
+<h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><h3 id="依赖于次序的插入"><a href="#依赖于次序的插入" class="headerlink" title="依赖于次序的插入"></a>依赖于次序的插入</h3><pre><code class="mysql">/*在得知列的次序后才可使用此方式添加，若发生了列的次序变动此添加方式将不安全*/
+insert into customers
+values(&#39;1000000006&#39;,&#39;toy land&#39;,&#39;123 any street&#39;,&#39;new york&#39;,&#39;ny&#39;, &#39;11111&#39;,&#39;usa&#39;,null, null);
+#依赖于次序的插入，必须为每一列提供一个值，如某列无添加则应写上null
+</code></pre>
+<h3 id="提供列名的插入"><a href="#提供列名的插入" class="headerlink" title="提供列名的插入"></a>提供列名的插入</h3><pre><code class="mysql">insert into customers(cust_id,cust_contact,cust_email,cust_name,cust_address,cust_city,cust_state,cust_zip)
+#必须为提供了列名的列给出一个值
+values(null, null,&#39;1000000006&#39;,&#39;toy land&#39;,&#39;123 any street&#39;,&#39;new york&#39;,&#39;ny&#39;, &#39;11111&#39;);
+</code></pre>
+<h3 id="从另一个表插入"><a href="#从另一个表插入" class="headerlink" title="从另一个表插入"></a>从另一个表插入</h3><pre><code class="mysql">insert into 表名（列名）
+select 列名
+from 表名
+where 过滤
+</code></pre>
+<blockquote>
+<h4 id="复制一个表"><a href="#复制一个表" class="headerlink" title="复制一个表"></a>复制一个表</h4></blockquote>
+<pre><code class="mysql">/*sql*/
+select * 
+into custcopy 
+from customers;
+/* mysql*/
+create table custcopy as
+select * 
+from customers;
+</code></pre>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><h3 id="更新单个列"><a href="#更新单个列" class="headerlink" title="更新单个列"></a>更新单个列</h3><pre><code class="mysql">update customers
+set cust_email = &#39;kim@@thetoystore.com&#39;
+where cust_id = &#39;100000000005&#39;#如不指定，将更新customers表cust_email列下的所有行
+</code></pre>
+<h3 id="更新多个列"><a href="#更新多个列" class="headerlink" title="更新多个列"></a>更新多个列</h3><pre><code class="mysql">update customers
+set cust_email = &#39;kim@@thetoystore.com&#39;,cust_contact=&#39;sam roberts&#39;
+where cust_id = &#39;100000000006&#39;
+</code></pre>
+<h2 id="DELLETE"><a href="#DELLETE" class="headerlink" title="DELLETE"></a>DELLETE</h2><pre><code class="mysql">delete from customers
+where cust_id = &#39;1000000006&#39;#删除此行，不过滤则删除所有行
+#update删除列
+#truncate删除表
+</code></pre>
+<h2 id="添加删除列-amp-amp-表"><a href="#添加删除列-amp-amp-表" class="headerlink" title="添加删除列&amp;&amp;表"></a>添加删除列&amp;&amp;表</h2><pre><code class="mysql">/*添加表时为防止覆盖，应删除表后再进行添加*/
+create table orderitems
+(order_num integer not null,
+order_item integer not null,
+prod_id char(10) not null,
+quantity integer not null default 1,#设置quantity列下的行默认值为1
+item_price decimal(8,2) not null);#not null即不允许填入null，默认可填入null，只有为 not null的列方可为主键及唯一标识
+</code></pre>
+<pre><code class="mysql">/*add列*/
+alter table vendors
+add vend_phone char (20);
+/*del列*/
+alter table vendors
+drop column vend_phone;#此操作不可逆
+/*删除表*/
+drop table custcopy;#此操作不可逆
+</code></pre>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><pre><code class="mysql">create view#创建视图
+drop view 视图名#删除视图
+/*以视图简化联结，创建视图*/
+create view productcustomers as
+select cust_name , cust_contact,prod_id
+from customers,orders,orderitems
+where customers.cust_id=orders.cust_id
+and orderitems.order_num=orders.order_num;
+/*可对视图采取与表相同的查询操作*/
+select *
+from productcustomers;
+/*一个视图过滤查询例子*/
+create view customeremaillist as
+select cust_id, cust_name,cust_email
+from customers
+where cust_email is not null;#返回查询中所有cust_email不为空的，并将其添加到视图中
+/*视图计算字段例子*/
+create view orderitemsexpanded as 
+select order_num,prod_id,quantity,item_price,quantity*item_price,quantity*item_price as
+expanded_price
+from orderitems
+</code></pre>
+<h1 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h1><pre><code>/*撤销整体*/
+start transaction ;
+-- 标识事务处理块,块中内容未执行完则整体撤销
+/*撤销部分操作*/
+savepoint delete1;#标识
+rollback to delete1;返回标识delete1
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

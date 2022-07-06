@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 线程方法</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>线程方法 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Java">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Java
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java多线程编程" style=color:#016a99>
+                    Java多线程编程
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>实现多线程必须继承<strong>Thread</strong>类，已有父类的类可通过实现<strong>Runnable</strong>实现多线程</p>
+<p><strong>Thread</strong>也实现了<strong>Runnable</strong>接口，<strong>Runnable</strong>接口实现的多线程步骤比<strong>Thread</strong>更为繁琐</p>
+</blockquote>
+<h1 id="线程安全共享变量"><a href="#线程安全共享变量" class="headerlink" title="线程安全共享变量"></a>线程安全共享变量</h1><ul>
+<li>这是一个不共享变量的线程：</li>
+</ul>
+<pre><code class="java">package cn.day.b2;
+
+public class MyThread extends Thread &#123;
+    private int count = 5;
+    public MyThread(String name)&#123;
+        super();
+        this.setName(name);
+    &#125;
+    @Override
+    public void run()&#123;
+        super.run();
+        while (count &gt; 0)&#123;
+            count--;
+            System.out.println(&quot;由&quot; + this.currentThread().getName() + &quot;计算， count =&quot; + count);
+        &#125;
+    &#125;
+    
+    public static void main(String[] args) &#123;
+        MyThread a = new MyThread(&quot;A&quot;);
+        MyThread b = new MyThread(&quot;B&quot;);
+        MyThread c = new MyThread(&quot;C&quot;);
+        a.start();
+        b.start();
+        c.start();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>可能出现多个线程同时修改变量（不安全）的情况</li>
+</ul>
+<pre><code class="java">package cn.day.b2;
+
+public class MyThread extends Thread &#123;
+    private int count = 5;
+    @Override
+    public void run()&#123;
+        super.run();
+            count--;
+            System.out.println(&quot;由&quot; + this.currentThread().getName() + &quot;计算， count =&quot; + count);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var mythread = new MyThread();
+        var a = new Thread(mythread,&quot;A&quot;);
+        var b = new Thread(mythread,&quot;B&quot;);
+        var c = new Thread(mythread,&quot;C&quot;);
+        var d = new Thread(mythread,&quot;D&quot;);
+        var e = new Thread(mythread,&quot;E&quot;);//分配新的 Thread 对象，以便将 mythread 作为其运行对象，将指定的 E 作为其名称
+        a.start();
+        b.start();
+        c.start();
+        d.start();
+        e.start();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>安全的共享变量（添加互斥区）</li>
+</ul>
+<pre><code class="java">package cn.day.b2;
+
+public class MyThread extends Thread &#123;
+    private int count = 5;
+    @Override
+    synchronized public void run()&#123;//加入锁，只有等一个线程停止后另一个线程才能调用run（）方法
+        super.run();
+            count--;
+            System.out.println(&quot;由&quot; + this.currentThread().getName() + &quot;计算， count =&quot; + count);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var mythread = new MyThread();
+        var a = new Thread(mythread,&quot;A&quot;);
+        var b = new Thread(mythread,&quot;B&quot;);
+        var c = new Thread(mythread,&quot;C&quot;);
+        var d = new Thread(mythread,&quot;D&quot;);
+        var e = new Thread(mythread,&quot;E&quot;);
+        a.start();
+        b.start();
+        c.start();
+        d.start();
+        e.start();
+    &#125;
+&#125;
+</code></pre>
+<h1 id="run-与start"><a href="#run-与start" class="headerlink" title="run( )与start( )"></a>run( )与start( )</h1><ul>
+<li>**run( )**立即执行，不创建新的线程。</li>
+<li><strong>start( )</strong>,创建新线程并用其执行。</li>
+<li><strong>run( )**的执行顺序与</strong>start( )**顺序无关</li>
+</ul>
+<h1 id="currentThread"><a href="#currentThread" class="headerlink" title="currentThread()"></a>currentThread()</h1><ul>
+<li>返回对当前正在执行的线程对象的引用</li>
+</ul>
+<pre><code class="java">package cn.day.b2.currentThreadExt;
+
+public class CountOperate extends Thread &#123;
+    public CountOperate()&#123;
+        System.out.println(&quot;CountOperate---begin&quot;);
+        System.out.println(&quot;Thread.currentThread().getName()=&quot; + Thread.currentThread().getName());//返回对当前正在执行的线程对象的引用
+
+        System.out.println(&quot;this.getName()= &quot; +  this.getName());//this指代带CountOperate对象，CountOperate对象的名字并未发生改变，故默认线程名为Thread-0
+        System.out.println(&quot;CountOperate---end&quot;);
+    &#125;
+    @Override
+    public void run()&#123;
+        System.out.println(&quot;run---begin&quot;);
+        System.out.println(&quot;Thread.currentThread.getName()=&quot;+ Thread.currentThread().getName());
+        System.out.println(&quot;this.getName() =&quot; + this.getName());//此时线程名为“B”
+        System.out.println(&quot;run---end&quot;);
+    &#125;
+&#125;
+
+
+package cn.day.b2.currentThreadExt;
+
+public class Run &#123;
+    public static void main(String[] args) &#123;
+        var c = new CountOperate();
+        c.setName(&quot;B&quot;);//调用构造器之前并未指定线程名称
+        var t1 = new Thread(c);
+        t1.setName(&quot;A&quot;);
+        t1.start();
+    &#125;
+&#125;
+
+/*运行结果*
+CountOperate---begin
+Thread.currentThread().getName()=main
+this.getName()= Thread-0
+CountOperate---end
+run---begin
+Thread.currentThread.getName()=A
+this.getName() =B
+run---end
+*/
+</code></pre>
+<h1 id="isAlive"><a href="#isAlive" class="headerlink" title="isAlive( )"></a>isAlive( )</h1><ul>
+<li>判断线程是否存活</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+public class CountOperate extends Thread &#123;
+    public CountOperate()&#123;//构造函数时主线程main确认存活
+        System.out.println(&quot;CountOperate---begin&quot;);
+        System.out.println(&quot;Thread.currentThread().getName()= &quot; + Thread.currentThread().getName());
+        System.out.println(&quot;Thread.currentThread().isAlive()= &quot; + Thread.currentThread().isAlive());
+        System.out.println(&quot;this.getName() =&quot; + this.getName());
+        System.out.println(&quot;this.isAlive() =&quot; + this.isAlive());
+        System.out.println(&quot;CountOpreate---end&quot;);
+    &#125;
+    @Override
+    public void run()&#123;
+        System.out.println(&quot;run---begin&quot;);
+        System.out.println(&quot;Thread.currentThread().getName() =&quot; + Thread.currentThread().getName());
+        System.out.println(&quot;Thread.currentThread().isAlive() =&quot; + Thread.currentThread().isAlive());
+        System.out.println(&quot;this.getName() =&quot; + this.getName());
+        System.out.println(&quot;this.isAlive() =&quot; + this.isAlive());//为false，而重命名的A线程存活
+        System.out.println(&quot;run---end&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var c = new CountOperate();//构造完对象后，main线程失活为false
+        var t1 = new Thread(c);//main线程又存活了
+        System.out.println(&quot;main begin t1 isAlive=&quot; + t1.isAlive());//isAlive()判断该线程是否存活
+        t1.setName(&quot;A&quot;);
+        t1.start();
+        System.out.println(&quot;main end t1 isAlive=&quot; + t1.isAlive());
+    &#125;
+&#125;
+</code></pre>
+<h1 id="sleep（）"><a href="#sleep（）" class="headerlink" title="sleep（）"></a>sleep（）</h1><ul>
+<li>使线程休眠</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+
+public class MyThread2 extends Thread &#123;
+    @Override
+    public void run()&#123;
+        try &#123;
+            System.out.println(&quot;run threadName=&quot; + this.currentThread().getName() + &quot;begin =&quot; + System.currentTimeMillis());
+            //currentTimeMillis()返回以毫秒为单位的当前时间
+            Thread.sleep(2000);//线程休眠2s
+            System.out.println(&quot;run threadName=&quot; + this.currentThread().getName() + &quot;end =&quot; + System.currentTimeMillis() );
+        &#125;catch (InterruptedException e)&#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var mythread = new MyThread2();
+        System.out.println(&quot;begin =&quot; + System.currentTimeMillis());
+        mythread.start();
+        System.out.println(&quot;end =&quot; + System.currentTimeMillis());
+        /*begin =1594439524699  main线程执行100多毫秒
+            end =1594439524710
+            run threadName=Thread-0begin =1594439524710 Thread线程执行2s多
+            run threadName=Thread-0end =1594439526721*/
+    &#125;
+&#125;
+</code></pre>
+<h1 id="线程堆栈方法"><a href="#线程堆栈方法" class="headerlink" title="线程堆栈方法"></a>线程堆栈方法</h1><h2 id="StackTraceElement-getStackTrace"><a href="#StackTraceElement-getStackTrace" class="headerlink" title="StackTraceElement[] getStackTrace( )"></a>StackTraceElement[] getStackTrace( )</h2><ul>
+<li>返回一个表示该线程堆栈跟踪元素的数组。（线程未启动或终止则返回length为0的数组即null）</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+public class Test &#123;
+    public void a()&#123;
+        b();
+    &#125;
+    public void b()&#123;
+        c();
+    &#125;public void c()&#123;
+        d();
+    &#125;public void d()&#123;
+        e();
+    &#125;
+    public void e()&#123;
+        StackTraceElement[] array = Thread.currentThread().getStackTrace();
+        if (array != null)&#123;
+            for (int i = 0; i &lt; array.length; i++)&#123;
+                var eachElement = array[i];
+                System.out.println(&quot;className=&quot; + eachElement.getClassName() + &quot; methodName=&quot; + eachElement.getMethodName() + &quot; fileName=&quot;
+                + eachElement.getFileName() + &quot; lineNumber=&quot;+eachElement.getLineNumber());
+                //eachElement.getClassName()返回包含由该堆栈跟踪元素表示的执行点的类的全限定名。
+                //eachElement.getMethodName()返回包含由该堆栈跟踪元素所表示的执行点的方法的名称
+                //eachElement.getLineNumber()返回包含由该堆栈跟踪元素表示的执行点源极线的行号
+            &#125;
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var test = new Test();
+        test.a();
+    &#125;
+&#125;
+/*结果：
+className=java.lang.Thread methodName=getStackTrace fileName=Thread.java lineNumber=1598
+className=cn.day.b3.Test methodName=e fileName=Test.java lineNumber=15 
+// 最后（最新）调用的为栈顶
+className=cn.day.b3.Test methodName=d fileName=Test.java lineNumber=12
+className=cn.day.b3.Test methodName=c fileName=Test.java lineNumber=10
+className=cn.day.b3.Test methodName=b fileName=Test.java lineNumber=8
+className=cn.day.b3.Test methodName=a fileName=Test.java lineNumber=5
+//最先的调用为栈底
+className=cn.day.b3.Test methodName=main fileName=Test.java lineNumber=27
+*/
+</code></pre>
+<h2 id="dumpStack"><a href="#dumpStack" class="headerlink" title="dumpStack( )"></a>dumpStack( )</h2><ul>
+<li>将当前线程堆栈跟踪信息输出至标准错误流</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+public class Test &#123;
+    public void a()&#123;
+        b();
+    &#125;
+    public void b()&#123;
+        c();
+    &#125;public void c()&#123;
+        d();
+    &#125;public void d()&#123;
+        e();
+    &#125;
+    public void e()&#123;
+       int age = 0;
+       age = 100;
+       if (age == 100)&#123;
+           Thread.dumpStack();//将当前线程堆栈跟踪信息输出至标准错误流
+       &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var test = new Test();
+        test.a();
+    &#125;
+&#125;
+/*结果
+java.lang.Exception: Stack trace
+    at java.base/java.lang.Thread.dumpStack(Thread.java:1379)
+    at cn.day.b3.Test.e(Test.java:18)
+    at cn.day.b3.Test.d(Test.java:12)
+    at cn.day.b3.Test.c(Test.java:10)
+    at cn.day.b3.Test.b(Test.java:8)
+    at cn.day.b3.Test.a(Test.java:5)
+    at cn.day.b3.Test.main(Test.java:24)
+    */
+</code></pre>
+<h2 id="staric-Map-lt-Thread-StackTraceElement-gt-getAllStackTraces"><a href="#staric-Map-lt-Thread-StackTraceElement-gt-getAllStackTraces" class="headerlink" title="staric Map&lt;Thread,StackTraceElement[]&gt; getAllStackTraces( )"></a>staric Map&lt;Thread,StackTraceElement[]&gt; getAllStackTraces( )</h2><ul>
+<li>返回所有活动线程的堆栈跟踪（映射）信息</li>
+<li>映射的键即线程，而每个值都是一个StackTraceElement数组</li>
+</ul>
+<pre><code class="java">package cn.day.b3;
+
+import java.util.Iterator;
+import java.util.Map;
+
+public class Test &#123;
+    public void a()&#123;
+        b();
+    &#125;
+    public void b()&#123;
+        c();
+    &#125;public void c()&#123;
+        d();
+    &#125;public void d()&#123;
+        e();
+    &#125;
+    
+    public void e()&#123;
+       Map&lt;Thread,StackTraceElement[]&gt; map = Thread.currentThread().getAllStackTraces();
+       if (map != null &amp;&amp; map.size() != 0)&#123;
+           Iterator keyIterator = map.keySet().iterator();
+           while (keyIterator.hasNext())&#123;
+               Thread eachThread = (Thread) keyIterator.next();//键即线程
+               StackTraceElement[] array = map.get(eachThread);//返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。
+               System.out.println(&quot;------每个线程的基本信息&quot;);
+               System.out.println(&quot;  线程名称：&quot; + eachThread.getName());
+               System.out.println(&quot;StackTraceElement[].length=&quot; + array.length);
+               System.out.println(&quot;  线程状态：&quot; + eachThread.getState());
+               if (array.length != 0)&#123;
+                   System.out.println(&quot;输出stackTraceElement[] 数组具体信息：&quot;);
+                   for (int i = 0; i &lt; array.length; i++) &#123;
+                       StackTraceElement eachElement = array[i];
+                       System.out.println(&quot; &quot;+ eachElement.getClassName() + &quot; &quot; +eachElement.getMethodName() +
+                               &quot; &quot; + eachElement.getFileName() + &quot; &quot; + eachElement.getLineNumber());
+                   &#125;
+               &#125;
+               else &#123;
+                   System.out.println(&quot;没有StackTraceElement[]信息，因为线程&quot; + eachThread.getName() + &quot;中的StackTraceElement[].length==0&quot;);
+               &#125;
+               System.out.println();
+               System.out.println();
+           &#125;
+
+       &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var test = new Test();
+        test.a();
+    &#125;
+&#125;
+</code></pre>
+<h1 id="getId"><a href="#getId" class="headerlink" title="getId( )"></a>getId( )</h1><ul>
+<li>获取线程Id</li>
+</ul>
+<h1 id="interrupted-、isinterrupted"><a href="#interrupted-、isinterrupted" class="headerlink" title="interrupted( )、isinterrupted( )"></a>interrupted( )、isinterrupted( )</h1><ul>
+<li>**interrupted( )**测试当前线程是否已经中断。线程的中断状态 由该方法清除。换句话说，如果连续两次调用该方法，则第二次调用将返回 false（在第一次调用已清除了其中断状态之后，且第二次调用检验完中断状态前，当前线程再次中断的情况除外）。 </li>
+<li><strong>isinterrupted( )</strong> 测试线程对象是否为中断状态且不清除状态标志。</li>
+</ul>
+<h1 id="interrupt-、中断处理"><a href="#interrupt-、中断处理" class="headerlink" title="interrupt( )、中断处理"></a>interrupt( )、中断处理</h1><ul>
+<li><p>在线程中做一个停止标记，配合异常或<strong>return</strong>终止线程</p>
+</li>
+<li><p><strong>return</strong>中断法</p>
+<pre><code class="java">package cn.day.b4;
+
+
+public class MyThread1 extends Thread &#123;
+    @Override
+    public void run( ) &#123;
+        System.out.println(&quot;线程开始&quot;);
+        super.run();
+
+        if (Thread.interrupted()) &#123;//检测线程状态
+            System.out.println(&quot;已经停止状态了！&quot;);
+            return;
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+
+            var thread = new MyThread1();
+            thread.start();
+            thread.interrupt();//中断该线程
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>异常中断法（一般采用）：可在<strong>catch</strong>块中对异常信息进行统一处理。</p>
+<pre><code class="java">package cn.day.b4;
+
+public class MyThread extends Thread &#123;
+    @Override
+    public void run( )&#123;
+        super.run();
+        try&#123;
+            for (int i = 0; i &lt; 50000000; i++) &#123;//此循环数值要足够大，否则在main中方法标记中断线程之前循环就结束了
+//                 if (this.interrupted())&#123;//检测线程状态
+                 if (Thread.interrupted())&#123;//检测线程状态
+//                 if (this.isInterrupted())&#123;//检测线程状态
+                     System.out.println(&quot;已经停止状态了！&quot;);
+                     throw new InterruptedException();
+                 &#125;
+                System.out.println(&quot;i=&quot;+(i + 1));
+            &#125;
+        &#125;catch (InterruptedException e)&#123;
+            System.out.println(&quot;进MyThread.java类run方法中的catch了&quot;);
+            e.printStackTrace();//打印此throwable及其追踪到标准错误流,错误的栈轨迹等
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        try &#123;
+            var thread = new MyThread();
+            thread.start();
+            Thread.sleep(2000);
+            thread.interrupt();//中断该线程
+        &#125;catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        System.out.println(&quot;end&quot;);
+        System.out.println(Thread.interrupted());
+    &#125;
+&#125;
+</code></pre>
+<p><strong>interrupt方法遇到sleep方法（wait也一样）同样会发生异常(中断线程)</strong></p>
+<pre><code class="java">package cn.day.b4;
+
+public class MyThread extends Thread &#123;
+    @Override
+    public void run() &#123;
+        super.run();
+        try &#123;
+            for (int i = 0; i &lt; 50000; i++) &#123;
+                System.out.println(&quot;i=&quot; + (i + 1));
+            &#125;
+            System.out.println(&quot;run begin&quot;);
+            Thread.sleep(200000);
+            System.out.println(&quot;run end&quot;);
+        &#125; catch (InterruptedException e) &#123;
+            System.out.println(&quot;进MyThread.java类run方法中的catch了&quot;);
+            e.printStackTrace();//打印此throwable及其追踪到标准错误流,错误的栈轨迹等
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        var thread = new MyThread();
+        thread.start();
+        thread.interrupt();//中断该线程
+        System.out.println(&quot;end&quot;);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h1 id="其它中断线程的方法（已废弃）"><a href="#其它中断线程的方法（已废弃）" class="headerlink" title="其它中断线程的方法（已废弃）"></a>其它中断线程的方法（已废弃）</h1><p><strong>stop（）</strong></p>
+<ul>
+<li><strong>Stop（）</strong>对线程的停止具有不确定性，如线程在添加元素而不知道添加到哪里就被中断了</li>
+<li>此方法抛出的<strong>ThreadDeath</strong>异常不需要显式捕捉</li>
+<li>此方法用于销毁线程对象，如想重启线程，需使用<strong>Start（）</strong>方法</li>
+</ul>
+<p><strong>suspend( )、resume（）</strong></p>
+<ul>
+<li>**suspend( )**暂停线程，</li>
+<li><strong>resume（）</strong>恢复线程</li>
+<li>易独占公共同步对象，导致其它线程无法访问公共同步对象</li>
+<li>易导致数据不完整</li>
+</ul>
+<p><strong>yield（）</strong></p>
+<ul>
+<li>放弃产品CPU资源，让与其它任务（线程）</li>
+<li>时间不确定：如刚放弃又拾起</li>
+</ul>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || 变量&amp;&amp;语法</title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>变量&amp;&amp;语法 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/JS">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                JS
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/JS基础" style=color:#006674>
+                    JS基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>函数体内局部变量优先级高于全局变量；</p>
+<p>函数内的变量声明将提升至函数体顶部，同时在原位置完成初始化var声明；</p>
+<p>在for循环中使用var声明变量时，该变量的作用域为for循环所属函数。</p>
+<pre><code class="js"> var a=[];  
+ for(var i = 0;i&lt;10;i++)&#123;  
+     var q = i;  
+    a[i]=function()&#123;console.log(q)&#125;  
+ &#125;  
+ a[0]()  
+       
+/*其中，由于for循环并不是一个函数体，所以for循环中定义的变量q和i是作用域for循环所在的函数体，和a同级，  
+i++ 和  q=i 并不是重新定义变量，只是重复赋值，最终循环结束，i = 10,q=9; */ 
+</code></pre>
+<p>let声明的变量，只在let所在的代码块有效果</p>
+<pre><code class="js">1.  var a=[];  
+2.  for(let i = 0;i&lt;10;i++)&#123;  
+3.     ley q = i;  
+4.     a[i]=function()&#123;console.log(q)&#125;  
+5.  &#125;  
+6.  a[6]()    
+//这里会输出   6  let声明的变量仅在块级作用域有效，所以这里的i只在本轮循环有效果，每次循环的i其实都是一个新的变量
+</code></pre>
+<h1 id="function-声明"><a href="#function-声明" class="headerlink" title="function 声明"></a>function 声明</h1><pre><code class="js">/*定义一个函数 */
+//one:
+function mysqrt(x)&#123;//使用此声明则函数名与函数初始化块均“提前”到脚本或函数的顶部
+    return Math.sqrt(x*x);
+    
+&#125;
+//two
+var mysqrt = function(x)&#123;return Math.sqrt(x*x);&#125;//使用此声明则仅有变量声明“提前”到脚本或函数的顶部，初始化体仍在原来的位置
+</code></pre>
+<h1 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h1><ul>
+<li>for-in 会跳过null、undefined</li>
+<li>只遍历可枚举的（包含继承的属性名）</li>
+</ul>
+<pre><code class="js">/*使用for-in 变量数组元素 */
+var o = &#123;x:1,y:2,z:3&#125;
+var a = [],i = 0//声明一个数组与一个变量
+for(a[i++]in o); 
+</code></pre>
+<h1 id="continue-break"><a href="#continue-break" class="headerlink" title="continue,break"></a>continue,break</h1><p>带标签的continue,break作用相同，均是跳转到指定循环（均不得跳转至所属函数边界，即所属函数外）</p>
+<pre><code class="js">mainloop: while(token!=null)&#123;
+    continue mainloop;
+&#125;
+mainloop: while(token!=null)&#123;
+    break mainloop;//mainloop为自定义标记
+&#125;
+</code></pre>
+<h1 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h1><p>检索对象列表，解析变量名</p>
+<pre><code>
+/*用于简化代码*/
+with(document.forms[0])&#123;
+    name.value=&quot;&quot;;
+    address.value=&quot;&quot;;
+    email.value=&quot;&quot;;
+&#125;
+/*简化前*/
+var f = document.form[0];
+f.name.value=&quot;&quot;;
+f.address.value=&quot;&quot;;
+f.email.value=&quot;&quot;;
+</code></pre>
+<h1 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h1><h2 id="严格相等"><a href="#严格相等" class="headerlink" title="===严格相等"></a>===严格相等</h2><ul>
+<li>比较过程中没有类型的转换，两个值类型不同则其不等</li>
+<li>值为null或undefined则其不等</li>
+<li>均是相同的布尔值则相等</li>
+<li>其中一个值为NaN则不等**</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title="=="></a>==</h2><ul>
+<li>值为null或undefined则其相等</li>
+<li>两个不同类型的值转换后相等则其相等（如：true转换为1 false转换为0 再进行比较）</li>
+</ul>
+<h2 id="in"><a href="#in" class="headerlink" title="in"></a>in</h2><ul>
+<li>左操作数是一个字符串或可以转换为字符串，有操作数是一个对象</li>
+<li>如右侧对象包含左侧操作数，表达式返回true</li>
+</ul>
+<pre><code class="js">var a = &#123;x:a&#125;
+&quot;x&quot; in a; //true
+</code></pre>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
+<li>如左侧对象是右侧类的实例，表达式将返回true</li>
+</ul>
+<pre><code class="js">var mynew = new Date();
+mynew instanceof Date;//返回true
+</code></pre>
+<h1 id="null、undefined"><a href="#null、undefined" class="headerlink" title="null、undefined"></a>null、undefined</h1><ul>
+<li>null是一个特殊对象（非对象），多用来表示字符串、数字、对象得无值。</li>
+<li>undefined（未定义） 表示属性或元素不存在</li>
+<li>===可区分null与undefined，而==则不行</li>
+</ul>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><pre><code class="js">x+&quot;&quot;//等价于String(x)
++x//等价于Number(x)
+!!x//等价于Boolean(x)
+</code></pre>
+<p><strong>对象向字符串转换</strong></p>
+<p>有toString则通过此方法将其变为字符串，无toString则通过ValueOf，二者均无则报错。</p>
+<p>空数组向数值转换结果为0</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><ul>
+<li>throw 抛出异常</li>
+</ul>
+<pre><code class="js">try&#123;/*可能出现异常的代码*/&#125;
+catch()&#123;/*对异常的处理*/&#125;
+finally&#123;/*不管发不发生异常都执行的语句*/&#125;
+</code></pre>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

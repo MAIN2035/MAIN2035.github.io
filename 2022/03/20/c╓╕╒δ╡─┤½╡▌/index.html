@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITthreeの博客 || </title>
+    <meta name="author" content="ITthree">
+    <meta name="description" content="ITthreeの博客,我思故我在 ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/../images/icon.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ITthreeの博客</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories/ubuntu">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags/shell">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>ITthreeの博客</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories/ubuntu">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags/shell">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/20
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="c指针的传递"><a href="#c指针的传递" class="headerlink" title="c指针的传递"></a>c指针的传递</h1><h2 id="作为函数参数传递"><a href="#作为函数参数传递" class="headerlink" title="作为函数参数传递"></a>作为函数参数传递</h2><p>真正的传入一个指针到函数中</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210827171357110.png" alt="image-20210827171357110"></p>
+<p>间接的传入指针到函数中</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210827171451818.png" alt="image-20210827171451818"></p>
+<p>p1就是指针p，而p2是一个新的指针</p>
+<p>以下分别为指针p、p1、p2的地址：</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210827171611554.png" alt="image-20210827171611554"></p>
+<h2 id="作为变量传递"><a href="#作为变量传递" class="headerlink" title="作为变量传递"></a>作为变量传递</h2><ol>
+<li>直接改变变量的值</li>
+</ol>
+<p><img src="http://img.lbkzw.cn/img/image-20210827172216274.png" alt="image-20210827172216274"></p>
+<ol start="2">
+<li>间接改变变量的值</li>
+</ol>
+<p>这里改变的是指针p2中存储的地址的值，而不是p2中所存储地址对应内存的值</p>
+<p>举个例子：</p>
+<p>目的：我们想将小明称为小红</p>
+<p>做法：</p>
+<ol>
+<li>直接将将小明改名为小红，那么身份证上写的也是小红，但小明他还是那个小明。</li>
+<li>直接找来了小红，说她是小明变的。</li>
+</ol>
+<p>做法1就是直接改变变量的值，做法2就是间接改变变量的值</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210827172151988.png" alt="image-20210827172151988"></p>
+<p>测试程序：</p>
+<pre><code class="c">/*
+ * @Author: itThree
+ * @Date: 2021-08-27 13:59:28
+ * @LastEditTime: 2021-08-27 17:11:14
+ * @Description: 
+ * @FilePath: \cpp\testcpp\swapWithPointers.cpp
+ * 光阴之逆旅，百代之过客，而已
+ */
+#include&lt;stdio.h&gt;
+
+//传入指针p,参数int* &amp;p解析指针地址
+//就是说传入的是真正的指针p
+void testp1(int* &amp;p1)&#123;
+    int num1 = 2020;
+    //将p1地址对应内存下的值直接改变；
+    *p1 = num1;
+    printf(&quot;%d,%d,%d,%p\n&quot;,p1,*p1,num1,&amp;p1);
+
+
+&#125;
+//传入指针p,参数int* p初始化并指向传入的指针
+//就是说初始化一个指针指向指针p所指向的东西
+void testp2(int* p2)&#123;
+   int num2 = 2019;
+   //将p2指向num2的地址
+   p2 = &amp;num2;
+   printf(&quot;%d,%d,%d,%p\n&quot;,p2,*p2,num2,&amp;p2);
+
+   &#125;
+int main()&#123;
+    // int x = 1;
+    // int y = 2;
+    // //传入x,y的地址，交换其值的位置
+    // swapWithPointers(&amp;x,&amp;y);
+    // printf(&quot;x=%d\ty=%d&quot;,x,y);
+    int num = 2021;
+    int* p = &amp;num;
+    printf(&quot;初始值:\n&quot;);
+    printf(&quot;%d,%d,%d,%p\n&quot;,p,*p,num,&amp;p);
+    printf(&quot;经过test1:\n&quot;);
+    testp1(p);
+    printf(&quot;经过test2:\n&quot;);
+    testp2(p);
+    //从结果可以看出test1真正的改变了num的值，而test2仅是将指针指向了另一个地址
+    printf(&quot;最终:\n&quot;);
+    printf(&quot;%d,%d,%d,%p\n&quot;,p,*p,num,&amp;p);
+    
+
+    return 0;
+&#125;
+</code></pre>
+<p>运行结果：</p>
+<p><img src="http://img.lbkzw.cn/img/image-20210827172030142.png" alt="image-20210827172030142"></p>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 ITthreeの博客
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @ITthree
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>
